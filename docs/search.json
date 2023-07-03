@@ -1,0 +1,114 @@
+[
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "🛰 Research",
+    "section": "",
+    "text": "The majority of my current research revolves around the nexus between causal inference, machine learning and environmental analysis. In the last few years my focus has been on topics such as climate change and extreme events but I had the chance to explore other avenues such as optimal allocation of health care facilities and transport networks analysis.\nMy interest is in exploring the interplay between causal inference, machine learning, and environmental analysis. The urgency of addressing environmental challenges necessitates innovative approaches to understanding the complex relationships between human activities, environmental factors, and their consequences. By combining techniques from causal inference and machine learning, I aim to develop novel methodologies that can effectively analyse environmental data, identify causal relationships, and inform evidence-based decision-making for sustainable environmental management.\n\n\n\n\nThe advent of big data and the increasing availability of diverse environmental datasets have provided researchers with an unprecedented opportunity to investigate complex environmental systems. However, extracting meaningful insights from these datasets poses significant challenges due to confounding factors, selection biases, and non-randomness inherent in observational data. Traditional statistical methods often fall short in capturing the complex and non-linear relationships within environmental systems. Therefore, there is a pressing need to integrate causal inference and machine learning techniques to overcome these limitations and achieve a deeper understanding of environmental dynamics.\n\n\n\n\n\nMachine learning algorithms have shown remarkable success in pattern recognition, predictive modelling, and data-driven decision-making. The ability to automatically extract complex patterns and relationships from large-scale environmental datasets makes machine learning an invaluable tool for environmental analysis. By leveraging machine learning techniques, develop predictive models to forecast environmental outcomes and assess the potential impacts of policy interventions.. Furthermore, machine learning methods can aid in feature selection, data imputation, and anomaly detection, contributing to improved data quality and reliability for environmental analysis.\n\n\n\n\n\nCausal inference provides a powerful framework for identifying cause-and-effect relationships within complex systems. By applying causal inference methods, we can go beyond correlations and uncover the underlying causal mechanisms driving observed environmental phenomena. Approaches such as propensity score matching, instrumental variables, and difference-in-differences analysis allow us to address confounding biases and estimate causal effects more accurately. Incorporating these causal inference techniques into environmental analysis can enhance our ability to discern the impacts of specific environmental factors and human activities on various ecological systems.\n\n\n\n\n\nIntegrating causal inference with machine learning techniques presents exciting opportunities for advancing environmental analysis. By combining the strengths of both fields, we can develop robust methodologies that provide accurate causal estimates while harnessing the predictive power of machine learning algorithms. However, several challenges need to be addressed to achieve this integration successfully. These challenges include the treatment of unmeasured confounding, scalability of methods for large environmental datasets, interpretability of complex machine learning models, and the consideration of uncertainty in causal inference.\n\n\n\n\n\nIn my research, I aim to address these challenges and contribute to the nexus between causal inference, machine learning, and environmental analysis. Specifically, I intend to:\n\nDevelop novel methodologies that integrate causal inference and machine learning techniques to estimate causal effects and predict environmental outcomes accurately.\nInvestigate the use of deep learning architectures and explainable AI methods to enhance the interpretability of complex machine learning models for environmental analysis.\nExplore scalable algorithms and parallel computing techniques to handle the computational demands of large environmental datasets.\nInvestigate methods for handling unmeasured confounding and uncertainties inherent in causal inference within the context of environmental analysis.\nApply the developed methodologies to real-world environmental challenges, such as climate change and extreme event analysis. By pursuing these research objectives, I aspire to advance the understanding of causal relationships in environmental systems, contribute to evidence-based decision-making for environmental management, and ultimately support the development of sustainable practices for a better future."
+  },
+  {
+    "objectID": "research.html#background",
+    "href": "research.html#background",
+    "title": "🛰 Research",
+    "section": "",
+    "text": "The advent of big data and the increasing availability of diverse environmental datasets have provided researchers with an unprecedented opportunity to investigate complex environmental systems. However, extracting meaningful insights from these datasets poses significant challenges due to confounding factors, selection biases, and non-randomness inherent in observational data. Traditional statistical methods often fall short in capturing the complex and non-linear relationships within environmental systems. Therefore, there is a pressing need to integrate causal inference and machine learning techniques to overcome these limitations and achieve a deeper understanding of environmental dynamics."
+  },
+  {
+    "objectID": "research.html#machine-learning",
+    "href": "research.html#machine-learning",
+    "title": "🛰 Research",
+    "section": "",
+    "text": "Machine learning algorithms have shown remarkable success in pattern recognition, predictive modelling, and data-driven decision-making. The ability to automatically extract complex patterns and relationships from large-scale environmental datasets makes machine learning an invaluable tool for environmental analysis. By leveraging machine learning techniques, develop predictive models to forecast environmental outcomes and assess the potential impacts of policy interventions.. Furthermore, machine learning methods can aid in feature selection, data imputation, and anomaly detection, contributing to improved data quality and reliability for environmental analysis."
+  },
+  {
+    "objectID": "research.html#causal-inference",
+    "href": "research.html#causal-inference",
+    "title": "🛰 Research",
+    "section": "",
+    "text": "Causal inference provides a powerful framework for identifying cause-and-effect relationships within complex systems. By applying causal inference methods, we can go beyond correlations and uncover the underlying causal mechanisms driving observed environmental phenomena. Approaches such as propensity score matching, instrumental variables, and difference-in-differences analysis allow us to address confounding biases and estimate causal effects more accurately. Incorporating these causal inference techniques into environmental analysis can enhance our ability to discern the impacts of specific environmental factors and human activities on various ecological systems."
+  },
+  {
+    "objectID": "research.html#integration-and-challenges",
+    "href": "research.html#integration-and-challenges",
+    "title": "🛰 Research",
+    "section": "",
+    "text": "Integrating causal inference with machine learning techniques presents exciting opportunities for advancing environmental analysis. By combining the strengths of both fields, we can develop robust methodologies that provide accurate causal estimates while harnessing the predictive power of machine learning algorithms. However, several challenges need to be addressed to achieve this integration successfully. These challenges include the treatment of unmeasured confounding, scalability of methods for large environmental datasets, interpretability of complex machine learning models, and the consideration of uncertainty in causal inference."
+  },
+  {
+    "objectID": "research.html#research-objectives",
+    "href": "research.html#research-objectives",
+    "title": "🛰 Research",
+    "section": "",
+    "text": "In my research, I aim to address these challenges and contribute to the nexus between causal inference, machine learning, and environmental analysis. Specifically, I intend to:\n\nDevelop novel methodologies that integrate causal inference and machine learning techniques to estimate causal effects and predict environmental outcomes accurately.\nInvestigate the use of deep learning architectures and explainable AI methods to enhance the interpretability of complex machine learning models for environmental analysis.\nExplore scalable algorithms and parallel computing techniques to handle the computational demands of large environmental datasets.\nInvestigate methods for handling unmeasured confounding and uncertainties inherent in causal inference within the context of environmental analysis.\nApply the developed methodologies to real-world environmental challenges, such as climate change and extreme event analysis. By pursuing these research objectives, I aspire to advance the understanding of causal relationships in environmental systems, contribute to evidence-based decision-making for environmental management, and ultimately support the development of sustainable practices for a better future."
+  },
+  {
+    "objectID": "cv/cv.html",
+    "href": "cv/cv.html",
+    "title": "Ahmed T. Hammad",
+    "section": "",
+    "text": "Download current CV"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "🧑‍🏫 Teaching",
+    "section": "",
+    "text": "As a teacher, I aim to perpetuate knowledge and inspire learning.\n\n\n\n\nAs a data scientist and academic researcher, I introduce students to an array of fundamental concepts of our understanding of reality through data and always ask them to articulate their reactions and understanding of the topics by providing me, and their classmates with alternative examples and practical applications of the concepts and techniques we learned together.\nMy teaching approach engages students’ natural creativity with a challenging mix of theory and practice. I teach theoretical concepts with a commitment to connecting these concepts with concrete real-life examples and by sharing the implications in business. For example, as the lead Data Science Instructor at Le Wagon Singapore, I taught several machine learning algorithms by explaining the implication of their use in different business and real-life contexts. I found that this approach helped students understand why, when and how to use a specific algorithm rather than another and how to articulate and justify their decision process.\n\n\n\n\n\nI seek a balance in my courses between lecturing to students and asking them to make discoveries. I encourage students to engage with the topic at hand, with me and with each other, in the belief that good teaching depends upon intellectual exchange. My end goal is to enable my students to envision and develop a “product” around the concepts and techniques we learned in class.\nMy approach to student assessment reflects my two goals. First, the students are expected to master a body of knowledge by demonstrating the practical use of different algorithms and methodologies at the end of the lecture. Second, students are given the opportunity to reflect upon the material at greater leisure and detail on project assignments.\n\n\n\n\n\nWhile my standards are high, I do not hesitate to help my students to meet expectations by providing office hours, review sessions and private time to discuss their concerns, fears and dreams. My approach has been to always make myself readily available to students and make it clear that if they need something then I am available at any time and point in their life to support them in their journey.\nI also have a strong passion for helping students who are dedicated, but not necessarily performing well in class. In my experience, I have found some students performing far better in very applied tasks, shining in applied academic research or reaching success in business settings.\n\n\n\n\n\nMy teaching, research, and work experience has covered a wide variety of topics, including machine learning, causal machine learning, incremental machine learning, econometrics, causal inference, probabilistic modelling, time series modelling and network analysis. Given the need, I am qualified to and would readily commit the effort required to effectively teach undergraduate and graduated classes in these subjects. Because of the scope of my current research, I am specifically eager and excited to teach artificial intelligence, data science and statistics classes at both the undergraduate and graduate levels."
+  },
+  {
+    "objectID": "teaching.html#teaching-approach",
+    "href": "teaching.html#teaching-approach",
+    "title": "🧑‍🏫 Teaching",
+    "section": "",
+    "text": "As a data scientist and academic researcher, I introduce students to an array of fundamental concepts of our understanding of reality through data and always ask them to articulate their reactions and understanding of the topics by providing me, and their classmates with alternative examples and practical applications of the concepts and techniques we learned together.\nMy teaching approach engages students’ natural creativity with a challenging mix of theory and practice. I teach theoretical concepts with a commitment to connecting these concepts with concrete real-life examples and by sharing the implications in business. For example, as the lead Data Science Instructor at Le Wagon Singapore, I taught several machine learning algorithms by explaining the implication of their use in different business and real-life contexts. I found that this approach helped students understand why, when and how to use a specific algorithm rather than another and how to articulate and justify their decision process."
+  },
+  {
+    "objectID": "teaching.html#lecturing-approach",
+    "href": "teaching.html#lecturing-approach",
+    "title": "🧑‍🏫 Teaching",
+    "section": "",
+    "text": "I seek a balance in my courses between lecturing to students and asking them to make discoveries. I encourage students to engage with the topic at hand, with me and with each other, in the belief that good teaching depends upon intellectual exchange. My end goal is to enable my students to envision and develop a “product” around the concepts and techniques we learned in class.\nMy approach to student assessment reflects my two goals. First, the students are expected to master a body of knowledge by demonstrating the practical use of different algorithms and methodologies at the end of the lecture. Second, students are given the opportunity to reflect upon the material at greater leisure and detail on project assignments."
+  },
+  {
+    "objectID": "teaching.html#advising-approach",
+    "href": "teaching.html#advising-approach",
+    "title": "🧑‍🏫 Teaching",
+    "section": "",
+    "text": "While my standards are high, I do not hesitate to help my students to meet expectations by providing office hours, review sessions and private time to discuss their concerns, fears and dreams. My approach has been to always make myself readily available to students and make it clear that if they need something then I am available at any time and point in their life to support them in their journey.\nI also have a strong passion for helping students who are dedicated, but not necessarily performing well in class. In my experience, I have found some students performing far better in very applied tasks, shining in applied academic research or reaching success in business settings."
+  },
+  {
+    "objectID": "teaching.html#teaching-interests",
+    "href": "teaching.html#teaching-interests",
+    "title": "🧑‍🏫 Teaching",
+    "section": "",
+    "text": "My teaching, research, and work experience has covered a wide variety of topics, including machine learning, causal machine learning, incremental machine learning, econometrics, causal inference, probabilistic modelling, time series modelling and network analysis. Given the need, I am qualified to and would readily commit the effort required to effectively teach undergraduate and graduated classes in these subjects. Because of the scope of my current research, I am specifically eager and excited to teach artificial intelligence, data science and statistics classes at both the undergraduate and graduate levels."
+  },
+  {
+    "objectID": "students.html",
+    "href": "students.html",
+    "title": "🧑‍🎓 Students",
+    "section": "",
+    "text": "What my students say about me\n\nAhmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. Barack Obama\n\n\nAhmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. Barack Obama\n\n\nAhmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. Barack Obama\n\n\nAhmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. Barack Obama"
+  },
+  {
+    "objectID": "papers.html",
+    "href": "papers.html",
+    "title": "✍ Papers",
+    "section": "",
+    "text": "Pubblications\n\n\nPlanning universal accessibility to public health care in sub-Saharan Africa\nG Falchetta, AT Hammad, S Shayegh. Proceedings of the National Academy of Sciences 117 (50), 31760-31769\nComparing paratransit in seven major African cities: an accessibility and network analysis\nG Falchetta, M Noussan, AT Hammad. Journal of Transport Geography 94, 103131\nBack to the fields? Increased agricultural land greenness after a COVID-19 lockdown\nAT Hammad, G Falchetta, IBM Wirawan. Environmental Research Communications 3 (5), 051007\nProbabilistic forecasting of remotely sensed cropland vegetation health and its relevance for food security\nAT Hammad, G Falchetta .Science of the Total Environment 838, 156157\n\n\n\n\nCurrent work\n\n\nTracking global urban green space trends\nG Falchetta, AT Hammad. EGU23"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hello, folks!",
+    "section": "",
+    "text": "My name is Ahmed and I am a Data Scientist, Quantitative Researcher and Program Evaluator. I have a PhD in Causal Machine Learning and I have been working on data for over 10 years in both the academic and private sectors.In my career, I have been working extensively with many programming languages such as R and Python which I use on a daily basis.\nI like to be constantly updated and challenge myself with the latest developments in Machine Learning. That’s why I am still involved in research and I publish the results of my analysis concerning a variety of topics, including Machine Learning and Econometrics applied to environmental analysis and public health.\nI really enjoy sharing my knowledge of statistics and machine learning. I find teaching the young generation and professionals the most fulfilling opportunity to share my years of experience in the field. Helping them learn how to “get things done” and how to handle real-world data problems, has brought me so much joy since I started teaching.\n\nMy fields of interest:\n\nMachine Learning\nEconometrics\nProgram and Policy Evaluation\nIncremental Machine Learning\nTime Series\nEnvironmental Analysis\nSensor & Satellite Data"
+  }
+]

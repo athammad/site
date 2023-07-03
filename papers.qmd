@@ -1,0 +1,32 @@
+---
+title: "✍ Papers"
+page-layout: full
+---
+
+# Pubblications
+
+::: justify
+-   [Planning universal accessibility to public health care in sub-Saharan Africa](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:u5HHmVD_uO8C)
+
+    *G Falchetta, AT Hammad, S Shayegh. Proceedings of the National Academy of Sciences 117 (50), 31760-31769*
+
+-   [Comparing paratransit in seven major African cities: an accessibility and network analysis](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:2osOgNQ5qMEC)
+
+    *G Falchetta, M Noussan, AT Hammad. Journal of Transport Geography 94, 103131*
+
+-   [Back to the fields? Increased agricultural land greenness after a COVID-19 lockdown](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:d1gkVwhDpl0C)
+
+    *AT Hammad, G Falchetta, IBM Wirawan. Environmental Research Communications 3 (5), 051007*
+
+-   [Probabilistic forecasting of remotely sensed cropland vegetation health and its relevance for food security](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:UeHWp8X0CEIC)
+
+    *AT Hammad, G Falchetta .Science of the Total Environment 838, 156157*
+:::
+
+# Current work
+
+::: justify
+-   [Tracking global urban green space trends](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:zYLM7Y9cAGgC)
+
+    *G Falchetta, AT Hammad. EGU23*
+:::

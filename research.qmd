@@ -1,0 +1,61 @@
+---
+title: "🛰 Research"
+image: mep.jpeg
+toc: true
+page-layout: full
+about: 
+  template: trestles
+  image-shape: round
+  image-width: 15em
+
+format:
+  html:
+    grid:
+      margin-width: 250px
+---
+
+# Introduction
+
+::: justify
+The majority of my current research revolves around the nexus between causal inference, machine learning and environmental analysis. In the last few years my focus has been on topics such as climate change and extreme events but I had the chance to explore other avenues such as optimal allocation of health care facilities and transport networks analysis.
+
+My interest is in exploring the interplay between causal inference, machine learning, and environmental analysis. The urgency of addressing environmental challenges necessitates innovative approaches to understanding the complex relationships between human activities, environmental factors, and their consequences. By combining techniques from causal inference and machine learning, I aim to develop novel methodologies that can effectively analyse environmental data, identify causal relationships, and inform evidence-based decision-making for sustainable environmental management.
+:::
+
+## **Background**
+
+::: justify
+The advent of big data and the increasing availability of diverse environmental datasets have provided researchers with an unprecedented opportunity to investigate complex environmental systems. However, extracting meaningful insights from these datasets poses significant challenges due to confounding factors, selection biases, and non-randomness inherent in observational data. Traditional statistical methods often fall short in capturing the complex and non-linear relationships within environmental systems. Therefore, there is a pressing need to integrate causal inference and machine learning techniques to overcome these limitations and achieve a deeper understanding of environmental dynamics.
+:::
+
+## **Machine Learning**
+
+::: justify
+Machine learning algorithms have shown remarkable success in pattern recognition, predictive modelling, and data-driven decision-making. The ability to automatically extract complex patterns and relationships from large-scale environmental datasets makes machine learning an invaluable tool for environmental analysis. By leveraging machine learning techniques, develop predictive models to forecast environmental outcomes and assess the potential impacts of policy interventions.. Furthermore, machine learning methods can aid in feature selection, data imputation, and anomaly detection, contributing to improved data quality and reliability for environmental analysis.
+:::
+
+## **Causal Inference**
+
+::: justify
+Causal inference provides a powerful framework for identifying cause-and-effect relationships within complex systems. By applying causal inference methods, we can go beyond correlations and uncover the underlying causal mechanisms driving observed environmental phenomena. Approaches such as propensity score matching, instrumental variables, and difference-in-differences analysis allow us to address confounding biases and estimate causal effects more accurately. Incorporating these causal inference techniques into environmental analysis can enhance our ability to discern the impacts of specific environmental factors and human activities on various ecological systems.
+:::
+
+## **Integration and Challenges**
+
+::: justify
+Integrating causal inference with machine learning techniques presents exciting opportunities for advancing environmental analysis. By combining the strengths of both fields, we can develop robust methodologies that provide accurate causal estimates while harnessing the predictive power of machine learning algorithms. However, several challenges need to be addressed to achieve this integration successfully. These challenges include the treatment of unmeasured confounding, scalability of methods for large environmental datasets, interpretability of complex machine learning models, and the consideration of uncertainty in causal inference.
+:::
+
+## **Research Objectives**
+
+::: justify
+In my research, I aim to address these challenges and contribute to the nexus between causal inference, machine learning, and environmental analysis. Specifically, I intend to:
+
+1.  Develop novel methodologies that integrate causal inference and machine learning techniques to estimate causal effects and predict environmental outcomes accurately.
+2.  Investigate the use of deep learning architectures and explainable AI methods to enhance the interpretability of complex machine learning models for environmental analysis.
+3.  Explore scalable algorithms and parallel computing techniques to handle the computational demands of large environmental datasets.
+4.  Investigate methods for handling unmeasured confounding and uncertainties inherent in causal inference within the context of environmental analysis.
+5.  Apply the developed methodologies to real-world environmental challenges, such as climate change and extreme event analysis. By pursuing these research objectives, I aspire to advance the understanding of causal relationships in environmental systems, contribute to evidence-based decision-making for environmental management, and ultimately support the development of sustainable practices for a better future.
+:::
+
+## 
