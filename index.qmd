@@ -17,7 +17,7 @@ format:
 # Hello, folks!
 
 ::: justify
-My name is Ahmed and I am a Data Scientist, Quantitative Researcher and Program Evaluator. I have a PhD in Causal Machine Learning and I have been working on data for over 10 years in both the academic and private sectors.In my career, I have been working extensively with many programming languages such as R and Python which I use on a daily basis.
+My name is Ahmed and I am a Data Scientist, Quantitative Researcher and Lecturer. I have a PhD in Causal Machine Learning and I have been working on data for over 10 years in both the academic and private sectors.In my career, I have been working extensively with many programming languages such as R and Python which I use on a daily basis.
 
 I like to be constantly updated and challenge myself with the latest developments in Machine Learning. That's why I am still involved in research and I publish the results of my analysis concerning a variety of topics, including Machine Learning and Econometrics applied to environmental analysis and public health.
 
@@ -27,17 +27,11 @@ I really enjoy sharing my knowledge of statistics and machine learning. I find t
 **My fields of interest:**
 
 -   Machine Learning
-
 -   Econometrics
-
--   Program and Policy Evaluation
-
 -   Incremental Machine Learning
-
 -   Time Series
-
+-   Causal Inference
 -   Environmental Analysis
-
 -   Sensor & Satellite Data
 
 ## Languages and Tools

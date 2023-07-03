@@ -29,10 +29,12 @@ page-layout: full
 -   [Tracking global urban green space trends](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:zYLM7Y9cAGgC)
 
     *G Falchetta, AT Hammad. EGU23*
+:::
 
+# Forthcoming
+::: justify
+-   A note on vulnerability 
 
--   A note on vulnerability
-
--   Probabilistic reinforcement learning for evaluating single-subject experiments
+-   Probabilistic reinforcement learning for evaluating single-subject experiments 
 
 :::
