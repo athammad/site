@@ -1,0 +1,64 @@
+---
+title: ""
+image: me.jpeg
+toc: false
+page-layout: full
+about: 
+  template: trestles
+  image-shape: round
+  image-width: 15em
+  
+format:
+  html:
+    grid:
+      body-width: 900px  
+
+---
+
+# Hello, folks!
+::: justify
+My name is Ahmed and I am a Data Scientist, Quantitative Researcher and Program Evaluator. I have a PhD in Causal Machine Learning and I have been working on data for over 10 years in both the academic and private sectors.In my career, I have been working extensively with many programming languages such as R and Python which I use on a daily basis.
+
+I like to be constantly updated and challenge myself with the latest developments in Machine Learning. That’s why I am still involved in research and I publish the results of my analysis concerning a variety of topics, including Machine Learning and Econometrics applied to environmental analysis and public health.
+
+I really enjoy sharing my knowledge of statistics and machine learning. I find teaching the young generation and professionals the most fulfilling opportunity to share my years of experience in the field. Helping them learn how to “get things done” and how to handle real-world data problems, has brought me so much joy since I started teaching.
+
+::: 
+**My fields of interest:**
+
+-   Machine Learning
+
+-   Econometrics
+
+-   Program and Policy Evaluation
+
+-   Incremental Machine Learning
+
+-   Time Series
+
+-   Environmental Analysis
+
+-   Sensor & Satellite Data
+
+
+## Languages and Tools
+
+<p float="left">
+
+<img src="./logos/rstudio.png" width="7%"/> <img src="./logos/python_logo.png" width="7%"/> <img src="./logos/docker.png" width="8%"/> <img src="./logos/do.png" width="6%"/> <img src="./logos/gcp.png" width="12%"/>
+<img src="./logos/dt.png" width="8%"/> <img src="./logos/ggplot2.png" width="8%"/> <img src="./logos/reticulated_python.png" width="10%"/> <img src="./logos/logoSCF.png" width="9%"/> <img src="./logos/redis.png" width="8%"/> <img
+src="./logos/scikit-learn.png" width="8%"/> <img
+src="./logos/FastAPI_logo.png" width="8%"/> <img
+src="./logos/sql.png" width="8%"/> <img
+src="./logos/keras.png" width="8%"/> <img
+src="./logos/sktime.png" width="8%"/> <img
+src="./logos/h2o.png" width="8%"/> <img
+src="./logos/river.svg" width="12%"/> <img
+src="./logos/gee.png" width="12%"/> <img
+src="./logos/matplot.png" width="12%"/> <img
+src="./logos/seaborn.svg" width="12%"/> <img
+src="./logos/streamlit.png" width="12%"/> <img
+src="./logos/shiny.png" width="12%"/> <img
+src="./logos/quarto.png" width="12%"/> <img
+src="./logos/statsmodels.svg" width="12%"/>
+</p>

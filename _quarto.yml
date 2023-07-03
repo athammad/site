@@ -1,0 +1,40 @@
+project:
+  type: website
+  output-dir: docs
+  
+
+website:
+  title: "Ahmed T. Hammad"
+  image: me.jpg
+  navbar:
+    left:
+      - href: index.qmd
+        text: "ℹ️ About"
+      - teaching.qmd
+      - research.qmd
+      - students.qmd
+      - papers.qmd      
+      - text: "📃 CV"
+        href: cv/cv.qmd
+    # your social media handles
+    right:
+      - icon: github
+        text: Github
+        href: https://github.com/athammad
+      - icon: linkedin
+        text: LinkedIn
+        href: https://www.linkedin.com/in/ahmedt-h/
+      - icon: envelope
+        text: Email
+        href: "mailto:ahmed@decatab.com"  
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    page-layout: full
+    grid:
+      body-width: 950px
+
+editor: visual
+

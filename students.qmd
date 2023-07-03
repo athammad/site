@@ -1,0 +1,20 @@
+---
+title: "🧑‍🎓 Students"
+toc: false
+image: students.jpeg
+page-layout: full
+about: 
+  template: trestles
+  image-shape: round
+  image-width: 15em
+---
+
+# What my students say about me
+
+> Ahmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. [Barack Obama](https://www.linkedin.com/in/barackobama/)
+
+> Ahmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. [Barack Obama](https://www.linkedin.com/in/barackobama/)
+
+> Ahmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. [Barack Obama](https://www.linkedin.com/in/barackobama/)
+
+> Ahmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. [Barack Obama](https://www.linkedin.com/in/barackobama/)

@@ -1,0 +1,11 @@
+/* css styles */
+.justify {
+  text-align: justify !important
+}
+
+@media(min-width: 992px) {
+    div.quarto-about-trestles .about-entity {
+        flex: 0 0 25%;
+    }
+}
+```
