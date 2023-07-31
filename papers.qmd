@@ -3,7 +3,7 @@ title: "✍ Papers"
 page-layout: full
 ---
 
-# Pubblications
+# Publications
 
 ::: justify
 -   [Planning universal accessibility to public health care in sub-Saharan Africa](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:u5HHmVD_uO8C)
@@ -32,9 +32,9 @@ page-layout: full
 :::
 
 # Forthcoming
+
 ::: justify
--   A note on vulnerability 
+-   A note on vulnerability
 
--   Probabilistic reinforcement learning for evaluating single-subject experiments 
-
+-   Probabilistic reinforcement learning for evaluating single-subject experiments
 :::

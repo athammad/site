@@ -136,11 +136,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#random-forest-vs-qrf" id="toc-random-forest-vs-qrf" class="nav-link active" data-scroll-target="#random-forest-vs-qrf">Random Forest vs QRF</a>
+  <ul class="collapse">
+  <li><a href="#advantages-of-quantile-random-forest" id="toc-advantages-of-quantile-random-forest" class="nav-link" data-scroll-target="#advantages-of-quantile-random-forest"><strong>Advantages of Quantile Random Forest</strong></a></li>
+  <li><a href="#applications-of-quantile-random-forest" id="toc-applications-of-quantile-random-forest" class="nav-link" data-scroll-target="#applications-of-quantile-random-forest"><strong>Applications of Quantile Random Forest</strong></a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -159,36 +170,38 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="justify">
 <p>Quantile Random Forest (QRF) is an extension of the traditional Random Forest algorithm that estimates not only the mean but also the entire conditional distribution of the target variable. The distribution is represented by its quantiles, which are specific points that divide the data into segments, such as quartiles (0.25, 0.50, 0.75). QRF is particularly useful when dealing with heteroscedastic data or when we need to assess the uncertainty in our predictions beyond just the central tendency.</p>
 <p>In QRF, an ensemble of decision trees is constructed. Each decision tree is built by bootstrapping the training data, which means sampling the data points with replacement, and selecting a random subset of features at each split. This creates diversity among the trees in the ensemble.</p>
-<section id="random-forest-vs-qrf" class="level2">
-<h2 class="anchored" data-anchor-id="random-forest-vs-qrf">Random Forest vs QRF</h2>
+<section id="random-forest-vs-qrf" class="level1">
+<h1>Random Forest vs QRF</h1>
 <p>The key difference between Random Forest and QRF lies in the prediction phase. In Random Forest, the predicted value for a new data point is the average (mean) of the individual tree predictions. However, in QRF, we aim to estimate multiple quantiles of the target variable’s distribution for a given input.</p>
 <p>When growing a tree in QRF, instead of splitting the data based solely on minimizing the variance or mean squared error, QRF performs splits to optimize quantile-specific criteria. Each tree node is split to minimize the quantile loss function, which reflects the error in predicting the specific quantile. This means that the tree seeks to minimize the difference between the true quantile value and the estimated quantile value for the data points that fall into each node.</p>
 <p>Once the tree is fully grown, the terminal nodes (leaf nodes) contain specific quantile values rather than just the average value. Each terminal node in the QRF stores a quantile-specific estimate based on the data points that fall into that node. This means that each tree provides quantile-specific predictions.</p>
 <p>To make predictions for a new data point, QRF evaluates the input through each decision tree, resulting in a set of quantile-specific predictions. The user can then choose the desired quantiles (e.g., 0.25, 0.50, 0.75) to obtain the corresponding quantile predictions. For example, if we want to estimate the 0.75 quantile, we collect the 0.75 quantile values from each tree, and these values form the quantile prediction for that data point.</p>
 <p>One of the advantages of QRF is that it provides a measure of uncertainty in the predictions. Given the estimated quantiles, QRF can construct a prediction interval for each data point. The prediction interval provides a range of possible values, accounting for the uncertainty in the prediction due to the variability of the underlying data.</p>
-<p><strong>Advantages of Quantile Random Forest</strong></p>
+<section id="advantages-of-quantile-random-forest" class="level2">
+<h2 class="anchored" data-anchor-id="advantages-of-quantile-random-forest"><strong>Advantages of Quantile Random Forest</strong></h2>
 <ul>
 <li><p>Robustness to outliers: QRF can handle outliers effectively as it estimates the entire distribution, including extreme quantiles.</p></li>
 <li><p>Provides uncertainty information: By estimating quantiles, QRF offers a measure of uncertainty in the predictions, which is valuable in decision-making.</p></li>
 <li><p>Versatility: QRF can be applied to regression and quantile regression problems, and it can be extended to handle multivariate quantile estimation.</p></li>
 </ul>
-<p><strong>Applications of Quantile Random Forest</strong></p>
+</section>
+<section id="applications-of-quantile-random-forest" class="level2">
+<h2 class="anchored" data-anchor-id="applications-of-quantile-random-forest"><strong>Applications of Quantile Random Forest</strong></h2>
 <ul>
 <li><p>Financial forecasting: QRF can be used to predict quantiles of financial variables, such as stock prices or asset returns, to assess the risk of investment decisions.</p></li>
 <li><p>Medical applications: In healthcare, QRF can estimate quantiles of patient response times to treatments, enabling doctors to tailor treatments accordingly.</p></li>
 <li><p>Environmental modeling: QRF can estimate quantiles of environmental variables like pollutant concentrations, assisting in environmental risk assessments.</p></li>
 </ul>
 </section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <p>In summary, Quantile Random Forest is a powerful extension of the Random Forest algorithm that estimates the entire distribution of the target variable through quantile-specific predictions. It is useful when capturing the entire distribution or quantifying uncertainty is essential for making informed decisions in various applications such as finance, healthcare, and environmental modeling.</p>
+
+
 </section>
-</div>
-
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
