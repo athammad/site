@@ -10,8 +10,8 @@ about:
 ---
 
 # What my students say about me
-::: justify
 
+::: justify
 > I was very fortunate to get Ahmed as my instructor during my data science boot camp. Overall, Ahmed was very passionate in teaching, his lessons were entertaining and enjoyable, and he was also able to explain complicated concepts in a clean and simple manner. What I liked most was that he often imparted little tips and advice on how to do well in data science, and also shared his personal experiences and challenges he faced in his own projects and how he managed to resolve them. I couldn't have asked for a better instructor to kickstart my data science journey. [Marcus Tan](https://www.linkedin.com/in/marcus-tan-jh/)
 
 > Ahmed was my teacher during the 9 weeks data science bootcamp. He is an exceptional and passionate teacher. He teaches with great enthusiasm and patience. Additionally, he goes beyond to provide excellent support and guidance. Speaking for all my classmates, we were truly grateful to have him as a teacher. [George Lee](https://www.linkedin.com/in/george-lee-jin-kai/)
@@ -40,5 +40,4 @@ about:
 > Ahmed's teaching style is highly engaging and interactive. He fosters an inclusive learning environment, encouraging students to ask questions, collaborate, and explore practical applications of the concepts learned. His dedication to our success was evident in the time and effort he invested in each student, providing valuable feedback and guidance to help us reach our full potential.\
 > \
 > I highly recommend Ahmed as a data science lecturer and researcher. His exceptional knowledge, dedication, and teaching abilities make him an invaluable asset to any learning environment. It was a privilege to learn from him, and I am confident that he will continue to inspire and shape the careers of aspiring data scientists. [Xin Er Chong](https://www.linkedin.com/in/chongxe1991/)
-
 :::

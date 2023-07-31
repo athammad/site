@@ -1,0 +1,40 @@
+---
+title: "Unraveling the Power of Causal Machine Learning"
+---
+
+::: justify
+
+# 🔍 Understanding Causality
+
+In the realm of traditional machine learning, we primarily focus on identifying patterns and correlations in data to make accurate predictions. While this approach is incredibly useful, it often fails to decipher the cause-and-effect relationships that underpin these patterns. This limitation can lead to misguided conclusions and ineffective decision-making.
+
+Causality seeks to answer "why" questions, revealing the cause behind an observed effect. Imagine a scenario where we want to understand if a certain medication truly improves patient outcomes or if it's just correlated with better health. Causal inference allows us to make more meaningful inferences, beyond mere correlations.
+
+## 🧩 The Challenge of Causal Inference:
+
+Establishing causality is not a straightforward task. The fundamental problem lies in the fact that we cannot simultaneously observe both the treatment group (those who receive a particular intervention) and the control group (those who do not). Traditional observational data often suffers from confounding variables, making it challenging to disentangle cause and effect.
+
+## 💡 Enter Causal Machine Learning:
+
+Causal Machine Learning, a fascinating interdisciplinary field, bridges the gap between traditional machine learning and causal inference. Its primary goal is to leverage data to identify causal relationships and infer the effects of interventions accurately.
+
+## 🎯 Causal Inference Methods:
+
+1. Randomized Control Trials (RCTs): Considered the gold standard for establishing causality, RCTs involve randomly assigning subjects to either the treatment or control group. By eliminating confounding factors, RCTs provide strong causal evidence. However, they may not always be practical or ethical.
+
+2. Propensity Score Matching (PSM): When RCTs are not feasible, PSM is a popular method. It attempts to create a "quasi-experimental" design by matching treated and control units based on their propensity scores, which represent the likelihood of receiving the treatment. This helps mitigate confounding effects.
+
+3. Instrumental Variables (IV): IV analysis relies on instrumental variables that are correlated with the treatment but have no direct effect on the outcome. By utilizing these instruments, researchers can uncover causal relationships even in the presence of unobserved confounders.
+
+4. Synthetic Control (SC): The process of creating a synthetic counterfactual involves using historical data from similar individuals or groups that did not receive the treatment to construct a "synthetic" control group. This control group is designed to closely match the characteristics of the treated group before the intervention. By doing so, researchers aim to create a plausible estimate of what would have happened to the treated group had they not received the treatment.
+
+## 🚀 Real-World Applications
+
+Causal Machine Learning has found applications in various domains, including public health, economics, social sciences, and marketing. It enables policymakers to make informed decisions, businesses to optimize interventions, and researchers to uncover hidden causal mechanisms.
+
+## 🌟 Embracing Causal Machine Learning
+
+As the world becomes more data-driven, understanding causality becomes paramount. Embracing causal machine learning techniques empowers us to make smarter decisions, avoid biases, and design better interventions that have a genuine impact on our lives.
+
+An excellent example application of Causal Machine Learning is in the field of healthcare for personalized treatment recommendations or to estimate the impact of marketing campaigns. Beyonf the classic RCT or A/B testing, in both cases the use of Reinforcement Learning is a very interesting application that we will discuss in the next blog post.
+:::

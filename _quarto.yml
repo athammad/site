@@ -16,6 +16,7 @@ website:
       - papers.qmd      
       - text: "📃 CV"
         href: cv/cv.qmd
+      - posts.qmd # add your posts.qmd file to your navbar!
     # your social media handles
     right:
       - icon: github
