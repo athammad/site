@@ -136,11 +136,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#slot-machines" id="toc-slot-machines" class="nav-link active" data-scroll-target="#slot-machines">Slot machines</a>
+  <ul class="collapse">
+  <li><a href="#the-classic-multi-armed-bandit-problem" id="toc-the-classic-multi-armed-bandit-problem" class="nav-link" data-scroll-target="#the-classic-multi-armed-bandit-problem">The Classic Multi-Armed Bandit Problem</a></li>
+  <li><a href="#introducing-contextual-multi-armed-bandit" id="toc-introducing-contextual-multi-armed-bandit" class="nav-link" data-scroll-target="#introducing-contextual-multi-armed-bandit">Introducing Contextual Multi-Armed Bandit</a>
+  <ul class="collapse">
+  <li><a href="#strategies-for-contextual-multi-armed-bandits" id="toc-strategies-for-contextual-multi-armed-bandits" class="nav-link" data-scroll-target="#strategies-for-contextual-multi-armed-bandits">Strategies for Contextual Multi-Armed Bandits</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -159,18 +173,19 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="justify">
+<section id="slot-machines" class="level1">
+<h1>Slot machines</h1>
 <p>Imagine a gambler facing a row of slot machines (arms), each with an unknown payout probability. The gambler’s goal is to maximize their cumulative reward while exploring the machines’ potential and exploiting the most promising ones. In recent years, the contextual multi-armed bandit (CMAB) has emerged as a powerful extension to this problem, incorporating context or additional information to make even more intelligent decisions. In this blog post, we will delve into the world of contextual multi-armed bandits, exploring their significance, strategies, and real-world applications.</p>
-<section id="the-classic-multi-armed-bandit-problem" class="level1">
-<h1>The Classic Multi-Armed Bandit Problem</h1>
+<section id="the-classic-multi-armed-bandit-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-classic-multi-armed-bandit-problem">The Classic Multi-Armed Bandit Problem</h2>
 <p>In the classic multi-armed bandit problem, a gambler is faced with a set of arms (slot machines) that have different reward probabilities, but the gambler doesn’t know these probabilities initially. The gambler’s objective is to determine which arms to pull (explore) and which to favor (exploit) over time to maximize their cumulative reward. The challenge lies in striking a balance between exploring new arms to gather more information and exploiting the arms that seem to provide higher rewards.</p>
 </section>
-<section id="introducing-contextual-multi-armed-bandit" class="level1">
-<h1>Introducing Contextual Multi-Armed Bandit</h1>
+<section id="introducing-contextual-multi-armed-bandit" class="level2">
+<h2 class="anchored" data-anchor-id="introducing-contextual-multi-armed-bandit">Introducing Contextual Multi-Armed Bandit</h2>
 <p>The contextual multi-armed bandit takes the classic problem a step further by incorporating additional information or context. In CMAB, each arm is associated with a context, which can be thought of as features or attributes characterizing the current situation. This context provides valuable insights into the arms’ potential rewards and helps the decision-maker make more informed choices.</p>
 <p>For instance, imagine a digital advertising scenario where ads (arms) are shown to users, and each ad has associated user characteristics as context, such as age, location, and interests. By considering the context, the CMAB algorithm can optimize the selection of ads for each user to maximize clicks or conversions.</p>
-<section id="strategies-for-contextual-multi-armed-bandits" class="level2">
-<h2 class="anchored" data-anchor-id="strategies-for-contextual-multi-armed-bandits">Strategies for Contextual Multi-Armed Bandits</h2>
+<section id="strategies-for-contextual-multi-armed-bandits" class="level3">
+<h3 class="anchored" data-anchor-id="strategies-for-contextual-multi-armed-bandits">Strategies for Contextual Multi-Armed Bandits</h3>
 <ol type="1">
 <li>LinUCB Algorithm:</li>
 </ol>
@@ -194,13 +209,13 @@ ul.task-list li input[type="checkbox"] {
 <p>In digital advertising, CMAB can enhance ad placement by taking into account user profiles, browsing behavior, and real-time context. This enables advertisers to show the most relevant ads to users, increasing click-through rates and conversions.</p>
 </section>
 </section>
+</section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>Contextual Multi-Armed Bandit is a powerful extension of the classic multi-armed bandit problem, incorporating additional information or context to make more intelligent decisions. By leveraging context, CMAB algorithms strike a balance between exploring new options and exploiting the most promising ones, maximizing cumulative rewards in various real-world scenarios. From personalized recommendations to healthcare treatment selection and online advertising, CMAB continues to revolutionize decision-making, offering smarter and more efficient solutions to challenging problems. As the field of reinforcement learning and contextual decision-making advances, we can expect even more exciting applications and innovations in the years to come.</p>
+
+
 </section>
-</div>
-
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

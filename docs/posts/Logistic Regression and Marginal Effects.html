@@ -138,11 +138,29 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#intro" id="toc-intro" class="nav-link active" data-scroll-target="#intro">Intro</a></li>
+  <li><a href="#the-basics" id="toc-the-basics" class="nav-link" data-scroll-target="#the-basics">The basics</a>
+  <ul class="collapse">
+  <li><a href="#interpreting-coefficients-in-logistic-regression" id="toc-interpreting-coefficients-in-logistic-regression" class="nav-link" data-scroll-target="#interpreting-coefficients-in-logistic-regression">Interpreting Coefficients in Logistic Regression</a></li>
+  <li><a href="#practical-example" id="toc-practical-example" class="nav-link" data-scroll-target="#practical-example">Practical Example</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  <li><a href="#interpretation-issues" id="toc-interpretation-issues" class="nav-link" data-scroll-target="#interpretation-issues">Interpretation Issues</a></li>
+  </ul></li>
+  <li><a href="#marginal-effects" id="toc-marginal-effects" class="nav-link" data-scroll-target="#marginal-effects">Marginal Effects</a>
+  <ul class="collapse">
+  <li><a href="#finite-differences" id="toc-finite-differences" class="nav-link" data-scroll-target="#finite-differences">Finite differences</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -161,10 +179,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="justify">
+<section id="intro" class="level1">
+<h1>Intro</h1>
 <p>Logistic regression is a widely used statistical technique for modeling the relationship between a binary outcome and one or more predictor variables. It is commonly employed in various fields, such as healthcare, finance, and social sciences, to predict the probability of an event occurring. While the coefficients in logistic regression provide valuable insights, they are difficult to interpret. In this blog post, we will explore the use of marginal effects in logistic regression, unraveling their significance and practical applications.</p>
-<section id="logistic-regression" class="level1">
-<h1>Logistic Regression</h1>
+</section>
+<section id="the-basics" class="level1">
+<h1>The basics</h1>
 <p>In logistic regression, we model the log-odds of the event of interest occurring as a linear combination of predictor variables. The logistic function (sigmoid function) is then applied to this linear combination to convert it into a probability value between 0 and 1.</p>
 <p>The logistic regression equation is given by:</p>
 <p><span class="math display">\[\text{logit}(P(Y=1)) = \beta_0 + \beta_1X_1 + \beta_2X_2 + ... + \beta_pX_p\]</span></p>
@@ -190,31 +210,32 @@ ul.task-list li input[type="checkbox"] {
 <li>Statistical Significance:</li>
 </ol>
 <p>Evaluating the statistical significance of coefficients is essential to determine if the relationship between a predictor variable and the event probability is meaningful or just due to random chance. Researchers often use hypothesis testing or confidence intervals to assess the statistical significance of coefficients.</p>
-<section id="practical-example" class="level3">
-<h3 class="anchored" data-anchor-id="practical-example">Practical Example</h3>
+</section>
+<section id="practical-example" class="level2">
+<h2 class="anchored" data-anchor-id="practical-example">Practical Example</h2>
 <p>Let’s consider an example to illustrate the interpretation of coefficients in logistic regression. Suppose we are studying the factors that influence whether a customer will make a purchase on an e-commerce website. Our logistic regression model includes two predictor variables: “Time Spent on Website” and “Number of Items Added to Cart.” The estimated coefficients are as follows:</p>
 <ul>
 <li><p><span class="math inline">\(\beta_{\text{Time Spent}} = 0.05\)</span></p></li>
 <li><p><span class="math inline">\(\beta_{\text{Number of Items}} = 0.2\)</span></p></li>
 </ul>
 </section>
-<section id="interpretation" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<section id="interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation">Interpretation</h2>
 <ul>
 <li><p><span class="math inline">\(\beta_{\text{Time Spent}} = 0.05\)</span>: For each additional minute a customer spends on the website, the log-odds (probability) of making a purchase increases by 0.05 units. This means that spending more time on the website is associated with a higher likelihood of making a purchase.</p></li>
 <li><p><span class="math inline">\(\beta_{\text{Number of Items}} = 0.2\)</span>: For each additional item a customer adds to the cart, the log-odds (probability) of making a purchase increases by 0.2 units. This suggests that adding more items to the cart is associated with a higher probability of making a purchase.</p></li>
 </ul>
 </section>
-<section id="interpretation-issues" class="level3">
-<h3 class="anchored" data-anchor-id="interpretation-issues">Interpretation Issues</h3>
+<section id="interpretation-issues" class="level2">
+<h2 class="anchored" data-anchor-id="interpretation-issues">Interpretation Issues</h2>
 <p>Ideally, we want to understand what the model is telling us on the probability scale and not in the odds scale, much less in the estimation scale, the log-odds.</p>
 <p>We might be tempted to convert log-odds to odds and then to probability and interpret everything as usual. But this would be very wrong!</p>
 <p>Why?</p>
 <p>The issue here is that on the probability scale the function is <strong>non-linear</strong>!</p>
 </section>
 </section>
-<section id="marginal-effects" class="level2">
-<h2 class="anchored" data-anchor-id="marginal-effects">Marginal Effects</h2>
+<section id="marginal-effects" class="level1">
+<h1>Marginal Effects</h1>
 <p>Marginal effects can be described as the change in outcome as a function of the change in the independent variable of interest holding all other variables in the model constant.</p>
 <blockquote class="blockquote">
 <p>NOTE: In linear regression, the estimated regression coefficients are marginal effects and are more easily interpreted.*</p>
@@ -225,10 +246,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The problem we have is that in general we don’t have an equation for the non-linear from which we can derive the derivatives.</p>
 <p>So how do we estimate the derivative of a non-linear function ?</p>
 <p>One solution is to use the method of <strong>finite differences</strong> but to understand it properly we need to introduce first the basic concept of differential calculus.</p>
-</section>
-</section>
-<section id="finite-differences" class="level1">
-<h1>Finite differences</h1>
+<section id="finite-differences" class="level2">
+<h2 class="anchored" data-anchor-id="finite-differences">Finite differences</h2>
 <p>Differential calculus is a branch of calculus that focuses on the study of rates of change and slopes of curves. It deals with the concept of derivatives, which represent the rate of change of a function at a specific point. Derivatives allow us to understand how a function is changing at a particular location and provide valuable insights into the behavior of functions.</p>
 <p>The derivative of a function <span class="math inline">\(f(x)\)</span> with respect to <span class="math inline">\(x\)</span> is denoted as <span class="math inline">\(f'(x)\)</span> or <span class="math inline">\(\frac{df(x)}{dx}\)</span>. It represents the slope of the tangent line to the graph of the function at a given point <span class="math inline">\(x\)</span>. The derivative can be interpreted as the instantaneous rate of change of <span class="math inline">\(f(x)\)</span> with respect to <span class="math inline">\(x\)</span>.</p>
 <p>For example, consider the function <span class="math inline">\(f(x) = x^2\)</span>. The derivative of <span class="math inline">\(f(x)\)</span> is <span class="math inline">\(f'(x) = 2x\)</span>. This means that the slope of the tangent line to the graph of <span class="math inline">\(f(x)\)</span> at any point <span class="math inline">\(x\)</span> is twice the value of <span class="math inline">\(x\)</span> at that point.</p>
@@ -245,14 +264,14 @@ ul.task-list li input[type="checkbox"] {
 <p>Finite differences are particularly useful when the analytical expression for the derivative is difficult to obtain or when dealing with discrete data points instead of continuous functions.</p>
 <p>Differential calculus and finite differences are both essential tools in mathematics and scientific disciplines. Differential calculus provides a rigorous framework for studying rates of change and slopes of curves through derivatives. On the other hand, finite differences offer a practical and numerical approach to approximate derivatives when the analytical solution is not readily available or when dealing with discrete data. Together, these concepts enable us to better understand the behavior of functions and analyze real-world phenomena involving continuous and discrete changes.</p>
 </section>
+</section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
 <p>In logistic regression, the estimated coefficients (log odds) indicate how the log odds of the outcome change with a one-unit increase in the predictor variable while holding other variables constant. However, interpreting these coefficients can be challenging, especially for non-statisticians. This is where marginal effects come to the rescue.</p>
 <p>Marginal effects provide a more straightforward interpretation by measuring the impact of a one-unit change in the predictor variable on the probability of the event occurring (i.e., the probability of success). They express the change in the probability as a result of the predictor variable’s change, allowing us to understand the practical implications of the model.</p>
+
+
 </section>
-</div>
-
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
