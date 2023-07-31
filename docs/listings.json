@@ -1,0 +1,13 @@
+[
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/Unraveling the Power of Causal Machine Learning.html",
+      "/posts/Quantile Random Forest.html",
+      "/posts/Embracing Change: Incremental vs. Batch Machine Learning.html",
+      "/posts/Logistic Regression and Marginal Effects.html",
+      "/posts/Contextual Multi-Armed Bandit.html",
+      "/posts/When in doubt, just model it. Modelling uncertainty.html"
+    ]
+  }
+]

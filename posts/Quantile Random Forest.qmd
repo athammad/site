@@ -1,0 +1,42 @@
+---
+title: "Quantile Random Forest"
+---
+
+::: justify
+
+Quantile Random Forest (QRF) is an extension of the traditional Random Forest algorithm that estimates not only the mean but also the entire conditional distribution of the target variable. The distribution is represented by its quantiles, which are specific points that divide the data into segments, such as quartiles (0.25, 0.50, 0.75). QRF is particularly useful when dealing with heteroscedastic data or when we need to assess the uncertainty in our predictions beyond just the central tendency.
+
+In QRF, an ensemble of decision trees is constructed. Each decision tree is built by bootstrapping the training data, which means sampling the data points with replacement, and selecting a random subset of features at each split. This creates diversity among the trees in the ensemble.
+
+## Random Forest vs QRF
+
+The key difference between Random Forest and QRF lies in the prediction phase. In Random Forest, the predicted value for a new data point is the average (mean) of the individual tree predictions. However, in QRF, we aim to estimate multiple quantiles of the target variable's distribution for a given input.
+
+When growing a tree in QRF, instead of splitting the data based solely on minimizing the variance or mean squared error, QRF performs splits to optimize quantile-specific criteria. Each tree node is split to minimize the quantile loss function, which reflects the error in predicting the specific quantile. This means that the tree seeks to minimize the difference between the true quantile value and the estimated quantile value for the data points that fall into each node.
+
+Once the tree is fully grown, the terminal nodes (leaf nodes) contain specific quantile values rather than just the average value. Each terminal node in the QRF stores a quantile-specific estimate based on the data points that fall into that node. This means that each tree provides quantile-specific predictions.
+
+To make predictions for a new data point, QRF evaluates the input through each decision tree, resulting in a set of quantile-specific predictions. The user can then choose the desired quantiles (e.g., 0.25, 0.50, 0.75) to obtain the corresponding quantile predictions. For example, if we want to estimate the 0.75 quantile, we collect the 0.75 quantile values from each tree, and these values form the quantile prediction for that data point.
+
+One of the advantages of QRF is that it provides a measure of uncertainty in the predictions. Given the estimated quantiles, QRF can construct a prediction interval for each data point. The prediction interval provides a range of possible values, accounting for the uncertainty in the prediction due to the variability of the underlying data.
+
+**Advantages of Quantile Random Forest**
+
+-   Robustness to outliers: QRF can handle outliers effectively as it estimates the entire distribution, including extreme quantiles.
+
+-   Provides uncertainty information: By estimating quantiles, QRF offers a measure of uncertainty in the predictions, which is valuable in decision-making.
+
+-   Versatility: QRF can be applied to regression and quantile regression problems, and it can be extended to handle multivariate quantile estimation.
+
+**Applications of Quantile Random Forest**
+
+-   Financial forecasting: QRF can be used to predict quantiles of financial variables, such as stock prices or asset returns, to assess the risk of investment decisions.
+
+-   Medical applications: In healthcare, QRF can estimate quantiles of patient response times to treatments, enabling doctors to tailor treatments accordingly.
+
+-   Environmental modeling: QRF can estimate quantiles of environmental variables like pollutant concentrations, assisting in environmental risk assessments.
+
+# Conclusion
+In summary, Quantile Random Forest is a powerful extension of the Random Forest algorithm that estimates the entire distribution of the target variable through quantile-specific predictions. It is useful when capturing the entire distribution or quantifying uncertainty is essential for making informed decisions in various applications such as finance, healthcare, and environmental modeling.
+
+:::
