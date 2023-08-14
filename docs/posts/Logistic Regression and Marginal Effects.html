@@ -147,8 +147,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#the-basics" id="toc-the-basics" class="nav-link" data-scroll-target="#the-basics">The basics</a>
   <ul class="collapse">
   <li><a href="#interpreting-coefficients-in-logistic-regression" id="toc-interpreting-coefficients-in-logistic-regression" class="nav-link" data-scroll-target="#interpreting-coefficients-in-logistic-regression">Interpreting Coefficients in Logistic Regression</a></li>
-  <li><a href="#practical-example" id="toc-practical-example" class="nav-link" data-scroll-target="#practical-example">Practical Example</a></li>
+  <li><a href="#practical-example" id="toc-practical-example" class="nav-link" data-scroll-target="#practical-example">Practical Example</a>
+  <ul class="collapse">
   <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  </ul></li>
   <li><a href="#interpretation-issues" id="toc-interpretation-issues" class="nav-link" data-scroll-target="#interpretation-issues">Interpretation Issues</a></li>
   </ul></li>
   <li><a href="#marginal-effects" id="toc-marginal-effects" class="nav-link" data-scroll-target="#marginal-effects">Marginal Effects</a>
@@ -218,13 +220,13 @@ ul.task-list li input[type="checkbox"] {
 <li><p><span class="math inline">\(\beta_{\text{Time Spent}} = 0.05\)</span></p></li>
 <li><p><span class="math inline">\(\beta_{\text{Number of Items}} = 0.2\)</span></p></li>
 </ul>
-</section>
-<section id="interpretation" class="level2">
-<h2 class="anchored" data-anchor-id="interpretation">Interpretation</h2>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
 <ul>
 <li><p><span class="math inline">\(\beta_{\text{Time Spent}} = 0.05\)</span>: For each additional minute a customer spends on the website, the log-odds (probability) of making a purchase increases by 0.05 units. This means that spending more time on the website is associated with a higher likelihood of making a purchase.</p></li>
 <li><p><span class="math inline">\(\beta_{\text{Number of Items}} = 0.2\)</span>: For each additional item a customer adds to the cart, the log-odds (probability) of making a purchase increases by 0.2 units. This suggests that adding more items to the cart is associated with a higher probability of making a purchase.</p></li>
 </ul>
+</section>
 </section>
 <section id="interpretation-issues" class="level2">
 <h2 class="anchored" data-anchor-id="interpretation-issues">Interpretation Issues</h2>
