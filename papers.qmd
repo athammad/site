@@ -6,21 +6,26 @@ page-layout: full
 # Publications
 
 ::: justify
--   [Planning universal accessibility to public health care in sub-Saharan Africa](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:u5HHmVD_uO8C)
 
-    *G Falchetta, AT Hammad, S Shayegh. Proceedings of the National Academy of Sciences 117 (50), 31760-31769*
+-   [Prioritizing COVID-19 vaccine allocation in resource poor settings: Towards an Artificial Intelligence-enabled and Geospatial-assisted decision support framework](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037)
 
--   [Comparing paratransit in seven major African cities: an accessibility and network analysis](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:2osOgNQ5qMEC)
+    Shayegh S.,\[\...\], Hammad, A.T., et al., (2023), PLOS ONE
 
-    *G Falchetta, M Noussan, AT Hammad. Journal of Transport Geography 94, 103131*
+-   [Probabilistic forecasting of remotely sensed cropland vegetation health and its relevance for food security](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:UeHWp8X0CEIC)
+
+    *AT Hammad, G Falchetta .Science of the Total Environment 838, 156157*
 
 -   [Back to the fields? Increased agricultural land greenness after a COVID-19 lockdown](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:d1gkVwhDpl0C)
 
     *AT Hammad, G Falchetta, IBM Wirawan. Environmental Research Communications 3 (5), 051007*
 
--   [Probabilistic forecasting of remotely sensed cropland vegetation health and its relevance for food security](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:UeHWp8X0CEIC)
+-   [Comparing paratransit in seven major African cities: an accessibility and network analysis](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:2osOgNQ5qMEC)
 
-    *AT Hammad, G Falchetta .Science of the Total Environment 838, 156157*
+    *G Falchetta, M Noussan, AT Hammad. Journal of Transport Geography 94, 103131*
+
+-   [Planning universal accessibility to public health care in sub-Saharan Africa](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:u5HHmVD_uO8C)
+
+    *G Falchetta, AT Hammad, S Shayegh. Proceedings of the National Academy of Sciences 117 (50), 31760-31769*
 :::
 
 # Current work
