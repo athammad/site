@@ -48,7 +48,7 @@ Let's consider an example to illustrate the interpretation of coefficients in lo
 
 -   $\beta_{\text{Number of Items}} = 0.2$
 
-## Interpretation
+### Interpretation
 
 -   $\beta_{\text{Time Spent}} = 0.05$: For each additional minute a customer spends on the website, the log-odds (probability) of making a purchase increases by 0.05 units. This means that spending more time on the website is associated with a higher likelihood of making a purchase.
 
