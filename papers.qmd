@@ -9,7 +9,7 @@ page-layout: full
 
 -   [Prioritizing COVID-19 vaccine allocation in resource poor settings: Towards an Artificial Intelligence-enabled and Geospatial-assisted decision support framework](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037)
 
-    Shayegh S.,\[\...\], Hammad, A.T., et al., (2023), PLOS ONE
+    *Shayegh S.,\[\...\], Hammad, A.T., et al., (2023), PLOS ONE*
 
 -   [Probabilistic forecasting of remotely sensed cropland vegetation health and its relevance for food security](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:UeHWp8X0CEIC)
 
