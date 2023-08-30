@@ -1,7 +1,7 @@
 ---
 title: "When in doubt, just model it. Modelling uncertainty"
+image: ../gallery/uncertanity.webp
 ---
-
 
 Probabilistic modeling is a powerful approach in statistics and machine learning that enables us to quantify uncertainty in our predictions and decisions. It allows us to represent and reason about uncertain or incomplete information by incorporating probability distributions over the model parameters or the outcomes themselves. In this context, we can distinguish between two types of uncertainty: uncertainty and deep uncertainty.
 
@@ -26,4 +26,3 @@ In recent years, the development of deep learning and Bayesian deep learning has
 # Conclusion
 
 Probabilistic modeling is a versatile tool for quantifying uncertainty in various applications. It allows us to represent our beliefs probabilistically and make more informed decisions based on the available information. However, in situations where uncertainty is deeper and the underlying data-generating process is complex or uncertain, traditional probabilistic models may not suffice. In these cases, advanced techniques like Bayesian non-parametric models and Bayesian deep learning can help us handle deep uncertainty and make more robust predictions and decisions in challenging and uncertain environments. As our understanding of uncertainty and deep uncertainty advances, probabilistic modeling will continue to play a pivotal role in tackling real-world problems with incomplete information.
-

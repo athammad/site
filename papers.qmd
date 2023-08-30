@@ -6,7 +6,6 @@ page-layout: full
 # Publications
 
 ::: justify
-
 -   [Prioritizing COVID-19 vaccine allocation in resource poor settings: Towards an Artificial Intelligence-enabled and Geospatial-assisted decision support framework](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037)
 
     *Shayegh S.,\[\...\], Hammad, A.T., et al., (2023), PLOS ONE*

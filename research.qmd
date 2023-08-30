@@ -1,6 +1,6 @@
 ---
 title: "🛰 Research"
-image: meEllen.jpeg
+image: ./gallery/meEllen.jpeg
 toc: true
 page-layout: full
 about: 

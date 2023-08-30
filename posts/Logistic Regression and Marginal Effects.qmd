@@ -1,9 +1,11 @@
 ---
 title: "Logistic Regression and Marginal Effects"
 toc: true
+image: ../gallery/ame.png
 ---
 
 # Intro
+
 Logistic regression is a widely used statistical technique for modeling the relationship between a binary outcome and one or more predictor variables. It is commonly employed in various fields, such as healthcare, finance, and social sciences, to predict the probability of an event occurring. While the coefficients in logistic regression provide valuable insights, they are difficult to interpret. In this blog post, we will explore the use of marginal effects in logistic regression, unraveling their significance and practical applications.
 
 # The basics
@@ -115,4 +117,3 @@ Differential calculus and finite differences are both essential tools in mathema
 In logistic regression, the estimated coefficients (log odds) indicate how the log odds of the outcome change with a one-unit increase in the predictor variable while holding other variables constant. However, interpreting these coefficients can be challenging, especially for non-statisticians. This is where marginal effects come to the rescue.
 
 Marginal effects provide a more straightforward interpretation by measuring the impact of a one-unit change in the predictor variable on the probability of the event occurring (i.e., the probability of success). They express the change in the probability as a result of the predictor variable's change, allowing us to understand the practical implications of the model.
-

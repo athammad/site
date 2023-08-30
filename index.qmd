@@ -1,6 +1,6 @@
 ---
 title: ""
-image: me.jpeg
+image: ./gallery/me.jpeg
 toc: false
 page-layout: full
 about: 

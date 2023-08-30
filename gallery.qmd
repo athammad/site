@@ -1,0 +1,51 @@
+---
+title: "📸Gallery"
+format: html
+filters:
+   - lightbox
+lightbox: auto
+---
+
+::: {style="display: grid;grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));grid-gap: 1em;"}
+![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.25.00%20AM.jpeg){group="my-gallery"}
+
+![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.25.01%20AM.jpeg){group="my-gallery"}
+
+![](./gallery/DSC07202.jpg){group="my-gallery"}
+
+![](./gallery/nus.jpeg){group="my-gallery"}
+
+![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.25.02%20AM.jpeg){group="my-gallery"}
+
+![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.34.28%20AM.jpeg){group="my-gallery"} 
+
+![](./gallery/stelle4.jpg){group="my-gallery"}
+
+![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.35.13%20AM.jpeg){group="my-gallery"}
+
+![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.37.06%20AM.jpeg){group="my-gallery"}
+
+![](./gallery/DSC06580.jpg){group="my-gallery"}
+
+![](./gallery/20230327_134155.jpg){group="my-gallery"}
+
+![](./gallery/bicocca.jpg){group="my-gallery"}
+
+![](./gallery/cattolica.jpg){group="my-gallery"}
+
+![](./gallery/leeds.jpg){group="my-gallery"} 
+
+![](./gallery/sg.jpeg){group="my-gallery"}
+
+![](./gallery/leeds1.jpg){group="my-gallery"}
+
+![](./gallery/stelle2.jpg){group="my-gallery"}
+
+![](./gallery/stelle.jpg){group="my-gallery"}
+
+![](./gallery/trento.jpg){group="my-gallery"}
+
+![](./gallery/bali.jpeg){group="my-gallery"}
+
+![](./gallery/stelle3.jpg){group="my-gallery"}
+:::
