@@ -1,8 +1,10 @@
 ---
 title: "Contextual Multi-Armed Bandit: Maximizing Rewards with Intelligent Decision-Making"
+image: ../gallery/slotMachine.jpeg
 ---
 
 # Slot machines
+
 Imagine a gambler facing a row of slot machines (arms), each with an unknown payout probability. The gambler's goal is to maximize their cumulative reward while exploring the machines' potential and exploiting the most promising ones. In recent years, the contextual multi-armed bandit (CMAB) has emerged as a powerful extension to this problem, incorporating context or additional information to make even more intelligent decisions. In this blog post, we will delve into the world of contextual multi-armed bandits, exploring their significance, strategies, and real-world applications.
 
 ## The Classic Multi-Armed Bandit Problem
@@ -17,25 +19,25 @@ For instance, imagine a digital advertising scenario where ads (arms) are shown 
 
 ### Strategies for Contextual Multi-Armed Bandits
 
-1. LinUCB Algorithm:
+1.  LinUCB Algorithm:
 
 One popular approach for solving CMAB problems is the LinUCB algorithm. It uses linear models to estimate the expected rewards for each arm given the context. The algorithm maintains a confidence interval for each arm's expected reward and selects the arm with the highest upper confidence bound, balancing exploration and exploitation.
 
-2. Thompson Sampling:
+2.  Thompson Sampling:
 
 Thompson Sampling is a widely used Bayesian approach for CMAB. It models the reward distribution for each arm based on observed rewards and context. The algorithm then samples from these distributions and selects the arm with the highest sample. This method effectively leverages uncertainty to explore and exploit in a principled manner.
 
 **Real-World Applications of Contextual Multi-Armed Bandits**
 
-1. Personalized Recommendations:
+1.  Personalized Recommendations:
 
 CMAB algorithms can be applied to personalized recommendation systems, where the context represents user preferences, past behavior, and demographics. By dynamically selecting the most relevant content or products, these systems can improve user engagement and satisfaction.
 
-2. Healthcare Treatment Selection:
+2.  Healthcare Treatment Selection:
 
 In healthcare, CMAB can help optimize treatment selection based on patient characteristics, medical history, and response to previous treatments. By considering the context, doctors can make more data-driven decisions to improve patient outcomes.
 
-3. Online Advertising:
+3.  Online Advertising:
 
 In digital advertising, CMAB can enhance ad placement by taking into account user profiles, browsing behavior, and real-time context. This enables advertisers to show the most relevant ads to users, increasing click-through rates and conversions.
 

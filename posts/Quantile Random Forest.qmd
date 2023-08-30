@@ -1,5 +1,6 @@
 ---
 title: "Quantile Random Forest"
+image: ../gallery/qrf.png
 ---
 
 Quantile Random Forest (QRF) is an extension of the traditional Random Forest algorithm that estimates not only the mean but also the entire conditional distribution of the target variable. The distribution is represented by its quantiles, which are specific points that divide the data into segments, such as quartiles (0.25, 0.50, 0.75). QRF is particularly useful when dealing with heteroscedastic data or when we need to assess the uncertainty in our predictions beyond just the central tendency.
@@ -35,5 +36,5 @@ One of the advantages of QRF is that it provides a measure of uncertainty in the
 -   Environmental modeling: QRF can estimate quantiles of environmental variables like pollutant concentrations, assisting in environmental risk assessments.
 
 ## Conclusion
-In summary, Quantile Random Forest is a powerful extension of the Random Forest algorithm that estimates the entire distribution of the target variable through quantile-specific predictions. It is useful when capturing the entire distribution or quantifying uncertainty is essential for making informed decisions in various applications such as finance, healthcare, and environmental modeling.
 
+In summary, Quantile Random Forest is a powerful extension of the Random Forest algorithm that estimates the entire distribution of the target variable through quantile-specific predictions. It is useful when capturing the entire distribution or quantifying uncertainty is essential for making informed decisions in various applications such as finance, healthcare, and environmental modeling.

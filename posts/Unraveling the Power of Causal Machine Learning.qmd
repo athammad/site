@@ -1,9 +1,9 @@
 ---
 title: "Unraveling the Power of Causal Machine Learning"
+image: ../gallery/causalModel.png
 ---
 
 ::: justify
-
 # 🔍 Understanding Causality
 
 In the realm of traditional machine learning, we primarily focus on identifying patterns and correlations in data to make accurate predictions. While this approach is incredibly useful, it often fails to decipher the cause-and-effect relationships that underpin these patterns. This limitation can lead to misguided conclusions and ineffective decision-making.
@@ -20,13 +20,13 @@ Causal Machine Learning, a fascinating interdisciplinary field, bridges the gap 
 
 ## 🎯 Causal Inference Methods:
 
-1. Randomized Control Trials (RCTs): Considered the gold standard for establishing causality, RCTs involve randomly assigning subjects to either the treatment or control group. By eliminating confounding factors, RCTs provide strong causal evidence. However, they may not always be practical or ethical.
+1.  Randomized Control Trials (RCTs): Considered the gold standard for establishing causality, RCTs involve randomly assigning subjects to either the treatment or control group. By eliminating confounding factors, RCTs provide strong causal evidence. However, they may not always be practical or ethical.
 
-2. Propensity Score Matching (PSM): When RCTs are not feasible, PSM is a popular method. It attempts to create a "quasi-experimental" design by matching treated and control units based on their propensity scores, which represent the likelihood of receiving the treatment. This helps mitigate confounding effects.
+2.  Propensity Score Matching (PSM): When RCTs are not feasible, PSM is a popular method. It attempts to create a "quasi-experimental" design by matching treated and control units based on their propensity scores, which represent the likelihood of receiving the treatment. This helps mitigate confounding effects.
 
-3. Instrumental Variables (IV): IV analysis relies on instrumental variables that are correlated with the treatment but have no direct effect on the outcome. By utilizing these instruments, researchers can uncover causal relationships even in the presence of unobserved confounders.
+3.  Instrumental Variables (IV): IV analysis relies on instrumental variables that are correlated with the treatment but have no direct effect on the outcome. By utilizing these instruments, researchers can uncover causal relationships even in the presence of unobserved confounders.
 
-4. Synthetic Control (SC): The process of creating a synthetic counterfactual involves using historical data from similar individuals or groups that did not receive the treatment to construct a "synthetic" control group. This control group is designed to closely match the characteristics of the treated group before the intervention. By doing so, researchers aim to create a plausible estimate of what would have happened to the treated group had they not received the treatment.
+4.  Synthetic Control (SC): The process of creating a synthetic counterfactual involves using historical data from similar individuals or groups that did not receive the treatment to construct a "synthetic" control group. This control group is designed to closely match the characteristics of the treated group before the intervention. By doing so, researchers aim to create a plausible estimate of what would have happened to the treated group had they not received the treatment.
 
 ## 🚀 Real-World Applications
 
