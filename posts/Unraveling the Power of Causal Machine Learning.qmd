@@ -36,5 +36,5 @@ Causal Machine Learning has found applications in various domains, including pub
 
 As the world becomes more data-driven, understanding causality becomes paramount. Embracing causal machine learning techniques empowers us to make smarter decisions, avoid biases, and design better interventions that have a genuine impact on our lives.
 
-An excellent example application of Causal Machine Learning is in the field of healthcare for personalized treatment recommendations or to estimate the impact of marketing campaigns. Beyonf the classic RCT or A/B testing, in both cases the use of Reinforcement Learning is a very interesting application that we will discuss in the next blog post.
+An excellent example application of Causal Machine Learning is in the field of healthcare for personalized treatment recommendations or to estimate the impact of marketing campaigns. Beyond the classic RCT or A/B testing, in both cases the use of Reinforcement Learning is a very interesting application that we will discuss in the next blog post.
 :::
