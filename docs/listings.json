@@ -8,7 +8,12 @@
       "/posts/Logistic Regression and Marginal Effects.html",
       "/posts/Contextual Multi-Armed Bandit.html",
       "/posts/When in doubt, just model it. Modelling uncertainty.html",
-      "/posts/Developing in a Docker container.html"
+      "/posts/Developing in a Docker container.html",
+      "/posts/Data Science Books.html"
     ]
+  },
+  {
+    "listing": "/slides.html",
+    "items": []
   }
 ]

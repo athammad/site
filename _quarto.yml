@@ -17,6 +17,7 @@ website:
       - text: "📃 CV"
         href: cv/cv.qmd
       - posts.qmd # add your posts.qmd file to your navbar!
+      #- slides.qmd # add your posts.qmd file to your navbar!
     # your social media handles
       - gallery.qmd
     right:

@@ -1,0 +1,15 @@
+---
+title: "📽️️Slides"
+listing: 
+  contents: slides # all Quarto docs in the `posts` directory will be included on your listing page
+  type: default # or `default` or `table`; each type has its own set of yaml options to include
+  sort: "date desc" # can also sort on more than one field
+  categories: false # allows you to sort posts by assigned categories 
+  sort-ui: false
+---
+```{=html}
+<iframe width="780" height="500" src="./slides/EnsembleMethods.html" title="Quarto Documentation"></iframe>
+
+
+```
+
