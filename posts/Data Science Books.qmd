@@ -3,9 +3,12 @@ title: "Data Science Books"
 image: https://i0.hippopx.com/photos/134/441/234/antique-black-and-white-books-education-preview.jpg
 ---
 
+::: justify
+# 📚Must-read books for Data Scientists
+
 Whether you're a seasoned data scientist looking to expand your knowledge or a newcomer eager to dive into this exciting field, I made this curated list of must-read books that will support you throughout your career or journey with data, statistics, and machine learning.
 
-# [Introductory Econometrics: A Modern Approach by Jeffrey M. Wooldridge](https://www.amazon.com/Introductory-Econometrics-Modern-Approach-MindTap-dp-1337558869/dp/1337558869/ref=dp_ob_title_bk)
+## [Introductory Econometrics: A Modern Approach by Jeffrey M. Wooldridge](https://www.amazon.com/Introductory-Econometrics-Modern-Approach-MindTap-dp-1337558869/dp/1337558869/ref=dp_ob_title_bk)
 
 ![](https://m.media-amazon.com/images/I/71NU9c9ZutL._SY466_.jpg){fig-align="center"}
 
@@ -15,7 +18,7 @@ The book covers key topics such as regression analysis, hypothesis testing and m
 
 Furthermore, Wooldridge's writing style is clear and engaging, making it easier for readers to grasp challenging econometric concepts. With its emphasis on modern techniques and hands-on applications, "Introductory Econometrics: A Modern Approach" has become a trusted resource in the field, helping students and researchers develop the skills needed to analyze and interpret economic data effectively.
 
-# [Introduction to Machine Learning with Python: A Guide for Data Scientists 1st Edition by Andreas Müller Sarah Guido](https://www.amazon.com/Introduction-Machine-Learning-Python-Scientists/dp/1449369413)
+## [Introduction to Machine Learning with Python: A Guide for Data Scientists 1st Edition by Andreas Müller Sarah Guido](https://www.amazon.com/Introduction-Machine-Learning-Python-Scientists/dp/1449369413)
 
 ![](https://m.media-amazon.com/images/I/911CH8DQeUL._SY466_.jpg){fig-align="center"}
 
@@ -25,7 +28,7 @@ The book covers a wide range of machine learning topics, including supervised le
 
 Overall, "Introduction to Machine Learning with Python" is a valuable resource for those looking to gain a solid foundation in machine learning while leveraging the power of the Python programming language. It's suitable for both beginners and intermediate learners and provides a practical and hands-on approach to mastering the essentials of machine learning for data science.
 
-# [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems by Aurélien Géron](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646)
+## [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems by Aurélien Géron](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646)
 
 ![](https://m.media-amazon.com/images/I/81R5BmGtv-L._SY466_.jpg){fig-align="center"}
 
@@ -33,7 +36,7 @@ Overall, "Introduction to Machine Learning with Python" is a valuable resource f
 
 The book is known for its clarity, practicality, and hands-on approach. It has been praised for its ability to take readers from the fundamentals of machine learning to building and deploying sophisticated machine learning models. Whether you're a beginner looking to learn the basics or an experienced data scientist seeking to expand your knowledge, "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" is a valuable resource for anyone interested in the field of machine learning.
 
-# [Deep Learning with Python by Francois Chollet](https://www.amazon.com/Deep-Learning-Python-Francois-Chollet/dp/1617294438)
+## [Deep Learning with Python by Francois Chollet](https://www.amazon.com/Deep-Learning-Python-Francois-Chollet/dp/1617294438)
 
 ![](https://m.media-amazon.com/images/I/61WrcAb3GbL._SY466_.jpg){fig-align="center"}
 
@@ -41,10 +44,11 @@ The book is known for its clarity, practicality, and hands-on approach. It has b
 
 This must read book is known for its accessibility and practical approach. It's suitable for readers with varying levels of experience in deep learning, from beginners looking to get started to experienced practitioners seeking to deepen their knowledge. The book's focus on Keras and Python makes it an excellent choice for those interested in hands-on deep learning projects, and Chollet's expertise as the creator of Keras ensures that readers receive valuable insights into the field of deep learning.
 
-# [Incerto book series by Nassim Nicholas Taleb](https://www.amazon.com/Incerto-Deluxe-Randomness-Procrustes-Antifragile/dp/198481981X)
+## [Incerto book series by Nassim Nicholas Taleb](https://www.amazon.com/Incerto-Deluxe-Randomness-Procrustes-Antifragile/dp/198481981X)
 
 ![](https://assets.penguinrandomhouse.com/series-images/series-INO-triad.png){fig-align="center"}
 
 The Incerto book series, written by Nassim Nicholas Taleb, is a collection of five interconnected books that delve into the themes of uncertainty, probability, risk, and decision-making under conditions of unpredictability. Nassim Nicholas Taleb is a renowned author, philosopher, and former Wall Street trader who has become well-known for his ideas on risk and randomness.
 
 The series is known for its challenging and unconventional ideas, and Taleb's writing style combines philosophy, economics, and practical insights to encourage readers to think critically about risk, uncertainty, and decision-making in a complex world. The series has gained a dedicated following and has had a significant impact on discussions around risk management, finance, and decision science. It is a fundamental and enjoyably read (no code) to understand how reality works and how our own intuitions are sometimes completely misleading.
+:::
