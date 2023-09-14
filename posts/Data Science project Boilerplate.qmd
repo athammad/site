@@ -45,7 +45,7 @@ This folder structure represents a typical directory layout for a data science p
 
 -   **data**: This folder contains the project's data files. In this case, there is a single CSV file named `data.csv`, but you can add more data files as needed.
 
--   **Dockerfile**: This file is used to define the instructions for creating a Docker container for your project. Docker allows you to encapsulate your project environment and dependencies for consistency and portability. This is a key element for most of my projects since I love to delevope inside a Docker Container (see my other [blog post](https://athammad.github.io/site/posts/Developing%20in%20a%20Docker%20container.html) on how to use Docker with \'bind mounts\'.)
+-   **Dockerfile**: This file is used to define the instructions for creating a Docker container for your project. Docker allows you to encapsulate your project environment and dependencies for consistency and portability. This is a key element for most of my projects since I love to delevope inside a Docker Container (see my other [blog post](https://athammad.github.io/site/posts/Developing%20in%20a%20Docker%20container.html) on how to use Docker with 'bind mounts'.)
 
 -   **Makefile**: A Makefile contains a set of rules and commands for building, testing, and running various aspects of your project. It can automate common development tasks.
 
