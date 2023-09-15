@@ -179,12 +179,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#an-intuitive-explanation-of-bayesian-updating-and-some-code" id="toc-an-intuitive-explanation-of-bayesian-updating-and-some-code" class="nav-link active" data-scroll-target="#an-intuitive-explanation-of-bayesian-updating-and-some-code">An intuitive explanation of Bayesian updating (and some code)</a>
+  <li><a href="#an-intuitive-explanation-of-bayesian-updating" id="toc-an-intuitive-explanation-of-bayesian-updating" class="nav-link active" data-scroll-target="#an-intuitive-explanation-of-bayesian-updating">An intuitive explanation of Bayesian updating</a>
   <ul class="collapse">
-  <li><a href="#the-job-interview" id="toc-the-job-interview" class="nav-link" data-scroll-target="#the-job-interview">The job interview</a></li>
-  <li><a href="#beliefs" id="toc-beliefs" class="nav-link" data-scroll-target="#beliefs">Beliefs</a></li>
-  <li><a href="#smile" id="toc-smile" class="nav-link" data-scroll-target="#smile">Smile</a></li>
-  <li><a href="#update" id="toc-update" class="nav-link" data-scroll-target="#update">Update</a></li>
+  <li><a href="#the-job-interview" id="toc-the-job-interview" class="nav-link" data-scroll-target="#the-job-interview">The job interview😎</a></li>
+  <li><a href="#beliefs" id="toc-beliefs" class="nav-link" data-scroll-target="#beliefs">Beliefs💬</a></li>
+  <li><a href="#smile" id="toc-smile" class="nav-link" data-scroll-target="#smile">Smile😁</a></li>
+  <li><a href="#update" id="toc-update" class="nav-link" data-scroll-target="#update">Update🔀</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -209,13 +209,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="an-intuitive-explanation-of-bayesian-updating-and-some-code" class="level1">
-<h1>An intuitive explanation of Bayesian updating (and some code)</h1>
+<section id="an-intuitive-explanation-of-bayesian-updating" class="level1">
+<h1>An intuitive explanation of Bayesian updating</h1>
 <p>To elucidate the workings of Bayesian updating, I often find it helpful to draw parallels from everyday experiences. Previously, I’ve used examples like my dog and my first date with my girlfriend. This time, let’s delve into the concept using a job interview scenario.</p>
 <section id="the-job-interview" class="level2">
-<h2 class="anchored" data-anchor-id="the-job-interview">The job interview</h2>
+<h2 class="anchored" data-anchor-id="the-job-interview">The job interview😎</h2>
 <p>Imagine you’ve landed a job interview – you’re simultaneously excited and apprehensive. As you stand at the threshold, you’re completely uncertain about what awaits you inside. You don’t know who the interviewers are, what to expect, or how the interview will unfold. The odds of everything going either terribly wrong or wonderfully right seem equally plausible.</p>
 <p>In the realm of probability, we can liken your state of mind to a uniform distribution, where all outcomes are equally probable. This state of not knowing what will happen or how the interview will conclude is what Bayesian terminology dubs the “prior belief” – it’s the starting point for your assessment.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../gallery/prior1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="beliefs" class="level2">
+<h2 class="anchored" data-anchor-id="beliefs">Beliefs💬</h2>
+<p>Interestingly, we still call it a “prior belief” even if you harbor some inkling about how the interview might unfold. For instance, let’s say you had an unpleasant preliminary conversation with the company, and as you enter the room, you’re not filled with optimism, estimating a 40% chance of success. In Bayesian terms, this, too, can be translated into probabilities.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../gallery/prior2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Keep in mind, though, that this assessment is occurring just as you’re about to step through the door.</p>
+</section>
+<section id="smile" class="level2">
+<h2 class="anchored" data-anchor-id="smile">Smile😁</h2>
+<p>Now, envision yourself crossing that threshold, and the interviewers pose their initial question. Your response is swift, and you notice a confident smile on the interviewer’s face. This moment represents a pivotal piece of new information drawn from your real-time experience, and naturally, you’ll use it to revise your initial belief about the interview’s outcome. We call this new information and “evidence”.</p>
+<p>What’s happening inside your mind, that surge of heightened confidence, can once again be translated into numerical probabilities to update your initial belief. This is precisely where the Bayes comes into play.</p>
+<p>Let’s show how the update takes place. Let’s assign to that smile, the evidence, a probability of 80% to pass the interview.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../gallery/evidence1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</section>
+<section id="update" class="level2">
+<h2 class="anchored" data-anchor-id="update">Update🔀</h2>
+<p>Now, let’s plug in all the information we have in the Bayesian therm we all know. We started with a not so confident prior belief (40% chance of success), then we got a new smiling evidence (80% chance of success). From here we can combine these two information and calculate our updated beliefs or as we call them “posterior beliefs”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../gallery/update1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>As you can see, now you have around 60% of passing the interview. These process can keep on going with every new information you collect during the interview as in this gif.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../gallery/bayesian_update.gif" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>In essence, this is the core of Bayesian updating. It allows you to adapt your beliefs based on new information as you progress through an uncertain situation, much like navigating the twists and turns of a job interview.</p>
 <div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
@@ -232,109 +274,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="op">-</span><span class="fl">0.1</span>, <span class="fl">1.1</span>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Prior Belief with no idea'</span>)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">##########################################################</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameters for the prior belief and evidence</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>prior_prob <span class="op">=</span> <span class="fl">0.4</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a range of values for the probability (x-axis)</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the prior probability distribution (prior belief)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>prior_distribution <span class="op">=</span> stats.beta.pdf(x, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="co"># Beta distribution parameters (2, 3)</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>prior_distribution,color<span class="op">=</span><span class="st">"blue"</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Prior Belief with some idea'</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>evidence_prob <span class="op">=</span> <span class="fl">0.8</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a range of values for the probability (x-axis)</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>evidence_distribution <span class="op">=</span> stats.beta.pdf(x, <span class="dv">4</span>, <span class="dv">2</span>)  <span class="co"># Beta distribution parameters (4, 2)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>evidence_distribution, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Evidence'</span>)</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co">#########################################################</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a range of values for the probability (x-axis)</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the prior probability distribution (prior belief)</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>prior_distribution <span class="op">=</span> stats.beta.pdf(x, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="co"># Beta distribution parameters (2, 3)</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the evidence (as a Beta distribution with parameters based on evidence probability)</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>evidence_distribution <span class="op">=</span> stats.beta.pdf(x, <span class="dv">4</span>, <span class="dv">2</span>)  <span class="co"># Beta distribution parameters (4, 2)</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the posterior probability distribution (updated belief)</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>posterior_distribution <span class="op">=</span> prior_distribution <span class="op">*</span> evidence_distribution</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>posterior_distribution <span class="op">=</span> posterior_distribution</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Seaborn plot</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>prior_distribution, label<span class="op">=</span><span class="st">'Prior Belief (40%)'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>evidence_distribution, label<span class="op">=</span><span class="st">'Evidence (80%)'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>posterior_distribution, label<span class="op">=</span><span class="st">'Posterior Belief'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Bayes update Representation'</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Probability'</span>)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<p><img src="Bayesian updating_files/figure-html/cell-2-output-1.png" width="589" height="431"></p>
 </div>
-</div>
-</section>
-<section id="beliefs" class="level2">
-<h2 class="anchored" data-anchor-id="beliefs">Beliefs</h2>
-<p>Interestingly, we still call it a “prior belief” even if you harbor some inkling about how the interview might unfold. For instance, let’s say you had an unpleasant preliminary conversation with the company, and as you enter the room, you’re not filled with optimism, estimating a 40% chance of success. In Bayesian terms, this, too, can be translated into probabilities.</p>
-<div class="cell" data-execution_count="2">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make this example reproducible.</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameters for the prior belief and evidence</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>prior_prob <span class="op">=</span> <span class="fl">0.4</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a range of values for the probability (x-axis)</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the prior probability distribution (prior belief)</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>prior_distribution <span class="op">=</span> stats.beta.pdf(x, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="co"># Beta distribution parameters (2, 3)</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>prior_distribution,color<span class="op">=</span><span class="st">"blue"</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Prior Belief with some idea'</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<p><img src="Bayesian updating_files/figure-html/cell-3-output-1.png" width="579" height="431"></p>
-</div>
-</div>
-<p>Keep in mind, though, that this assessment is occurring just as you’re about to step through the door.</p>
-</section>
-<section id="smile" class="level2">
-<h2 class="anchored" data-anchor-id="smile">Smile</h2>
-<p>Now, envision yourself crossing that threshold, and the interviewers pose their initial question. Your response is swift, and you notice a confident smile on the interviewer’s face. This moment represents a pivotal piece of new information drawn from your real-time experience, and naturally, you’ll use it to revise your initial belief about the interview’s outcome. We call this new information and “evidence”.</p>
-<p>What’s happening inside your mind, that surge of heightened confidence, can once again be translated into numerical probabilities to update your initial belief. This is precisely where the Bayes comes into play.</p>
-<p>Let’s show how the update takes place. Let’s assign to that smile, the evidence, a probability of 80% to pass the interview.</p>
-<div class="cell" data-execution_count="3">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>evidence_prob <span class="op">=</span> <span class="fl">0.8</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a range of values for the probability (x-axis)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>evidence_distribution <span class="op">=</span> stats.beta.pdf(x, <span class="dv">4</span>, <span class="dv">2</span>)  <span class="co"># Beta distribution parameters (4, 2)</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>evidence_distribution, color<span class="op">=</span><span class="st">'green'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Evidence'</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<p><img src="Bayesian updating_files/figure-html/cell-4-output-1.png" width="571" height="431"></p>
-</div>
-</div>
-</section>
-<section id="update" class="level2">
-<h2 class="anchored" data-anchor-id="update">Update</h2>
-<p>Now, let’s plug in all the information we have in the Bayesian therm we all know. We started with a not so confident prior belief (40% chance of success), then we got a new smiling evidence (80% chance of success). From here we can combine these two information and calculate our updated beliefs or as we call them “posterior beliefs”.</p>
-<div class="cell" data-execution_count="4">
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the parameters for the prior belief and evidence</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>prior_prob <span class="op">=</span> <span class="fl">0.4</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>evidence_prob <span class="op">=</span> <span class="fl">0.8</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a range of values for the probability (x-axis)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1000</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the prior probability distribution (prior belief)</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>prior_distribution <span class="op">=</span> stats.beta.pdf(x, <span class="dv">2</span>, <span class="dv">3</span>)  <span class="co"># Beta distribution parameters (2, 3)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the evidence (as a Beta distribution with parameters based on evidence probability)</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>evidence_distribution <span class="op">=</span> stats.beta.pdf(x, <span class="dv">4</span>, <span class="dv">2</span>)  <span class="co"># Beta distribution parameters (4, 2)</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the posterior probability distribution (updated belief)</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>posterior_distribution <span class="op">=</span> prior_distribution <span class="op">*</span> evidence_distribution</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>posterior_distribution <span class="op">=</span> posterior_distribution</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Seaborn plot</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>prior_distribution, label<span class="op">=</span><span class="st">'Prior Belief (40%)'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>evidence_distribution, label<span class="op">=</span><span class="st">'Evidence (80%)'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>posterior_distribution, label<span class="op">=</span><span class="st">'Posterior Belief'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Bayes update Representation'</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Probability'</span>)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<p><img src="Bayesian updating_files/figure-html/cell-5-output-1.png" width="812" height="523"></p>
-</div>
-</div>
-<p>As you can see, now you have around 60% of passing the interview. These process can keep on going with every new information you collect during the interview as in this gif.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../gallery/bayesian_update.gif" class="img-fluid figure-img"></p>
-</figure>
-</div>
-<p>In essence, this is the core of Bayesian updating. It allows you to adapt your beliefs based on new information as you progress through an uncertain situation, much like navigating the twists and turns of a job interview.</p>
 
 
 </section>
