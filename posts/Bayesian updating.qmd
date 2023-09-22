@@ -5,7 +5,7 @@ code-fold: true
 execute:
   eval: false
 ---
-
+::: justify
 # An intuitive explanation of Bayesian updating
 
 To elucidate the workings of Bayesian updating, I often find it helpful to draw parallels from everyday experiences. Previously, I've used examples like my dog and my first date with my girlfriend. This time, let's delve into the concept using a job interview scenario.
@@ -47,6 +47,8 @@ As you can see, now you have around 60% of passing the interview. These process 
 ![](../gallery/bayesian_update.gif){fig-align="center"}
 
 In essence, this is the core of Bayesian updating. It allows you to adapt your beliefs based on new information as you progress through an uncertain situation, much like navigating the twists and turns of a job interview.
+
+:::
 
 ```{python, eval=FALSE, include=FALSE}
 import numpy as np
