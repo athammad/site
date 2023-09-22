@@ -1,6 +1,6 @@
 ---
 title: "The 3 + 1 pillars of data science"
-image: https://vitalflux.com/wp-content/uploads/2020/09/Screenshot-2020-09-13-at-9.29.35-AM.png
+image: https://media.istockphoto.com/id/1152021005/photo/architectural-detail-of-marble-steps-and-ionic-order-columns.jpg?s=612x612&w=0&k=20&c=ysUCo963RcZ_WM11OGkxoRItkU_E7USIWIGTByoj4KQ=
 code-fold: true
 execute:
   eval: false
