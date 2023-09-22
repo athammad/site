@@ -1,10 +1,9 @@
 ---
 title: "Data Science project Boilerplate"
 image: https://live.staticflickr.com/8636/16419606606_1a8e512432_b.jpg
-format:
-  html: 
-    grid:
-      body-width: 300px
+code-fold: true
+execute:
+  eval: false
 ---
 
 ::: justify
@@ -80,4 +79,53 @@ This folder structure represents a typical directory layout for a data science p
 Overall, this folder structure provides a well-organized framework for a data science project, making it easier to collaborate, manage dependencies, and maintain consistency in your work.
 
 Remember that I boilerplate is just a template. Feel free to use this structure as a first step into your new Data Science project.
+
+Finally, here is a little bash script to create the entire folder structure.
 :::
+
+```{python, eval=FALSE, include=FALSE}
+
+#!/bin/bash
+
+# Create the main project directory
+mkdir -p my_data_science_project
+
+# Create subdirectories and files
+cd my_data_science_project
+
+mkdir -p data
+touch data/data.csv
+
+touch Dockerfile
+touch Makefile
+touch .env
+touch .envrc
+touch .gitignore
+
+mkdir -p notebooks
+touch notebooks/datascientist_deliverable.ipynb
+
+touch README.md
+touch requirements.txt
+
+mkdir -p scripts
+touch scripts/script.py
+
+touch setup.py
+
+mkdir -p thepkg
+touch thepkg/__init__.py
+
+mkdir -p thepkg/interface
+touch thepkg/interface/__init__.py
+
+mkdir -p thepkg/ml_logic
+touch thepkg/ml_logic/data.py
+touch thepkg/ml_logic/__init__.py
+touch thepkg/ml_logic/model.py
+touch thepkg/ml_logic/preprocessor.py
+
+touch thepkg/params.py
+touch thepkg/utils.py
+
+```

@@ -1,5 +1,5 @@
 ---
-title: "📸Gallery"
+title: "📸 Gallery"
 format: html
 filters:
    - lightbox
@@ -17,7 +17,7 @@ lightbox: auto
 
 ![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.25.02%20AM.jpeg){group="my-gallery"}
 
-![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.34.28%20AM.jpeg){group="my-gallery"} 
+![](./gallery/WhatsApp%20Image%202023-08-30%20at%2011.34.28%20AM.jpeg){group="my-gallery"}
 
 ![](./gallery/stelle4.jpg){group="my-gallery"}
 
@@ -33,7 +33,7 @@ lightbox: auto
 
 ![](./gallery/cattolica.jpg){group="my-gallery"}
 
-![](./gallery/leeds.jpg){group="my-gallery"} 
+![](./gallery/leeds.jpg){group="my-gallery"}
 
 ![](./gallery/sg.jpeg){group="my-gallery"}
 

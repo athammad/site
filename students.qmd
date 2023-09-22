@@ -13,8 +13,16 @@ about:
 
 ::: justify
 > I was very fortunate to get Ahmed as my instructor during my data science boot camp. Overall, Ahmed was very passionate in teaching, his lessons were entertaining and enjoyable, and he was also able to explain complicated concepts in a clean and simple manner. What I liked most was that he often imparted little tips and advice on how to do well in data science, and also shared his personal experiences and challenges he faced in his own projects and how he managed to resolve them. I couldn't have asked for a better instructor to kickstart my data science journey. [Marcus Tan](https://www.linkedin.com/in/marcus-tan-jh/)
+>
+> ------------------------------------------------------------------------
 
 > Ahmed was my teacher during the 9 weeks data science bootcamp. He is an exceptional and passionate teacher. He teaches with great enthusiasm and patience. Additionally, he goes beyond to provide excellent support and guidance. Speaking for all my classmates, we were truly grateful to have him as a teacher. [George Lee](https://www.linkedin.com/in/george-lee-jin-kai/)
+>
+> ------------------------------------------------------------------------
+
+> I had the pleasure of being taught by Ahmed for two months. It's worth noting that, thanks to Ahmed's passion for his subject, he makes it easy for his students to grasp complex mathematical and statistical concepts through relatable analogies and clear explanations. Not only is he one of the best teachers I've had in recent years, but he also possesses a kind heart and knows how to balance professional and personal relationships. I wish every teacher could be as passionate about their subject as Ahmed and that many could take inspiration from him. He teaches with immense enthusiasm and patience and consistently goes above and beyond to offer exceptional support and guidance. An additional bonus, is that you get to learn some Italian as well when being thought by him ;) [Samuel Saleh](https://www.linkedin.com/in/samuel-saleh-86021919a/)
+>
+> ------------------------------------------------------------------------
 
 > I highly recommend Ahmed for the position of university lecturer in data science. I had the pleasure of having him as my teacher in the Le Wagon data science bootcamp. He is a talented data scientist with a passion for teaching. He is also a highly motivated and hardworking individual. I am confident that he would be a positive addition to any company that is willing to hired.
 >
@@ -23,11 +31,17 @@ about:
 > Ability to communicate complex concepts in a clear and engaging way\
 > Patient and helpful in answering student questions\
 > Passionate about data science and eager to share his knowledge with others. [Zheng YongShun](https://www.linkedin.com/in/zheng-yongshun/)
+>
+> ------------------------------------------------------------------------
 
 > Ahmed, thank you for being an amazing teacher. Your passion for the subject and the way you create a welcoming classroom environment have made learning so much more enjoyable. You have a talent for making complicated things easy to understand, and I appreciate how you always go the extra mile to help us succeed. I feel lucky to be your student. [Yong Sin Tan](https://www.linkedin.com/in/yongsin91/)
+>
+> ------------------------------------------------------------------------
 
 > Dr. Ahmed is someone who can break down complicated mathematical concepts into easily understandable components. Not only that, he demonstrates genuine care for his students' progress.\
 > Even until now, long after our classes with him, he is still always available when we need help or clarification in data science/career progression topics. I'm very fortunate to have the opportunity to be taught by this outstanding and passionate teacher. [Yong Chew](https://www.linkedin.com/in/yong-chew/)
+>
+> ------------------------------------------------------------------------
 
 > I had the privilege of attending Ahmed's lectures for Le Wagon's full time data science program that spanned nine weeks.\
 > \
@@ -40,4 +54,10 @@ about:
 > Ahmed's teaching style is highly engaging and interactive. He fosters an inclusive learning environment, encouraging students to ask questions, collaborate, and explore practical applications of the concepts learned. His dedication to our success was evident in the time and effort he invested in each student, providing valuable feedback and guidance to help us reach our full potential.\
 > \
 > I highly recommend Ahmed as a data science lecturer and researcher. His exceptional knowledge, dedication, and teaching abilities make him an invaluable asset to any learning environment. It was a privilege to learn from him, and I am confident that he will continue to inspire and shape the careers of aspiring data scientists. [Xin Er Chong](https://www.linkedin.com/in/chongxe1991/)
+>
+> ------------------------------------------------------------------------
+
+> Overall very strong communication skills. Classes were taught in English to students with varying knowledge base and language levels. Lectures are packaged as so complex theories are presented in the most effective/digestible forms for learning. The teaching methods are highly effective. Making compression "simple".
+>
+> Ahmed was able to help me transfer the knowledge/skills from the classroom to the professional field (finance). He quickly understood my work and explained the ML methods available for implementation for a systematic approach for strategies. [Jo Ye]()
 :::
