@@ -7,6 +7,7 @@ about:
   template: trestles
   image-shape: round
   image-width: 15em
+fontsize: 1.1em
 ---
 
 # What my students say about me
@@ -26,6 +27,10 @@ about:
 
 >This guy restored my hope in education! I had the pleasure to be Ahmed’s student throughout the summer of 2023, and I can highly recommend his teaching. Ahmed knows how to adapt perfectly to his audience; he is a teacher who listens to his students and has a true talent for teaching. Even the most complex topics seem simple with him. Moreover, Ahmed, through his enthusiasm and natural authority, knows how to effectively convey his passion and high standards to his students. Beyond his qualities as a teacher, Ahmed is also a very warm person who can strike a pleasant balance between seriousness and lightness in his classes. In fact, after 2 months under his guidance, I found my path in data science and found in my teacher a friend. 
 My loss function never has been that low ;) [Taddeo Carpinelli ](https://www.linkedin.com/in/taddeo-carpinelli-a558651a3/)
+
+------------------------------------------------------------------------
+
+> Ahmed is an outstanding teacher with a remarkable talent for simplifying complex concepts through clear explanations and abundant examples. His passion for the subject creates an engaging learning environment, and he approaches every question with unwavering dedication. Ahmed's extensive knowledge in data science ensures he can provide thorough and confident responses, instilling a sense of confidence in his students. It has been a privilege to learn from him, and I have no doubt that he will continue to inspire and educate others with his exceptional teaching abilities. [Morris Tang ](https://www.linkedin.com/in/morristang/)
 
 ------------------------------------------------------------------------
 
