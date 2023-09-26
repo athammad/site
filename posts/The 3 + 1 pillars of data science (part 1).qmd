@@ -4,6 +4,7 @@ image: https://media.istockphoto.com/id/1152021005/photo/architectural-detail-of
 code-fold: true
 execute:
   eval: false
+fontsize: 1.5em
 ---
 
 ::: justify
