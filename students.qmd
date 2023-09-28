@@ -1,7 +1,7 @@
 ---
 title: "🧑‍🎓 Students"
 toc: false
-image: ./gallery/students.jpeg
+image: ./gallery/collage.png
 page-layout: full
 about: 
   template: trestles
@@ -25,12 +25,11 @@ fontsize: 1.1em
 
 ------------------------------------------------------------------------
 
->This guy restored my hope in education! I had the pleasure to be Ahmed’s student throughout the summer of 2023, and I can highly recommend his teaching. Ahmed knows how to adapt perfectly to his audience; he is a teacher who listens to his students and has a true talent for teaching. Even the most complex topics seem simple with him. Moreover, Ahmed, through his enthusiasm and natural authority, knows how to effectively convey his passion and high standards to his students. Beyond his qualities as a teacher, Ahmed is also a very warm person who can strike a pleasant balance between seriousness and lightness in his classes. In fact, after 2 months under his guidance, I found my path in data science and found in my teacher a friend. 
-My loss function never has been that low ;) [Taddeo Carpinelli ](https://www.linkedin.com/in/taddeo-carpinelli-a558651a3/)
+> This guy restored my hope in education! I had the pleasure to be Ahmed's student throughout the summer of 2023, and I can highly recommend his teaching. Ahmed knows how to adapt perfectly to his audience; he is a teacher who listens to his students and has a true talent for teaching. Even the most complex topics seem simple with him. Moreover, Ahmed, through his enthusiasm and natural authority, knows how to effectively convey his passion and high standards to his students. Beyond his qualities as a teacher, Ahmed is also a very warm person who can strike a pleasant balance between seriousness and lightness in his classes. In fact, after 2 months under his guidance, I found my path in data science and found in my teacher a friend. My loss function never has been that low ;) [Taddeo Carpinelli](https://www.linkedin.com/in/taddeo-carpinelli-a558651a3/)
 
 ------------------------------------------------------------------------
 
-> Ahmed is an outstanding teacher with a remarkable talent for simplifying complex concepts through clear explanations and abundant examples. His passion for the subject creates an engaging learning environment, and he approaches every question with unwavering dedication. Ahmed's extensive knowledge in data science ensures he can provide thorough and confident responses, instilling a sense of confidence in his students. It has been a privilege to learn from him, and I have no doubt that he will continue to inspire and educate others with his exceptional teaching abilities. [Morris Tang ](https://www.linkedin.com/in/morristang/)
+> Ahmed is an outstanding teacher with a remarkable talent for simplifying complex concepts through clear explanations and abundant examples. His passion for the subject creates an engaging learning environment, and he approaches every question with unwavering dedication. Ahmed's extensive knowledge in data science ensures he can provide thorough and confident responses, instilling a sense of confidence in his students. It has been a privilege to learn from him, and I have no doubt that he will continue to inspire and educate others with his exceptional teaching abilities. [Morris Tang](https://www.linkedin.com/in/morristang/)
 
 ------------------------------------------------------------------------
 
@@ -70,4 +69,8 @@ My loss function never has been that low ;) [Taddeo Carpinelli ](https://www.lin
 > Overall very strong communication skills. Classes were taught in English to students with varying knowledge base and language levels. Lectures are packaged as so complex theories are presented in the most effective/digestible forms for learning. The teaching methods are highly effective. Making compression "simple".
 >
 > Ahmed was able to help me transfer the knowledge/skills from the classroom to the professional field (finance). He quickly understood my work and explained the ML methods available for implementation for a systematic approach for strategies. [Jo Lam Ye](https://www.linkedin.com/in/jo-lam-y-38292a34/)
+
+------------------------------------------------------------------------
+
+> Ahmed is a passionate teacher whose patience and care for his students is palpable. I was privileged to be his student at Le Wagon in Bali where he masterfully guided me through difficult data science concepts. Ahmed is a rare leader who is honest, kind, and selfless, yet revered for his knowledge. I have a great deal of respect for him and am grateful for the time spent under his tutelage. Thank you, Ahmed! [Stevie Gordon](https://www.linkedin.com/in/stevie-gordon-b47065219/)
 :::
