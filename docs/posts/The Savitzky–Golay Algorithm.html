@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ahmed T. Hammad -</title>
+<title>Ahmed T. Hammad - The Savitzky–Golay Algorithm</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,7 +94,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -69,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Ahmed T. Hammad</span>
     </a>
   </div>
@@ -80,35 +115,35 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">ℹ️ About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html" rel="" target="">
+    <a class="nav-link" href="../teaching.html" rel="" target="">
  <span class="menu-text">🧑‍🏫 Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html" rel="" target="">
+    <a class="nav-link" href="../research.html" rel="" target="">
  <span class="menu-text">🛰 Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./students.html" rel="" target="">
+    <a class="nav-link" href="../students.html" rel="" target="">
  <span class="menu-text">🧑‍🎓 Students</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./papers.html" rel="" target="">
+    <a class="nav-link" href="../papers.html" rel="" target="">
  <span class="menu-text">✍ Papers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv/cv.html" rel="" target="">
+    <a class="nav-link" href="../cv/cv.html" rel="" target="">
  <span class="menu-text">📃 CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html" rel="" target="">
+    <a class="nav-link" href="../posts.html" rel="" target="">
  <span class="menu-text">🎙️Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./gallery.html" rel="" target="">
+    <a class="nav-link" href="../gallery.html" rel="" target="">
  <span class="menu-text">📸 Gallery</span></a>
   </li>  
 </ul>
@@ -139,60 +174,75 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
-<div class="quarto-about-trestles column-page">
-  <div class="about-entity">
-    <img src="./gallery/me.jpeg" class="about-image
-  round " style="height: 15em; width: 15em;">
+<main class="content column-page" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Savitzky–Golay Algorithm</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
   </div>
-  <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<section id="ahmed-t.-hammad" class="level1">
-<h1>Ahmed T. Hammad</h1>
+  
+
+</header>
+
 <div class="justify">
-<p>Hello, my name is Ahmed, and I am a Data Scientist, Quantitative Researcher, and Lecturer. I have a <strong>PhD in Causal Machine Learning</strong> and over 10 years of experience working with data in both academic and private sectors. I have extensive knowledge of programming languages such as R and Python, which I use daily to conduct my research and analysis.</p>
-<p>As a passionate learner, I always strive to stay up-to-date with the latest developments in Machine Learning. That’s why I’m still involved in research and regularly publish my analysis on a variety of topics, including Machine Learning and Econometrics applied to environmental analysis and public health.</p>
-<p>One of the most fulfilling aspects of my career is sharing my knowledge of <strong>statistics and machine learning</strong> with others. <strong>Teaching</strong> the younger generation and professionals how to “get things done” and handle real-world data problems is something that brings me so much joy. It’s an opportunity for me to share my years of experience in the field and help others succeed.</p>
-</div>
-<p><br>
-</p>
-<section id="my-fields-of-interest" class="level3">
-<h3 data-anchor-id="my-fields-of-interest">My fields of interest</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Machine Learning</li>
-<li>Econometrics</li>
-<li>Incremental Machine Learning</li>
-<li>Causal Inference</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>Time Series</li>
-<li>Probabilistic Machine Learning</li>
-<li>Environmental Analysis</li>
-<li>Sensor &amp; Satellite Data</li>
-</ul>
-</div>
-</div>
+<p>Time series data often necessitates extensive processing and transformations to enhance its usability and interpretability. In this article, I’ll delve into one of my preferred smoothing techniques - the Savitzky–Golay algorithm. This remarkable method has consistently proven its effectiveness in a variety of applications, ranging from satellite data analysis to financial market forecasting. Initially, I will provide a comprehensive overview of the algorithm, delving into its mathematical underpinnings and various adjustable parameters. Subsequently, we’ll explore the concept of noise in time series data and demonstrate how smoothing, specifically using the Savitzky–Golay method, can mitigate these effects. Lastly, I’ll conduct a comparative analysis, showcasing how Savitzky–Golay outperforms the traditional Moving Average (MA) approach when applied to financial time series data, with a focus on Google stock prices.</p>
+<p>Now, let’s dive into each of these aspects, starting with a paragraph on the history and mathematical details of the Savitzky–Golay algorithm, accompanied by relevant Python code and plots.</p>
+<section id="history-and-mathematical-details-of-savitzkygolay-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="history-and-mathematical-details-of-savitzkygolay-algorithm">History and Mathematical Details of Savitzky–Golay Algorithm:</h2>
+<p>The Savitzky–Golay algorithm, developed by Abraham Savitzky and Marcel J. E. Golay in the 1960s, is a robust method for smoothing noisy data while preserving essential features. It achieves this by fitting a low-degree polynomial to a small, moving window of data points and using polynomial coefficients for smoothing. Let’s explore its mathematical foundation and various parameters through Python code and illustrative plots.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Python code for Savitzky–Golay smoothing</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> savgol_filter</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate synthetic noisy data</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.sin(x) <span class="op">+</span> np.random.normal(<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="dv">100</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply Savitzky–Golay smoothing</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>smoothed <span class="op">=</span> savgol_filter(y, window_length<span class="op">=</span><span class="dv">11</span>, polyorder<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot original and smoothed data</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y, label<span class="op">=</span><span class="st">'Noisy Data'</span>, alpha<span class="op">=</span><span class="fl">0.7</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.plot(x, smoothed, label<span class="op">=</span><span class="st">'Savitzky–Golay Smoothing'</span>, color<span class="op">=</span><span class="st">'orange'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Savitzky–Golay Smoothing Example'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In the above code, we generate noisy data, apply Savitzky–Golay smoothing with specified window length and polynomial order, and visualize the results.</p>
+<p>A well known complication is at the edges of the time series where fewer points are available. To handle this there are several strategy</p>
+<p>xxxxx</p>
 </section>
-<section id="languages-and-tools" class="level2">
-<h2 data-anchor-id="languages-and-tools">Languages and Tools</h2>
-<p float="left">
-</p><p><img src="./logos/rstudio.png" width="7%"> <img src="./logos/python_logo.png" width="7%"> <img src="./logos/docker.png" width="8%"> <img src="./logos/do.png" width="6%"> <img src="./logos/gcp.png" width="12%"> <img src="./logos/dt.png" width="8%"> <img src="./logos/ggplot2.png" width="8%"> <img src="./logos/reticulated_python.png" width="10%"> <img src="./logos/logoSCF.png" width="9%"> <img src="./logos/redis.png" width="8%"> <img src="./logos/DuckDB_Logo.png" width="8%"> <img src="./logos/scikit-learn.png" width="8%"> <img src="./logos/FastAPI_logo.png" width="8%"> <img src="./logos/sql.png" width="8%"> <img src="./logos/keras.png" width="8%"> <img src="./logos/sktime.png" width="8%"> <img src="./logos/h2o.png" width="8%"> <img src="./logos/river.svg" width="12%"> <img src="./logos/gee.png" width="12%"> <img src="./logos/matplot.png" width="12%"> <img src="./logos/seaborn.svg" width="12%"> <img src="./logos/streamlit.png" width="12%"> <img src="./logos/shiny.png" width="12%"> <img src="./logos/quarto.png" width="12%"> <img src="./logos/statsmodels.svg" width="12%"></p>
-<p></p>
-<p><br>
-</p>
-<div class="justify">
-<p>For curious visitors, the name of the website is just a tentative to mix the initial letter of my full name and statistics. By chance, I ended up with something that has an actual meaning in Arabic 🤷. <em>Athsas</em> (أتحسس) means “to feel something” or a sensation given by an object or material when touched.</p>
+<section id="processsing-temperature-data-from-the-sky" class="level2">
+<h2 class="anchored" data-anchor-id="processsing-temperature-data-from-the-sky">Processsing Temperature data from the sky</h2>
+<p>Time series data often contains inherent noise, making it challenging to extract meaningful patterns. To illustrate the effectiveness of the Savitzky–Golay algorithm in mitigating noise, let’s consider satellite temperature data as an example. We’ll apply the algorithm to this data and visualize the noise reduction.</p>
+<p>(Include relevant Python code and plots for this section, demonstrating the noise reduction on satellite temperature data)</p>
+<p>Finally, let’s compare the Savitzky–Golay method with the classic Moving Average (MA) approach when applied to financial time series data, specifically Google stock prices.</p>
+</section>
+<section id="a-comparing-savitzkygolay-with-moving-average-on-financial-time-series" class="level1">
+<h1>A comparing Savitzky–Golay with Moving Average on Financial Time Series</h1>
+<p>Financial time series data, like stock prices, often exhibit complex fluctuations. In this section, we’ll compare the performance of the Savitzky–Golay algorithm against the conventional Moving Average method when smoothing Google stock prices. By doing so, we’ll highlight the advantages of using Savitzky–Golay for financial data analysis.</p>
+<p>(Include Python code for both methods, a comparison plot, and a brief discussion of the results)</p>
+<p>By addressing these aspects, we’ll gain a comprehensive understanding of the Savitzky–Golay algorithm’s versatility and its practical applications in enhancing time series data analysis.</p>
+</section>
 </div>
 
 
-</section>
-</section>
-</main></div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -213,6 +263,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

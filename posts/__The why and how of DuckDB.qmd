@@ -1,0 +1,8 @@
+---
+title: "The why and how of DuckDB"
+image: https://media.istockphoto.com/id/1152021005/photo/architectural-detail-of-marble-steps-and-ionic-order-columns.jpg?s=612x612&w=0&k=20&c=ysUCo963RcZ_WM11OGkxoRItkU_E7USIWIGTByoj4KQ=
+code-fold: true
+execute:
+  eval: false
+fontsize: 1.5em
+---
