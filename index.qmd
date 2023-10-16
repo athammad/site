@@ -48,6 +48,13 @@ One of the most fulfilling aspects of my career is sharing my knowledge of **sta
 
 <p float="left">
 
-<img src="./logos/rstudio.png" width="7%"/> <img src="./logos/python_logo.png" width="7%"/> <img src="./logos/docker.png" width="8%"/> <img src="./logos/do.png" width="6%"/> <img src="./logos/gcp.png" width="12%"/> <img src="./logos/dt.png" width="8%"/> <img src="./logos/ggplot2.png" width="8%"/> <img src="./logos/reticulated_python.png" width="10%"/> <img src="./logos/logoSCF.png" width="9%"/> <img src="./logos/redis.png" width="8%"/> <img src="./logos/scikit-learn.png" width="8%"/> <img src="./logos/FastAPI_logo.png" width="8%"/> <img src="./logos/sql.png" width="8%"/> <img src="./logos/keras.png" width="8%"/> <img src="./logos/sktime.png" width="8%"/> <img src="./logos/h2o.png" width="8%"/> <img src="./logos/river.svg" width="12%"/> <img src="./logos/gee.png" width="12%"/> <img src="./logos/matplot.png" width="12%"/> <img src="./logos/seaborn.svg" width="12%"/> <img src="./logos/streamlit.png" width="12%"/> <img src="./logos/shiny.png" width="12%"/> <img src="./logos/quarto.png" width="12%"/> <img src="./logos/statsmodels.svg" width="12%"/>
+<img src="./logos/rstudio.png" width="7%"/> <img src="./logos/python_logo.png" width="7%"/> <img src="./logos/docker.png" width="8%"/> <img src="./logos/do.png" width="6%"/> <img src="./logos/gcp.png" width="12%"/> <img src="./logos/dt.png" width="8%"/> <img src="./logos/ggplot2.png" width="8%"/> <img src="./logos/reticulated_python.png" width="10%"/> <img src="./logos/logoSCF.png" width="9%"/> <img src="./logos/redis.png" width="8%"/> <img src="./logos/DuckDB_Logo.png" width="8%"/> <img src="./logos/scikit-learn.png" width="8%"/> <img src="./logos/FastAPI_logo.png" width="8%"/> <img src="./logos/sql.png" width="8%"/> <img src="./logos/keras.png" width="8%"/> <img src="./logos/sktime.png" width="8%"/> <img src="./logos/h2o.png" width="8%"/> <img src="./logos/river.svg" width="12%"/> <img src="./logos/gee.png" width="12%"/> <img src="./logos/matplot.png" width="12%"/> <img src="./logos/seaborn.svg" width="12%"/> <img src="./logos/streamlit.png" width="12%"/> <img src="./logos/shiny.png" width="12%"/> <img src="./logos/quarto.png" width="12%"/> <img src="./logos/statsmodels.svg" width="12%"/>
 
 </p>
+
+\
+
+
+::: justify
+For curious visitors, the name of the website is just a tentative to mix the initial letter of my full name and statistics. By chance, I ended up with something that has an actual meaning in Arabic 🤷. *Athsas* (أتحسس) means "to feel something" or a sensation given by an object or material when touched.
+:::
