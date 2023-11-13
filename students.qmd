@@ -8,6 +8,7 @@ about:
   image-shape: round
   image-width: 15em
 fontsize: 1.1em
+
 ---
 
 # What my students say about me
@@ -73,4 +74,10 @@ fontsize: 1.1em
 ------------------------------------------------------------------------
 
 > Ahmed is a passionate teacher whose patience and care for his students is palpable. I was privileged to be his student at Le Wagon in Bali where he masterfully guided me through difficult data science concepts. Ahmed is a rare leader who is honest, kind, and selfless, yet revered for his knowledge. I have a great deal of respect for him and am grateful for the time spent under his tutelage. Thank you, Ahmed! [Stevie Gordon](https://www.linkedin.com/in/stevie-gordon-b47065219/)
+
+------------------------------------------------------------------------
+
+> Ahmed is a passionate teacher and educator. I particularly enjoyed his blend of academic and practical experience. While he's very knowledgable of the state-of-the-art technology and algorithms, he also has a flair to simplify complex concepts to make them practical. If I were given the opportunity, I'd love to continue my studies with Ahmed in the future to further deepen the knowledge and skills learned from the 9-week bootcamp. [Harris Soetikno](https://au.linkedin.com/in/harris-soetikno-7874791b0)
+
+
 :::
