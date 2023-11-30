@@ -13,7 +13,8 @@ website:
       - teaching.qmd
       - research.qmd
       - students.qmd
-      - papers.qmd      
+      - papers.qmd
+      - solutions.qmd
       - text: "📃 CV"
         href: cv/cv.qmd
       - posts.qmd # add your posts.qmd file to your navbar!
