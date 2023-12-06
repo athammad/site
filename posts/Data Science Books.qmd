@@ -20,8 +20,7 @@ Furthermore, Wooldridge's writing style is clear and engaging, making it easier 
 
 ## [An Introduction to Statistical Learning by Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, Jonathan Taylor](https://www.statlearning.com/)
 
-![](https://images.squarespace-cdn.com/content/v1/5ff2adbe3fe4fe33db902812/8b373fbe-d1b4-4351-b803-0d3cd5bba1b0/ISLP_cover.png?format=750w){fig-align="center"}
-
+![](https://m.media-amazon.com/images/I/61i+eJ+8TnL._SL1181_.jpg){fig-align="center" width="369"}
 
 "An Introduction to Statistical Learning" by Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, and Jonathan Taylor is a comprehensive textbook that provides an introduction to statistical learning methods. It covers key concepts and techniques in statistical learning, offering a balanced blend of theory and practical applications. Notably, the book is accessible to users of both R and Python programming languages, making it versatile for a wide range of readers.
 
@@ -30,8 +29,6 @@ The book begins by introducing fundamental concepts in statistical learning. It 
 A distinctive feature of the book is its emphasis on practical applications and the statistical nature of Machine Learning, drawing important parallelisms between the classic vocabulary used in statistics and the the Machine Learning jargon. It includes case studies and examples throughout, illustrating how statistical learning methods can be applied to real-world problems. The inclusion of R and Python code examples further enhances its utility for readers using either programming language.
 
 In summary, "An Introduction to Statistical Learning" is a valuable resource for students, researchers, and practitioners seeking a solid foundation in statistical learning. Its flexibility in catering to both R and Python users makes it an inclusive and versatile choice for individuals interested in applying statistical learning techniques to data analysis and modeling.
-
-
 
 ## [Introduction to Machine Learning with Python: A Guide for Data Scientists 1st Edition by Andreas Müller Sarah Guido](https://www.amazon.com/Introduction-Machine-Learning-Python-Scientists/dp/1449369413)
 
