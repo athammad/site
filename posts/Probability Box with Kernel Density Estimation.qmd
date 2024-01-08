@@ -8,7 +8,7 @@ fontsize: 1.5em
 ---
 
 ::: justify
-all those numbers in the weather forecast got me thinking about a simple table with historical data for temperature, humidity, and rain. Then, my interest in playing with probabilities kicked in (it tends to do that a lot). I decided to turn this data into something fun, so I called it a “probability box.”
+All those numbers in the weather forecast got me thinking about a simple table with historical data for temperature, humidity, and rain. Then, my interest in playing with probabilities kicked in (it tends to do that a lot). I decided to turn this data into something fun, so I called it a “probability box.”
 
 Now, what’s a probability box? It’s just a fancy name for turning a bunch of data points into probabilities. Once I’ve done that, it’s like having a cool tool to play with. I can ask it about Cumulative Probabilities, which basically tells me the chances of two, three, or more things happening together.
 

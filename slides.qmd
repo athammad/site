@@ -1,15 +1,43 @@
 ---
-title: "📽️️Slides"
-listing: 
-  contents: slides # all Quarto docs in the `posts` directory will be included on your listing page
-  type: default # or `default` or `table`; each type has its own set of yaml options to include
-  sort: "date desc" # can also sort on more than one field
-  categories: false # allows you to sort posts by assigned categories 
-  sort-ui: false
+title: "📽️️ Slides"
+image: https://s2-pegn.glbimg.com/zAWK5Z0cjQ7ECvl0V-SSGVmMbwk=/0x0:5980x3987/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_ba41d7b1ff5f48b28d3c5f84f30a06af/internal_photos/bs/2022/B/o/ogJjqBQHafc8IgxkVXqQ/pexels-tima-miroshnichenko-7991158.jpg
+toc: false
+page-layout: full
+about: 
+  template: trestles
+  image-shape: round
+  image-width: 15em
+  
+format:
+  html:
+    grid:
+      body-width: 900px  
+
+# [**Unsupervised Learning**. Learning without a target. Clustering and PCA made easy](./slides/Ensemble%20Methods.html)
+# [**Intro to Reinforcment Learning**. An Introduction to the concepts and motivations behind Reinforcment Learning](./slides/Ensemble%20Methods.html)
+# [**Intro to Deep Learning**. Demistfying and Understanding Deep Learning in few slides ](./slides/Ensemble%20Methods.html)
 ---
-```{=html}
-<iframe width="780" height="500" src="./slides/EnsembleMethods.html" title="Quarto Documentation"></iframe>
 
+## Some slides I have been using here and there to teach different topics 🧑‍🏫
 
-```
+------------------------------------------------------------------------
 
+[**Data Management in Python**. Here I showcasing how Pandas empowers us to efficiently handle, analyze, and manipulate datasets](./slides/Data%20Management.html)
+
+\
+
+[**Statistics & Probabilities**. All you need to know to get your started with Statistics & Probabilities](./slides/Statistics%20&%20Probabilities.html)
+
+\
+
+[**Intro to ML**. History and application of Machine Learning with Python](./slides/15-Intro%20to%20ML.html)
+
+\
+
+[**Linear Regression**. Running, intepreting and using the most famous algorithm ever!](./slides/Linear%20Regression.html)
+
+\
+
+[**Ensemble Methods**. Improve accuracy of results in models by combining multiple models instead of using a single model. All you need to know about Trees algorithms and more.](./slides/Ensemble%20Methods.html)
+
+\
