@@ -1,0 +1,155 @@
+---
+title: "Machine Learning, Copula and Synthetic Data"
+image: https://goodonyou.eco/wp-content/uploads/2019/01/SyntheticFabrics-1200x630.jpg
+code-fold: false
+execute:
+  eval: true
+fontsize: 1.5em
+---
+
+::: justify
+Copulas and synthetic data play pivotal roles in statistical modeling, offering innovative solutions for various challenges in Machine Learning. Here, I will focus into the use of copulas for synthetic data generation.
+
+Copulas are mathematical constructs used to model the dependence structure between random variables. Unlike traditional correlation measures, copulas separate the marginal distributions from the dependence structure, providing a more flexible and nuanced approach to capturing complex relationships. They are particularly useful in scenarios where traditional models might fail to capture the intricate dependencies between variables. In the specific case of syntetic data generation, what we need is to mimics the **statistical properties** of real-world data. But why do we need this "fake" data in the first place? Syntetic data are invaluable in scenarios where obtaining sufficient real data is challenging (small sample size) or when privacy concerns limit access to actual data. By creating synthetic datasets we can augment the available data, **facilitating better model generalization and robustness**.
+
+Going back on the **statistical properties** we mentioned earlier, we are interested in the parameters governing the distribution of each variable separately (the marginals) and the dependency structure between them (the copula). Once these are known, we can generate new data from the same distribution and with the same correlation.
+
+To give a simple example let's take few variables from the classic Cars Dataset.
+
+```{python}
+import warnings
+warnings.filterwarnings('ignore')
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from copulas.multivariate import GaussianMultivariate
+from copulas.univariate import ParametricType, Univariate
+
+df = sns.load_dataset("mpg")
+df=df.drop(columns=['origin', 'name'])
+df=df.dropna()
+df.columns
+
+df=df[['horsepower', 'weight','acceleration','mpg']]
+df.describe()
+```
+
+Let's plot the kernel density distribution of 3 variables, the scatter plot of each pair and the corresponding correlation.
+
+```{python}
+
+def corrdot(*args, **kwargs):
+    corr_r = args[0].corr(args[1], 'pearson')
+    corr_text = f"{corr_r:2.2f}".replace("0.", ".")
+    ax = plt.gca()
+    ax.set_axis_off()
+    marker_size = abs(corr_r) * 1000
+    ax.scatter([.5], [.5], marker_size, [corr_r], alpha=0.6, cmap="coolwarm",
+               vmin=-1, vmax=1, transform=ax.transAxes)
+    font_size = abs(corr_r) * 10 + 5
+    ax.annotate(corr_text, [.5, .5,],  xycoords="axes fraction",
+                ha='center', va='center', fontsize=font_size)
+
+sns.set(style='white', font_scale=1)
+g = sns.PairGrid(df[['horsepower', 'weight','acceleration']], aspect=1, diag_sharey=False)
+g.map_lower(sns.regplot, lowess=True, ci=False, line_kws={'color': 'black'})
+g.map_diag(sns.distplot, kde_kws={'color': 'black'})
+g.map_upper(corrdot)
+plt.show()
+```
+
+We can see all sorts of things here. Aside from the strong correlation among some of the variables, we see that they have different distribution. For example, acceleration is very normal distributed but the same cannot be said about the other two variables.
+
+Before anything else, let's try a simple model to predict mpg.
+
+```{python}
+y = df.pop('mpg')
+X = df
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30,random_state=42)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+print(model.score(X_test, y_test))
+
+```
+
+Now, can we simulate something so similar to the actual data that we would get the same score? Yes, we can thanks to copulas!!! We ca generate a synthetic dataset with the same underlying structure.
+
+```{python}
+
+# Select the best PARAMETRIC univariate (no KDE)
+univariate = Univariate(parametric=ParametricType.PARAMETRIC)
+
+
+def create_synthetic(X, y):
+    """
+    This function combines X and y into a single dataset D, models it
+    using a Gaussian copula, and generates a synthetic dataset S. It
+    returns the new, synthetic versions of X and y.
+    """
+    dataset = np.concatenate([X, np.expand_dims(y, 1)], axis=1)
+
+    distribs =  GaussianMultivariate(distribution=univariate)
+    distribs.fit(dataset)
+
+    synthetic = distribs.sample(len(dataset))
+
+    X = synthetic.values[:, :-1]
+    y = synthetic.values[:, -1]
+
+    return X, y, distribs
+
+X_synthetic, y_synthetic, dist= create_synthetic(X_train, y_train)
+
+```
+
+Let's look at the individual distributions fitted by the algorithm.
+
+```{python}
+
+parameters = dist.to_dict()
+parameters['univariates']
+```
+
+We see that the distributions (Gamma and Beta), and their corresponding parameters like location and scale. We can also take a look at the correlation that defines the join distribution.
+
+```{python}
+parameters['correlation']
+```
+
+Now it is time to look at all the synthetic variables and compare them with the original one. Let's look at the same things. A summary of the dataset and the plot of the 3 variables.
+
+```{python}
+syntDF=pd.DataFrame(np.concatenate([X_synthetic, np.expand_dims(y_synthetic, 1)], axis=1),columns=['horsepower', 'weight', 'acceleration','mpg'])
+
+syntDF.describe()
+```
+
+The descriptive statistics are remarkably similar, reflecting the statistical properties emphasized earlier. This holds significant importance in our analysis. However, a closer examination of individual variable distributions and their correlations reveals disparities. The Kernel distributions have evidently undergone changes, and although the correlation values remain within the same magnitude range and exhibit the same sign, they are not identical.
+
+```{python}
+g = sns.PairGrid(syntDF[['horsepower', 'weight','acceleration']], aspect=1, diag_sharey=False)
+g.map_lower(sns.regplot, lowess=True, ci=False, line_kws={'color': 'black'})
+g.map_diag(sns.distplot, kde_kws={'color': 'black'})
+g.map_upper(corrdot)
+plt.show()
+```
+
+Now that we have seen similarities and differences, let's try to run the same simple linear model on the synthetic data.
+
+```{python}
+model = LinearRegression()
+model.fit(X_synthetic, y_synthetic)
+
+print(model.score(X_test, y_test))
+
+```
+
+Upon scrutinizing the results, it is evident that they are highly comparable, even with the constraint of limiting the possible distributions to the simplest univariate forms and utilizing only three variables. This implies that our Gaussian copula has effectively captured the critical statistical characteristics of the dataset essential for addressing the regression problem.
+:::

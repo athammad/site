@@ -202,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <div class="justify">
-<p>all those numbers in the weather forecast got me thinking about a simple table with historical data for temperature, humidity, and rain. Then, my interest in playing with probabilities kicked in (it tends to do that a lot). I decided to turn this data into something fun, so I called it a “probability box.”</p>
+<p>All those numbers in the weather forecast got me thinking about a simple table with historical data for temperature, humidity, and rain. Then, my interest in playing with probabilities kicked in (it tends to do that a lot). I decided to turn this data into something fun, so I called it a “probability box.”</p>
 <p>Now, what’s a probability box? It’s just a fancy name for turning a bunch of data points into probabilities. Once I’ve done that, it’s like having a cool tool to play with. I can ask it about Cumulative Probabilities, which basically tells me the chances of two, three, or more things happening together.</p>
 <p>There are lots of ways to make a Probability Box, but I like keeping it simple. So, I’m using something called Kernel Density Estimation.</p>
 <p>Let’s make it less complicated with an example:</p>
@@ -248,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Performing KDE</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>f_kde <span class="ot">&lt;-</span> <span class="fu">kde</span>(xyz, <span class="at">eval.points =</span> pts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Before diving into the fun stuff, it’s important to make sure everything’s on track. Verifying KDE integration is a key step. This check ensures that the estimated probability density function follows the rules of probability theory. The integral of the KDE should add up to 1 across the entire variable range, reflecting a proper probability distribution where all possibilities together make a whole.</p>
+<p>Before diving into the fun stuff, it’s important to make sure everything’s on track. Verifying <strong>KDE integration</strong> is a key step. This check ensures that the estimated probability density function follows the rules of probability theory. The integral of the KDE should add up to 1 across the entire variable range, reflecting a proper probability distribution where all possibilities together make a whole.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assigning KDE Estimates to Data Frame</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>pts<span class="sc">$</span>est <span class="ot">&lt;-</span> f_kde<span class="sc">$</span>estimate</span>
