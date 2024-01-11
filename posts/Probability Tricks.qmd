@@ -1,0 +1,27 @@
+---
+title: "Probability Tricks"
+image: https://goodonyou.eco/wp-content/uploads/2019/01/SyntheticFabrics-1200x630.jpg
+code-fold: false
+execute:
+  eval: true
+fontsize: 1.5em
+---
+
+::: justify
+In this post I will discuss the basics of probabilities and some tricks to move in the probability space.
+
+First and foremost probability theory is a fundamental concept in all statistics, providing a framework for analyzing uncertainty. We can think about three types of probability raw probability, joint probability, and conditional probability. These concept are deeply interconnected as we will see soon but let's define them first.
+
+**Raw Probability:** measure of the likelihood that an event will occur.
+
+**Joint Probability:** the likelihood of two (or more) events occurring simultaneously. We can use the concept of joint probability to study the relationship between events.
+
+**Conditional Probability:** the likelihood of an event occurring given that another event has already occurred
+
+
+Going Back and Forth:
+We can go back and forth between joint and conditional probabilities using the formulas mentioned above. Let's illustrate this with our previous examples.
+
+
+
+:::
