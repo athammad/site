@@ -5,6 +5,7 @@ code-fold: true
 execute:
   eval: false
 ---
+
 ::: justify
 # An intuitive explanation of Bayesian updating
 
@@ -47,7 +48,6 @@ As you can see, now you have around 60% of passing the interview. These process 
 ![](../gallery/bayesian_update.gif){fig-align="center"}
 
 In essence, this is the core of Bayesian updating. It allows you to adapt your beliefs based on new information as you progress through an uncertain situation, much like navigating the twists and turns of a job interview.
-
 :::
 
 ```{python, eval=FALSE, include=FALSE}
@@ -100,7 +100,6 @@ evidence_distribution = stats.beta.pdf(x, 4, 2)  # Beta distribution parameters 
 
 # Calculate the posterior probability distribution (updated belief)
 posterior_distribution = prior_distribution * evidence_distribution
-posterior_distribution = posterior_distribution
 
 # Create a Seaborn plot
 plt.figure(figsize=(10, 6))
