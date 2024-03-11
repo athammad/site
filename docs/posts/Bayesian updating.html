@@ -135,12 +135,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">✍ Papers</span></a>
   </li>  
   <li class="nav-item">
+    <a class="nav-link" href="../solutions.html" rel="" target="">
+ <span class="menu-text">💡Solutions</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="../cv/cv.html" rel="" target="">
  <span class="menu-text">📃 CV</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../posts.html" rel="" target="">
  <span class="menu-text">🎙️Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slides.html" rel="" target="">
+ <span class="menu-text">📽️️ Slides</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../gallery.html" rel="" target="">
@@ -312,21 +320,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the posterior probability distribution (updated belief)</span></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>posterior_distribution <span class="op">=</span> prior_distribution <span class="op">*</span> evidence_distribution</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>posterior_distribution <span class="op">=</span> posterior_distribution</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Seaborn plot</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>prior_distribution, label<span class="op">=</span><span class="st">'Prior Belief (40%)'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>evidence_distribution, label<span class="op">=</span><span class="st">'Evidence (80%)'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>posterior_distribution, label<span class="op">=</span><span class="st">'Posterior Belief'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Bayes update Representation'</span>)</span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Probability'</span>)</span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Seaborn plot</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>prior_distribution, label<span class="op">=</span><span class="st">'Prior Belief (40%)'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>evidence_distribution, label<span class="op">=</span><span class="st">'Evidence (80%)'</span>, color<span class="op">=</span><span class="st">'green'</span>)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>sns.lineplot(x<span class="op">=</span>x, y<span class="op">=</span>posterior_distribution, label<span class="op">=</span><span class="st">'Posterior Belief'</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Customize the plot</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Bayes update Representation'</span>)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Probability'</span>)</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Density'</span>)</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co">#plt.show()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
