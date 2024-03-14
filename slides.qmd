@@ -41,4 +41,4 @@ format:
 [**Ensemble Methods**. Improve accuracy of results in models by combining multiple models instead of using a single model. All you need to know about Trees algorithms and more.](./slides/Ensemble%20Methods.html)
 
 \
-[**Model Tuning**. Adjusting a machine learning model involves tweaking specific settings, like control knobs, to help it learn better. ](./slides/Model Tuning.html)
+[**Model Tuning**. Adjusting a machine learning model involves tweaking specific settings, like control knobs, to help it learn better.](./slides/Model%20Tuning.html)
