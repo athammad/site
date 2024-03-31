@@ -1,6 +1,6 @@
 ---
 title: "Bayesian updating"
-image: https://vitalflux.com/wp-content/uploads/2020/09/Screenshot-2020-09-13-at-9.29.35-AM.png
+image: https://www.analyticsvidhya.com/wp-content/uploads/2016/06/12.jpg
 code-fold: true
 execute:
   eval: false
