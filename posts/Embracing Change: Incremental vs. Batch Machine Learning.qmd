@@ -59,4 +59,10 @@ Now, let's switch gears and explore batch machine learning. Picture a learning p
 ## Conclusion
 
 As we bid farewell to this exploration, we have gained an understanding of the intriguing differences between incremental and batch machine learning. Incremental learning embraces change and adapts to evolving data, making it perfect for real-time applications. On the other hand, batch learning takes a more measured approach, achieving strong convergence and accuracy with thorough analysis. Both methods have their unique strengths, empowering data scientists and developers to make informed choices based on the demands of their applications. So, whether you're venturing on a dynamic journey with incremental learning or taking a stable path with batch learning, remember to embrace the wonders of machine learning and let it lead you to exciting discoveries!
+
+
+# Video
+
+If you're interested in delving deeper into the subject, I've created a comprehensive one-hour [video introduction](https://www.loom.com/share/cadc7d47f6644f5baa503e8c54227cc7?sid=f8bf0ca5-b561-4cab-84e8-7cd300149fc0) on the topic.
+
 :::
