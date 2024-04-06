@@ -19,7 +19,9 @@ format:
 ::: justify
 Hello, my name is Ahmed, and I am a Data Scientist, Quantitative Researcher, and Lecturer. I have a **PhD in Causal Machine Learning** and over 10 years of experience working with data in both academic and private sectors. I have extensive knowledge of programming languages such as R and Python, which I use daily to conduct my research and analysis.
 
-As a passionate learner, I always strive to stay up-to-date with the latest developments in Machine Learning. That's why I'm still involved in research and regularly publish my analysis on a variety of topics, including Machine Learning and Econometrics applied to environmental analysis and public health.
+As a passionate learner, I always strive to stay up-to-date with the latest developments in Machine Learning. That's why I'm still involved in research and regularly publish my analysis on a variety of topics, including **Machine Learning and Econometrics** applied to environmental analysis and other fields.
+
+In the last few years, I have been focusing mainly on **Environmental Data Modeling, Climate Change and Extreme Event Analysis** with a strong emphasis on probabilistic models to assist both private and public sector organizations.
 
 One of the most fulfilling aspects of my career is sharing my knowledge of **statistics and machine learning** with others. **Teaching** the younger generation and professionals how to "get things done" and handle real-world data problems is something that brings me so much joy. It's an opportunity for me to share my years of experience in the field and help others succeed.
 :::
@@ -32,13 +34,13 @@ One of the most fulfilling aspects of my career is sharing my knowledge of **sta
 ::: {.column width="50%"}
 -   Machine Learning
 -   Econometrics
--   Incremental Machine Learning
+-   Extreme Events Analysis
 -   Causal Inference
 :::
 
 ::: {.column width="50%"}
 -   Time Series
--   Probabilistic Machine Learning
+-   Probabilistic Models
 -   Environmental Analysis
 -   Sensor & Satellite Data
 :::
