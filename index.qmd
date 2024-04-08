@@ -17,13 +17,13 @@ format:
 # Ahmed T. Hammad
 
 ::: justify
-Hello, my name is Ahmed, and I am a Data Scientist, Quantitative Researcher, and Lecturer. I have a **PhD in Causal Machine Learning** and over 10 years of experience working with data in both academic and private sectors. I have extensive knowledge of programming languages such as R and Python, which I use daily to conduct my research and analysis.
+Hello, my name is Ahmed, and I am a Data Scientist, Quantitative Researcher, and Lecturer. I have a **PhD in Causal Machine Learning** and over 10 years of [experience](https://athsas.com/cv/cv.html) working with data in both academic and private sectors. I have extensive knowledge of programming languages such as R and Python, which I use daily to conduct my research and analysis.
 
-As a passionate learner, I always strive to stay up-to-date with the latest developments in Machine Learning. That's why I'm still involved in research and regularly publish my analysis on a variety of topics, including **Machine Learning and Econometrics** applied to environmental analysis and other fields.
+As a passionate learner, I always strive to stay up-to-date with the latest developments in Machine Learning. That's why I'm still involved in [research](https://athsas.com/research.html) and regularly [publish](https://athsas.com/papers.html) my analysis on a variety of topics, including **Machine Learning and Econometrics** applied to environmental analysis and other fields.
 
-In the last few years, I have been focusing mainly on **Environmental Data Modeling, Climate Change and Extreme Event Analysis** with a strong emphasis on probabilistic models to assist both private and public sector organizations.
+In the last few years, I have been focusing mainly on **Environmental Data Modeling, Climate Change and Extreme Event Analysis** with a strong emphasis on probabilistic models to assist both [private and public sector organizations](https://athsas.com/solutions.html).
 
-One of the most fulfilling aspects of my career is sharing my knowledge of **statistics and machine learning** with others. **Teaching** the younger generation and professionals how to "get things done" and handle real-world data problems is something that brings me so much joy. It's an opportunity for me to share my years of experience in the field and help others succeed.
+One of the most fulfilling aspects of my career is sharing my knowledge of **statistics and machine learning** with others. [**Teaching**](https://athsas.com/teaching.html) the younger generation and professionals how to "get things done" and handle real-world data problems is something that brings me so much joy. It's an opportunity for me to share my years of experience in the field and help others succeed.
 :::
 
 \
@@ -57,5 +57,7 @@ One of the most fulfilling aspects of my career is sharing my knowledge of **sta
 \
 
 ::: justify
-For curious visitors, the name of the website is just a tentative to mix the initial letter of my full name and statistics. By chance, I ended up with something that has an actual meaning in Arabic 🤷. *Athsas* (أتحسس) means "to feel something" or a sensation given by an object or material when touched.
+::: {style="font-size: 90%;"}
+*For curious visitors, the name of the website is just a tentative to mix the initial letter of my full name and statistics. By chance, I ended up with something that has an actual meaning in Arabic 🤷.* **Athsas** *(أتحسس) means "to feel something" or a sensation given by an object or material when touched.*
+:::
 :::
