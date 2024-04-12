@@ -1,6 +1,6 @@
 ---
 title: ""
-image: ./gallery/me.jpeg
+image: ./gallery/me_tree.jpeg
 toc: false
 page-layout: full
 about: 
