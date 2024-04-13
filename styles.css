@@ -9,4 +9,10 @@
     }
 }
 
+/* In your CSS file */
+.padded-image {
+    padding: 15px; /* Adjust as desired */
+} 
+
+
 ```

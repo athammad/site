@@ -156,6 +156,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
   <ul>
   <li><a href="#syntcf" id="toc-syntcf" class="nav-link active" data-scroll-target="#syntcf">SyntCF</a></li>
+  <li><a href="#pbox" id="toc-pbox" class="nav-link" data-scroll-target="#pbox">PBOX</a></li>
   <li><a href="#an-ai-geospatial-assisted-decision-support-framework" id="toc-an-ai-geospatial-assisted-decision-support-framework" class="nav-link" data-scroll-target="#an-ai-geospatial-assisted-decision-support-framework">An AI Geospatial-assisted decision support framework</a></li>
   </ul>
 </nav>
@@ -180,21 +181,24 @@ ul.task-list li input[type="checkbox"] {
 <p>The <a href="https://github.com/athammad/syntCF">syntCF</a> R package is a powerful tool designed for estimating the impact of programs or policies through a robust time series synthetic counterfactual approach, leveraging the double difference estimator within a Machine Learning framework. Inspired by contributions from various studies, the package employs a modified version of the robust random forest algorithm, considering the time dependency of data through block bootstrapping. To address uncertainty in predicted counterfactual time series, quantile regression forest is used.</p>
 </div>
 </section>
+<section id="pbox" class="level1">
+<h1>PBOX</h1>
+<div class="justify">
+<p><img src="./gallery/pboxIcon.png" class="padded-image" width="200" align="left"></p>
+<p>The <a href="https://github.com/athammad/pbox">pbox</a> R package is designed for risk assessment and management. It is an advanced statistical library that excels in exploring probability distributions within a given dataset. The tool offers a method to encapsulate and query the probability space effortlessly. Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data. This unique capability empowers users to delve into intricate relationships and dependencies within datasets, providing a solid foundation for making well-informed decisions in the context of risk management scenarios. With pbox is straightforward to answer questions like:</p>
+<ul>
+<li><p>What is the probability of experiencing extreme heat waves in Indonesia with temperatures above 32 degrees?</p></li>
+<li><p>What is the probability of simultaneous extreme heat waves in Vietnam with temperatures above than 31 degrees and the average regional temperature being above than 26 degrees?</p></li>
+<li><p>Given that the average regional temperature is 26 degrees, what is the probability of experiencing extreme heat waves in both Vietnam and Indonesia with temperatures above 33 degrees?</p></li>
+</ul>
+</div>
+</section>
 <section id="an-ai-geospatial-assisted-decision-support-framework" class="level1">
 <h1>An AI Geospatial-assisted decision support framework</h1>
-<p><img src="./gallery/3v.PNG" width="400" align="left"></p>
+<p><img src="./gallery/3v.PNG" class="padded-image" width="400" align="left"></p>
 <div class="justify">
-<p>3Vs (Vulnerability, Vaccination, and Values), is a framework devised to optimize the allocation of COVID-19 vaccines in settings characterized by resource constraints. The framework integrates processes of data collection, AI-facilitated vulnerability assessment, and vaccination prioritization, all aligned with the principles delineated by the World Health Organization (WHO). Noteworthy components encompass the compilation of socio-demographic and environmental data, AI-driven expert elicitation for prioritization, and geospatially informed vaccine allocation with due regard to equity values. The framework’s empirical application in Kenya serves as a testament to its potential to surpass prevailing strategies, demonstrating adeptness in the judicious dispensation of vaccines to socially vulnerable demographics. Adaptable to diverse health emergencies, the 3Vs framework emerges as an invaluable instrument for decision-makers navigating challenges within resource-constrained environments.</p>
+<p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037">3Vs</a> (Vulnerability, Vaccination, and Values), is a framework devised to optimize the allocation of COVID-19 vaccines in settings characterized by resource constraints. The framework integrates processes of data collection, AI-facilitated vulnerability assessment, and vaccination prioritization, all aligned with the principles delineated by the World Health Organization (WHO). Noteworthy components encompass the compilation of socio-demographic and environmental data, AI-driven expert elicitation for prioritization, and geospatially informed vaccine allocation with due regard to equity values. The framework’s empirical application in Kenya serves as a testament to its potential to surpass prevailing strategies, demonstrating adeptness in the judicious dispensation of vaccines to socially vulnerable demographics. Adaptable to diverse health emergencies, the 3Vs framework emerges as an invaluable instrument for decision-makers navigating challenges within resource-constrained environments.</p>
 </div>
-<!---
-# PBOX
-::: justify
-pbox is a powerful tool designed for risk assessment and management. it is an advanced statistical library that excels in exploring probability distributions within a given dataset. The tool offers a method to encapsulate and query the probability space effortlessly. Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data. This unique capability empowers users to delve into intricate relationships and dependencies within datasets, providing a solid foundation for making well-informed decisions in the context of risk management scenarios. With pbox is straightforward to answer questions like:
-- What is the probability of experiencing extreme heat waves in Indonesia with temperatures above 32 degrees?
-- What is the probability of simultaneous extreme heat waves in Vietnam with temperatures above than 31 degrees and the average regional temperature being above than 26 degrees?
-- Given that the average regional temperature is 26 degrees, what is the probability of experiencing extreme heat waves in both Vietnam and Indonesia with temperatures above 33 degrees?
-:::
--->
 
 
 </section>
