@@ -15,7 +15,7 @@ format:
 
 # SyntCF
 
-<img src="./gallery/logoSCF.png" width="400" align="right"/>
+<img src="./gallery/logoSCF.png" width="310" align="right"/>
 
 ::: justify
 The [syntCF](https://github.com/athammad/syntCF) R package is a powerful tool designed for estimating the impact of programs or policies through a robust time series synthetic counterfactual approach, leveraging the double difference estimator within a Machine Learning framework. Inspired by contributions from various studies, the package employs a modified version of the robust random forest algorithm, considering the time dependency of data through block bootstrapping. To address uncertainty in predicted counterfactual time series, quantile regression forest is used.
