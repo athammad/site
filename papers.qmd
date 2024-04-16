@@ -39,7 +39,7 @@ page-layout: full
 
 ::: justify
 -   A note on treatment effects: we are missing\
-    something on tails
+    something on the tails
 
 -   A probabilistic box to explore climate data
 :::
