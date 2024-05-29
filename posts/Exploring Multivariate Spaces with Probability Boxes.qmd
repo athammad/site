@@ -8,7 +8,7 @@ fontsize: 1.5em
 ---
 
 ::: justify
-In a previuous post I introduced the idea of a [“probability box.”](https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html) Well, after After several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on **CRAN** for everyone interested in answering probabilistic questions!
+In a previous post I introduced the idea of a [“probability box.”](https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html) Well, after After several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on **CRAN** for everyone interested in answering probabilistic questions!
 
 🌟 Introducing **pbox!** 🌟 an advanced statistical library offering a method to encapsulate and query the probability space of a dataset effortlessly using Probability Boxes (p-boxes). Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data using copula theory and models. **pbox** can be utilized across various fields, including such as Environmental Analysis, Finance Risk Assessment and Management and more!
 
