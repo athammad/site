@@ -1,18 +1,23 @@
 ---
 title: "pbox: Exploring Multivariate Spaces with Probability Boxes"
-image: ../gallery/pboxIconSmall.png
+image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIunXBJC_f5L87QaAVLzWHGqU3Z3gh7PeZdQ&s
+toc: true
 code-fold: false
 execute:
   eval: true
 fontsize: 1.5em
-image-options:
-  width: 50%  # or specify the width in percentage, e.g., "50%"
-  height: auto  # this will maintain the aspect ratio
-
 ---
+
+# ... Last time
 
 ::: justify
 In a previous post I introduced the idea of a [“probability box.”](https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html) Well, after After several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on **CRAN** for everyone interested in answering probabilistic questions!
+:::
+
+# pbox
+
+::: justify
+![](../gallery/pboxIcon.png){.padded-image align="centre" fig-align="center" width="300"}
 
 🌟 Introducing **pbox!** 🌟 an advanced statistical library offering a method to encapsulate and query the probability space of a dataset effortlessly using Probability Boxes (p-boxes). Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data using copula theory and models. **pbox** can be utilized across various fields, including such as Environmental Analysis, Finance Risk Assessment and Management and more!
 
@@ -21,6 +26,7 @@ This is just the beginning. In future releases, I plan to add additional functio
 Here is a little demo to showcase what can be achieved with few lines of code!
 
 Remember to first install the packaged from **CRAN**
+:::
 
 ```{r eval=FALSE}
 install.packages("pbox")
@@ -33,8 +39,9 @@ data("SEAex", package = "pbox")
 
 ```
 
-# Create PBOX Object
+# Create a PBOX Object
 
+::: justify
 We create a `pbox` object from the `SEAex` dataset using the `set_pbox` function.
 
 ```{r eval=TRUE, results='hide'}
@@ -45,10 +52,13 @@ pbx <- set_pbox(SEAex)
 ```{r}
 print(pbx)
 ```
+:::
 
 # Explore Probability Space
 
+::: justify
 We can query the probabilistic space of the pbox object using the qpbox function. Below are examples of different types of queries.
+:::
 
 ```{r}
 # Marginal Distribution
@@ -110,4 +120,3 @@ We perform scenario analysis by modifying underlying parameters of the pbox obje
 scenario_results <- scenario_pbox(pbx, mj = "Vietnam:31 & avgRegion:26", param_list = list(Vietnam = "mu"))
 print(scenario_results)
 ```
-:::

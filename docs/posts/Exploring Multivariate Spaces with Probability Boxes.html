@@ -186,11 +186,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#last-time" id="toc-last-time" class="nav-link active" data-scroll-target="#last-time">… Last time</a></li>
+  <li><a href="#pbox" id="toc-pbox" class="nav-link" data-scroll-target="#pbox">pbox</a></li>
+  <li><a href="#create-a-pbox-object" id="toc-create-a-pbox-object" class="nav-link" data-scroll-target="#create-a-pbox-object">Create a PBOX Object</a></li>
+  <li><a href="#explore-probability-space" id="toc-explore-probability-space" class="nav-link" data-scroll-target="#explore-probability-space">Explore Probability Space</a></li>
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence Intervals</a></li>
+  <li><a href="#grid-search" id="toc-grid-search" class="nav-link" data-scroll-target="#grid-search">Grid Search</a></li>
+  <li><a href="#scenario-analysis" id="toc-scenario-analysis" class="nav-link" data-scroll-target="#scenario-analysis">Scenario Analysis</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -209,12 +221,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="last-time" class="level1">
+<h1>… Last time</h1>
 <div class="justify">
 <p>In a previous post I introduced the idea of a <a href="https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html">“probability box.”</a> Well, after After several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on <strong>CRAN</strong> for everyone interested in answering probabilistic questions!</p>
+</div>
+</section>
+<section id="pbox" class="level1">
+<h1>pbox</h1>
+<div class="justify">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../gallery/pboxIcon.png" class="padded-image img-fluid figure-img" data-align="centre" width="300"></p>
+</figure>
+</div>
 <p>🌟 Introducing <strong>pbox!</strong> 🌟 an advanced statistical library offering a method to encapsulate and query the probability space of a dataset effortlessly using Probability Boxes (p-boxes). Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data using copula theory and models. <strong>pbox</strong> can be utilized across various fields, including such as Environmental Analysis, Finance Risk Assessment and Management and more!</p>
 <p>This is just the beginning. In future releases, I plan to add additional functionalities to enhance <strong>pbox</strong> even further. Your feedback and suggestions are invaluable to me. If you have any ideas or requests, please feel free to drop me a message or write it in an issue on the <a href="https://github.com/athammad/pbox">project’s repository</a>.</p>
 <p>Here is a little demo to showcase what can be achieved with few lines of code!</p>
 <p>Remember to first install the packaged from <strong>CRAN</strong></p>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pbox"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -223,8 +248,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"SEAex"</span>, <span class="at">package =</span> <span class="st">"pbox"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="create-pbox-object" class="level1">
-<h1>Create PBOX Object</h1>
+</section>
+<section id="create-a-pbox-object" class="level1">
+<h1>Create a PBOX Object</h1>
+<div class="justify">
 <p>We create a <code>pbox</code> object from the <code>SEAex</code> dataset using the <code>set_pbox</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set pbox</span></span>
@@ -276,10 +303,13 @@ avgRegion 0.5751234 0.2472509 0.4424894 1.0000000
 -------------------------------</code></pre>
 </div>
 </div>
+</div>
 </section>
 <section id="explore-probability-space" class="level1">
 <h1>Explore Probability Space</h1>
+<div class="justify">
 <p>We can query the probabilistic space of the pbox object using the qpbox function. Below are examples of different types of queries.</p>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Marginal Distribution</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -345,7 +375,7 @@ avgRegion 0.5751234 0.2472509 0.4424894 1.0000000
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qpbox</span>(pbx, <span class="at">mj =</span> <span class="st">"Malaysia:33 &amp; median:c(Vietnam,Thailand)"</span>, <span class="at">co =</span> <span class="st">"mean:c(avgRegion)"</span>, <span class="at">CI =</span> <span class="cn">TRUE</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        P      2.5%     97.5% 
-0.6557157 0.5685246 0.7663845 </code></pre>
+0.6557157 0.5561359 0.7528324 </code></pre>
 </div>
 </div>
 </section>
@@ -420,10 +450,9 @@ $SD3
 0.004181092 </code></pre>
 </div>
 </div>
+
+
 </section>
-</div>
-
-
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
