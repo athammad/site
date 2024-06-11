@@ -31,7 +31,7 @@ The advent of big data and the increasing availability of diverse environmental 
 ## **Machine Learning**
 
 ::: justify
-Machine learning algorithms have shown remarkable success in pattern recognition, predictive modelling, and data-driven decision-making. The ability to automatically extract complex patterns and relationships from large-scale environmental datasets makes machine learning an invaluable tool for environmental analysis. By leveraging machine learning techniques, develop predictive models to forecast environmental outcomes and assess the potential impacts of policy interventions.. Furthermore, machine learning methods can aid in feature selection, data imputation, and anomaly detection, contributing to improved data quality and reliability for environmental analysis.
+Machine learning algorithms have shown remarkable success in pattern recognition, predictive modelling, and data-driven decision-making. The ability to automatically extract complex patterns and relationships from large-scale environmental datasets makes machine learning an invaluable tool for environmental analysis. By leveraging machine learning techniques, develop predictive models to forecast environmental outcomes and assess the potential impacts of policy interventions. Furthermore, machine learning methods can aid in feature selection, data imputation, and anomaly detection, contributing to improved data quality and reliability for environmental analysis.
 :::
 
 ## **Causal Inference**
