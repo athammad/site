@@ -1,10 +1,14 @@
 ---
 title: "pbox: Exploring Multivariate Spaces with Probability Boxes"
-image: ../gallery/pboxIcon.png
+image: ../gallery/pboxIconSmall.png
 code-fold: false
 execute:
   eval: true
 fontsize: 1.5em
+image-options:
+  width: 50%  # or specify the width in percentage, e.g., "50%"
+  height: auto  # this will maintain the aspect ratio
+
 ---
 
 ::: justify
@@ -65,7 +69,7 @@ qpbox(pbx, mj = "Malaysia:33 & Vietnam:31", co = "avgRegion:26", fixed = TRUE)
 
 #Joint Distribution with Mean Values
 
-qpbox(pbx, mj = "mean:c(Vietnam, Thailand)", lower.tail = TRUE)
+qpbox(pbx, mj = "mean:c(Vietnam,Thailand)", lower.tail = TRUE)
 
 # Joint Distribution with Median Values
 
