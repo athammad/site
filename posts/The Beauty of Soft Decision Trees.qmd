@@ -1,0 +1,37 @@
+---
+title: "The Beauty of Soft Decision Trees"
+image: https://miro.medium.com/v2/resize:fit:720/format:webp/0*DcDO-FVnxf226Amp.
+toc: true
+page-layout: full
+code-fold: false
+execute:
+  eval: true
+fontsize: 1.5em
+---
+
+# Introduction
+::: justify
+> *In this blog post I aim to introduce soft decision trees, highlighting their advantages over traditional decision trees. I will explain the key characteristics of soft decision trees, such as probabilistic splits and their suitability for incremental machine learning through stochastic gradient descent. The post also emphasizes the importance of accounting for uncertainty in decision-making and how soft decision trees with their probabilistic nature can help.*
+
+Decision trees are a popular and intuitive model used for both classification and regression tasks in machine learning. Traditional decision trees involve making hard, binary decisions at each node, where an input either moves left or right depending on a specific threshold. While effective and easy to interpret, these hard decisions can lead to issues such as overfitting and lack of robustness. To address these challenges, soft decision trees introduce a more flexible approach by allowing probabilistic splits at each node, thereby offering a blend of decision tree interpretability and the smoothness of probabilistic models.
+
+Soft decision trees, also known as probabilistic decision trees, differ from traditional hard decision trees in that they assign probabilities to the decisions made at each node. Instead of assigning a data point to a single branch, a soft decision tree computes a probability distribution over all possible branches, allowing a data point to be partially assigned to multiple branches. This probabilistic approach can lead to more robust models that generalize better to unseen data. I personally find them very interesting. The use of stochastic gradient descent in soft decision trees makes them particularly suitable for incremental machine learning, where the model is continuously updated as new data arrives.
+
+![](https://miro.medium.com/v2/resize:fit:720/format:webp/0*DcDO-FVnxf226Amp.)
+::: 
+# Uncertainty in Decision Making
+::: justify
+Uncertainty is an inherent aspect of real-world data and decision-making processes. Traditional decision trees, with their hard splits, often fail to capture this uncertainty, potentially leading to overconfident and less reliable predictions. Soft decision trees, on the other hand, incorporate uncertainty directly into the model by using probabilistic splits. This allows the model to provide a measure of confidence in its predictions, which can be crucial for applications where understanding the uncertainty is as important as the prediction itself. For instance, in healthcare or finance, making decisions with an awareness of the uncertainty can lead to more cautious and informed choices, ultimately reducing risks and improving outcomes.
+::: 
+# Flexibility in Internal Nodes
+::: justify
+One of the compelling aspects of soft decision trees is their flexibility in the choice of probabilistic models used at the internal nodes. Essentially, any probabilistic model could be utilized to determine the branching probabilities at each node. This could range from simple logistic regression models to more complex neural networks, depending on the specific application and the complexity of the data. This flexibility allows soft decision trees to be tailored to a wide variety of tasks, making them a versatile tool in the machine learning toolkit.
+::: 
+# Distillation
+::: justify
+The paper "Distilling a Neural Network Into a Soft Decision Tree" by Nicholas Frosst and Geoffrey Hinton addresses the challenge of interpretability in deep neural networks, which, despite their high classification performance, are difficult to understand. The authors propose a novel method to distill the knowledge of a trained neural network into a soft decision tree, which is easier to interpret while retaining much of the neural network's generalization ability. This approach involves training a decision tree using the outputs of the neural network as soft targets, enabling the decision tree to learn from a larger, potentially synthetic dataset created by the neural network. The resulting soft decision tree makes hierarchical decisions based on learned filters, leading to a model that performs slightly worse than the original neural network but provides clear and understandable decision paths. Experimental results on datasets such as MNIST and Connect4 demonstrate that the soft decision tree achieves competitive accuracy and offers a transparent way to explain individual predictions by tracing the decision path through the tree.
+
+![](https://vgg.fiit.stuba.sk/wp-uploads/2018/09/infer.png)
+ 
+*In summary, soft decision trees present a promising advancement over traditional decision trees by incorporating probabilistic splits that enhance model robustness and interpretability. By addressing the inherent uncertainty in decision-making and offering flexibility in the choice of probabilistic models at internal nodes, soft decision trees provide a powerful tool for incremental machine learning and various applications where understanding the confidence in predictions is crucial. The innovative method proposed by Frosst and Hinton to distill neural networks into soft decision trees further bridges the gap between the high performance of deep learning models and the interpretability of decision trees. This makes soft decision trees an invaluable addition to the machine learning practitioner's toolkit, capable of delivering both accuracy and clarity in complex predictive tasks.*
+:::
