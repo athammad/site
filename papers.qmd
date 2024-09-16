@@ -6,6 +6,10 @@ page-layout: full
 # Publications
 
 ::: justify
+-   [A note on treatment effects: we are missing something on the tails.](http://dx.doi.org/10.2139/ssrn.4899355)
+
+    *Hammad, Ahmed Tarek, SSRN*
+
 -   [Prioritizing COVID-19 vaccine allocation in resource poor settings: Towards an Artificial Intelligence-enabled and Geospatial-assisted decision support framework](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037)
 
     *Shayegh S.,\[...\], Hammad, A.T., et al., PLOS ONE*
@@ -33,13 +37,4 @@ page-layout: full
 -   [Tracking global urban green space trends](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:zYLM7Y9cAGgC)
 
     *G Falchetta, AT Hammad. EGU23*
-:::
-
-# Forthcoming
-
-::: justify
--   A note on treatment effects: we are missing\
-    something on the tails
-
--   A probabilistic box to explore climate data
 :::

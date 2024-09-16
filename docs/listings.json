@@ -2,21 +2,23 @@
   {
     "listing": "/posts.html",
     "items": [
-      "/posts/Unraveling the Power of Causal Machine Learning.html",
-      "/posts/Quantile Random Forest.html",
-      "/posts/Embracing Change: Incremental vs. Batch Machine Learning.html",
-      "/posts/Logistic Regression and Marginal Effects.html",
+      "/posts/A Fresh Perspective on Treatment Effects - Beyond the Average and Into the Tails.html",
       "/posts/Contextual Multi-Armed Bandit.html",
-      "/posts/When in doubt, just model it. Modelling uncertainty.html",
-      "/posts/Developing in a Docker container.html",
       "/posts/Data Science Books.html",
       "/posts/Data Science project Boilerplate.html",
-      "/posts/Bayesian updating.html",
-      "/posts/The 3 + 1 pillars of data science (part 1).html",
-      "/posts/Probability Box with Kernel Density Estimation.html",
+      "/posts/Developing in a Docker container.html",
+      "/posts/Embracing Change: Incremental vs. Batch Machine Learning.html",
+      "/posts/Logistic Regression and Marginal Effects.html",
       "/posts/Machine Learning, Copula and Synthetic Data.html",
-      "/posts/Exploring Multivariate Spaces with Probability Boxes.html",
-      "/posts/The Beauty of Soft Decision Trees.html"
+      "/posts/Probability Box with Kernel Density Estimation.html",
+      "/posts/Quantile Random Forest.html",
+      "/posts/The 3 + 1 pillars of data science (part 1).html",
+      "/posts/The Beauty of Soft Decision Trees.html",
+      "/posts/Understanding Stationary and Non-Stationary Time Series: Concepts, Implications, and Approaches.html",
+      "/posts/Unraveling the Power of Causal Machine Learning.html",
+      "/posts/Updating knowledge with Bayes.html",
+      "/posts/When in doubt, just model it. Modelling uncertainty.html",
+      "/posts/Exploring Multivariate Spaces with Probability Boxes.html"
     ]
   },
   {

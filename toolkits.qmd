@@ -13,15 +13,8 @@ format:
       margin-width: 250px
 ---
 
-# SyntCF
-
-<img src="./gallery/logoSCF.png" width="310" align="right"/>
-
-::: justify
-The [syntCF](https://github.com/athammad/syntCF) R package is a powerful tool designed for estimating the impact of programs or policies through a robust time series synthetic counterfactual approach, leveraging the double difference estimator within a Machine Learning framework. Inspired by contributions from various studies, the package employs a modified version of the robust random forest algorithm, considering the time dependency of data through block bootstrapping. To address uncertainty in predicted counterfactual time series, quantile regression forest is used.
-:::
-
 # PBOX
+
 ::: justify
 <img src="./gallery/pboxIcon.png" class="padded-image" width="200" align="left"/>
 
@@ -34,9 +27,27 @@ The [pbox](https://github.com/athammad/pbox) R package is designed for risk asse
 -   Given that the average regional temperature is 26 degrees, what is the probability of experiencing extreme heat waves in both Vietnam and Indonesia with temperatures above 33 degrees?
 :::
 
+# rgcapi 
+::: justify
+<img src="./gallery/logo_rgcapi.png" align="right" height="200"/>
+
+The [rgcapi](https://github.com/athammad/rgcapi) R package provides an interface to the **Gain Capital API** V1 and V2, enabling users to perform various trading operations on [Forex.com](https://forex.com). This package includes functionalities for account management, market information retrieval, trading operations, and historical data extraction. It also includes helper functions and lookup tables to facilitate the interpretation of API responses. The library is implemented using `R6`, an encapsulated object-oriented programming paradigm in R, which offers advantages such as modularity, reusability, and the ability to maintain state across function calls.
+
+Notably, the [rgcapi](https://github.com/athammad/rgcapi) package is the only library within the R ecosystem that facilitates connectivity with the Gain Capital API. This makes it an indispensable tool for the automated management of trading accounts and the implementation of automated trading strategies. By leveraging the extensive statistical, data science, and machine learning capabilities of the R ecosystem, [rgcapi](https://github.com/athammad/rgcapi) offers a robust solution for traders and data scientists seeking to enhance their trading operations.
+:::
+
+# SyntCF
+
+<img src="./gallery/logoSCF.png" width="310" align="left"/>
+
+::: justify
+The [syntCF](https://github.com/athammad/syntCF) R package is a powerful tool designed for estimating the impact of programs or policies through a robust time series synthetic counterfactual approach, leveraging the double difference estimator within a Machine Learning framework. Inspired by contributions from various studies, the package employs a modified version of the robust random forest algorithm, considering the time dependency of data through block bootstrapping. To address uncertainty in predicted counterfactual time series, quantile regression forest is used.
+:::
+
+
 # An AI Geospatial-assisted decision support framework
 
-<img src="./gallery/3v.PNG" class="padded-image" width="270" align="left"/>
+<img src="./gallery/3v.PNG" class="padded-image" width="270" align="right"/>
 
 ::: justify
 [3Vs](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037) (Vulnerability, Vaccination, and Values), is a framework devised to optimize the allocation of COVID-19 vaccines in settings characterized by resource constraints. The framework integrates processes of data collection, AI-facilitated vulnerability assessment, and vaccination prioritization, all aligned with the principles delineated by the World Health Organization (WHO). Noteworthy components encompass the compilation of socio-demographic and environmental data, AI-driven expert elicitation for prioritization, and geospatially informed vaccine allocation with due regard to equity values. The framework's empirical application in Kenya serves as a testament to its potential to surpass prevailing strategies, demonstrating adeptness in the judicious dispensation of vaccines to socially vulnerable demographics. Adaptable to diverse health emergencies, the 3Vs framework emerges as an invaluable instrument for decision-makers navigating challenges within resource-constrained environments.

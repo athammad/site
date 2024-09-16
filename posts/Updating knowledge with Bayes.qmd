@@ -1,5 +1,5 @@
 ---
-title: "Bayesian updating"
+title: "Updating knowledge with Bayes"
 image: https://www.analyticsvidhya.com/wp-content/uploads/2016/06/12.jpg
 code-fold: true
 execute:

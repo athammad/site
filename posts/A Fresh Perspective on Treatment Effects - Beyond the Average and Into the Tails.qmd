@@ -1,0 +1,54 @@
+---
+title: "A Fresh Perspective on Treatment Effects - Beyond the Average and Into the Tails"
+image: https://catinaflat.blog/wp-content/uploads/2023/01/cat_tail.jpg
+toc: true
+page-layout: full
+code-fold: false
+execute:
+  eval: true
+fontsize: 1.5em
+---
+
+# Tails in Causal Inference
+
+::: justify
+In the field of econometrics, understanding the impact of interventions—whether they are policies, programs, or natural events—has traditionally focused on average treatment effects (ATE). While this approach has served as a gold standard, it may overlook critical nuances, especially when we consider the complex interdependencies between variables in the extreme tails of their distributions. My recent paper, "A Note on Treatment Effects: We Are Missing Something on the Tails," addresses this gap and proposes a more holistic approach to evaluating treatment effects.
+:::
+
+## The Case for Tail Dependence in Intervention Evaluation
+
+::: justify
+The central argument of my paper revolves around the concept of tail dependence, which occurs when two or more variables exhibit a stronger relationship in their extreme values compared to the rest of their distribution. This is especially pertinent in situations where extreme events—such as financial crises, natural disasters, or even exceptional educational outcomes—are of particular concern.
+
+Traditional evaluations often focus on the average effects of an intervention, which can mask significant risks or benefits that emerge in the tails of the distribution. Ignoring tail dependence can lead to underestimating the full impact of an intervention, particularly in systems characterized by high uncertainty and risk. For instance, financial markets often show stronger correlations between assets during extreme downturns, which cannot be captured by simple average measures.
+:::
+
+## A Holistic Approach to Evaluation
+
+::: justify
+My paper suggests that a more comprehensive evaluation should incorporate the entire distribution of outcomes, particularly focusing on the tails. By integrating methods from extreme value theory (EVT) and copula-based modeling, we can better assess the joint occurrence of extreme events. This approach allows for a deeper understanding of how interventions may influence not just the central tendency but also the extreme ends of the outcome distribution.
+
+One of the tools I discuss is the Gumbel copula, which is well-suited for modeling tail dependence. Copulas, in general, are mathematical functions that allow us to model the dependence structure between variables independently of their marginal distributions. This flexibility is crucial when we are interested in capturing the behavior of variables during extreme events.
+:::
+
+## An Application: The STAR Experiment
+
+::: justify
+To illustrate the practical implications of this approach, I extended the analysis of the Tennessee Student Teacher Achievement Ratio (STAR) project. This experiment, conducted in the mid-1980s, evaluated the impact of class size on student academic performance. The traditional analysis showed that smaller class sizes led to better average performance in reading and math, particularly for minority and economically disadvantaged students.
+
+However, by applying my proposed framework, I found that smaller class sizes also significantly increased the dependence between high reading and math scores, particularly in the upper tail of the distribution. In other words, top-performing students in smaller classes showed a stronger relationship between their reading and math scores, indicating that these students benefited more from the intervention in terms of the interdependence of their skills. This insight could have profound implications for educational policies aimed at fostering excellence among high achievers.
+:::
+
+# Conclusion: A Call for a Broader Evaluation Perspective
+
+::: justify
+In conclusion, my paper highlights the importance of moving beyond average treatment effects to consider the full range of possible impacts, particularly in the tails of the distribution. By incorporating methods from EVT and copula modeling, we can gain a more nuanced understanding of how interventions influence outcomes, especially under extreme conditions.
+
+This approach is not limited to education or finance but can be applied to a wide range of fields, including public health, environmental policy, and economics. Ultimately, by embracing a more holistic perspective, we can make better-informed decisions and design more effective policies that account for the complexities of the real world.
+
+If you're interested, here is the link for the [preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4899355).
+
+------------------------------------------------------------------------
+
+*This blog post offers a glimpse into the key findings of my paper and emphasizes the importance of considering tail dependence in treatment effect evaluations. By expanding our focus beyond the average, we can uncover hidden risks and opportunities that could significantly influence decision-making in various domains.*
+:::
