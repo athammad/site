@@ -11,7 +11,7 @@ fontsize: 1.5em
 # ... Last time
 
 ::: justify
-In a previous post I introduced the idea of a [“probability box.”](https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html) Well, after After several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on **CRAN** for everyone interested in answering probabilistic questions!
+In a previous post I introduced the idea of a [“probability box.”](https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html) Well, after several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on **CRAN** for everyone interested in answering probabilistic questions!
 :::
 
 # pbox
@@ -25,7 +25,7 @@ This is just the beginning. In future releases, I plan to add additional functio
 
 Here is a little demo to showcase what can be achieved with few lines of code!
 
-Remember to first install the packaged from **CRAN**
+Remember to first install the packaged from **CRAN.**
 :::
 
 ```{r eval=FALSE}

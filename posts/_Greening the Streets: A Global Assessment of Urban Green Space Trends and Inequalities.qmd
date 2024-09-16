@@ -1,0 +1,68 @@
+---
+title: "Greening the Streets: A Global Assessment of Urban Green Space Trends and Inequalities"
+image: https://s3-ap-southeast-1.amazonaws.com/storage.propsocial.com/topic/post_picture/2434/7-Semanja_Kajang_StreetScape_property_PropSocial_large.jpg
+toc: true
+page-layout: full
+code-fold: false
+execute:
+  eval: true
+fontsize: 1.5em
+---
+
+# 
+
+::: justify
+In the rapidly urbanizing world, ensuring the sustainability of cities is a key priority. Green spaces, particularly those along city streets, play a crucial role in mitigating urban heat islands, improving air quality, reducing flood risks, and enhancing overall human well-being. Our recent study, [*"Tracking Green Space Along Streets of World Cities"*](), published in **Nature Cities**, takes a deep dive into understanding how street green space (SGS) is distributed across the globe and how it is changing over time.
+:::
+
+## What Is Street Green Space (SGS)?
+
+::: justify
+Street green space refers to the vegetation and canopy coverage that line the streets of our cities. Unlike large urban parks, which are often located on the outskirts of cities, SGS is in close proximity to where people live, work, and move around daily. This proximity makes it a critical component of urban ecosystems, providing benefits such as shading, which helps mitigate heat, and improved mental health and well-being for city dwellers.
+
+Our study developed a new methodology to assess SGS globally by combining high-resolution multispectral satellite imagery with machine learning models. This approach allowed us to track SGS trends in 190 cities across seven global macro-regions from 2016 to 2023.
+:::
+
+## Key Findings: Global Decline and Regional Variability
+
+::: justify
+One of the significant findings of our research is the global decline of SGS, with an annual reduction of 0.3-0.5% in canopy coverage. However, this decline is not uniform across the world. We observed significant regional and within-city differences:
+
+-   **Asia and Oceania:** These regions experienced some of the most significant declines in SGS, with cities like Auckland, New Zealand, and Osaka, Japan, witnessing some of the steepest reductions.
+
+-   **Europe and North America:** Interestingly, some cities in these regions showed positive trends. Cities like Helsinki (Finland), Kyiv (Ukraine), and Leeds (UK) saw significant increases in their SGS.
+
+-   **Africa and Latin America:** These regions exhibited a mixed picture, with some cities showing modest growth while others faced continued losses in green space.
+
+This variability highlights the importance of localized strategies when addressing urban sustainability and green space management.
+:::
+
+## Inequality in Street Green Space
+
+::: justify
+Beyond regional differences, our study also addressed within-city inequalities in the distribution of SGS. We found that even within the same city, access to green space can be highly unequal. This inequality is often aligned with socio-economic disparities, where wealthier neighborhoods tend to have more street greenery compared to less privileged areas.
+
+For example, in African and Latin American cities, the distribution of SGS was particularly unequal, with significant gaps in access to green spaces across different urban neighborhoods. These findings point to an urgent need for urban planning policies that prioritize equitable access to green spaces for all residents, not just those in affluent areas.
+:::
+
+## The Role of Green Space in Climate Resilience
+
+::: justify
+Street green space plays a vital role in enhancing urban resilience to climate change. By providing shade, reducing surface temperatures, and improving air quality, SGS can significantly mitigate the impacts of extreme heat events, which are becoming more frequent due to climate change. Additionally, urban greenery helps in managing stormwater and reducing the risks of flooding, making cities more adaptable to extreme weather events.
+
+Our study's findings underscore the need for city planners and policymakers to integrate SGS expansion into their climate adaptation strategies. Expanding and maintaining urban green spaces can help reduce the socio-economic impacts of climate change and improve the overall livability of cities.
+:::
+
+# Conclusion: A Call for Action
+
+::: justify
+Our research provides a comprehensive picture of how street green space is evolving across the world's cities and highlights the challenges we face in preserving and expanding urban greenery. With urban populations continuing to grow, ensuring that cities remain green and sustainable will require concerted efforts from policymakers, urban planners, and local communities.
+
+To aid in these efforts, we have made our methodology and data open-source, allowing for continuous tracking and assessment of SGS in near real-time. We hope that this will support cities worldwide in making informed decisions that contribute to a greener, more sustainable future.
+
+For those interested in exploring our findings further here is the link for the [paper]().
+
+------------------------------------------------------------------------
+
+*This blog post summarizes the key contributions of our study to the field of urban sustainability and green space management. By providing a global overview of SGS trends and highlighting the inequalities in green space distribution, we aim to inspire action towards creating more inclusive and resilient cities.*
+:::

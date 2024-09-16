@@ -224,7 +224,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="last-time" class="level1">
 <h1>… Last time</h1>
 <div class="justify">
-<p>In a previous post I introduced the idea of a <a href="https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html">“probability box.”</a> Well, after After several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on <strong>CRAN</strong> for everyone interested in answering probabilistic questions!</p>
+<p>In a previous post I introduced the idea of a <a href="https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html">“probability box.”</a> Well, after several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on <strong>CRAN</strong> for everyone interested in answering probabilistic questions!</p>
 </div>
 </section>
 <section id="pbox" class="level1">
@@ -238,7 +238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>🌟 Introducing <strong>pbox!</strong> 🌟 an advanced statistical library offering a method to encapsulate and query the probability space of a dataset effortlessly using Probability Boxes (p-boxes). Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data using copula theory and models. <strong>pbox</strong> can be utilized across various fields, including such as Environmental Analysis, Finance Risk Assessment and Management and more!</p>
 <p>This is just the beginning. In future releases, I plan to add additional functionalities to enhance <strong>pbox</strong> even further. Your feedback and suggestions are invaluable to me. If you have any ideas or requests, please feel free to drop me a message or write it in an issue on the <a href="https://github.com/athammad/pbox">project’s repository</a>.</p>
 <p>Here is a little demo to showcase what can be achieved with few lines of code!</p>
-<p>Remember to first install the packaged from <strong>CRAN</strong></p>
+<p>Remember to first install the packaged from <strong>CRAN.</strong></p>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"pbox"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set pbox</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pbx <span class="ot">&lt;-</span> <span class="fu">set_pbox</span>(SEAex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>All features are continuous.</code></pre>
+<pre><code>It seems your data might not be stationary!</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>pbox object generated!</code></pre>
@@ -375,7 +375,7 @@ avgRegion 0.5751234 0.2472509 0.4424894 1.0000000
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qpbox</span>(pbx, <span class="at">mj =</span> <span class="st">"Malaysia:33 &amp; median:c(Vietnam,Thailand)"</span>, <span class="at">co =</span> <span class="st">"mean:c(avgRegion)"</span>, <span class="at">CI =</span> <span class="cn">TRUE</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        P      2.5%     97.5% 
-0.6557157 0.5561359 0.7528324 </code></pre>
+0.6557157 0.5662971 0.7545044 </code></pre>
 </div>
 </div>
 </section>
