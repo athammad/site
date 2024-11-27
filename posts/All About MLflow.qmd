@@ -1,6 +1,6 @@
 ---
-title: "Updating knowledge with Bayes"
-image: https://www.analyticsvidhya.com/wp-content/uploads/2016/06/12.jpg
+title: "All About MLflow"
+image: https://miro.medium.com/v2/resize:fit:1400/1*6s_OnVfwXcmYbApznmKUWQ.png 
 code-fold: false
 execute:
   eval: false
