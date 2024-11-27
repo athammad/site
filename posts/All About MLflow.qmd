@@ -14,8 +14,10 @@ Imagine spending hours tweaking a model, only to forget what parameters led to y
 
 This is where **MLflow** steps in. **MLflow** is an open-source platform designed to simplify the chaos of machine learning workflows. It provides an organized, reliable way to manage experiments, compare results, and even deploy models. Once you start using MLflow, it quickly becomes clear: this isn’t just another tool; it’s an essential part of every data scientist's toolkit.
 :::
+
 # The Chaos of Experimentation
-::: 
+
+::: justify
 Let’s face it: machine learning projects are rarely straightforward. At any given time, you're likely juggling:
 
 -   Trying different algorithms.
@@ -29,6 +31,7 @@ Let’s face it: machine learning projects are rarely straightforward. At any gi
 Each experiment builds on the last, but without careful tracking, it's easy to lose sight of what works and why. For example, you might wonder: Which data preprocessing steps led to the lowest error rate? or What combination of hyperparameters produced the highest accuracy? Without a system to track these details, you’re left sifting through scattered notes or incomplete code changes.
 
 **MLflow** solves this by offering a simple and effective way to log everything. Whether it’s the hyperparameters you’re testing, the metrics your model produces, or even the model itself, MLflow ensures nothing gets lost in the shuffle. You can revisit past experiments, analyze your progress, and make decisions based on solid evidence instead of guesswork.
+
 :::
 
 # A Unified Tool for Experiment Tracking
@@ -104,6 +107,7 @@ with mlflow.start_run():
 ```
 
 ::: justify
+
 The **MLflow tracking UI** is a powerful feature that lets you visualize and compare experiments. To launch it, simply run the following command in your terminal:
 
 ```bash
@@ -111,5 +115,6 @@ The **MLflow tracking UI** is a powerful feature that lets you visualize and com
 mlflow server
 ```
 
-By offering a reliable way to track experiments, ensure reproducibility, and deploy models, **MLflow** empowers data scientists to focus on what they do best: solving problems and building solutions
+By offering a reliable way to track experiments, ensure reproducibility, and deploy models, **MLflow** empowers data scientists to focus on what they do best: solving problems and building solutions.
+
 ::: 
