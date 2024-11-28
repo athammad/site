@@ -266,9 +266,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="getting-started-with-mlflow" class="level1">
 <h1>Getting Started with MLflow</h1>
-<p>::: justify If you’re new to <strong>MLflow</strong>, getting started is surprisingly simple. Here’s a quick example to show how it works</p>
-<p>Installing <strong>MLflow</strong> is straightforward and works across platforms. You can install it using pip: ::: justify</p>
+<div class="justify">
+<p>If you’re new to <strong>MLflow</strong>, getting started is surprisingly simple. Here’s a quick example to show how it works</p>
+<p>Installing <strong>MLflow</strong> is straightforward and works across platforms. You can install it using pip:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install mlflow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mlflow</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mlflow.sklearn</span>
@@ -302,8 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="justify">
 <p>The <strong>MLflow tracking UI</strong> is a powerful feature that lets you visualize and compare experiments. To launch it, simply run the following command in your terminal:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">mlflow</span> server</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mlflow</span> server</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>By offering a reliable way to track experiments, ensure reproducibility, and deploy models, <strong>MLflow</strong> empowers data scientists to focus on what they do best: solving problems and building solutions.</p>
 </div>
 
