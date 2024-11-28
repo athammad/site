@@ -7,6 +7,7 @@ execute:
 ---
 
 # Why Every Data Scientist Needs MLflow
+
 ::: justify
 Machine learning projects are full of experimentation and discovery. As data scientists, we test hypotheses, fine-tune models, and iterate endlessly to improve performance. This process is both exciting and messy. Models change, hyperparameters evolve, datasets get updated, and evaluation metrics seem to fluctuate with every run. In this chaotic landscape, keeping track of your progress can feel impossible without the right tools.
 
@@ -63,16 +64,16 @@ The best part? **MLflow** handles versioning automatically. If you improve your 
 # Getting Started with MLflow
 
 ::: justify
+
 If you’re new to **MLflow**, getting started is surprisingly simple. Here’s a quick example to show how it works
 
 Installing **MLflow** is straightforward and works across platforms. You can install it using pip:
-::: justify
 
 
 ``` bash
 pip install mlflow
 ```
-
+:::
 ```{python, eval=FALSE, include=FALSE}
 import mlflow
 import mlflow.sklearn
@@ -111,7 +112,6 @@ with mlflow.start_run():
 The **MLflow tracking UI** is a powerful feature that lets you visualize and compare experiments. To launch it, simply run the following command in your terminal:
 
 ```bash
-
 mlflow server
 ```
 
