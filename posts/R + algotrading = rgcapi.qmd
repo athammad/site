@@ -8,7 +8,7 @@ execute:
 ::: justify
 Algorithmic trading has always been a fascination for me. The abundance of time-series data, coupled with the challenge of developing and testing trading strategies, makes it an exciting space. Forex markets provided one of the most accessible playgrounds for such experimentation.
 
-When I decided to create an interface for the Gain Capital API (the backend for Forex.com), I made a deliberate choice to use **R** over Python. Why? Partly for the joy of experimenting with R6 classes, an encapsulated, object-oriented paradigm in R. It felt like the right opportunity to learn and build something modular, reusable, and maintainable—all characteristics R6 is known for.
+When I decided to create an interface for the Gain Capital API (the backend for Forex.com), I made a deliberate choice to use **R** over **Python**. Why? Partly for the joy of experimenting with R6 classes, an encapsulated, object-oriented paradigm in R. It felt like the right opportunity to learn and build something modular, reusable, and maintainable—all characteristics R6 is known for.
 
 This journey led to the creation of **`rgcapi`**, an R package that connects directly to the Gain Capital API. Below, I’ll walk you through its features, how to set it up, and how you can use it to unlock algorithmic trading capabilities in R.
 
