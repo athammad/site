@@ -19,4 +19,44 @@
     border-radius: 50%; /* Make the image a circle */
     overflow: hidden; /* Ensure the corners are cut */
 }
+
+
+/* Container styling (optional) */
+.logo-container {
+  display: flex;
+  flex-wrap: wrap;       /* Let logos wrap to the next line if the screen is too narrow */
+  gap: 20px;             /* Space between logos */
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;     /* Some spacing around the container */
+  max-width: 1200px;     /* Adjust to your preference */
+}
+
+/* Apply a bounce animation to each logo */
+.logo-container img {
+  animation: bounce 2s ease-in-out infinite;
+  /*
+    - 2s = animation duration
+    - ease-in-out = speeds up and slows down smoothly
+    - infinite = repeats forever
+  */
+  
+  /* Optional: slightly larger on hover */
+  transition: transform 0.3s;
+}
+.logo-container img:hover {
+  transform: scale(1.1);
+}
+
+/* Keyframes for the bounce animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
 ```
