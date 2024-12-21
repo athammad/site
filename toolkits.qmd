@@ -12,10 +12,11 @@ format:
     grid:
       margin-width: 250px
 ---
+
 # R-Genius
 
 ::: justify
-<img src="../gallery/r_logo.png" class="padded-image rounded-image" width="200" align="left"/>
+<img src="../gallery/r_logo.png" class="padded-image rounded-image" width="200" align="right"/>
 
 [R-Genius](https://chatgpt.com/g/g-675f8eb65ce48191bdc6fb7034347661-r-genius) is your ultimate companion for everything in R. From advanced machine learning algorithms to econometrics, time series forecasting, sophisticated data manipulation, interactive dashboard creation, and package development—R-Genius has you covered. Whether you're analyzing data, building applications, or exploring statistical models, R-Genius delivers precise and intelligent assistance tailored to your needs. Empower your R workflows like never before.
 
@@ -26,6 +27,16 @@ format:
 𝟑. 𝐅𝐚𝐬𝐭𝐞𝐫 𝐈𝐧𝐬𝐢𝐠𝐡𝐭𝐬 𝐚𝐧𝐝 𝐈𝐭𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐬: By shortening the learning curve and offering immediate, intelligent feedback, 𝐑-𝐆𝐞𝐧𝐢𝐮𝐬 helps you build and refine your workflows with efficiency. Spend more time interpreting results and less time wrestling with syntax and package incompatibilities.⁣
 
 𝟒. 𝐓𝐚𝐢𝐥𝐨𝐫𝐞𝐝 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧𝐬 𝐟𝐨𝐫 𝐘𝐨𝐮𝐫 𝐔𝐬𝐞 𝐂𝐚𝐬𝐞: Whether you’re working on advanced predictive modelling, exploratory data analysis, or building robust Shiny dashboards, 𝐑-𝐆𝐞𝐧𝐢𝐮𝐬 adapts to your needs—offering solutions as unique as your projects.
+:::
+
+# pygcapi
+
+::: justify
+<img src="./gallery/logo_pygcapi.png" align="left" height="200"/>
+
+The [pygcapi](https://github.com/athammad/pygcapi) Python package provides an interface to the **Gain Capital API** V1 and V2, enabling users to perform various trading operations on [Forex.com](https://forex.com). This package includes functionalities for account management, market information retrieval, trading operations, and historical data extraction. It also includes helper functions and lookup tables to facilitate the interpretation of API responses. This makes it an indispensable tool for the automated management of trading accounts and the implementation of automated trading strategies.
+
+[pygcapi](https://github.com/athammad/pygcapi) is the sister library of the [rgcapi](https://github.com/athammad/rgcapi) package, the only library within the R ecosystem that facilitates connectivity with the Gain Capital API. [pygcapi](https://github.com/athammad/pygcapi) offers a robust solution for traders and data scientists seeking to enhance their trading operations.
 :::
 
 # PBOX
@@ -67,6 +78,3 @@ The [syntCF](https://github.com/athammad/syntCF) R package is a powerful tool de
 ::: justify
 [3Vs](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037) (Vulnerability, Vaccination, and Values), is a framework devised to optimize the allocation of COVID-19 vaccines in settings characterized by resource constraints. The framework integrates processes of data collection, AI-facilitated vulnerability assessment, and vaccination prioritization, all aligned with the principles delineated by the World Health Organization (WHO). Noteworthy components encompass the compilation of socio-demographic and environmental data, AI-driven expert elicitation for prioritization, and geospatially informed vaccine allocation with due regard to equity values. The framework's empirical application in Kenya serves as a testament to its potential to surpass prevailing strategies, demonstrating adeptness in the judicious dispensation of vaccines to socially vulnerable demographics. Adaptable to diverse health emergencies, the 3Vs framework emerges as an invaluable instrument for decision-makers navigating challenges within resource-constrained environments.
 :::
-
-
-
