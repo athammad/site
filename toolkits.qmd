@@ -20,13 +20,13 @@ format:
 
 [R-Genius](https://chatgpt.com/g/g-675f8eb65ce48191bdc6fb7034347661-r-genius) is your ultimate companion for everything in R. From advanced machine learning algorithms to econometrics, time series forecasting, sophisticated data manipulation, interactive dashboard creation, and package development—R-Genius has you covered. Whether you're analyzing data, building applications, or exploring statistical models, R-Genius delivers precise and intelligent assistance tailored to your needs. Empower your R workflows like never before.
 
-𝟏. 𝐂𝐨𝐦𝐩𝐫𝐞𝐡𝐞𝐧𝐬𝐢𝐯𝐞 𝐄𝐱𝐩𝐞𝐫𝐭𝐢𝐬𝐞: 𝐑-𝐆𝐞𝐧𝐢𝐮𝐬 integrates the power of advanced machine learning algorithms, cutting-edge econometric models, and time series forecasting techniques within the R environment. Instead of juggling multiple resources, you can find guidance on these tasks in one place.⁣
+1.  **Comprehensive Expertise R-Genius:** integrates advanced machine learning algorithms, cutting-edge econometric models, and time-series forecasting techniques within the R environment. Instead of juggling multiple resources, you can find guidance on these tasks in one place.
 
-𝟐. 𝐈𝐧𝐭𝐞𝐥𝐥𝐢𝐠𝐞𝐧𝐭 𝐂𝐨𝐝𝐞 𝐒𝐮𝐠𝐠𝐞𝐬𝐭𝐢𝐨𝐧𝐬: Tired of sifting through documentation or forgetting function arguments? R-Genius provides context-aware suggestions, ensuring you’re always just one prompt away from the right code snippet or function call.⁣
+2.  **Intelligent Code Suggestions:** Tired of sifting through documentation or forgetting function arguments? R-Genius provides context-aware suggestions, ensuring you’re always just one prompt away from the right code snippet or function call.
 
-𝟑. 𝐅𝐚𝐬𝐭𝐞𝐫 𝐈𝐧𝐬𝐢𝐠𝐡𝐭𝐬 𝐚𝐧𝐝 𝐈𝐭𝐞𝐫𝐚𝐭𝐢𝐨𝐧𝐬: By shortening the learning curve and offering immediate, intelligent feedback, 𝐑-𝐆𝐞𝐧𝐢𝐮𝐬 helps you build and refine your workflows with efficiency. Spend more time interpreting results and less time wrestling with syntax and package incompatibilities.⁣
+3.  **Faster Insights and Iterations:** By shortening the learning curve and offering immediate, intelligent feedback, R-Genius helps you build and refine your workflows more efficiently. Spend more time interpreting results and less time wrestling with syntax and package incompatibilities.
 
-𝟒. 𝐓𝐚𝐢𝐥𝐨𝐫𝐞𝐝 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧𝐬 𝐟𝐨𝐫 𝐘𝐨𝐮𝐫 𝐔𝐬𝐞 𝐂𝐚𝐬𝐞: Whether you’re working on advanced predictive modelling, exploratory data analysis, or building robust Shiny dashboards, 𝐑-𝐆𝐞𝐧𝐢𝐮𝐬 adapts to your needs—offering solutions as unique as your projects.
+4.  **Tailored Solutions for Your Use Case:** Whether you’re working on advanced predictive modeling, exploratory data analysis, or building robust Shiny dashboards, R-Genius adapts to your needs—offering solutions as unique as your projects.
 :::
 
 # pygcapi

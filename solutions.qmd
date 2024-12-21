@@ -12,19 +12,24 @@ format:
     grid:
       margin-width: 250px
 ---
-
+## Algorithmic trading
 ::: justify
-With a focus on environmental analysis, I provide Monitoring and Evaluation (M&E) tailored solutions for ongoing projects and policies, employing advanced machine learning algorithms designed for real-time stream data processing. From assessing the impact of cultivation approaches to evaluating the effectiveness of air pollution control programs, my M&E expertise provides valuable insights for informed decision-making. In forecasting, I utilize state-of-the-art algorithms to predict environmental events, adapting to changes over time and delivering accurate alerts. Additionally, my competencies extend to building adaptive and environmentally friendly learning systems, emphasizing portability, low resource consumption, and a serverless architecture. 
-:::
+<img src="../gallery/logo_pygcapi.png" class="padded-image rounded-image" width="220" align="right"/>
+
+With a focus on algorithmic trading, I can assess the impact of different trading strategies and evaluate their effectiveness under evolving market conditions. I developed R and Python libraries that retrieve financial data from a variety of sources, leveraging both ecosystems to design powerful trading algorithms. By applying advanced machine learning methods for real-time stream data. This approach ensures data-driven insights for informed, adaptive decision-making. My trading capabilities employ state-of-the-art algorithms to predict market fluctuations, adapting to sudden changes and delivering accurate alerts for risk management.
+
+::: 
+
 
 ## Monitoring and Evaluation Services
-<img src="../gallery/r_logo.png" class="padded-image rounded-image" width="200" align="left"/>
+
+<img src="../gallery/causalModel.png" class="padded-image rounded-image" width="220" align="left"/>
 
 ::: justify
 The Monitoring and Evaluation (M&E) services offer a tailored approach to environmental analysis. With years of research and collaboration with diverse stakeholders such as NGOs, governmental bodies, universities, and program evaluators, I can provide comprehensive M&E solutions. My expertise lies in continuous monitoring of environmental projects and policies. I use advanced machine learning algorithms designed for real-time stream data processing, enabling the evaluation of ongoing initiatives. From assessing the impact of new cultivation approaches to the effectiveness of air pollution control programs, my M&E services deliver valuable insights for informed decision-making.
 :::
 
-## Risk and Environmental analyses 
+## Risk and Environmental analyses
 
 <img src="./gallery/appAhmed.png" width="400" align="right"/>
 
@@ -32,7 +37,7 @@ The Monitoring and Evaluation (M&E) services offer a tailored approach to enviro
 I conduct in-depth risk and environmental analyses, utilizing advanced modeling techniques. Through the application of probabilistic approaches, my goal is to pinpoint potential hazards and quantify their probabilities. This process enables to unveil intricate relationships among complex variables, fostering a comprehensive understanding of the risk landscape.
 :::
 
-## Forecasting Services 
+## Forecasting Services
 
 <img src="./gallery/predInt.png" width="400" align="left"/>
 
@@ -45,4 +50,3 @@ My forecasting services provide a cutting-edge solution for predicting environme
 ::: justify
 My expertise extends to the development of adaptive and environmentally friendly learning systems. I focus on creating systems that are portable, lightweight, and have a minimal environmental footprint. By integrating seamlessly with various data sources, including APIs, databases, and sensors, my systems are versatile and applicable to a range of scenarios. Whether it's periodic data collection, like an Air Pollution Survey, or continuous monitoring of environmental changes, my learning systems excel in extracting valuable insights. My commitment to sustainability is reflected in the low resource consumption and serverless architecture of our systems, contributing to environmentally conscious practices in the field of machine learning.
 :::
-
