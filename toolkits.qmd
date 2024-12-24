@@ -34,9 +34,9 @@ format:
 ::: justify
 <img src="./gallery/logo_pygcapi.png" align="left" height="200"/>
 
-The [pygcapi](https://github.com/athammad/pygcapi) Python package provides an interface to the **Gain Capital API** V1 and V2, enabling users to perform various trading operations on [Forex.com](https://forex.com). This package includes functionalities for account management, market information retrieval, trading operations, and historical data extraction. It also includes helper functions and lookup tables to facilitate the interpretation of API responses. This makes it an indispensable tool for the automated management of trading accounts and the implementation of automated trading strategies.
+The [pygcapi](https://athammad.github.io/pygcapi/) Python package provides an interface to the **Gain Capital API** V1 and V2, enabling users to perform various trading operations on [Forex.com](https://forex.com). This package includes functionalities for account management, market information retrieval, trading operations, and historical data extraction. It also includes helper functions and lookup tables to facilitate the interpretation of API responses. This makes it an indispensable tool for the automated management of trading accounts and the implementation of automated trading strategies.
 
-[pygcapi](https://github.com/athammad/pygcapi) is the sister library of the [rgcapi](https://github.com/athammad/rgcapi) package, the only library within the R ecosystem that facilitates connectivity with the Gain Capital API. [pygcapi](https://github.com/athammad/pygcapi) offers a robust solution for traders and data scientists seeking to enhance their trading operations.
+[pygcapi](https://athammad.github.io/pygcapi/) is the sister library of the [rgcapi](https://github.com/athammad/rgcapi) package, the only library within the R ecosystem that facilitates connectivity with the Gain Capital API. [pygcapi](https://athammad.github.io/pygcapi/) offers a robust solution for traders and data scientists seeking to enhance their trading operations.
 :::
 
 # PBOX
