@@ -6,6 +6,10 @@ page-layout: full
 # Publications
 
 ::: justify
+-   [Tracking green space along streets of world cities.](https://iopscience.iop.org/article/10.1088/2634-4505/add9c4)
+
+    *G Falchetta, AT Hammad, ERIS*
+    
 -   [A note on treatment effects: we are missing something on the tails.](http://dx.doi.org/10.2139/ssrn.4899355)
 
     *Hammad, Ahmed Tarek, SSRN*
@@ -31,10 +35,10 @@ page-layout: full
     *G Falchetta, AT Hammad, S Shayegh. Proceedings of the National Academy of Sciences 117 (50), 31760-31769*
 :::
 
-# Current work
+<!-- # Current work -->
 
-::: justify
--   [Tracking global urban green space trends](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:zYLM7Y9cAGgC)
+<!-- ::: justify -->
+<!-- -   [Tracking global urban green space trends](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:zYLM7Y9cAGgC) -->
 
-    *G Falchetta, AT Hammad. EGU23*
-:::
+<!--     *G Falchetta, AT Hammad. EGU23* -->
+<!-- ::: -->
