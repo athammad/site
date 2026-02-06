@@ -21,7 +21,7 @@ website:
       - posts.qmd # add your posts.qmd file to your navbar!
       - slides.qmd 
     # your social media handles
-      - gallery.qmd
+      #- gallery.qmd
     right:
       - icon: github
         text: Github
