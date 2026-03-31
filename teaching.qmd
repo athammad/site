@@ -1,6 +1,6 @@
 ---
 title: "🧑‍🏫 Teaching"
-image: mep.jpeg
+image: ./gallery/mep.jpeg
 toc: true
 page-layout: full
 about: 
