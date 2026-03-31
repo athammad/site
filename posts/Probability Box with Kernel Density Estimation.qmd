@@ -8,13 +8,13 @@ fontsize: 1.5em
 ---
 
 ::: justify
-All those numbers in the weather forecast got me thinking about a simple table with historical data for temperature, humidity, and rain. Then, my interest in playing with probabilities kicked in (it tends to do that a lot). I decided to turn this data into something fun, so I called it a “probability box.”
+Weather forecasts got me thinking about data. A simple historical table — temperature, humidity, rain — and the question: given all this data, what can I actually say about the probability of different combinations of conditions occurring together?
 
-Now, what’s a probability box? It’s just a fancy name for turning a bunch of data points into probabilities. Once I’ve done that, it’s like having a cool tool to play with. I can ask it about Cumulative Probabilities, which basically tells me the chances of two, three, or more things happening together.
+That question led me to build what I started calling a "probability box" — a structure that turns a dataset into a queryable probability space. Once you have it, you can ask about cumulative probabilities: the probability that temperature is above X *and* humidity is below Y *and* rain is below Z, all at once.
 
-There are lots of ways to make a Probability Box, but I like keeping it simple. So, I’m using something called Kernel Density Estimation.
+There are various ways to build this. I went with Kernel Density Estimation because it makes minimal assumptions about the underlying distributions.
 
-Let’s make it less complicated with an example:
+Let's walk through an example.
 
 ```{r message=FALSE, warning=FALSE, include=TRUE}
 library(ks)
@@ -35,11 +35,11 @@ xyz <- cbind(temp, hum, rain)
 
 ```
 
-Here we have our fictional variables representing temperature in Celsius, rain in millimeters in and humidity as a percentage.
+Three variables: temperature in Celsius, humidity as a percentage, rain in millimeters. Generated independently here, but the approach works the same with correlated real data.
 
-**Kernel Density Estimation** (KDE) is a non-parametric statistical method used for estimating the probability density function (PDF) of a continuous random variable. It provides a smooth representation of the underlying distribution of data points, helping to visualize and analyze the data’s probability distribution.
+**Kernel Density Estimation** (KDE) estimates the probability density function of the data non-parametrically — no assumption that the data follows a normal distribution or any other named family. It places a kernel (typically a Gaussian) at each data point and sums them up to get a smooth density estimate.
 
-Defining a grid for KDE is essential. The grid consists of points in the feature space where the estimated density is calculated, allowing for smooth visualization and integration to compute probabilities over specific regions. The grid’s resolution influences the precision of the KDE estimate, with a finer grid capturing more details but demanding greater computational resources. In essence, the grid serves as the canvas upon which the continuous probability density function is constructed, enabling a comprehensive exploration of the data’s distribution.
+To compute probabilities over regions of the joint space, we need to evaluate the KDE on a grid. The grid resolution determines how precisely you can answer probability queries — finer grids give more accurate estimates at the cost of computation time and memory.
 
 ```{r}
 # Setting up Grid for KDE
@@ -63,7 +63,7 @@ pts <- expand.grid(temp = pts.x, hum = pts.y, rain = pts.z)
 
 ```
 
-Time to run KDE!
+Now run KDE on the grid.
 
 ```{r}
 # Performing KDE
@@ -71,7 +71,7 @@ f_kde <- kde(xyz, eval.points = pts)
 
 ```
 
-Before diving into the fun stuff, it’s important to make sure everything’s on track. Verifying **KDE integration** is a key step. This check ensures that the estimated probability density function follows the rules of probability theory. The integral of the KDE should add up to 1 across the entire variable range, reflecting a proper probability distribution where all possibilities together make a whole.
+Before doing anything with the estimates, it's worth checking that they integrate to 1 over the full space — a basic sanity check that the density is properly normalized.
 
 ```{r}
 # Assigning KDE Estimates to Data Frame
@@ -85,9 +85,7 @@ cat("Integration Check Result:", integration_check, "\n")
 
 ```
 
-Great, we’re all set! Now, let’s have some fun with the data.
-
-To find the **cumulative probability** over a specific area, we simply add up the estimated densities multiplied by the area of each corresponding grid cell. For instance, let’s say we want to know the probability of the temperature being above 17, humidity below 20%, and rain below 5 mm. Answering this is a breeze – just filter the data-frame based on the conditions *temp \>17 & hum \<20 & rain \<5*. Then, calculate the cumulative probability using the joint KDE estimates and grid spacing. This code snippet does the trick.
+Good. Now the probability queries. To find the cumulative probability over a region, filter to that region and sum the densities multiplied by the grid cell volume. For example: probability of temperature above 17, humidity below 20, and rain below 5.
 
 ```{r}
 # Querying Cumulative Probability in a Specific Area
@@ -99,7 +97,7 @@ cat("Cumulative Probability in Area:", cumulative_prob_area$pkde, "\n")
 
 ```
 
-What about the most probable combination of values? We just need find the point with the maximum density.
+Finding the most probable combination of values is just finding the point with maximum density.
 
 ```{r}
 # Find the index of the maximum density
@@ -109,11 +107,9 @@ max_density_index <-which.max(f_kde$estimate)
 print(pts[max_density_index, c("temp", "hum", "rain")], row.names = FALSE)
 ```
 
-Looks fun. We could even plot the cumulative probability over the full space and just look at the different regions of the 3D box.
+One caveat worth mentioning: this approach treats the three variables as if their dependence structure can be captured entirely by the joint KDE. For the synthetic data here, where the variables were generated independently, that's not a problem. With real data where the variables are correlated — especially in the tails — a **copula-based approach** would be more appropriate, because copulas explicitly model the dependence structure separately from the marginals.
 
-Our current method is basic, assuming that rain, temperature, and humidity are **unrelated**. If we wanted to consider their potential connections, we'd delve into more complex **copula-based approaches**. But here, our data was generated independently, so it's not an issue with inter-variable dependencies.
+KDE also tends to struggle with heavy-tailed distributions. If your data has extreme values that matter, the density in the tails will be underestimated. Again, copulas are a better tool in that regime.
 
-Also kernel density estimators can perform poorly when estimating tail behavior, that is when we are looking at extreme values, and can over-emphasise bumps in the density for heavy tailed data. Again here copula-based aproaches could be of great help.
-
-Keeping it simple helps us explore the data without getting stuck in the box.
+For exploratory work with moderate data and no extreme tail behavior, though, this is a fast and interpretable approach. The probability box gives you a queryable view of your data's multivariate structure with very few assumptions — which is often exactly what you want when you're first trying to understand what's going on.
 :::

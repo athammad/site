@@ -12,6 +12,7 @@
       "/posts/RGenius.html",
       "/posts/Logistic Regression and Marginal Effects.html",
       "/posts/Machine Learning, Copula and Synthetic Data.html",
+      "/posts/On Learning Methods in the Age of AI.html",
       "/posts/Probability Box with Kernel Density Estimation.html",
       "/posts/Quantile Random Forest.html",
       "/posts/The 3 + 1 pillars of data science (part 1).html",
@@ -23,9 +24,5 @@
       "/posts/When in doubt, just model it. Modelling uncertainty.html",
       "/posts/Exploring Multivariate Spaces with Probability Boxes.html"
     ]
-  },
-  {
-    "listing": "/slides.html",
-    "items": []
   }
 ]

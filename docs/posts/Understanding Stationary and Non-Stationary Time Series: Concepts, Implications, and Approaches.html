@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ahmed T. Hammad - Understanding Stationary and Non-Stationary Time Series: Concepts, Implications, and Approaches</title>
+<title>Understanding Stationary: Concepts, Implications, and Approaches – Ahmed T. Hammad</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,22 +33,29 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2305247d2bd152ec81b05349960119e6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -54,99 +64,124 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Ahmed T. Hammad</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">ℹ️ About</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">ℹ️ About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html" rel="" target="">
- <span class="menu-text">🧑‍🏫 Teaching</span></a>
+    <a class="nav-link" href="../teaching.html"> 
+<span class="menu-text">🧑‍🏫 Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research.html" rel="" target="">
- <span class="menu-text">🛰 Research</span></a>
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">🛰 Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../students.html" rel="" target="">
- <span class="menu-text">🧑‍🎓 Students</span></a>
+    <a class="nav-link" href="../students.html"> 
+<span class="menu-text">🧑‍🎓 Students</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../papers.html" rel="" target="">
- <span class="menu-text">✍ Papers</span></a>
+    <a class="nav-link" href="../papers.html"> 
+<span class="menu-text">✍ Papers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../solutions.html" rel="" target="">
- <span class="menu-text">💡Solutions</span></a>
+    <a class="nav-link" href="../solutions.html"> 
+<span class="menu-text">💡Solutions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../toolkits.html" rel="" target="">
- <span class="menu-text">🧰Toolkits</span></a>
+    <a class="nav-link" href="../toolkits.html"> 
+<span class="menu-text">🧰Toolkits</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../cv/cv.html" rel="" target="">
- <span class="menu-text">📃 CV</span></a>
+    <a class="nav-link" href="../cv/cv.html"> 
+<span class="menu-text">📃 CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts.html" rel="" target="">
- <span class="menu-text">🎙️Blog</span></a>
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">🎙️Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../slides.html" rel="" target="">
- <span class="menu-text">📽️️ Slides</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../gallery.html" rel="" target="">
- <span class="menu-text">📸 Gallery</span></a>
+    <a class="nav-link" href="../slides.html"> 
+<span class="menu-text">📽️️ Slides</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/athammad" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/athammad"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text">Github</span></a>
+<span class="menu-text">Github</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://www.linkedin.com/in/ahmedt-h/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/ahmedt-h/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text">LinkedIn</span></a>
+<span class="menu-text">LinkedIn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="mailto:ahmed@decatab.com" rel="" target=""><i class="bi bi-envelope" role="img">
+    <a class="nav-link" href="mailto:ahmed.t.hammad@gmail.com"> <i class="bi bi-envelope" role="img">
 </i> 
- <span class="menu-text">Email</span></a>
+<span class="menu-text">Email</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -163,9 +198,8 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#stationary-time-series" id="toc-stationary-time-series" class="nav-link" data-scroll-target="#stationary-time-series">Stationary Time Series</a></li>
   <li><a href="#non-stationary-time-series" id="toc-non-stationary-time-series" class="nav-link" data-scroll-target="#non-stationary-time-series">Non-Stationary Time Series</a></li>
-  <li><a href="#stationarity-drift-and-drift-detection-the-synonymy-of-non-stationarity-and-drift" id="toc-stationarity-drift-and-drift-detection-the-synonymy-of-non-stationarity-and-drift" class="nav-link" data-scroll-target="#stationarity-drift-and-drift-detection-the-synonymy-of-non-stationarity-and-drift">Stationarity, Drift, and Drift Detection: The Synonymy of Non-Stationarity and Drift</a>
+  <li><a href="#stationarity-drift-and-drift-detection" id="toc-stationarity-drift-and-drift-detection" class="nav-link" data-scroll-target="#stationarity-drift-and-drift-detection">Stationarity, Drift, and Drift Detection</a>
   <ul class="collapse">
-  <li><a href="#examples-of-drift-as-non-stationarity" id="toc-examples-of-drift-as-non-stationarity" class="nav-link" data-scroll-target="#examples-of-drift-as-non-stationarity">Examples of Drift as Non-Stationarity</a></li>
   <li><a href="#drift-detection-algorithms" id="toc-drift-detection-algorithms" class="nav-link" data-scroll-target="#drift-detection-algorithms">Drift Detection Algorithms</a></li>
   </ul></li>
   <li><a href="#addressing-non-stationarity-feature-engineering-in-machine-learning" id="toc-addressing-non-stationarity-feature-engineering-in-machine-learning" class="nav-link" data-scroll-target="#addressing-non-stationarity-feature-engineering-in-machine-learning">Addressing Non-Stationarity: Feature Engineering in Machine Learning</a></li>
@@ -179,12 +213,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Understanding Stationary and Non-Stationary Time Series: Concepts, Implications, and Approaches</h1>
+<h1 class="title">Understanding Stationary: Concepts, Implications, and Approaches</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -192,105 +226,95 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <div class="justify">
-<p>Time series analysis is foundational in numerous fields, from economics and finance to engineering and the natural sciences. A time series is a sequence of observations indexed in time order, often taken at equally spaced intervals. Whether a time series is stationary or non-stationary significantly influences the methods and models that can be effectively applied to it. Understanding these concepts is crucial for extracting meaningful insights, especially when modeling complex real-world phenomena.</p>
+<p>Time series analysis runs through economics, finance, engineering, and the natural sciences — any domain where observations are indexed in time and the ordering matters. Whether a series is stationary or not shapes almost every methodological decision you make, from which model to use to how to interpret the results. Getting it wrong causes quiet, hard-to-diagnose problems.</p>
 </div>
 <section id="stationary-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="stationary-time-series">Stationary Time Series</h2>
 <div class="justify">
-<p>A time series is considered stationary if its statistical properties, such as the mean, variance, and autocovariance, are invariant over time. More formally, a time series <span class="math inline">\(X_t\)</span> is strictly stationary if the joint probability distribution of any subset of the series remains unchanged when shifted in time. This implies that:</p>
+<p>A time series <span class="math inline">\(X_t\)</span> is stationary if its statistical properties don’t change over time. Formally, the joint distribution of any subset of the series doesn’t shift when you slide it forward or backward in time. In practice, we usually work with the weaker version: <strong>weak stationarity</strong>, which requires only that the mean, variance, and autocovariances are constant:</p>
 <ul>
 <li><strong>Mean</strong>: <span class="math inline">\(E(X_t) = \mu\)</span></li>
-<li><strong>Variance</strong>: $Var(X_t) = ^2 $.</li>
-<li><strong>Covariance</strong>: <span class="math inline">\(Cov(X_t, X_{t+k}) = \gamma(k)\)</span>, a function of the lag <span class="math inline">\(k\)</span> , but independent of time <span class="math inline">\(t\)</span>.</li>
+<li><strong>Variance</strong>: <span class="math inline">\(Var(X_t) = \sigma^2\)</span></li>
+<li><strong>Covariance</strong>: <span class="math inline">\(Cov(X_t, X_{t+k}) = \gamma(k)\)</span>, depending only on the lag <span class="math inline">\(k\)</span>, not on <span class="math inline">\(t\)</span></li>
 </ul>
-<p>A common relaxation of this definition is <strong>weak stationarity</strong>, which only requires the mean, variance, and autocovariance to be constant, not the entire distribution.</p>
-<p>Stationarity is often a desirable property because many statistical models and forecasting techniques, such as autoregressive (AR) models, moving average (MA) models, and autoregressive integrated moving average (ARIMA) models, assume or require that the underlying time series is stationary. The stability of statistical properties allows for the derivation of consistent and meaningful parameter estimates, leading to reliable forecasts.</p>
-<p>Mathematically, the simplest stationary process is white noise, where:</p>
+<p>Why does this matter? Because the classical time series models — AR, MA, ARIMA — are built on this assumption. The parameter estimates make sense only if the properties of the series don’t drift over the sample period. A stationary series has a “center of gravity” it tends to return to. A non-stationary one doesn’t.</p>
+<p>The simplest stationary process is white noise:</p>
 <p><span class="math display">\[
 X_t \sim N(0, \sigma^2) \quad \forall t
 \]</span></p>
-<p>Here, <span class="math inline">\(X_t\)</span> is normally distributed with a constant mean of 0 and variance <span class="math inline">\(\sigma^2\)</span>, and observations are uncorrelated over time.</p>
+<p>Constant mean, constant variance, no autocorrelation. It’s the baseline against which everything else is compared.</p>
 </div>
 </section>
 <section id="non-stationary-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="non-stationary-time-series">Non-Stationary Time Series</h2>
 <div class="justify">
-<p>In contrast, a time series is non-stationary if its statistical properties change over time. This can manifest in various ways:</p>
+<p>Non-stationarity takes several forms:</p>
 <ol type="1">
-<li><strong>Changing Mean</strong>: The mean of the series may trend upward or downward over time.</li>
-<li><strong>Changing Variance</strong>: The volatility of the series may increase or decrease.</li>
-<li><strong>Seasonality</strong>: Regular patterns may repeat over time but do not correspond to constant parameters.</li>
+<li><strong>Trending mean</strong>: the series drifts upward or downward over time. GDP, population, cumulative sales.</li>
+<li><strong>Changing variance</strong>: the spread of the series grows or shrinks. Financial volatility often behaves this way.</li>
+<li><strong>Seasonality</strong>: regular periodic patterns, though not necessarily tied to a changing mean or variance.</li>
 </ol>
-<p>A common example of non-stationarity is a <strong>random walk</strong>:</p>
+<p>The <strong>random walk</strong> is the canonical non-stationary process:</p>
 <p><span class="math display">\[
 X_t = X_{t-1} + \epsilon_t
 \]</span></p>
-<p>Here, <span class="math inline">\(\epsilon_t\)</span> is white noise. The random walk has no constant mean or variance; the variance grows with time, making it non-stationary. Despite its simplicity, this model underlies many economic and financial processes, such as stock prices.</p>
-<p>Another form of non-stationarity is the presence of a <strong>unit root</strong>, where the characteristic equation of an autoregressive process has roots on the unit circle, i.e., $(B)X_t = _t $ with $(1) = 0 $. In such cases, shocks to the system have a permanent effect, preventing the series from reverting to a long-term mean.</p>
+<p>where <span class="math inline">\(\epsilon_t\)</span> is white noise. The variance of <span class="math inline">\(X_t\)</span> grows with <span class="math inline">\(t\)</span> — there’s no mean to revert to, and shocks are permanent. Stock prices are often modeled this way, for better or worse.</p>
+<p><strong>Unit root</strong> processes are the formal generalization. An autoregressive process <span class="math inline">\(\phi(B)X_t = \epsilon_t\)</span> has a unit root when <span class="math inline">\(\phi(1) = 0\)</span>, meaning the characteristic polynomial has a root on the unit circle. The consequence is the same: shocks don’t decay, the series doesn’t revert, and classical regression on the raw levels will give you spurious results.</p>
 </div>
 </section>
-<section id="stationarity-drift-and-drift-detection-the-synonymy-of-non-stationarity-and-drift" class="level2">
-<h2 class="anchored" data-anchor-id="stationarity-drift-and-drift-detection-the-synonymy-of-non-stationarity-and-drift">Stationarity, Drift, and Drift Detection: The Synonymy of Non-Stationarity and Drift</h2>
+<section id="stationarity-drift-and-drift-detection" class="level2">
+<h2 class="anchored" data-anchor-id="stationarity-drift-and-drift-detection">Stationarity, Drift, and Drift Detection</h2>
 <div class="justify">
-<p>Non-stationarity and drift are closely related concepts, often synonymous in time series analysis. Non-stationarity refers to changes in the statistical properties of a time series over time, while drift is a specific manifestation of this non-stationarity, typically as a systematic trend or shift in the data.</p>
-<p>From a practical standpoint, drift is the real-world expression of non-stationarity. Drift occurs when there is a gradual shift in the time series’ mean, variance, or other characteristics. Whether this manifests as changes in performance, distribution of covariates, or even in the underlying functional relationship between input variables and the target outcome, drift is essentially the observable effect of non-stationarity.</p>
+<p>In the machine learning context, non-stationarity usually shows up as <strong>drift</strong> — a shift in the data distribution over time that degrades model performance. The two concepts are closely linked:</p>
+<ul>
+<li><strong>Covariate drift</strong>: the distribution of inputs changes. Your model was trained on one population; it’s now seeing a different one.</li>
+<li><strong>Concept drift</strong>: the relationship between inputs and the target changes. The patterns that predicted churn last year may not predict it this year.</li>
+<li><strong>Performance drift</strong>: the catch-all term for declining accuracy, which is usually downstream of one of the above.</li>
+</ul>
+<p>Drift is non-stationarity as experienced by a deployed model. Whether you call it non-stationarity (statistics) or drift (ML) is mostly a matter of which literature you’re reading.</p>
 </div>
-<section id="examples-of-drift-as-non-stationarity" class="level3">
-<h3 class="anchored" data-anchor-id="examples-of-drift-as-non-stationarity">Examples of Drift as Non-Stationarity</h3>
-<div class="justify">
-<ol type="1">
-<li><strong>Mean Drift</strong>: This occurs when a time series exhibits a trend, such as a gradual upward or downward movement over time, indicating that the series is non-stationary. Mathematically, this can be modeled as:</li>
-</ol>
-<p><span class="math display">\[
-   X_t = \mu + \beta t + \epsilon_t
-\]</span></p>
-<p>Here, <span class="math inline">\(\beta\)</span> represents the drift term. The presence of such a trend means that the mean is not constant over time, leading to non-stationarity.</p>
-<ol start="2" type="1">
-<li><p><strong>Covariate Drift</strong>: When the distribution of covariates, or independent variables, changes over time, it introduces non-stationarity. For machine learning models, covariate drift can lead to degraded performance because the model’s assumptions about the data no longer hold.</p></li>
-<li><p><strong>Performance Drift</strong>: In machine learning and predictive modeling, drift often manifests as a decline in performance over time. This occurs because the underlying data distribution, or the relationship between inputs and outputs, has shifted—another indication of non-stationarity.</p></li>
-</ol>
-<p>Since drift and non-stationarity are so closely linked, it is essential to continuously monitor for drift in time series data, especially in dynamic environments where the underlying data-generating process is expected to evolve over time. This is critical in virtually all real-world systems, such as financial markets, industrial IoT systems, or consumer behavior tracking, where maintaining model performance and accuracy is crucial.</p>
-</div>
-</section>
 <section id="drift-detection-algorithms" class="level3">
 <h3 class="anchored" data-anchor-id="drift-detection-algorithms">Drift Detection Algorithms</h3>
 <div class="justify">
-<p>Given the prevalence of drift in non-stationary systems, various drift detection algorithms have been developed to identify and react to these changes. Some of the most commonly used techniques include:</p>
+<p>Several algorithms have been developed to detect when a distribution has shifted, so you can retrain or adapt accordingly:</p>
 <ol type="1">
-<li><p><strong>CUSUM (Cumulative Sum Control Chart)</strong>: CUSUM monitors the cumulative sum of deviations from a target value, making it sensitive to small shifts in the mean.</p></li>
-<li><p><strong>ADWIN (Adaptive Windowing)</strong>: ADWIN dynamically adjusts a sliding window to detect changes in data distributions. It works by comparing the distributions of data in two sub-windows and detecting changes when they become statistically distinct.</p></li>
-<li><p><strong>Page-Hinkley Test</strong>: The Page-Hinkley test detects changes in the mean of a distribution by analyzing cumulative deviations from an estimated mean.</p></li>
+<li><p><strong>CUSUM (Cumulative Sum Control Chart)</strong>: tracks the cumulative deviation of a monitored statistic from its reference value. Sensitive to sustained shifts in the mean even when individual deviations are small.</p></li>
+<li><p><strong>ADWIN (Adaptive Windowing)</strong>: maintains a sliding window over the data stream and detects change by comparing statistics in two sub-windows. When the distributions become statistically distinguishable, it shrinks the window to the most recent data.</p></li>
+<li><p><strong>Page-Hinkley Test</strong>: detects shifts in the mean of a stream by monitoring cumulative deviations. Raises an alarm when the cumulative deviation exceeds a threshold.</p></li>
 </ol>
-<p>These methods are particularly useful in environments where data evolves over time, as they can detect shifts early, allowing for timely adjustments to models and systems.</p>
+<p>These methods are particularly useful in streaming settings where you’re monitoring model inputs or outputs in real time and need to trigger retraining automatically.</p>
 </div>
 </section>
 </section>
 <section id="addressing-non-stationarity-feature-engineering-in-machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="addressing-non-stationarity-feature-engineering-in-machine-learning">Addressing Non-Stationarity: Feature Engineering in Machine Learning</h2>
 <div class="justify">
-<p>One effective way to handle non-stationary data in machine learning models is through careful feature engineering. Rather than transforming the time series to make it stationary, feature engineering allows the model to learn from the inherent variations in the data. This approach leverages domain-specific knowledge to create features that capture temporal patterns and trends, enabling the model to adapt to non-stationary conditions.</p>
-<p>For example, in time series forecasting, creating features such as lagged values, moving averages, or rolling window statistics can help the model account for both short-term and long-term variations. Consider the creation of features like:</p>
+<p>The classical statistical approach to non-stationarity is transformation — differencing to remove trends, seasonal decomposition, log transforms to stabilize variance. The goal is to make the series stationary before fitting the model.</p>
+<p>Machine learning models offer an alternative: instead of transforming the series, you engineer features that capture the temporal patterns explicitly, and let the model adapt to them. Lagged values, rolling statistics, and time-based features can all encode non-stationarity in a form that tree-based and neural models can work with directly.</p>
+<p>Useful feature types:</p>
 <ul>
-<li><strong>Lagged values</strong>: <span class="math inline">\(X_{t-1}, X_{t-2}, \dots\)</span> , which provide the model with recent history.</li>
-<li><strong>Moving averages</strong>: Calculated over weeks or months to capture trends and smooth out noise.</li>
-<li><strong>Rolling window statistics</strong>: Such as rolling standard deviations or medians, which can highlight changing volatility or patterns in the data.</li>
+<li><strong>Lagged values</strong>: <span class="math inline">\(X_{t-1}, X_{t-2}, \dots\)</span> — the recent history of the series.</li>
+<li><strong>Rolling averages</strong>: computed over windows of days, weeks, or months to capture trend and smooth noise.</li>
+<li><strong>Rolling standard deviations or ranges</strong>: to capture changing volatility.</li>
+<li><strong>Calendar features</strong>: time of day, day of week, month, holiday indicators — anything that captures predictable periodic behavior.</li>
 </ul>
-<p>These engineered features allow machine learning models to implicitly handle non-stationarity by learning temporal dependencies and adapting to changes over time without explicitly forcing the series into a stationary form. Advanced models such as tree-based methods (e.g., XGBoost, Random Forests) and simple neuronal network architectures (e.g., MLP) benefit from such feature engineering, often capturing complex relationships and temporal dependencies.</p>
-<p>By focusing on creating rich features that represent the underlying temporal dynamics, machine learning models can be robust to non-stationary data, making this an alternative approach to traditional time series modeling techniques that require stationarity.</p>
+<p>Models like XGBoost and Random Forests handle these features naturally and can capture non-linear interactions between them. Simple neural architectures (MLPs) can too. The advantage over classical approaches is that you don’t have to decide upfront how to transform the series — the model learns the relevant patterns from the engineered features.</p>
+<p>The limitation is that this approach doesn’t guarantee stationarity; it just gives the model tools to work with the non-stationarity. If the drift is severe or the relationship between features and target changes fundamentally, feature engineering alone won’t save a static model. You still need to monitor for drift and retrain when necessary.</p>
 </div>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
 <div class="justify">
-<p>In the real world, everything that varies over time is non-stationary. Whether it is a stock price, customer demand, or sensor data, non-stationarity is a pervasive feature of most systems. As such, understanding how to deal with non-stationarity is crucial for both statistical and machine learning models.</p>
-<p>For classical time series analysis, stationarity is often a necessary condition, and transformations like differencing or seasonal decomposition are applied to achieve it. In contrast, machine learning models, with the aid of effective feature engineering, can often handle non-stationary data directly. By incorporating lagged variables, moving averages, and other temporal features, machine learning models can adapt to changes in data patterns without requiring explicit stationarity.</p>
-<p>In business contexts, monitoring for drift is essential for ensuring that machine learning systems remain effective over time. As systems evolve, performance drift, covariate drift, and changes in the underlying functional relationships between variables need to be detected and managed. Addressing these challenges ensures that models continue to deliver reliable results in dynamic environments, making drift detection and management a critical part of any data-driven system.</p>
-<p>Ultimately, the key to success in both classical time series analysis and machine learning is understanding the temporal nature of the data and selecting the appropriate techniques to handle its inherent non-stationarity.</p>
+<p>In practice, almost everything that varies over time is non-stationary to some degree. Stock prices, user behavior, demand patterns, sensor readings — all of them drift. The question isn’t whether to deal with non-stationarity, but how.</p>
+<p>For classical time series modeling, the answer is usually transformation: make the series stationary, fit the model, interpret on the original scale. For machine learning, the answer is usually feature engineering combined with monitoring: build features that capture temporal structure, deploy the model, and watch for the inevitable drift.</p>
+<p>Neither approach makes non-stationarity disappear. The goal is to handle it deliberately, so that when the data changes — and it will — you notice before your users do.</p>
 </div>
 
 
@@ -299,43 +323,58 @@ X_t = X_{t-1} + \epsilon_t
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -343,195 +382,348 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
       });
     }
-  }
-});
-</script>
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
+
 
 
 

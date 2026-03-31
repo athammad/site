@@ -12,102 +12,88 @@ fontsize: 1.5em
 # Introduction
 
 ::: justify
-Time series analysis is foundational in numerous fields, from economics and finance to engineering and the natural sciences. A time series is a sequence of observations indexed in time order, often taken at equally spaced intervals. Whether a time series is stationary or non-stationary significantly influences the methods and models that can be effectively applied to it. Understanding these concepts is crucial for extracting meaningful insights, especially when modeling complex real-world phenomena.
+Time series analysis runs through economics, finance, engineering, and the natural sciences — any domain where observations are indexed in time and the ordering matters. Whether a series is stationary or not shapes almost every methodological decision you make, from which model to use to how to interpret the results. Getting it wrong causes quiet, hard-to-diagnose problems.
 :::
 ## Stationary Time Series
 ::: justify
-A time series is considered stationary if its statistical properties, such as the mean, variance, and autocovariance, are invariant over time. More formally, a time series $X_t$ is strictly stationary if the joint probability distribution of any subset of the series remains unchanged when shifted in time. This implies that:
+A time series $X_t$ is stationary if its statistical properties don't change over time. Formally, the joint distribution of any subset of the series doesn't shift when you slide it forward or backward in time. In practice, we usually work with the weaker version: **weak stationarity**, which requires only that the mean, variance, and autocovariances are constant:
 
 - **Mean**: $E(X_t) = \mu$
-- **Variance**: $Var(X_t) = \sigma^2 $.
-- **Covariance**: $Cov(X_t, X_{t+k}) = \gamma(k)$, a function of the lag $k$ , but independent of time $t$.
+- **Variance**: $Var(X_t) = \sigma^2$
+- **Covariance**: $Cov(X_t, X_{t+k}) = \gamma(k)$, depending only on the lag $k$, not on $t$
 
-A common relaxation of this definition is **weak stationarity**, which only requires the mean, variance, and autocovariance to be constant, not the entire distribution.
+Why does this matter? Because the classical time series models — AR, MA, ARIMA — are built on this assumption. The parameter estimates make sense only if the properties of the series don't drift over the sample period. A stationary series has a "center of gravity" it tends to return to. A non-stationary one doesn't.
 
-Stationarity is often a desirable property because many statistical models and forecasting techniques, such as autoregressive (AR) models, moving average (MA) models, and autoregressive integrated moving average (ARIMA) models, assume or require that the underlying time series is stationary. The stability of statistical properties allows for the derivation of consistent and meaningful parameter estimates, leading to reliable forecasts.
-
-Mathematically, the simplest stationary process is white noise, where:
+The simplest stationary process is white noise:
 
 $$
 X_t \sim N(0, \sigma^2) \quad \forall t
 $$
 
-Here, $X_t$ is normally distributed with a constant mean of 0 and variance $\sigma^2$, and observations are uncorrelated over time.
+Constant mean, constant variance, no autocorrelation. It's the baseline against which everything else is compared.
 :::
 ## Non-Stationary Time Series
 ::: justify
-In contrast, a time series is non-stationary if its statistical properties change over time. This can manifest in various ways:
+Non-stationarity takes several forms:
 
-1. **Changing Mean**: The mean of the series may trend upward or downward over time.
-2. **Changing Variance**: The volatility of the series may increase or decrease.
-3. **Seasonality**: Regular patterns may repeat over time but do not correspond to constant parameters.
+1. **Trending mean**: the series drifts upward or downward over time. GDP, population, cumulative sales.
+2. **Changing variance**: the spread of the series grows or shrinks. Financial volatility often behaves this way.
+3. **Seasonality**: regular periodic patterns, though not necessarily tied to a changing mean or variance.
 
-A common example of non-stationarity is a **random walk**:
+The **random walk** is the canonical non-stationary process:
 
 $$
 X_t = X_{t-1} + \epsilon_t
 $$
 
-Here, $\epsilon_t$ is white noise. The random walk has no constant mean or variance; the variance grows with time, making it non-stationary. Despite its simplicity, this model underlies many economic and financial processes, such as stock prices.
+where $\epsilon_t$ is white noise. The variance of $X_t$ grows with $t$ — there's no mean to revert to, and shocks are permanent. Stock prices are often modeled this way, for better or worse.
 
-Another form of non-stationarity is the presence of a **unit root**, where the characteristic equation of an autoregressive process has roots on the unit circle, i.e., $\phi(B)X_t = \epsilon_t $ with $\phi(1) = 0 $. In such cases, shocks to the system have a permanent effect, preventing the series from reverting to a long-term mean.
+**Unit root** processes are the formal generalization. An autoregressive process $\phi(B)X_t = \epsilon_t$ has a unit root when $\phi(1) = 0$, meaning the characteristic polynomial has a root on the unit circle. The consequence is the same: shocks don't decay, the series doesn't revert, and classical regression on the raw levels will give you spurious results.
 :::
-## Stationarity, Drift, and Drift Detection: The Synonymy of Non-Stationarity and Drift
+## Stationarity, Drift, and Drift Detection
 ::: justify
-Non-stationarity and drift are closely related concepts, often synonymous in time series analysis. Non-stationarity refers to changes in the statistical properties of a time series over time, while drift is a specific manifestation of this non-stationarity, typically as a systematic trend or shift in the data.
+In the machine learning context, non-stationarity usually shows up as **drift** — a shift in the data distribution over time that degrades model performance. The two concepts are closely linked:
 
-From a practical standpoint, drift is the real-world expression of non-stationarity. Drift occurs when there is a gradual shift in the time series' mean, variance, or other characteristics. Whether this manifests as changes in performance, distribution of covariates, or even in the underlying functional relationship between input variables and the target outcome, drift is essentially the observable effect of non-stationarity.
-:::
-### Examples of Drift as Non-Stationarity
-::: justify
-1. **Mean Drift**: This occurs when a time series exhibits a trend, such as a gradual upward or downward movement over time, indicating that the series is non-stationary. Mathematically, this can be modeled as:
+- **Covariate drift**: the distribution of inputs changes. Your model was trained on one population; it's now seeing a different one.
+- **Concept drift**: the relationship between inputs and the target changes. The patterns that predicted churn last year may not predict it this year.
+- **Performance drift**: the catch-all term for declining accuracy, which is usually downstream of one of the above.
 
- $$
-   X_t = \mu + \beta t + \epsilon_t
-$$
-
-   Here, $\beta$ represents the drift term. The presence of such a trend means that the mean is not constant over time, leading to non-stationarity.
-
-2. **Covariate Drift**: When the distribution of covariates, or independent variables, changes over time, it introduces non-stationarity. For machine learning models, covariate drift can lead to degraded performance because the model's assumptions about the data no longer hold.
-
-3. **Performance Drift**: In machine learning and predictive modeling, drift often manifests as a decline in performance over time. This occurs because the underlying data distribution, or the relationship between inputs and outputs, has shifted—another indication of non-stationarity.
-
-Since drift and non-stationarity are so closely linked, it is essential to continuously monitor for drift in time series data, especially in dynamic environments where the underlying data-generating process is expected to evolve over time. This is critical in virtually all real-world systems, such as financial markets, industrial IoT systems, or consumer behavior tracking, where maintaining model performance and accuracy is crucial.
+Drift is non-stationarity as experienced by a deployed model. Whether you call it non-stationarity (statistics) or drift (ML) is mostly a matter of which literature you're reading.
 :::
 ### Drift Detection Algorithms
 ::: justify
-Given the prevalence of drift in non-stationary systems, various drift detection algorithms have been developed to identify and react to these changes. Some of the most commonly used techniques include:
+Several algorithms have been developed to detect when a distribution has shifted, so you can retrain or adapt accordingly:
 
-1. **CUSUM (Cumulative Sum Control Chart)**: CUSUM monitors the cumulative sum of deviations from a target value, making it sensitive to small shifts in the mean.
+1. **CUSUM (Cumulative Sum Control Chart)**: tracks the cumulative deviation of a monitored statistic from its reference value. Sensitive to sustained shifts in the mean even when individual deviations are small.
 
-2. **ADWIN (Adaptive Windowing)**: ADWIN dynamically adjusts a sliding window to detect changes in data distributions. It works by comparing the distributions of data in two sub-windows and detecting changes when they become statistically distinct.
+2. **ADWIN (Adaptive Windowing)**: maintains a sliding window over the data stream and detects change by comparing statistics in two sub-windows. When the distributions become statistically distinguishable, it shrinks the window to the most recent data.
 
-3. **Page-Hinkley Test**: The Page-Hinkley test detects changes in the mean of a distribution by analyzing cumulative deviations from an estimated mean.
+3. **Page-Hinkley Test**: detects shifts in the mean of a stream by monitoring cumulative deviations. Raises an alarm when the cumulative deviation exceeds a threshold.
 
-These methods are particularly useful in environments where data evolves over time, as they can detect shifts early, allowing for timely adjustments to models and systems.
+These methods are particularly useful in streaming settings where you're monitoring model inputs or outputs in real time and need to trigger retraining automatically.
 :::
 ## Addressing Non-Stationarity: Feature Engineering in Machine Learning
 ::: justify
-One effective way to handle non-stationary data in machine learning models is through careful feature engineering. Rather than transforming the time series to make it stationary, feature engineering allows the model to learn from the inherent variations in the data. This approach leverages domain-specific knowledge to create features that capture temporal patterns and trends, enabling the model to adapt to non-stationary conditions.
+The classical statistical approach to non-stationarity is transformation — differencing to remove trends, seasonal decomposition, log transforms to stabilize variance. The goal is to make the series stationary before fitting the model.
 
-For example, in time series forecasting, creating features such as lagged values, moving averages, or rolling window statistics can help the model account for both short-term and long-term variations. Consider the creation of features like:
+Machine learning models offer an alternative: instead of transforming the series, you engineer features that capture the temporal patterns explicitly, and let the model adapt to them. Lagged values, rolling statistics, and time-based features can all encode non-stationarity in a form that tree-based and neural models can work with directly.
 
-- **Lagged values**: $X_{t-1}, X_{t-2}, \dots$ , which provide the model with recent history.
-- **Moving averages**: Calculated over weeks or months to capture trends and smooth out noise.
-- **Rolling window statistics**: Such as rolling standard deviations or medians, which can highlight changing volatility or patterns in the data.
+Useful feature types:
 
-These engineered features allow machine learning models to implicitly handle non-stationarity by learning temporal dependencies and adapting to changes over time without explicitly forcing the series into a stationary form. Advanced models such as tree-based methods (e.g., XGBoost, Random Forests) and simple neuronal network architectures (e.g., MLP) benefit from such feature engineering, often capturing complex relationships and temporal dependencies.
+- **Lagged values**: $X_{t-1}, X_{t-2}, \dots$ — the recent history of the series.
+- **Rolling averages**: computed over windows of days, weeks, or months to capture trend and smooth noise.
+- **Rolling standard deviations or ranges**: to capture changing volatility.
+- **Calendar features**: time of day, day of week, month, holiday indicators — anything that captures predictable periodic behavior.
 
-By focusing on creating rich features that represent the underlying temporal dynamics, machine learning models can be robust to non-stationary data, making this an alternative approach to traditional time series modeling techniques that require stationarity.
+Models like XGBoost and Random Forests handle these features naturally and can capture non-linear interactions between them. Simple neural architectures (MLPs) can too. The advantage over classical approaches is that you don't have to decide upfront how to transform the series — the model learns the relevant patterns from the engineered features.
+
+The limitation is that this approach doesn't guarantee stationarity; it just gives the model tools to work with the non-stationarity. If the drift is severe or the relationship between features and target changes fundamentally, feature engineering alone won't save a static model. You still need to monitor for drift and retrain when necessary.
 :::
 ## Conclusion
 ::: justify
-In the real world, everything that varies over time is non-stationary. Whether it is a stock price, customer demand, or sensor data, non-stationarity is a pervasive feature of most systems. As such, understanding how to deal with non-stationarity is crucial for both statistical and machine learning models.
+In practice, almost everything that varies over time is non-stationary to some degree. Stock prices, user behavior, demand patterns, sensor readings — all of them drift. The question isn't whether to deal with non-stationarity, but how.
 
-For classical time series analysis, stationarity is often a necessary condition, and transformations like differencing or seasonal decomposition are applied to achieve it. In contrast, machine learning models, with the aid of effective feature engineering, can often handle non-stationary data directly. By incorporating lagged variables, moving averages, and other temporal features, machine learning models can adapt to changes in data patterns without requiring explicit stationarity.
+For classical time series modeling, the answer is usually transformation: make the series stationary, fit the model, interpret on the original scale. For machine learning, the answer is usually feature engineering combined with monitoring: build features that capture temporal structure, deploy the model, and watch for the inevitable drift.
 
-In business contexts, monitoring for drift is essential for ensuring that machine learning systems remain effective over time. As systems evolve, performance drift, covariate drift, and changes in the underlying functional relationships between variables need to be detected and managed. Addressing these challenges ensures that models continue to deliver reliable results in dynamic environments, making drift detection and management a critical part of any data-driven system.
-
-Ultimately, the key to success in both classical time series analysis and machine learning is understanding the temporal nature of the data and selecting the appropriate techniques to handle its inherent non-stationarity.
-
+Neither approach makes non-stationarity disappear. The goal is to handle it deliberately, so that when the data changes — and it will — you notice before your users do.
 :::
