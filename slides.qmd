@@ -1,6 +1,6 @@
 ---
 title: "📽️️ Slides"
-image: https://www.thebluegrey.com/wp-content/uploads/2021/09/4b4779e1dcb86984abe55c08366f9babe7-13-empty-theater.rsquare.w700.jpg
+image: https://img.jakpost.net/c/2025/02/24/2025_02_24_160547_1740391130._large.jpg
 toc: false
 page-layout: full
 about: 
