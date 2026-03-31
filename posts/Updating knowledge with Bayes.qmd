@@ -9,45 +9,47 @@ execute:
 ::: justify
 # An intuitive explanation of Bayesian updating
 
-To elucidate the workings of Bayesian updating, I often find it helpful to draw parallels from everyday experiences. Previously, I've used examples like my dog and my first date with my girlfriend. This time, let's delve into the concept using a job interview scenario.
+I've explained Bayesian updating many times over the years — to students, to colleagues, to people with no statistics background at all. The examples I find work best are ones people have actually experienced: my dog, a first date, a job interview. This time, let's use the job interview.
 
 ## The job interview😎
 
-Imagine you've landed a job interview -- you're simultaneously excited and apprehensive. As you stand at the threshold, you're completely uncertain about what awaits you inside. You don't know who the interviewers are, what to expect, or how the interview will unfold. The odds of everything going either terribly wrong or wonderfully right seem equally plausible.
+You've landed an interview. You're excited and nervous. Standing outside the door, you genuinely don't know how it's going to go — whether you'll walk out with an offer or not. Both outcomes feel roughly equally possible.
 
-In the realm of probability, we can liken your state of mind to a uniform distribution, where all outcomes are equally probable. This state of not knowing what will happen or how the interview will conclude is what Bayesian terminology dubs the "prior belief" -- it's the starting point for your assessment.
+In probability terms, you're starting with something close to a **uniform prior**: you don't have strong information either way, so you're distributing your belief fairly evenly across outcomes.
 
 ![](../gallery/prior1.png){fig-align="center"}
 
 ## Beliefs💬
 
-Interestingly, we still call it a "prior belief" even if you harbor some inkling about how the interview might unfold. For instance, let's say you had an unpleasant preliminary conversation with the company, and as you enter the room, you're not filled with optimism, estimating a 40% chance of success. In Bayesian terms, this, too, can be translated into probabilities.
+But you don't always start completely neutral. Maybe you had a rough preliminary call with the company, and going in you feel less confident — maybe you'd say 40% chance this goes well. That 40% is still a prior belief, just a more specific one.
 
 ![](../gallery/prior2.png){fig-align="center"}
 
-Keep in mind, though, that this assessment is occurring just as you're about to step through the door.
+The key point is that this assessment is happening *before* you have new information — you're forming it at the door, before you've seen anything inside.
 
 ## Smile😁
 
-Now, envision yourself crossing that threshold, and the interviewers pose their initial question. Your response is swift, and you notice a confident smile on the interviewer's face. This moment represents a pivotal piece of new information drawn from your real-time experience, and naturally, you'll use it to revise your initial belief about the interview's outcome. We call this new information and "evidence".
+You walk in. The first question comes. You answer well. The interviewer smiles — a confident, genuine smile. That's new information, and it changes things.
 
-What's happening inside your mind, that surge of heightened confidence, can once again be translated into numerical probabilities to update your initial belief. This is precisely where the Bayes comes into play.
-
-Let's show how the update takes place. Let's assign to that smile, the evidence, a probability of 80% to pass the interview.
+How much it changes things depends on how diagnostic you think a smile is. Let's say you're fairly optimistic about it: a smile like that probably means things are going well, so you'd assign it an 80% probability of a good outcome.
 
 ![](../gallery/evidence1.png){fig-align="center"}
 
 ## Update🔀
 
-Now, let's plug in all the information we have in the Bayesian therm we all know. We started with a not so confident prior belief (40% chance of success), then we got a new smiling evidence (80% chance of success). From here we can combine these two information and calculate our updated beliefs or as we call them "posterior beliefs".
+Now Bayes' theorem does its work. You had a prior (40% confident going in), you observed evidence (a smile you'd assign 80%), and you combine them to get a posterior — your updated belief after seeing the evidence.
 
 ![](../gallery/update1.png){fig-align="center"}
 
-As you can see, now you have around 60% of passing the interview. These process can keep on going with every new information you collect during the interview as in this gif.
+The posterior lands around 60%. You've updated upward from your prior, but not all the way to the evidence, because the prior was pulling the other way. The relative weights depend on how strong each is.
+
+And this isn't a one-time thing. Every new piece of information — another question answered well, an awkward silence, the interviewers exchanging a look — becomes new evidence that updates the running posterior. The posterior from one update becomes the prior for the next.
 
 ![](../gallery/bayesian_update.gif){fig-align="center"}
 
-In essence, this is the core of Bayesian updating. It allows you to adapt your beliefs based on new information as you progress through an uncertain situation, much like navigating the twists and turns of a job interview.
+That's the core of Bayesian reasoning: you start with a belief, you observe something, you update. You never throw away your prior — you just revise it in proportion to the evidence. Strong prior + weak evidence = small update. Weak prior + strong evidence = large update. Over time, with enough observations, the prior matters less and less, and the data dominates.
+
+What I like about this framing is that it maps directly to how people actually reason. You're not waiting until all evidence is collected to form a view; you're constantly revising as things unfold. Bayes just makes that process precise.
 :::
 
 ```{python, eval=FALSE, include=FALSE}

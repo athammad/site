@@ -7,80 +7,76 @@ execute:
 ---
 
 ::: justify
-A data science boilerplate, in the context of software development and data science projects, refers to a standardized and reusable set of code, templates, libraries, and best practices that are pre-defined and organized to kickstart a data science project. It serves as a foundation or starting point for data scientists and analysts, helping them save time and effort when beginning a new project or analysis. Here's an ideal data science boilerplate that I recommend for basically any project.
+Every time I start a new data science project, I go through the same setup steps. Create folders, set up the virtual environment, add a .gitignore, write the Dockerfile. It takes time, and worse, when I don't follow a consistent structure I end up with projects that are hard to navigate six months later.
+
+The structure below is what I use. It's not revolutionary — it's opinionated in ways that work for me — but having a standard starting point saves time and keeps things consistent across projects. Here it is.
 
 # The folder structure
 
 ```{=html}
 <pre><font color="#3465A4"><b>.</b></font>
 ├── <font color="#3465A4"><b>data</b></font>
-│   └── data.csv
+│   └── data.csv
 ├── Dockerfile
 ├── Makefile
 ├── .env
 ├──.envrc
 ├── .gitignore
 ├── <font color="#3465A4"><b>notebooks</b></font>
-│   └── datascientist_deliverable.ipynb
+│   └── datascientist_deliverable.ipynb
 ├── README.md
 ├── requirements.txt
 ├── <font color="#3465A4"><b>scripts</b></font>
-│   └── script.py
+│   └── script.py
 ├── setup.py
 └── <font color="#3465A4"><b>thepkg</b></font>
     ├── __init__.py
     ├── <font color="#3465A4"><b>interface</b></font>
-    │   └── __init__.py
+    │   └── __init__.py
     ├── <font color="#3465A4"><b>ml_logic</b></font>
-    │   ├── data.py
-    │   ├── __init__.py
-    │   ├── model.py
-    │   └── preprocessor.py
+    │   ├── data.py
+    │   ├── __init__.py
+    │   ├── model.py
+    │   └── preprocessor.py
     ├── params.py
     └── utils.py
 </pre>
 ```
-This folder structure represents a typical directory layout for a data science project. Each folder and file serves a specific purpose in organizing and managing the project's code, data, documentation, and other resources. I will now give an explanation of each item in the structure:
 
--   **data**: This folder contains the project's data files. In this case, there is a single CSV file named `data.csv`, but you can add more data files as needed.
+Here's what each piece does and why I include it:
 
--   **Dockerfile**: This file is used to define the instructions for creating a Docker container for your project. Docker allows you to encapsulate your project environment and dependencies for consistency and portability. This is a key element for most of my projects since I love to delevope inside a Docker Container (see my other [blog post](https://athammad.github.io/site/posts/Developing%20in%20a%20Docker%20container.html) on how to use Docker with 'bind mounts'.)
+-   **data**: The project's data files. Keep raw data here and don't overwrite it — treat it as read-only once ingested.
 
--   **Makefile**: A Makefile contains a set of rules and commands for building, testing, and running various aspects of your project. It can automate common development tasks.
+-   **Dockerfile**: Defines the container environment. I develop inside Docker containers (see my [post on Docker + bind mounts](https://athammad.github.io/site/posts/Developing%20in%20a%20Docker%20container.html)), so this is a key part of every project, not optional scaffolding.
 
--   **.env**: This file is often used to store environment variables specific to your project. These variables can include API keys, database connection strings, or other sensitive information.
+-   **Makefile**: Automates common tasks — building the image, running tests, launching the notebook server. A well-written Makefile means you don't have to remember long `docker run` commands.
 
--   **.envrc**: This file is typically used in conjunction with a tool like `direnv` to manage environment variables for your project, ensuring that the correct environment is set up when you enter the project directory.
+-   **.env**: Environment variables — API keys, database connection strings, anything that shouldn't be hardcoded. Never commit this file.
 
--   **.gitignore**: This file specifies files and folders that should be ignored by Git when tracking changes. It helps avoid including sensitive or unnecessary files in version control.
+-   **.envrc**: Works with `direnv` to automatically load the environment when you enter the project directory. Makes switching between projects less error-prone.
 
--   **notebooks**: This folder is meant for Jupyter notebooks used for data exploration, analysis, and documentation. In this case, there's a single notebook file named `datascientist_deliverable.ipynb`.
+-   **.gitignore**: Keeps the repository clean. At minimum: `.env`, `__pycache__`, `.ipynb_checkpoints`, and whatever data files are too large to version.
 
--   **README.md**: This Markdown file is used to provide an overview and documentation of the project. It typically includes project goals, setup instructions, usage examples, and other relevant information.
+-   **notebooks**: For exploration and deliverables. One notebook per logical question. Don't use notebooks as a substitute for proper code — anything reusable goes into `thepkg`.
 
--   **requirements.txt**: This file lists the Python packages and their versions required for the project. You can use it to recreate the project's environment on another system.
+-   **README.md**: How to set up and run the project. Assume the reader has never seen your code before, because in three months that reader will be you.
 
--   **scripts**: This folder is intended for Python scripts that are part of your project. In this example, there's a single script file named `script.py`.
+-   **requirements.txt**: Pinned package versions. Reproducibility starts here.
 
--   **setup.py**: This is a Python script used for packaging and distributing your project as a Python package and is directly related with the folder \`thepkg\`. It's often used when you want to share your code with others or publish it on platforms like PyPI.
+-   **scripts**: Standalone scripts — data ingestion, batch jobs, one-off transformations. These call into `thepkg` rather than containing business logic directly.
 
--   **thepkg**: This folder represents the main Python package of your project. In development phase we would install the package using the classic `pip install . e` (editablemode) to updated function without having to reinstalling it over and over again. The folder is organized in a way that follows Python package conventions:
+-   **setup.py**: Lets you install `thepkg` as a local editable package with `pip install -e .`. Once it's installed, you can import it cleanly from notebooks and scripts without path hacks.
 
-    -   **init**.py: These files indicate that the directories are Python packages and can be imported as modules.
+-   **thepkg**: The actual Python package where reusable code lives. Organized into:
 
-    -   **interface**: This subpackage appears to be a module for defining an interface or API for your project.
+    -   **interface**: Entry points and API definitions.
+    -   **ml_logic**: Data loading (`data.py`), preprocessing (`preprocessor.py`), and model code (`model.py`). Keeping these separate makes it easier to swap out one component without touching the others.
+    -   **params.py**: Configuration constants — model hyperparameters, file paths, column names. Centralizing these means you change things in one place.
+    -   **utils.py**: Utility functions that don't belong anywhere else.
 
-    -   **ml_logic**: This subpackage seems to contain modules related to machine learning logic, including data processing (`data.py` and `preprocessor.py`) and modeling (`model.py`).
+The folder structure is a template, not a contract. Some projects need more; some need less. But starting here is faster than starting from scratch, and it's easier to remove structure you don't need than to add it retroactively.
 
-    -   **params.py**: This file could contain project-specific configuration parameters or settings.
-
-    -   **utils.py**: This file likely contains utility functions or helper code used throughout the project.
-
-Overall, this folder structure provides a well-organized framework for a data science project, making it easier to collaborate, manage dependencies, and maintain consistency in your work.
-
-Remember that I boilerplate is just a template. Feel free to use this structure as a first step into your new Data Science project.
-
-Finally, here is a little bash script to create the entire folder structure.
+Below is a bash script to create the entire structure in one shot.
 :::
 
 ```{python, eval=FALSE, include=FALSE}

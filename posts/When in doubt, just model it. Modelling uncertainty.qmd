@@ -3,26 +3,35 @@ title: "When in doubt, just model it. Modelling uncertainty"
 image: ../gallery/uncertanity.webp
 ---
 
-Probabilistic modeling is a powerful approach in statistics and machine learning that enables us to quantify uncertainty in our predictions and decisions. It allows us to represent and reason about uncertain or incomplete information by incorporating probability distributions over the model parameters or the outcomes themselves. In this context, we can distinguish between two types of uncertainty: uncertainty and deep uncertainty.
+There's a pattern I've noticed across projects: when something is hard to measure, people tend to either ignore it or collapse it into a single number. Both choices feel safe. Both choices are wrong.
+
+Probabilistic modeling exists precisely for this reason — it forces you to be honest about what you don't know by representing it explicitly, as a distribution rather than a point estimate.
 
 ## Uncertainty
 
-Uncertainty refers to the lack of perfect knowledge about a particular event or outcome. In probabilistic modeling, uncertainty is captured by probability distributions. These distributions represent our beliefs about the likelihood of different outcomes or the variability in model parameters. By using probability distributions, we can express the confidence or lack thereof in our predictions.
+Uncertainty shows up whenever you're making predictions with incomplete information, which is always. In practice, this means the parameters of your model aren't fixed truths — they're estimates with some range of plausible values around them.
 
-For example, in linear regression, instead of providing a single point estimate for the model coefficients, we can use a probability distribution to describe the uncertainty around these coefficients. This allows us to understand the range of plausible values and the level of confidence we have in our estimates.
+Take linear regression. A frequentist will give you a coefficient and a confidence interval. A Bayesian will give you a full posterior distribution over that coefficient. Both are capturing the same underlying reality: we fitted the model on a finite sample, and had the data been slightly different, our estimate would have shifted. The distribution is a way of making that explicit.
 
-Probabilistic modeling allows us to make more robust decisions by considering the uncertainty and accounting for potential errors in our predictions. It is widely used in various applications, including finance, healthcare, weather forecasting, and natural language processing.
+This matters beyond statistics. When you hand someone a single number — a predicted price, a risk score, a forecast — you're implicitly claiming a precision you probably don't have. A probability distribution is more honest, and in many applications (insurance, medical decision-making, financial risk) it's also more useful. Knowing that the outcome is likely between X and Y, and that there's a 5% chance it's worse than Z, is a fundamentally different kind of information than knowing the expected value alone.
 
 ## Deep Uncertainty
 
-Deep uncertainty, on the other hand, goes beyond simple uncertainty and arises when we have limited knowledge about the underlying data-generating process or when there is ambiguity in the model assumptions. In such cases, traditional probabilistic models may not be sufficient to capture the full extent of uncertainty.
+Regular uncertainty is manageable — you have a model, it has parameters, you can estimate them and quantify your confidence. Deep uncertainty is harder. It arises when you're not even sure you have the right model structure, when the data-generating process might be fundamentally different from what you assumed.
 
-Deep uncertainty is particularly prevalent in complex and chaotic systems, where there are many interacting variables and non-linear relationships that are difficult to model precisely. In these scenarios, traditional probabilistic models may yield unreliable estimates or may not provide meaningful uncertainty quantification.
+This is common in complex systems: economic forecasting, climate modeling, anything involving human behavior at scale. The variables interact in non-linear ways, there are regime changes, feedback loops, and structural breaks that no parametric model cleanly captures. In these settings, running a Bayesian regression and looking at the credible interval doesn't tell the whole story, because the uncertainty in the model specification itself is much larger than the parameter uncertainty within any given model.
 
-To address deep uncertainty, researchers have developed alternative methods, such as robust optimization, scenario-based analysis, and Bayesian non-parametric models. These techniques are designed to handle situations where the underlying assumptions are uncertain or where we lack sufficient data to make accurate probabilistic estimates.
+A few approaches have been developed to tackle this:
 
-In recent years, the development of deep learning and Bayesian deep learning has also allowed us to tackle deep uncertainty in more complex models. Bayesian neural networks, for example, use Bayesian inference to represent uncertainty in neural network weights, enabling better uncertainty quantification in deep learning models.
+- **Robust optimization** finds solutions that perform acceptably across a wide range of possible model specifications, rather than optimizing under a single assumed model.
+- **Scenario analysis** sidesteps the need for a probability distribution entirely — instead of asking "what's the probability of outcome X?", it asks "what happens if X occurs?".
+- **Bayesian non-parametric models** (Gaussian processes, Dirichlet processes, etc.) place priors over entire function spaces, letting the data determine the model complexity rather than fixing it in advance.
+- **Bayesian deep learning** — things like MC dropout, deep ensembles, or Bayesian neural networks — attempts to bring uncertainty quantification into neural networks, where the model class is expressive enough to handle complex structure but traditionally gives only point predictions.
 
-# Conclusion
+The honest answer is that deep uncertainty is never fully "solved." You can manage it better or worse, but any model is a simplification, and the further your data is from the training distribution, the less you should trust your confidence intervals.
 
-Probabilistic modeling is a versatile tool for quantifying uncertainty in various applications. It allows us to represent our beliefs probabilistically and make more informed decisions based on the available information. However, in situations where uncertainty is deeper and the underlying data-generating process is complex or uncertain, traditional probabilistic models may not suffice. In these cases, advanced techniques like Bayesian non-parametric models and Bayesian deep learning can help us handle deep uncertainty and make more robust predictions and decisions in challenging and uncertain environments. As our understanding of uncertainty and deep uncertainty advances, probabilistic modeling will continue to play a pivotal role in tackling real-world problems with incomplete information.
+## Why it matters in practice
+
+There's a tendency to treat uncertainty quantification as an academic nicety — useful in papers, ignored in dashboards. I'd push back on this. The most consequential decisions are usually the ones made under the most uncertainty. A model that only returns a point estimate is actively hiding information from the people who need to make those decisions.
+
+When in doubt about how to handle something messy or unknown, model it. Give it a distribution, make your assumptions explicit, and let the uncertainty propagate through to the output. The result will be less tidy, but it will be more truthful — and that's what you actually need when things don't go according to plan.

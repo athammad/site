@@ -6,44 +6,41 @@ execute:
   eval: false
 ---
 ::: justify
-Algorithmic trading has always been a fascination for me. The abundance of time-series data, coupled with the challenge of developing and testing trading strategies, makes it an exciting space. Forex markets provided one of the most accessible playgrounds for such experimentation.
+Algorithmic trading has always interested me. The abundance of time-series data, the clear feedback loop, the challenge of building and testing strategies — it's a domain where you can iterate quickly and see the results immediately. Forex markets were an accessible entry point.
 
-When I decided to create an interface for the Gain Capital API (the backend for Forex.com), I made a deliberate choice to use **R** over **Python**. Why? Partly for the joy of experimenting with R6 classes, an encapsulated, object-oriented paradigm in R. It felt like the right opportunity to learn and build something modular, reusable, and maintainable—all characteristics R6 is known for.
+When I decided to build an interface to the Gain Capital API (the backend behind Forex.com), I chose R over Python deliberately. Part of the reason was curiosity: I wanted to properly learn R6 classes, the object-oriented paradigm in R that supports encapsulation and stateful objects. A trading client felt like the right project for that — you need a persistent connection, stateful account information, and clean method dispatch. R6 handles all of that well.
 
-This journey led to the creation of **`rgcapi`**, an R package that connects directly to the Gain Capital API. Below, I’ll walk you through its features, how to set it up, and how you can use it to unlock algorithmic trading capabilities in R.
+The result is **`rgcapi`**, an R package that connects directly to the Gain Capital API.
 
-::: 
----
+:::
 
 ## What is `rgcapi`?
 ::: justify
-`rgcapi` is an R package that provides a comprehensive interface to Gain Capital’s API (V1 and V2). It allows you to:  
+`rgcapi` provides a full interface to Gain Capital's API (V1 and V2). With it you can:
 
-- Manage trading accounts and monitor balances.  
-- Retrieve real-time market data.  
-- Automate trade execution and management.  
-- Extract historical data for analysis and backtesting.  
+- Manage trading accounts and monitor balances.
+- Retrieve real-time market data.
+- Automate trade execution and management.
+- Extract historical data for analysis and backtesting.
 
-The package is built using R6, which makes it modular, stateful, and efficient for iterative workflows. Notably, `rgcapi` is the **only package in the R ecosystem** to offer connectivity to the Gain Capital API, making it a unique and valuable tool for R users.
+As far as I know, it's the **only package in the R ecosystem** with connectivity to the Gain Capital API.
 
----
-::: 
+:::
 
 ## Key Features of `rgcapi`
 
 ::: justify
-- **Account Management**: Easily initialize sessions and manage user accounts.  
-- **Market Information**: Retrieve real-time market quotes, instrument details, and other key data.  
-- **Trading Operations**: Execute trades, manage orders, and monitor open positions.  
-- **Historical Data**: Extract price data for backtesting and time-series analysis.  
+- **Account Management**: Initialize sessions and manage user accounts.
+- **Market Information**: Real-time market quotes, instrument details, and pricing data.
+- **Trading Operations**: Execute trades, manage orders, monitor open positions.
+- **Historical Data**: OHLC and tick data for backtesting and time-series analysis.
 
----
-::: 
+:::
 
 ## Installation
 
 ::: justify
-You can install `rgcapi` directly from GitHub. Start by installing the `devtools` package if you don’t already have it.
+Install directly from GitHub:
 
 ```r
 # Install devtools if needed
@@ -53,13 +50,13 @@ install.packages("devtools")
 devtools::install_github("athammad/rgcapi")
 ```
 
-::: 
+:::
 
 # Setting Up Your API Credentials
 
 ::: justify
 
-To access the API, you’ll need credentials from Forex.com, including a username, password, and application key. Once you have them, initialize the client like this:
+You'll need credentials from Forex.com: username, password, and an application key. Initialize the client like this:
 
 ```r
 library(rgcapi)
@@ -72,35 +69,28 @@ APKEY <- "your_appkey"
 # Initialize the client for Gain Capital API V2
 client <- GCapiClientV2$new(username = IDLOG, password = PSWD, appkey = APKEY)
 ```
-::: 
-
-# Example Workflows: Exploring rgcapi in Action
-
-::: justify
-Here’s where the magic happens. Below, I’ll walk you through practical use cases, showing how you can leverage rgcapi to perform key trading operations.
 :::
+
+# Example Workflows
 
 ## 1. Retrieve Account Information
 ::: justify
-The first step in any trading workflow is understanding your account status. With rgcapi, you can fetch account details in seconds:
 
 ```r
 account_info <- client$get_account_info()
 print(account_info)
 ```
-::: 
+:::
 
 ## 2. Fetch Market Information
 ::: justify
-Market data is the backbone of trading strategies. With rgcapi, you can access detailed information about instruments:
 
 ```r
-
 # Get market information for EUR/USD
 market_info <- client$get_market_info("EUR/USD")
 print(market_info)
 
-# Retrieve specific fields, such as MarketId and Name
+# Retrieve specific fields
 market_id <- client$get_market_info("EUR/USD", get = "MarketId")
 market_name <- client$get_market_info("EUR/USD", get = "Name")
 print(market_id)
@@ -111,9 +101,6 @@ print(market_name)
 ## 3. Extract Historical Price Data
 
 ::: justify
-
-Historical data is critical for backtesting strategies. With rgcapi, you can retrieve precise price information:
-
 
 ```r
 # Get latest price data
@@ -128,7 +115,8 @@ prices <- client$get_prices(
 )
 print(prices)
 ```
-For OHLC (Open, High, Low, Close) data, adjust the parameters:
+
+For OHLC data:
 
 ```r
 # Retrieve OHLC data for the last 24 hours
@@ -149,7 +137,6 @@ print(ohlc)
 ## 4. Execute a Trade
 
 ::: justify
-Once you've analyzed the market, placing trades is seamless. Here's how to place a buy order:
 
 ```r
 # Place a buy trade
@@ -167,19 +154,19 @@ trade_resp <- client$trade_order(
 print(trade_resp)
 ```
 
-::: 
+:::
 
-## 5. Monitor and Manage 
+## 5. Monitor and Manage
 
 ::: justify
-Keeping track of active trades is essential for managing risk. Here’s how to list open positions:
 
 ```r
 # List all open positions
 open_positions <- client$list_open_positions()
 print(open_positions)
 ```
-Closing a position is equally straightforward:
+
+Closing a position:
 
 ```r
 # Close a trade order
@@ -200,18 +187,15 @@ print(close_resp)
 ## 6. Retrieve Trade History
 
 ::: justify
-Understanding past trades can inform future strategies. Use the following code to retrieve your trade history:
 
 ```r
 # Get trade history
 trade_history <- client$get_trade_history()
 print(trade_history)
 ```
-::: 
+:::
 
 \
 \
 
-For me, developing `rgcapi` was both a practical solution and a creative experiment. It merges the analytical power of R with the dynamic world of Forex trading, offering a unique tool for data scientists and traders alike. Whether you’re building automated trading systems or simply exploring the markets, `rgcapi` is designed to make the process seamless and efficient.
-
-Explore it on GitHub: [athammad/rgcapi](https://github.com/athammad/rgcapi). I’d love to hear how you’re using it and what features you’d like to see next!
+Building `rgcapi` was both a practical tool and a learning project. R6 turned out to be well-suited for this kind of stateful API client — the session management, the account state, and the method dispatch all fit naturally into the class structure. The package is on GitHub at [athammad/rgcapi](https://github.com/athammad/rgcapi). Let me know if you build something with it.

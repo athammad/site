@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.9.36">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Ahmed T. Hammad - Embracing Change: Incremental vs.&nbsp;Batch Machine Learning</title>
+<title>Embracing Change: Incremental vs.&nbsp;Batch Machine Learning – Ahmed T. Hammad</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,22 +33,29 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-58dbf8fa33141ac557f4965604559e3b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -54,8 +64,10 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -63,88 +75,84 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Ahmed T. Hammad</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">ℹ️ About</span></a>
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">ℹ️ About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../teaching.html" rel="" target="">
- <span class="menu-text">🧑‍🏫 Teaching</span></a>
+    <a class="nav-link" href="../teaching.html"> 
+<span class="menu-text">🧑‍🏫 Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../research.html" rel="" target="">
- <span class="menu-text">🛰 Research</span></a>
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">🛰 Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../students.html" rel="" target="">
- <span class="menu-text">🧑‍🎓 Students</span></a>
+    <a class="nav-link" href="../students.html"> 
+<span class="menu-text">🧑‍🎓 Students</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../papers.html" rel="" target="">
- <span class="menu-text">✍ Papers</span></a>
+    <a class="nav-link" href="../papers.html"> 
+<span class="menu-text">✍ Papers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../solutions.html" rel="" target="">
- <span class="menu-text">💡Solutions</span></a>
+    <a class="nav-link" href="../solutions.html"> 
+<span class="menu-text">💡Solutions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../toolkits.html" rel="" target="">
- <span class="menu-text">🧰Toolkits</span></a>
+    <a class="nav-link" href="../toolkits.html"> 
+<span class="menu-text">🧰Toolkits</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../cv/cv.html" rel="" target="">
- <span class="menu-text">📃 CV</span></a>
+    <a class="nav-link" href="../cv/cv.html"> 
+<span class="menu-text">📃 CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../posts.html" rel="" target="">
- <span class="menu-text">🎙️Blog</span></a>
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">🎙️Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../slides.html" rel="" target="">
- <span class="menu-text">📽️️ Slides</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../gallery.html" rel="" target="">
- <span class="menu-text">📸 Gallery</span></a>
+    <a class="nav-link" href="../slides.html"> 
+<span class="menu-text">📽️️ Slides</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/athammad" rel="" target=""><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/athammad"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text">Github</span></a>
+<span class="menu-text">Github</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://www.linkedin.com/in/ahmedt-h/" rel="" target=""><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/ahmedt-h/"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text">LinkedIn</span></a>
+<span class="menu-text">LinkedIn</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="mailto:ahmed@decatab.com" rel="" target=""><i class="bi bi-envelope" role="img">
+    <a class="nav-link" href="mailto:ahmed.t.hammad@gmail.com"> <i class="bi bi-envelope" role="img">
 </i> 
- <span class="menu-text">Email</span></a>
+<span class="menu-text">Email</span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -159,15 +167,15 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#incremental-machine-learning-an-ever-evolving-journey" id="toc-incremental-machine-learning-an-ever-evolving-journey" class="nav-link" data-scroll-target="#incremental-machine-learning-an-ever-evolving-journey">Incremental Machine Learning: An Ever-Evolving Journey</a>
+  <li><a href="#incremental-learning" id="toc-incremental-learning" class="nav-link" data-scroll-target="#incremental-learning">Incremental Learning</a>
   <ul class="collapse">
-  <li><a href="#characteristics-of-incremental-machine-learning" id="toc-characteristics-of-incremental-machine-learning" class="nav-link" data-scroll-target="#characteristics-of-incremental-machine-learning">Characteristics of Incremental Machine Learning</a></li>
+  <li><a href="#characteristics" id="toc-characteristics" class="nav-link" data-scroll-target="#characteristics">Characteristics</a></li>
   </ul></li>
-  <li><a href="#batch-machine-learning-a-journey-with-stability" id="toc-batch-machine-learning-a-journey-with-stability" class="nav-link" data-scroll-target="#batch-machine-learning-a-journey-with-stability">Batch Machine Learning: A Journey with Stability</a>
+  <li><a href="#batch-learning" id="toc-batch-learning" class="nav-link" data-scroll-target="#batch-learning">Batch Learning</a>
   <ul class="collapse">
-  <li><a href="#characteristics-of-batch-machine-learning" id="toc-characteristics-of-batch-machine-learning" class="nav-link" data-scroll-target="#characteristics-of-batch-machine-learning">Characteristics of Batch Machine Learning</a></li>
+  <li><a href="#characteristics-1" id="toc-characteristics-1" class="nav-link" data-scroll-target="#characteristics-1">Characteristics</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#choosing-between-them" id="toc-choosing-between-them" class="nav-link" data-scroll-target="#choosing-between-them">Choosing Between Them</a></li>
   <li><a href="#video" id="toc-video" class="nav-link" data-scroll-target="#video">Video</a></li>
   </ul></li>
   </ul>
@@ -183,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -191,62 +199,70 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="introduction" class="level1 justify">
 <h1>Introduction</h1>
-<p>Machine learning has revolutionized the way we interact with data, allowing us to uncover valuable insights and make informed decisions. Within the realm of machine learning, there are two fundamental approaches: incremental learning and batch learning. These methods serve distinct purposes and cater to diverse scenarios, offering unique advantages and challenges. In this blog post, we will embark on an exciting journey to understand the differences between incremental and batch machine learning, providing you with the knowledge to embrace these powerful techniques.</p>
-<section id="incremental-machine-learning-an-ever-evolving-journey" class="level2">
-<h2 class="anchored" data-anchor-id="incremental-machine-learning-an-ever-evolving-journey">Incremental Machine Learning: An Ever-Evolving Journey</h2>
-<p>Imagine a learning process that continuously adapts to new information, always striving to stay up-to-date with the latest trends. That’s incremental machine learning for you! Also known as online learning or streaming learning, this approach updates the model in real-time as fresh data arrives. Unlike batch learning, which requires processing the entire dataset at once, incremental learning embraces change, incorporating new observations into the existing model as they arrive.</p>
-<section id="characteristics-of-incremental-machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="characteristics-of-incremental-machine-learning">Characteristics of Incremental Machine Learning</h3>
+<p>Most machine learning tutorials train a model, evaluate it, and stop. That’s fine for a homework assignment. In production, it’s usually not how things work. Real systems need to handle new data continuously, and the choice of <em>how</em> they do that — incrementally or in batches — has significant practical consequences.</p>
+<section id="incremental-learning" class="level2">
+<h2 class="anchored" data-anchor-id="incremental-learning">Incremental Learning</h2>
+<p>Incremental learning (also called online learning or streaming learning) updates the model as each new data point arrives, without ever reprocessing old data. The model is always “live,” adapting in real time.</p>
+<p>This makes sense when data arrives in a stream and you can’t wait to accumulate a large batch before making decisions — think fraud detection, where you want the model to adapt to new fraud patterns as they appear, or recommendation systems on high-traffic platforms where user preferences shift constantly. It also matters when storing all historical data is impractical.</p>
+<section id="characteristics" class="level3">
+<h3 class="anchored" data-anchor-id="characteristics">Characteristics</h3>
 <ol type="1">
-<li><p>Real-Time Adaptation: The beauty of incremental learning lies in its ability to quickly respond to shifts in data distribution. This makes it ideal for applications dealing with rapidly evolving data, like online advertising or fraud detection.</p></li>
-<li><p>Low Memory Requirements: Incremental learning processes data in small batches or individual data points, reducing memory usage compared to batch learning, where the entire dataset needs to be stored.</p></li>
-<li><p>Constant Learning: With incremental learning, models can continuously learn and improve over time without the need for retraining on the entire dataset. It’s like a lifelong learning journey!</p></li>
+<li><strong>Real-time adaptation</strong>: the model reacts to distribution shifts as they happen rather than catching up periodically.</li>
+<li><strong>Low memory footprint</strong>: you only process one sample (or a small mini-batch) at a time, so you don’t need to hold the entire dataset in memory.</li>
+<li><strong>No periodic retraining</strong>: the model improves continuously — no scheduled jobs, no downtime for retraining.</li>
 </ol>
-<p><strong>Advantages of Incremental Machine Learning</strong></p>
-<ol type="1">
-<li><p>Efficiency: Incremental learning is computationally efficient since it updates the model incrementally, without the need to retrain on the entire dataset each time.</p></li>
-<li><p>Scalability: This approach is well-suited for large-scale applications where processing the entire dataset at once would be overwhelming.</p></li>
-<li><p>Dynamic Adaptation: Incremental learning is ideal for applications where data distribution changes frequently, such as natural language processing or recommendation systems. It embraces the unexpected!</p></li>
-</ol>
-<p><strong>Disadvantages of Incremental Machine Learning</strong></p>
-<ol type="1">
-<li><p>Forgetting Old Data: Just like we can’t remember everything we’ve learned in the past, incremental learning models may forget information from the past, leading to potential performance degradation on older data points.</p></li>
-<li><p>Model Drift: In dynamic environments, incremental learning models may struggle to adapt to sudden shifts in data patterns, leading to inaccuracies. Sometimes, change can be overwhelming!</p></li>
-</ol>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Computationally efficient per update: you’re not recomputing on thousands of examples each time.</li>
+<li>Scales naturally to large data volumes where batch training would be prohibitively slow or memory-intensive.</li>
+<li>Adapts to non-stationary data, where the relationship between inputs and outputs shifts over time.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li><strong>Catastrophic forgetting</strong>: models can lose performance on older patterns if new data is sufficiently different. Without mechanisms to preserve earlier knowledge, the model may “forget” what it learned months ago.</li>
+<li><strong>Sensitivity to noise</strong>: a single corrupted or anomalous observation can temporarily degrade the model if it’s processed without context.</li>
+<li><strong>Harder to evaluate and debug</strong>: since the model is always changing, pinning down exactly when and why performance degraded is more involved.</li>
+</ul>
 </section>
 </section>
-<section id="batch-machine-learning-a-journey-with-stability" class="level2">
-<h2 class="anchored" data-anchor-id="batch-machine-learning-a-journey-with-stability">Batch Machine Learning: A Journey with Stability</h2>
-<p>Now, let’s switch gears and explore batch machine learning. Picture a learning process that takes time to analyze and understand the whole story before making decisions. That’s batch machine learning for you! This approach involves training the model on the entire dataset and updating it periodically or when significant amounts of new data accumulate.</p>
-<section id="characteristics-of-batch-machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="characteristics-of-batch-machine-learning">Characteristics of Batch Machine Learning</h3>
+<section id="batch-learning" class="level2">
+<h2 class="anchored" data-anchor-id="batch-learning">Batch Learning</h2>
+<p>Batch learning trains on a fixed dataset and produces a static model. When the model needs updating, you retrain from scratch (or from a checkpoint) on a new, larger dataset that includes recent data.</p>
+<p>This is the dominant paradigm for most published machine learning work, partly because it’s easier to reason about and evaluate. The training process is reproducible, the evaluation is clean, and the full dataset is available for cross-validation. When you have the computational budget and can tolerate some lag in adaptation, batch learning usually delivers more stable and accurate models.</p>
+<section id="characteristics-1" class="level3">
+<h3 class="anchored" data-anchor-id="characteristics-1">Characteristics</h3>
 <ol type="1">
-<li><p>Periodic Updates: Batch learning involves training models from scratch on a fixed dataset, leveraging powerful hardware resources and sophisticated algorithms. It’s like taking a step back to see the bigger picture!</p></li>
-<li><p>Complete Data Usage: Unlike incremental learning, which processes data in smaller chunks, batch learning uses the entire dataset for training, ensuring no data points are left behind.</p></li>
+<li><strong>Periodic updates</strong>: the model is trained on a snapshot of data, deployed, and later replaced with a newly trained version.</li>
+<li><strong>Full data access</strong>: every training run sees the entire historical dataset, which tends to produce more stable estimates.</li>
 </ol>
-<p><strong>Advantages of Batch Machine Learning</strong></p>
-<ol type="1">
-<li><p>Strong Convergence: By training on the entire dataset, batch learning often achieves more stable and reliable results, especially with sufficient computational resources. It’s like taking the time to contemplate before making decisions.</p></li>
-<li><p>Accuracy: Batch learning models tend to be more accurate due to their exhaustive training process. Sometimes, thoroughness pays off!</p></li>
-</ol>
-<p><strong>Disadvantages of Batch Machine Learning</strong></p>
-<ol type="1">
-<li><p>High Resource Demands: Batch learning requires substantial computational power and memory, making it less scalable for real-time applications or large datasets.</p></li>
-<li><p>Time Lag in Updates: Models may not adapt quickly to changes in data distribution since they are updated only after accumulating new data. Patience is key!</p></li>
-</ol>
+<p><strong>Advantages</strong></p>
+<ul>
+<li>Training on the full dataset generally leads to better convergence and more stable results.</li>
+<li>Easier to validate: you can hold out a test set, run cross-validation, and compare model versions cleanly before deployment.</li>
+</ul>
+<p><strong>Disadvantages</strong></p>
+<ul>
+<li><strong>High resource demands</strong>: storing and reprocessing large datasets is expensive, both in compute time and memory.</li>
+<li><strong>Lag in adaptation</strong>: if the data distribution shifts between retraining cycles, the deployed model will be operating on stale assumptions for some period. How much that matters depends on how quickly things change in your domain.</li>
+</ul>
 </section>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>As we bid farewell to this exploration, we have gained an understanding of the intriguing differences between incremental and batch machine learning. Incremental learning embraces change and adapts to evolving data, making it perfect for real-time applications. On the other hand, batch learning takes a more measured approach, achieving strong convergence and accuracy with thorough analysis. Both methods have their unique strengths, empowering data scientists and developers to make informed choices based on the demands of their applications. So, whether you’re venturing on a dynamic journey with incremental learning or taking a stable path with batch learning, remember to embrace the wonders of machine learning and let it lead you to exciting discoveries!</p>
+<section id="choosing-between-them" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-between-them">Choosing Between Them</h2>
+<p>The choice depends on how fast your data distribution changes, how much data you have, and what latency you can tolerate in model updates.</p>
+<p>For problems with stable, slow-moving patterns — most tabular prediction tasks in business settings — batch learning is simpler and usually sufficient. Retrain weekly or monthly, compare metrics, deploy.</p>
+<p>For problems with fast-changing dynamics — fraud, real-time personalization, industrial anomaly detection — incremental learning is often necessary. The downside is that online algorithms are harder to implement correctly and require more careful monitoring to detect when the model has drifted in a bad direction.</p>
+<p>In practice, many production systems use a hybrid: a batch-trained base model that’s refreshed periodically, with some incremental component layered on top to handle recent shifts. Neither approach is universally better; it’s a tradeoff between freshness, stability, and engineering complexity.</p>
 </section>
 <section id="video" class="level2">
 <h2 class="anchored" data-anchor-id="video">Video</h2>
-<p>If you’re interested in delving deeper into the subject, I’ve created a comprehensive one-hour <a href="https://www.loom.com/share/cadc7d47f6644f5baa503e8c54227cc7?sid=f8bf0ca5-b561-4cab-84e8-7cd300149fc0">video introduction</a> on the topic.</p>
+<p>If you’re interested in going deeper on this, I’ve put together a one-hour <a href="https://www.loom.com/share/cadc7d47f6644f5baa503e8c54227cc7?sid=f8bf0ca5-b561-4cab-84e8-7cd300149fc0">video introduction</a> on the topic.</p>
 </section>
 </section>
 
@@ -254,43 +270,58 @@ ul.task-list li input[type="checkbox"] {
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -298,195 +329,348 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn) {
-    const config = {
-      allowHTML: true,
-      content: contentFn,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start'
-    };
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
       });
     }
-  }
-});
-</script>
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
+
 
 
 

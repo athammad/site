@@ -11,7 +11,7 @@ fontsize: 1.5em
 # ... Last time
 
 ::: justify
-In a previous post I introduced the idea of a [“probability box.”](https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html) Well, after several intense months of hard work, I am thrilled to announce that my idea has been transformed into a fully functional R library, now available on **CRAN** for everyone interested in answering probabilistic questions!
+In a previous post I introduced the idea of a ["probability box"](https://athsas.com/posts/Probability%20Box%20with%20Kernel%20Density%20Estimation.html) — turning a dataset into a queryable probability space using Kernel Density Estimation. That was the prototype. After several months of work, the idea has become a proper R package, now on **CRAN**.
 :::
 
 # pbox
@@ -19,13 +19,15 @@ In a previous post I introduced the idea of a [“probability box.”](https://a
 ::: justify
 ![](../gallery/pboxIcon.png){.padded-image align="centre" fig-align="center" width="300"}
 
-🌟 Introducing **pbox!** 🌟 an advanced statistical library offering a method to encapsulate and query the probability space of a dataset effortlessly using Probability Boxes (p-boxes). Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data using copula theory and models. **pbox** can be utilized across various fields, including such as Environmental Analysis, Finance Risk Assessment and Management and more!
+**pbox** is a statistical library for working with probability spaces derived from data. You give it a dataset, it builds a probability box — a structure that lets you query marginal, joint, and conditional probabilities while accounting for the correlation structure among variables via copula theory.
 
-This is just the beginning. In future releases, I plan to add additional functionalities to enhance **pbox** even further. Your feedback and suggestions are invaluable to me. If you have any ideas or requests, please feel free to drop me a message or write it in an issue on the [project's repository](https://github.com/athammad/pbox).
+The design goal was to make probabilistic queries feel natural. Instead of writing custom integration code every time you want to ask "what's the probability that X is above 30 and Y is between 25 and 35, given Z is around 26?", pbox gives you a clean interface to express that directly.
 
-Here is a little demo to showcase what can be achieved with few lines of code!
+Potential applications include environmental analysis (joint probabilities of climate variables), financial risk assessment, and any domain where understanding the joint behavior of multiple variables matters — not just their individual distributions.
 
-Remember to first install the packaged from **CRAN.**
+This is a first release. I plan to add more functionality over time, and feedback or feature requests are welcome via the [project repository](https://github.com/athammad/pbox).
+
+Install from CRAN:
 :::
 
 ```{r eval=FALSE}
@@ -42,7 +44,7 @@ data("SEAex", package = "pbox")
 # Create a PBOX Object
 
 ::: justify
-We create a `pbox` object from the `SEAex` dataset using the `set_pbox` function.
+Build a `pbox` object from the `SEAex` dataset using `set_pbox`. This fits the marginal distributions and the copula, and stores everything needed for subsequent queries.
 
 ```{r eval=TRUE, results='hide'}
 # Set pbox
@@ -57,40 +59,32 @@ print(pbx)
 # Explore Probability Space
 
 ::: justify
-We can query the probabilistic space of the pbox object using the qpbox function. Below are examples of different types of queries.
+The `qpbox` function handles all query types: marginal, joint, and conditional probabilities. The syntax is designed to be readable.
 :::
 
 ```{r}
 # Marginal Distribution
-
 qpbox(pbx, mj = "Malaysia:33")
 
 # Joint Distribution
-
 qpbox(pbx, mj = "Malaysia:33 & Vietnam:34")
 
 # Conditional Distribution
-
 qpbox(pbx, mj = "Vietnam:31", co = "avgRegion:26")
 
 #Conditional Distribution with Fixed Conditions
-
 qpbox(pbx, mj = "Malaysia:33 & Vietnam:31", co = "avgRegion:26", fixed = TRUE)
 
 #Joint Distribution with Mean Values
-
 qpbox(pbx, mj = "mean:c(Vietnam,Thailand)", lower.tail = TRUE)
 
 # Joint Distribution with Median Values
-
 qpbox(pbx, mj = "median:c(Vietnam, Thailand)", lower.tail = TRUE)
 
 # Joint Distribution with Specific Values
-
 qpbox(pbx, mj = "Malaysia:33 & mean:c(Vietnam, Thailand)", lower.tail = TRUE)
 
 # Conditional Distribution with Mean Conditions
-
 qpbox(pbx, mj = "Malaysia:33 & median:c(Vietnam,Thailand)", co = "mean:c(avgRegion)")
 ```
 
@@ -102,7 +96,9 @@ qpbox(pbx, mj = "Malaysia:33 & median:c(Vietnam,Thailand)", co = "mean:c(avgRegi
 
 # Grid Search
 
-We can perform a grid search to explore the probabilistic space over a grid of values.
+::: justify
+Sweep over a grid of values to explore the probability surface — useful when you want to understand which combinations are most and least probable.
+:::
 
 ```{r}
 grid_results <- grid_pbox(pbx, mj = c("Vietnam", "Malaysia"))
@@ -114,7 +110,9 @@ print(grid_results[which.min(grid_results$probs),])
 
 # Scenario Analysis
 
-We perform scenario analysis by modifying underlying parameters of the pbox object.
+::: justify
+Scenario analysis lets you modify the underlying parameters of the pbox and see how probabilities shift — useful for stress testing or asking "what if the distribution of this variable changed?"
+:::
 
 ```{r}
 scenario_results <- scenario_pbox(pbx, mj = "Vietnam:31 & avgRegion:26", param_list = list(Vietnam = "mu"))

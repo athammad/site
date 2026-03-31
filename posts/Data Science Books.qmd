@@ -4,63 +4,55 @@ image: https://i0.hippopx.com/photos/134/441/234/antique-black-and-white-books-e
 ---
 
 ::: justify
-# 📚Must-read books for Data Scientists
+# Must-read books for Data Scientists
 
-Whether you're a seasoned data scientist looking to expand your knowledge or a newcomer eager to dive into this exciting field, I made this curated list of must-read books that will support you throughout your career or journey with data, statistics, and machine learning.
+Books I actually recommend to people, with honest takes on what each one is good for.
 
 ## [Introductory Econometrics: A Modern Approach by Jeffrey M. Wooldridge](https://www.amazon.com/Introductory-Econometrics-Modern-Approach-MindTap-dp-1337558869/dp/1337558869/ref=dp_ob_title_bk)
 
 ![](https://m.media-amazon.com/images/I/71NU9c9ZutL._SY466_.jpg){fig-align="center"}
 
-"Introductory Econometrics: A Modern Approach" by Jeffrey M. Wooldridge is a widely acclaimed textbook that serves as a comprehensive introduction to the field of econometrics. This book is a valuable resource for students, researchers, and practitioners interested in using statistical methods to analyze economic data. Wooldridge's approach is modern and intuitive, making complex econometric concepts accessible to readers at various levels of expertise.
+Wooldridge is the book I wish I'd read before I started calling myself a data scientist. It covers regression from first principles — OLS, hypothesis testing, heteroscedasticity, instrumental variables, panel data, time series — with an emphasis on what the assumptions actually mean and what happens when they fail.
 
-The book covers key topics such as regression analysis, hypothesis testing and more advanced teniques such as instrumental variables, panel data analysis, and time series analysis. What sets it apart is its focus on real-world applications, using examples and datasets from various fields of economics to illustrate the concepts discussed. This practical approach helps readers bridge the gap between theory and practice, preparing them to conduct meaningful empirical research in economics.
-
-Furthermore, Wooldridge's writing style is clear and engaging, making it easier for readers to grasp challenging econometric concepts. With its emphasis on modern techniques and hands-on applications, "Introductory Econometrics: A Modern Approach" has become a trusted resource in the field, helping students and researchers develop the skills needed to analyze and interpret economic data effectively.
+What makes it stand out is that it takes causality seriously. Most ML textbooks treat regression as a prediction tool. Wooldridge treats it as a tool for answering questions, which forces you to think about identification, endogeneity, and what "holding other variables constant" actually requires. That mindset is invaluable once you leave toy datasets and start working with observational data in the real world. The examples are from economics, but the concepts apply everywhere.
 
 ## [An Introduction to Statistical Learning by Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, Jonathan Taylor](https://www.statlearning.com/)
 
 ![](https://m.media-amazon.com/images/I/61i+eJ+8TnL._SL1181_.jpg){fig-align="center" width="369"}
 
-"An Introduction to Statistical Learning" by Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani, and Jonathan Taylor is a comprehensive textbook that provides an introduction to statistical learning methods. It covers key concepts and techniques in statistical learning, offering a balanced blend of theory and practical applications. Notably, the book is accessible to users of both R and Python programming languages, making it versatile for a wide range of readers.
+ISLR (now ISLP with Python support) sits in a sweet spot: rigorous enough to actually understand what the methods are doing, accessible enough to work through without a PhD. It covers the core supervised and unsupervised methods — linear and logistic regression, regularization, trees and ensembles, SVMs, clustering, PCA — with a consistent emphasis on statistical thinking.
 
-The book begins by introducing fundamental concepts in statistical learning. It then covers topics such as linear regression, classification methods, resampling techniques, model selection, and regularization. Nonlinear models, tree-based methods, support vector machines, and unsupervised learning methods are also discussed.
+I particularly like how the book draws explicit parallels between statistical vocabulary and ML jargon. Regularization and shrinkage estimators, the bias-variance tradeoff, train/test splits and cross-validation — these aren't new concepts invented by the ML community, and ISLR is good at showing where they come from. The R and Python labs are well-designed and genuinely teach you something beyond syntax. And it's free to download from the authors' website, which removes any excuse for not reading it.
 
-A distinctive feature of the book is its emphasis on practical applications and the statistical nature of Machine Learning, drawing important parallelisms between the classic vocabulary used in statistics and the the Machine Learning jargon. It includes case studies and examples throughout, illustrating how statistical learning methods can be applied to real-world problems. The inclusion of R and Python code examples further enhances its utility for readers using either programming language.
-
-In summary, "An Introduction to Statistical Learning" is a valuable resource for students, researchers, and practitioners seeking a solid foundation in statistical learning. Its flexibility in catering to both R and Python users makes it an inclusive and versatile choice for individuals interested in applying statistical learning techniques to data analysis and modeling.
-
-## [Introduction to Machine Learning with Python: A Guide for Data Scientists 1st Edition by Andreas Müller Sarah Guido](https://www.amazon.com/Introduction-Machine-Learning-Python-Scientists/dp/1449369413)
+## [Introduction to Machine Learning with Python: A Guide for Data Scientists by Andreas Müller & Sarah Guido](https://www.amazon.com/Introduction-Machine-Learning-Python-Scientists/dp/1449369413)
 
 ![](https://m.media-amazon.com/images/I/911CH8DQeUL._SY466_.jpg){fig-align="center"}
 
-"Introduction to Machine Learning with Python: A Guide for Data Scientists" by Andreas C. Müller and Sarah Guido is a highly regarded and practical book that provides an excellent introduction to machine learning concepts and their implementation using Python. This book is particularly beneficial for data scientists, engineers, and anyone interested in learning the fundamentals of machine learning in a hands-on manner.
+If you're working in Python and want a practical tour of scikit-learn with decent explanations attached, this is the right book. It moves quickly through supervised and unsupervised methods, spends real time on preprocessing and feature engineering, and generally focuses on getting things done correctly rather than on theory.
 
-The book covers a wide range of machine learning topics, including supervised learning, unsupervised learning, and deep learning. It also introduces essential libraries and tools for machine learning in Python, such as scikit-learn and TensorFlow. One of the strengths of this book is its focus on practical examples and code snippets, which allow readers to apply what they learn immediately.
+It's not the book that will make you understand *why* gradient boosting works, but it'll make you competent with it. Useful as a companion to something more rigorous like ISLR — read them together and you get both the conceptual grounding and the practical skills.
 
-Overall, "Introduction to Machine Learning with Python" is a valuable resource for those looking to gain a solid foundation in machine learning while leveraging the power of the Python programming language. It's suitable for both beginners and intermediate learners and provides a practical and hands-on approach to mastering the essentials of machine learning for data science.
-
-## [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems by Aurélien Géron](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646)
+## [Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow by Aurélien Géron](https://www.amazon.com/Hands-Machine-Learning-Scikit-Learn-TensorFlow/dp/1492032646)
 
 ![](https://m.media-amazon.com/images/I/81R5BmGtv-L._SY466_.jpg){fig-align="center"}
 
-"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow: Concepts, Tools, and Techniques to Build Intelligent Systems" by Aurélien Géron is a popular and comprehensive book that provides a practical guide to building machine learning models using three widely-used libraries: scikit-learn, Keras, and TensorFlow. The book is designed for both beginners and experienced practitioners in the field of machine learning and artificial intelligence.
+Géron's book covers a wide range of ground — classical ML, neural networks, deep learning with Keras/TensorFlow — and it does so with a hands-on, code-first approach that works well. The explanations are clear without being dumbed-down, and the projects are substantial enough to feel like real work.
 
-The book is known for its clarity, practicality, and hands-on approach. It has been praised for its ability to take readers from the fundamentals of machine learning to building and deploying sophisticated machine learning models. Whether you're a beginner looking to learn the basics or an experienced data scientist seeking to expand your knowledge, "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" is a valuable resource for anyone interested in the field of machine learning.
+If you want a single book that takes you from linear regression to training a convolutional network, this is probably the most coherent one available. The third edition is reasonably up to date. It won't replace reading papers or building your own projects, but it's a solid reference to keep within reach.
 
 ## [Deep Learning with Python by Francois Chollet](https://www.amazon.com/Deep-Learning-Python-Francois-Chollet/dp/1617294438)
 
 ![](https://m.media-amazon.com/images/I/61WrcAb3GbL._SY466_.jpg){fig-align="center"}
 
-"Deep Learning with Python" by François Chollet is a highly regarded book that serves as a practical guide to understanding and implementing deep learning techniques using the Python programming language and the Keras deep learning framework. François Chollet is the creator of Keras, which has become a popular tool for building deep neural networks due to its simplicity and flexibility.
+Chollet created Keras, so this book has authority behind it. More importantly, it's well-written — he explains concepts clearly and has a talent for building intuition before throwing equations at you. The focus is on deep learning fundamentals: how neural networks learn, what makes architectures work, how to train effectively.
 
-This must read book is known for its accessibility and practical approach. It's suitable for readers with varying levels of experience in deep learning, from beginners looking to get started to experienced practitioners seeking to deepen their knowledge. The book's focus on Keras and Python makes it an excellent choice for those interested in hands-on deep learning projects, and Chollet's expertise as the creator of Keras ensures that readers receive valuable insights into the field of deep learning.
+It's a good book even if you're not using Keras, because the conceptual content transfers. The section on the space of possible operations a convolution can perform, for instance, is one of the cleaner explanations of the underlying geometry I've read.
 
 ## [Incerto book series by Nassim Nicholas Taleb](https://www.amazon.com/Incerto-Deluxe-Randomness-Procrustes-Antifragile/dp/198481981X)
 
 ![](https://assets.penguinrandomhouse.com/series-images/series-INO-triad.png){fig-align="center"}
 
-The Incerto book series, written by Nassim Nicholas Taleb, is a collection of five interconnected books that delve into the themes of uncertainty, probability, risk, and decision-making under conditions of unpredictability. Nassim Nicholas Taleb is a renowned author, philosopher, and former Wall Street trader who has become well-known for his ideas on risk and randomness.
+No code. No algorithms. Taleb writes about randomness, uncertainty, risk, and how spectacularly bad humans are at reasoning about all three. The Incerto series — Black Swan, Antifragile, Fooled by Randomness, and the others — is a long argument that most of what we call expertise in domains with random outcomes is actually noise, and that the consequences of mistaking noise for signal are catastrophic and asymmetric.
 
-The series is known for its challenging and unconventional ideas, and Taleb's writing style combines philosophy, economics, and practical insights to encourage readers to think critically about risk, uncertainty, and decision-making in a complex world. The series has gained a dedicated following and has had a significant impact on discussions around risk management, finance, and decision science. It is a fundamental and enjoyably read (no code) to understand how reality works and how our own intuitions are sometimes completely misleading.
+Whether or not you agree with everything Taleb says (and I don't agree with all of it), reading him is a useful corrective to the overconfidence that comes naturally to anyone who spends time fitting models to data. The relationship between the probability distributions we assume and the ones that actually govern real-world outcomes is genuinely murky, and Taleb is better than almost anyone at making you feel the weight of that.
 :::

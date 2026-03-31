@@ -2,14 +2,17 @@
 title: "Developing in a Docker container"
 ---
 
+I develop inside Docker containers. Not because it's trendy, but because it solves a real problem: my local machine stays clean, the project environment is reproducible, and I can hand the project to someone else (or a CI pipeline) and have it work the same way.
 
-Developing within a Docker container has become a common practice in the software development workflow. It offers various benefits, such as ensuring consistent environments, reproducibility, and isolation.
+The part that makes it practical for active development — not just for running finished code — is combining Docker with bind mounts and VSCode's remote development extension. Here's how to set it up.
 
-Using docker means not having to have complex software server applications installed locally. Instead, they are run in 'sealed' containers, held discrete from the local computer. In an example Use Case of developing code in Python, for example, a docker container holding the latest version of Python, plus the Python script can be built and run. However, in this use case, to edit the Python script and rerun it, the image container needs to be rebuilt in docker each time there are changes made to the code. Docker can use 'bind mounts' to circumvent this for development purposes. The folder holding the source code is 'mounted' into the container image, meaning that the source code can then be edited and run immediately in the image without needing to be rebuilt.
+The basic idea: a Docker container runs your code in an isolated environment, but without bind mounts, editing the code means rebuilding the image every time. A bind mount connects a folder on your host machine directly to a folder inside the container, so changes you make in your editor are immediately visible to the running container. No rebuild required.
 
-Combining Docker with a bind mount in VScode makes life so much easier. Here's a step-by-step guide to get started with developing in a Docker container:
+## Step by step
 
-1.  **Install Docker:** Make sure you have Docker installed on your system. You can download and install it from the official Docker website based on your operating system. 2. Create a Dockerfile: A Dockerfile is a text file that contains instructions for building a Docker image. Create a new file named Dockerfile in your project's root directory. Here's a basic example of a Python project:
+**1. Install Docker** from the official Docker website for your operating system.
+
+**2. Create a Dockerfile** in your project root. A minimal Python example:
 
 ``` dockerfile
 # Use an official Python runtime as the base image
@@ -28,34 +31,34 @@ WORKDIR /app
 CMD \["bash"\]
 ```
 
-3.  **Build the Docker Image:** Open a terminal, navigate to your project's directory containing the Dockerfile, and run the following command to build the Docker image:
+**3. Build the image:**
 
 ``` bash
 docker build -t myapp .
 ```
 
-Here, `myapp` is the name you're giving to your Docker image, and the dot . indicates the build context (current directory).
+`myapp` is the image name; the `.` points to the current directory as the build context.
 
-4.  **Run the Docker Container:** After building the image, you can run a container from it using the following command:
+**4. Run the container with a bind mount:**
 
 ``` bash
 docker run -d -it --hostname yourname -v /path/to/folder/holding/the/source/code:/app myapp
 ```
 
-Here, `-d` runs the container in detached mode, `-it` allocates a pseudo-TTY and keeps STDIN open even if not attached, `-- hostname` simply indicates the container's hostname , finally `-v` will bind mount a volume following given its path.
+`-d` runs it detached, `-it` keeps stdin open, `--hostname` sets the container's hostname, and `-v` is the bind mount — your local source folder gets mounted at `/app` inside the container. Any file you edit locally is immediately reflected inside the running container.
 
-5.  **Connect with VScode:** Now that you have your development environment inside a Docker container, you can edit your code directly inside the container using VScode. Changes you make to your code will be reflected within the container. This way, you can edit code on your host machine and see the changes in the container immediately.
-
-    To do so, you will need to install the docker extension as shown below.
+**5. Connect VSCode to the container.** Install the Docker extension:
 
 ![](/gallery/Screenshot%20from%202023-08-30%2014-56-21.png)
 
-Once you have installed the extension, go on the docker icon in the left side bar and this is what you will see.
+Once installed, click the Docker icon in the left sidebar. You'll see your running containers:
 
 ![](/gallery/Screenshot%20from%202023-08-30%2015-01-40.png)
 
-And here is the app folder inside the container.
+And the `/app` folder inside the container:
 
 ![](/gallery/Screenshot%20from%202023-08-30%2015-02-18.png)
 
-Finally you just need to right click on the container and you will see th option to Attach Visual Studio Code. This will open a new VScode window. Now you are inside the container you can start to develop. All changes you will made to the files in the attached folder will affect the local folder as well.
+Right-click the container and select **Attach Visual Studio Code**. A new VSCode window opens, running inside the container. You're now editing files directly in the container environment — but because of the bind mount, those edits also show up on your local filesystem. Any changes propagate in both directions.
+
+The result: a consistent, reproducible development environment that's isolated from your local machine, with a development experience that feels no different from editing files locally.
