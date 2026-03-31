@@ -1,0 +1,5 @@
+format:
+  html:
+    page-layout: article
+    grid:
+      body-width: 720px
