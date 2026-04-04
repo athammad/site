@@ -163,7 +163,8 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
   <ul>
-  <li><a href="#r-genius" id="toc-r-genius" class="nav-link active" data-scroll-target="#r-genius">R-Genius</a></li>
+  <li><a href="#argenta" id="toc-argenta" class="nav-link active" data-scroll-target="#argenta">argenta</a></li>
+  <li><a href="#r-genius" id="toc-r-genius" class="nav-link" data-scroll-target="#r-genius">R-Genius</a></li>
   <li><a href="#pygcapi" id="toc-pygcapi" class="nav-link" data-scroll-target="#pygcapi">pygcapi</a></li>
   <li><a href="#pbox" id="toc-pbox" class="nav-link" data-scroll-target="#pbox">PBOX</a></li>
   <li><a href="#rgcapi" id="toc-rgcapi" class="nav-link" data-scroll-target="#rgcapi">rgcapi</a></li>
@@ -185,6 +186,14 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div class="about-contents"><main class="content column-page-left" id="quarto-document-content">
 
+<section id="argenta" class="level1">
+<h1>argenta</h1>
+<div class="justify">
+<p><a href="https://github.com/athammad/argenta">Argenta</a> is an open-source Python library for warehouse-native <strong>causal ML experimentation</strong>. Most A/B testing tools stop at “did it work?” — Argenta answers for whom, why, and what to do next. <img src="https://raw.githubusercontent.com/athammad/argenta/refs/heads/master/assets/logo.svg" width="500" align="left"> It connects directly to your existing data warehouse (Snowflake, BigQuery, or Redshift), executes a fully auditable SQL pipeline inside it to construct a clean experiment dataset, and then applies causal machine learning methods — including Double Machine Learning via Causal Forest (CausalForestDML) and CUPED variance reduction — to produce results that traditional experimentation platforms don’t offer: <strong>heterogeneous treatment effects (HTE), per-user Conditional Average Treatment Effect (CATE) scores, automatic subgroup discovery, and uplift-based targeting recommendations</strong>.</p>
+<p><a href="https://github.com/athammad/argenta">Argenta</a> is <strong>analytics-only</strong>: it works with experiments you’ve already run, regardless of which platform assigned variants. Your data never leaves your warehouse. Results are written back to a schema you control.</p>
+<p>Built with a config-first design (Pydantic v2 + YAML), Jinja2-rendered SQL templates for dialect-aware warehouse execution, and a pure pandas/scipy statistics layer that is fully unit-testable without a live connection.</p>
+</div>
+</section>
 <section id="r-genius" class="level1">
 <h1>R-Genius</h1>
 <div class="justify">
