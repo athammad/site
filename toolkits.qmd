@@ -13,6 +13,20 @@ format:
       margin-width: 250px
 ---
 
+# argenta
+
+::: justify
+
+
+[Argenta](https://github.com/athammad/argenta) is an open-source Python library for warehouse-native **causal ML experimentation**. Most A/B testing tools stop at "did it work?" — Argenta answers for whom, why, and what to do next.
+<img src="https://raw.githubusercontent.com/athammad/argenta/refs/heads/master/assets/logo.svg" width="500" align="left"/>
+It connects directly to your existing data warehouse (Snowflake, BigQuery, or Redshift), executes a fully auditable SQL pipeline inside it to construct a clean experiment dataset, and then applies causal machine learning methods — including Double Machine Learning via Causal Forest (CausalForestDML) and CUPED variance reduction — to produce results that traditional experimentation platforms don't offer: **heterogeneous treatment effects (HTE), per-user Conditional Average Treatment Effect (CATE) scores, automatic subgroup discovery, and uplift-based targeting recommendations**.
+
+[Argenta](https://github.com/athammad/argenta) is **analytics-only**: it works with experiments you've already run, regardless of which platform assigned variants. Your data never leaves your warehouse. Results are written back to a schema you control.
+
+Built with a config-first design (Pydantic v2 + YAML), Jinja2-rendered SQL templates for dialect-aware warehouse execution, and a pure pandas/scipy statistics layer that is fully unit-testable without a live connection.
+:::
+
 # R-Genius
 
 ::: justify
