@@ -13,6 +13,14 @@ format:
       margin-width: 250px
 ---
 
+## Causal ML Experimentation
+
+<img src="https://raw.githubusercontent.com/athammad/argenta/refs/heads/master/assets/logo.svg" class="padded-image rounded-image" width="320" align="right"/>
+
+::: justify
+With [Argenta](https://github.com/athammad/argenta), I offer warehouse-native causal ML experimentation services that go beyond traditional A/B testing. Most experimentation tools stop at "did it work?" — Argenta answers *for whom*, *why*, and *what to do next*. Connecting directly to your existing data warehouse (Snowflake, BigQuery, or Redshift), it executes a fully auditable SQL pipeline to construct a clean experiment dataset, then applies causal machine learning methods — including Double Machine Learning via Causal Forest and CUPED variance reduction — to deliver **heterogeneous treatment effects (HTE), per-user CATE scores, automatic subgroup discovery, and uplift-based targeting recommendations**. Your data never leaves your warehouse, and results are written back to a schema you control.
+:::
+
 ## Algorithmic trading
 
 ::: justify

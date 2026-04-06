@@ -1,6 +1,5 @@
 ---
 title: "From ATE to Uplift Modeling"
-subtitle: "Why knowing the average treatment effect is not enough"
 format:
   html:
     toc: true

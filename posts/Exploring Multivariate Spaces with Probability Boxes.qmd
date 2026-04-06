@@ -1,6 +1,6 @@
 ---
 title: "pbox: Exploring Multivariate Spaces with Probability Boxes"
-image: ../gallery/pboxIcon.png
+image: ../gallery/pboxIconSmall.png
 toc: true
 code-fold: false
 execute:
