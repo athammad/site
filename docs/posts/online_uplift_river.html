@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Online Uplift Modelling with River – Ahmed T. Hammad</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a06763021a52c43c40a351ac8b799b8f.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-dfd29d6db995bb03a2a15bfe4fd4a5c0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Ahmed T. Hammad</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">ℹ️ About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../teaching.html"> 
+<span class="menu-text">🧑‍🏫 Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">🛰 Research</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../students.html"> 
+<span class="menu-text">🧑‍🎓 Students</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../papers.html"> 
+<span class="menu-text">✍ Papers</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../solutions.html"> 
+<span class="menu-text">💡Solutions</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../toolkits.html"> 
+<span class="menu-text">🧰Toolkits</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../cv/cv.html"> 
+<span class="menu-text">📃 CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">🎙️Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../slides.html"> 
+<span class="menu-text">📽️️ Slides</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/athammad"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text">Github</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.linkedin.com/in/ahmedt-h/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text">LinkedIn</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:ahmed.t.hammad@gmail.com"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text">Email</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem-we-are-trying-to-solve" id="toc-the-problem-we-are-trying-to-solve" class="nav-link active" data-scroll-target="#the-problem-we-are-trying-to-solve">The problem we are trying to solve</a></li>
+  <li><a href="#the-framework-contextual-bandits-with-dr-updates" id="toc-the-framework-contextual-bandits-with-dr-updates" class="nav-link" data-scroll-target="#the-framework-contextual-bandits-with-dr-updates">The framework: contextual bandits with DR updates</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#synthetic-data-generating-process" id="toc-synthetic-data-generating-process" class="nav-link" data-scroll-target="#synthetic-data-generating-process">Synthetic data generating process</a></li>
+  <li><a href="#the-online-uplift-model" id="toc-the-online-uplift-model" class="nav-link" data-scroll-target="#the-online-uplift-model">The online uplift model</a>
+  <ul class="collapse">
+  <li><a href="#exploration-policy" id="toc-exploration-policy" class="nav-link" data-scroll-target="#exploration-policy">Exploration policy</a></li>
+  <li><a href="#the-online-loop" id="toc-the-online-loop" class="nav-link" data-scroll-target="#the-online-loop">The online loop</a></li>
+  </ul></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a>
+  <ul class="collapse">
+  <li><a href="#convergence-of-uplift-estimates" id="toc-convergence-of-uplift-estimates" class="nav-link" data-scroll-target="#convergence-of-uplift-estimates">Convergence of uplift estimates</a></li>
+  <li><a href="#cumulative-incremental-purchases-vs-random-targeting" id="toc-cumulative-incremental-purchases-vs-random-targeting" class="nav-link" data-scroll-target="#cumulative-incremental-purchases-vs-random-targeting">Cumulative incremental purchases vs random targeting</a></li>
+  </ul></li>
+  <li><a href="#what-the-model-has-learned" id="toc-what-the-model-has-learned" class="nav-link" data-scroll-target="#what-the-model-has-learned">What the model has learned</a></li>
+  <li><a href="#design-decisions-and-their-trade-offs" id="toc-design-decisions-and-their-trade-offs" class="nav-link" data-scroll-target="#design-decisions-and-their-trade-offs">Design decisions and their trade-offs</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#requirements" id="toc-requirements" class="nav-link" data-scroll-target="#requirements">Requirements</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Online Uplift Modelling with River</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-problem-we-are-trying-to-solve" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-we-are-trying-to-solve">The problem we are trying to solve</h2>
+<p>The usual workflow is:</p>
+<ol type="1">
+<li>Run the experiment — randomise customers into treatment and control</li>
+<li>Wait for outcomes to accumulate</li>
+<li>Fit two models offline (the T-learner)</li>
+<li>Deploy the fitted model to score <em>new</em> customers</li>
+</ol>
+<p>This pipeline has a fundamental problem: <strong>the model is frozen at the moment you deploy it</strong>. The world keeps moving. Customer behaviour drifts with season, price changes, competitor actions. The features that predicted high uplift last quarter may not predict it this quarter. To discover the drift you have to run another experiment, wait again, refit, redeploy. The cycle is slow.</p>
+<p>There is a second, subtler problem. The batch RCT treats exploration as a one-time cost — you randomise a cohort, pay the cost of treating some low-uplift customers, and then stop exploring forever. But exploration has ongoing value. A customer segment that looks low-uplift today may become persuadable tomorrow. If you stop sending the email to lapsed customers because your first model said they were a lost cause, you will never discover if that changes.</p>
+<p><strong>The online uplift model addresses both problems directly.</strong></p>
+<p>The idea : <em>“Learning who to target in real time, one customer at a time”.</em></p>
+<p><br>
+Instead of a fixed experiment followed by a frozen model, the system learns <em>continuously</em>: every customer interaction is simultaneously a business decision and a new training observation. The model updates after each outcome, so it tracks distribution shift automatically. And exploration is embedded into the decision policy permanently — the system never fully stops randomising, so it never goes blind to any segment.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>The core shift in thinking
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Batch uplift asks: <em>“Given this past experiment, who should I have targeted?”</em></p>
+<p>Online uplift asks: <em>“Given everything I have learned so far, who should I target right now — and what do I still need to learn?”</em></p>
+<p>These are fundamentally different questions. The second one treats targeting as a sequential decision problem, not a post-hoc analysis.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-framework-contextual-bandits-with-dr-updates" class="level2">
+<h2 class="anchored" data-anchor-id="the-framework-contextual-bandits-with-dr-updates">The framework: contextual bandits with DR updates</h2>
+<p>The technical framework that formalises online uplift is the <strong>contextual bandit</strong>. At each step:</p>
+<ul>
+<li>A customer arrives with a feature vector <span class="math inline">\(X_t\)</span> (the <em>context</em>)</li>
+<li>The system chooses an action <span class="math inline">\(T_t \in \{0, 1\}\)</span> (treat or not)</li>
+<li>The system observes a reward <span class="math inline">\(Y_t\)</span> (purchased or not)</li>
+<li>The model updates using <span class="math inline">\((X_t, T_t, Y_t)\)</span> and the <strong>logged propensity</strong> <span class="math inline">\(p_t\)</span> — the probability with which <span class="math inline">\(T_t\)</span> was assigned</li>
+</ul>
+<p>The logged propensity is critical. Because the system increasingly favours high-uplift customers over time, the training data is no longer uniformly random. Without correcting for this, the model would see a biased sample and overfit to the customers it already likes. The DR correction we derived in the batch setting — using <span class="math inline">\(1/p_t\)</span> as an importance weight — is exactly the right fix in the online setting too.</p>
+<p><strong>Two interacting goals that must be balanced at every step:</strong></p>
+<ul>
+<li><strong>Exploitation</strong>: treat the customers your current model says have high uplift — maximise incremental purchases now</li>
+<li><strong>Exploration</strong>: occasionally treat customers regardless of predicted uplift — keep learning, discover drift, avoid blind spots</li>
+</ul>
+<p>We use <span class="math inline">\(\varepsilon\)</span>-greedy exploration: with probability <span class="math inline">\(\varepsilon\)</span> assign treatment randomly, with probability <span class="math inline">\(1 - \varepsilon\)</span> follow the uplift model. <span class="math inline">\(\varepsilon\)</span> decays over time as the model matures, but never reaches zero.</p>
+<hr>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<div id="d4177d79" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.ticker <span class="im">as</span> mtick</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> river <span class="im">import</span> linear_model, optim, preprocessing, compose, metrics</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections <span class="im">import</span> defaultdict</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">42</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"figure.facecolor"</span>: <span class="st">"white"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.facecolor"</span>:   <span class="st">"white"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.spines.top"</span>:  <span class="va">False</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.spines.right"</span>:<span class="va">False</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.grid"</span>:        <span class="va">True</span>,</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"grid.alpha"</span>:       <span class="fl">0.3</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"font.size"</span>:        <span class="dv">12</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<hr>
+</section>
+<section id="synthetic-data-generating-process" class="level2">
+<h2 class="anchored" data-anchor-id="synthetic-data-generating-process">Synthetic data generating process</h2>
+<p>We simulate a stream of 3,000 customers arriving sequentially. Each customer has four features. The <strong>true uplift function</strong> is baked into the simulation so we can measure how quickly the online model converges to it.</p>
+<div id="dcd06048" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_customer():</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Sample one customer's features at random."""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"recency"</span>:              np.random.randint(<span class="dv">1</span>, <span class="dv">6</span>),       <span class="co"># 1=lapsed, 5=very active</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"age_group"</span>:            np.random.choice([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]),   <span class="co"># 0=young, 1=mid, 2=old</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"past_purchases"</span>:       np.random.randint(<span class="dv">0</span>, <span class="dv">11</span>),      <span class="co"># 0-10</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"discount_sensitivity"</span>: np.<span class="bu">round</span>(np.random.beta(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dv">2</span>),  <span class="co"># 0-1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> true_uplift(x):</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">    Ground truth individual uplift. The system does not see this —</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">    it is only used to generate outcomes and to evaluate convergence.</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">    Design logic:</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">      - Lapsed customers (low recency) + high discount sensitivity = persuadables</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">      - Very active customers (recency 5) = sleeping dogs (email hurts)</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">      - Old customers with many past purchases = sure things (email irrelevant)</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    u <span class="op">+=</span> (<span class="dv">5</span> <span class="op">-</span> x[<span class="st">"recency"</span>]) <span class="op">*</span> <span class="fl">0.08</span>            <span class="co"># lapsed customers respond more</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    u <span class="op">+=</span> x[<span class="st">"discount_sensitivity"</span>] <span class="op">*</span> <span class="fl">0.40</span>      <span class="co"># price-sensitive = responsive</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    u <span class="op">-=</span> (x[<span class="st">"recency"</span>] <span class="op">==</span> <span class="dv">5</span>) <span class="op">*</span> <span class="fl">0.20</span>            <span class="co"># very active = sleeping dogs</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    u <span class="op">-=</span> (x[<span class="st">"age_group"</span>] <span class="op">==</span> <span class="dv">2</span>) <span class="op">*</span> <span class="fl">0.05</span>          <span class="co"># older customers slightly less responsive</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    u <span class="op">+=</span> (x[<span class="st">"past_purchases"</span>] <span class="op">&lt;</span> <span class="dv">3</span>) <span class="op">*</span> <span class="fl">0.10</span>      <span class="co"># infrequent buyers are persuadable</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(np.clip(u, <span class="op">-</span><span class="fl">0.3</span>, <span class="fl">0.6</span>))</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> base_rate(x):</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Baseline purchase probability without treatment."""</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> <span class="fl">0.10</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    p <span class="op">+=</span> x[<span class="st">"recency"</span>] <span class="op">*</span> <span class="fl">0.08</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    p <span class="op">+=</span> x[<span class="st">"past_purchases"</span>] <span class="op">*</span> <span class="fl">0.02</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    p <span class="op">+=</span> (x[<span class="st">"age_group"</span>] <span class="op">==</span> <span class="dv">2</span>) <span class="op">*</span> <span class="fl">0.05</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(np.clip(p, <span class="fl">0.02</span>, <span class="fl">0.95</span>))</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> sample_outcome(x, treated):</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Draw a purchase outcome given features and treatment assignment."""</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> base_rate(x) <span class="op">+</span> (true_uplift(x) <span class="cf">if</span> treated <span class="cf">else</span> <span class="fl">0.0</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    p <span class="op">=</span> np.clip(p, <span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">int</span>(np.random.rand() <span class="op">&lt;</span> p)</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick sanity check — show true uplift for a few customer types</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>examples <span class="op">=</span> [</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"recency"</span>: <span class="dv">1</span>, <span class="st">"age_group"</span>: <span class="dv">0</span>, <span class="st">"past_purchases"</span>: <span class="dv">1</span>, <span class="st">"discount_sensitivity"</span>: <span class="fl">0.8</span>},</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"recency"</span>: <span class="dv">3</span>, <span class="st">"age_group"</span>: <span class="dv">1</span>, <span class="st">"past_purchases"</span>: <span class="dv">5</span>, <span class="st">"discount_sensitivity"</span>: <span class="fl">0.5</span>},</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"recency"</span>: <span class="dv">5</span>, <span class="st">"age_group"</span>: <span class="dv">2</span>, <span class="st">"past_purchases"</span>: <span class="dv">9</span>, <span class="st">"discount_sensitivity"</span>: <span class="fl">0.2</span>},</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Customer type            | True uplift"</span>)</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">42</span>)</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="st">"Lapsed, young, sensitive"</span>,</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Occasional, mid, moderate"</span>,</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>          <span class="st">"Very active, old, insensitive"</span>]</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> lbl, x <span class="kw">in</span> <span class="bu">zip</span>(labels, examples):</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>lbl<span class="sc">:&lt;25}</span><span class="ss">| </span><span class="sc">{</span>true_uplift(x)<span class="sc">:+.2f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Customer type            | True uplift
+------------------------------------------
+Lapsed, young, sensitive | +0.60
+Occasional, mid, moderate| +0.36
+Very active, old, insensitive| -0.17</code></pre>
+</div>
+</div>
+<hr>
+</section>
+<section id="the-online-uplift-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-online-uplift-model">The online uplift model</h2>
+<p>We maintain <strong>two logistic regression models</strong> trained with SGD via <code>river</code>:</p>
+<ul>
+<li><code>model_t</code>: learns <span class="math inline">\(P(\text{buy} \mid X, T=1)\)</span> — updated only when a customer is treated</li>
+<li><code>model_c</code>: learns <span class="math inline">\(P(\text{buy} \mid X, T=0)\)</span> — updated only when a customer is in control</li>
+</ul>
+<p>The predicted uplift for a new customer is <code>mu1 - mu0</code>. Updates are weighted by the inverse logged propensity to correct for the non-random assignment policy — the online equivalent of the DR correction.</p>
+<div id="69e4ac37" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pipeline():</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    River pipeline: standardise features → logistic regression with Adam.</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a fresh untrained pipeline.</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        preprocessing.StandardScaler() <span class="op">|</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        linear_model.LogisticRegression(optimizer<span class="op">=</span>optim.Adam(lr<span class="op">=</span><span class="fl">0.05</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>model_t <span class="op">=</span> make_pipeline()   <span class="co"># treatment arm model</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>model_c <span class="op">=</span> make_pipeline()   <span class="co"># control arm model</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="exploration-policy" class="level3">
+<h3 class="anchored" data-anchor-id="exploration-policy">Exploration policy</h3>
+<div id="22bf1859" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> epsilon_greedy(uplift_score, step, eps_start<span class="op">=</span><span class="fl">0.5</span>, eps_end<span class="op">=</span><span class="fl">0.05</span>, decay<span class="op">=</span><span class="dv">2000</span>):</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Epsilon-greedy policy with exponential decay.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">    - Early on  (step ~ 0):    eps ~ eps_start  → mostly explore</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    - Later     (step &gt;&gt; decay): eps ~ eps_end   → mostly exploit</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    - Never reaches zero: the system keeps exploring permanently</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    eps <span class="op">=</span> eps_end <span class="op">+</span> (eps_start <span class="op">-</span> eps_end) <span class="op">*</span> np.exp(<span class="op">-</span>step <span class="op">/</span> decay)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> np.random.rand() <span class="op">&lt;</span> eps:</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Explore: assign randomly, p = 0.5</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        treat <span class="op">=</span> <span class="bu">int</span>(np.random.rand() <span class="op">&lt;</span> <span class="fl">0.5</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        p_logged <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Exploit: follow the uplift score</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>        treat <span class="op">=</span> <span class="bu">int</span>(uplift_score <span class="op">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Soft probability to avoid division by zero in DR weights</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        p_logged <span class="op">=</span> <span class="fl">0.90</span> <span class="cf">if</span> treat <span class="op">==</span> <span class="dv">1</span> <span class="cf">else</span> <span class="fl">0.10</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> treat, p_logged, eps</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="the-online-loop" class="level3">
+<h3 class="anchored" data-anchor-id="the-online-loop">The online loop</h3>
+<div id="8cb0a899" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">3000</span>   <span class="co"># total customers in the stream</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ── tracking ──────────────────────────────────────────────────────────────</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>history <span class="op">=</span> []</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>cumulative_incremental  <span class="op">=</span> <span class="fl">0.0</span>   <span class="co"># purchases gained vs not treating anyone</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>cumulative_random_incr  <span class="op">=</span> <span class="fl">0.0</span>   <span class="co"># counterfactual: what random targeting earns</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># For convergence tracking — measure estimated uplift on a fixed test grid</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># every 50 steps</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>TRACK_EVERY <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>test_grid <span class="op">=</span> [</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"recency"</span>: <span class="dv">1</span>, <span class="st">"age_group"</span>: <span class="dv">0</span>, <span class="st">"past_purchases"</span>: <span class="dv">1</span>, <span class="st">"discount_sensitivity"</span>: <span class="fl">0.8</span>},</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"recency"</span>: <span class="dv">2</span>, <span class="st">"age_group"</span>: <span class="dv">0</span>, <span class="st">"past_purchases"</span>: <span class="dv">2</span>, <span class="st">"discount_sensitivity"</span>: <span class="fl">0.7</span>},</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"recency"</span>: <span class="dv">3</span>, <span class="st">"age_group"</span>: <span class="dv">1</span>, <span class="st">"past_purchases"</span>: <span class="dv">5</span>, <span class="st">"discount_sensitivity"</span>: <span class="fl">0.5</span>},</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"recency"</span>: <span class="dv">4</span>, <span class="st">"age_group"</span>: <span class="dv">1</span>, <span class="st">"past_purchases"</span>: <span class="dv">7</span>, <span class="st">"discount_sensitivity"</span>: <span class="fl">0.3</span>},</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    {<span class="st">"recency"</span>: <span class="dv">5</span>, <span class="st">"age_group"</span>: <span class="dv">2</span>, <span class="st">"past_purchases"</span>: <span class="dv">9</span>, <span class="st">"discount_sensitivity"</span>: <span class="fl">0.2</span>},</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>test_labels  <span class="op">=</span> [<span class="st">"lapsed+sensitive"</span>, <span class="st">"drifting"</span>, <span class="st">"occasional"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                <span class="st">"active"</span>, <span class="st">"very active+insensitive"</span>]</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>true_uplifts <span class="op">=</span> [true_uplift(x) <span class="cf">for</span> x <span class="kw">in</span> test_grid]</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>uplift_trace <span class="op">=</span> defaultdict(<span class="bu">list</span>)   <span class="co"># label → list of (step, estimated_uplift)</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># ── main loop ─────────────────────────────────────────────────────────────</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> step <span class="kw">in</span> <span class="bu">range</span>(N):</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> make_customer()</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. Predict uplift with current models</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="co">#    river returns {False: p_0, True: p_1}</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    mu1 <span class="op">=</span> model_t.predict_proba_one(x).get(<span class="va">True</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    mu0 <span class="op">=</span> model_c.predict_proba_one(x).get(<span class="va">True</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    uplift_hat <span class="op">=</span> mu1 <span class="op">-</span> mu0</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. Exploration policy</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    treat, p_logged, eps <span class="op">=</span> epsilon_greedy(uplift_hat, step)</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 3. Observe outcome (instant feedback)</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> sample_outcome(x, treated<span class="op">=</span><span class="bu">bool</span>(treat))</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 4. DR-corrected importance weight</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="co">#    Treated customers unlikely to be treated  → high weight</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">#    Control customers unlikely to be control  → high weight</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> treat <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        iw <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> p_logged</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        model_t.learn_one(x, <span class="bu">bool</span>(y), sample_weight<span class="op">=</span>iw)</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        iw <span class="op">=</span> <span class="fl">1.0</span> <span class="op">/</span> (<span class="fl">1.0</span> <span class="op">-</span> p_logged)</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        model_c.learn_one(x, <span class="bu">bool</span>(y), sample_weight<span class="op">=</span>iw)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 5. Track cumulative incremental purchases</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>    <span class="co">#    Incremental = actual outcome − what control model predicts without email</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    baseline    <span class="op">=</span> model_c.predict_proba_one(x).get(<span class="va">True</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    incremental <span class="op">=</span> y <span class="op">-</span> baseline <span class="cf">if</span> treat <span class="cf">else</span> <span class="fl">0.0</span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    cumulative_incremental <span class="op">+=</span> incremental</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Random policy counterfactual: treat everyone with p=0.5</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    random_treat     <span class="op">=</span> <span class="bu">int</span>(np.random.rand() <span class="op">&lt;</span> <span class="fl">0.5</span>)</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    random_y         <span class="op">=</span> sample_outcome(x, treated<span class="op">=</span><span class="bu">bool</span>(random_treat))</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    random_incr      <span class="op">=</span> random_y <span class="op">-</span> baseline <span class="cf">if</span> random_treat <span class="cf">else</span> <span class="fl">0.0</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    cumulative_random_incr <span class="op">+=</span> random_incr</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 6. Snapshot convergence every TRACK_EVERY steps</span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> step <span class="op">%</span> TRACK_EVERY <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> lbl, tx <span class="kw">in</span> <span class="bu">zip</span>(test_labels, test_grid):</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>            est_mu1 <span class="op">=</span> model_t.predict_proba_one(tx).get(<span class="va">True</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>            est_mu0 <span class="op">=</span> model_c.predict_proba_one(tx).get(<span class="va">True</span>, <span class="fl">0.5</span>)</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>            uplift_trace[lbl].append((step, est_mu1 <span class="op">-</span> est_mu0))</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>    history.append({</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>        <span class="st">"step"</span>:                   step,</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>        <span class="st">"treat"</span>:                  treat,</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>        <span class="st">"outcome"</span>:                y,</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>        <span class="st">"uplift_hat"</span>:             uplift_hat,</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>        <span class="st">"true_uplift"</span>:            true_uplift(x),</span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>        <span class="st">"eps"</span>:                    eps,</span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>        <span class="st">"cumulative_incremental"</span>: cumulative_incremental,</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>        <span class="st">"cumulative_random"</span>:      cumulative_random_incr,</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>    })</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(history)</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Simulation complete. </span><span class="sc">{</span>N<span class="sc">}</span><span class="ss"> customers processed."</span>)</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Final epsilon: </span><span class="sc">{</span>df[<span class="st">'eps'</span>]<span class="sc">.</span>iloc[<span class="op">-</span><span class="dv">1</span>]<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Treatment rate: </span><span class="sc">{</span>df[<span class="st">'treat'</span>]<span class="sc">.</span>mean()<span class="sc">:.1%}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simulation complete. 3000 customers processed.
+Final epsilon: 0.150
+Treatment rate: 74.5%</code></pre>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<section id="convergence-of-uplift-estimates" class="level3">
+<h3 class="anchored" data-anchor-id="convergence-of-uplift-estimates">Convergence of uplift estimates</h3>
+<p>How quickly does the model learn the true uplift for each customer type? Each line is one customer segment from our test grid. Dashed horizontal lines are the ground truth values baked into the simulation.</p>
+<div id="46057ce2" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">"#1D9E75"</span>, <span class="st">"#378ADD"</span>, <span class="st">"#888780"</span>, <span class="st">"#EF9F27"</span>, <span class="st">"#E24B4A"</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">5</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (lbl, trace), col, true_u <span class="kw">in</span> <span class="bu">zip</span>(</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        uplift_trace.items(), colors, true_uplifts):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    steps, vals <span class="op">=</span> <span class="bu">zip</span>(<span class="op">*</span>trace)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    ax.plot(steps, vals, label<span class="op">=</span>lbl, color<span class="op">=</span>col, linewidth<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    ax.axhline(true_u, color<span class="op">=</span>col, linewidth<span class="op">=</span><span class="fl">0.8</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"black"</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Customers seen"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Estimated uplift"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Convergence of uplift estimates toward ground truth"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>             fontsize<span class="op">=</span><span class="dv">13</span>, fontweight<span class="op">=</span><span class="st">"normal"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>ax.yaxis.set_major_formatter(mtick.PercentFormatter(xmax<span class="op">=</span><span class="dv">1</span>, decimals<span class="op">=</span><span class="dv">0</span>))</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">10</span>, framealpha<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="online_uplift_river_files/figure-html/cell-7-output-1.png" width="849" height="465" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Early in the simulation the estimates are noisy and sometimes far from the truth — the model has seen very few observations and is still mostly exploring. As the customer count grows the estimates tighten around the dashed ground truth lines. The sleeping dog segment (very active, insensitive) should converge to a negative value — the model learns not to email them.</p>
+</div>
+</div>
+</section>
+<section id="cumulative-incremental-purchases-vs-random-targeting" class="level3">
+<h3 class="anchored" data-anchor-id="cumulative-incremental-purchases-vs-random-targeting">Cumulative incremental purchases vs random targeting</h3>
+<p>This is the operational metric that matters: how many <em>extra</em> purchases does the online uplift policy generate compared to a naive random targeting policy?</p>
+<div id="e1757be8" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.5</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: cumulative incremental purchases</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> axes[<span class="dv">0</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>ax.plot(df[<span class="st">"step"</span>], df[<span class="st">"cumulative_incremental"</span>],</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">"#1D9E75"</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="st">"Online uplift policy"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>ax.plot(df[<span class="st">"step"</span>], df[<span class="st">"cumulative_random"</span>],</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        color<span class="op">=</span><span class="st">"#888780"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"Random policy"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Customers seen"</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Cumulative incremental purchases"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Incremental purchases over time"</span>, fontweight<span class="op">=</span><span class="st">"normal"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>ax.legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Right: rolling treatment rate and epsilon</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> axes[<span class="dv">1</span>]</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>window <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>rolling_treat <span class="op">=</span> df[<span class="st">"treat"</span>].rolling(window).mean()</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>ax2.plot(df[<span class="st">"step"</span>], rolling_treat,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=</span><span class="st">"#378ADD"</span>, linewidth<span class="op">=</span><span class="dv">2</span>, label<span class="op">=</span><span class="ss">f"Treatment rate (</span><span class="sc">{</span>window<span class="sc">}</span><span class="ss">-step rolling)"</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>ax2.plot(df[<span class="st">"step"</span>], df[<span class="st">"eps"</span>],</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=</span><span class="st">"#EF9F27"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, linestyle<span class="op">=</span><span class="st">"--"</span>, label<span class="op">=</span><span class="st">"ε (exploration rate)"</span>)</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">"Customers seen"</span>)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">"Rate"</span>)</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>ax2.yaxis.set_major_formatter(mtick.PercentFormatter(xmax<span class="op">=</span><span class="dv">1</span>, decimals<span class="op">=</span><span class="dv">0</span>))</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"Exploration decay and treatment rate"</span>, fontweight<span class="op">=</span><span class="st">"normal"</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>ax2.legend(fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary numbers</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>final_online <span class="op">=</span> df[<span class="st">"cumulative_incremental"</span>].iloc[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>final_random <span class="op">=</span> df[<span class="st">"cumulative_random"</span>].iloc[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>lift_vs_random <span class="op">=</span> final_online <span class="op">-</span> final_random</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cumulative incremental purchases — online uplift policy : </span><span class="sc">{</span>final_online<span class="sc">:.1f}</span><span class="ss">"</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cumulative incremental purchases — random policy        : </span><span class="sc">{</span>final_random<span class="sc">:.1f}</span><span class="ss">"</span>)</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Gain from online uplift vs random                       : </span><span class="sc">{</span>lift_vs_random<span class="sc">:+.1f}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="online_uplift_river_files/figure-html/cell-8-output-1.png" width="1039" height="417" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cumulative incremental purchases — online uplift policy : 876.7
+Cumulative incremental purchases — random policy        : 494.8
+Gain from online uplift vs random                       : +381.9</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Reading the right panel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Early on, the treatment rate fluctuates around 50% — the system is exploring broadly. As <span class="math inline">\(\varepsilon\)</span> decays and the model becomes more confident, the treatment rate shifts: segments with positive predicted uplift get treated more, sleeping dog segments get treated less. The treatment rate does not converge to 0% or 100% because <span class="math inline">\(\varepsilon\)</span> never reaches zero — permanent exploration is intentional.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="what-the-model-has-learned" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-model-has-learned">What the model has learned</h2>
+<p>At the end of the simulation we can inspect the model’s predictions across the feature space to verify it has recovered the correct targeting logic.</p>
+<div id="d980ade3" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Score a grid of hypothetical customers</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>grid_rows <span class="op">=</span> []</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> recency <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> disc_sens <span class="kw">in</span> [<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>]:</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"recency"</span>:              recency,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"age_group"</span>:            <span class="dv">1</span>,           <span class="co"># hold constant</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"past_purchases"</span>:       <span class="dv">5</span>,           <span class="co"># hold constant</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"discount_sensitivity"</span>: disc_sens,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        est_mu1 <span class="op">=</span> model_t.predict_proba_one(x).get(<span class="va">True</span>, <span class="fl">0.5</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        est_mu0 <span class="op">=</span> model_c.predict_proba_one(x).get(<span class="va">True</span>, <span class="fl">0.5</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        grid_rows.append({</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"recency"</span>:              recency,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"discount_sensitivity"</span>: disc_sens,</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"estimated_uplift"</span>:     <span class="bu">round</span>(est_mu1 <span class="op">-</span> est_mu0, <span class="dv">3</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"true_uplift"</span>:          <span class="bu">round</span>(true_uplift(x), <span class="dv">3</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decision"</span>:             <span class="st">"email"</span> <span class="cf">if</span> (est_mu1 <span class="op">-</span> est_mu0) <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">"skip"</span>,</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(grid_rows).to_string(index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>' recency  discount_sensitivity  estimated_uplift  true_uplift decision\n       1                   0.2             0.440         0.40    email\n       1                   0.5             0.612         0.52    email\n       1                   0.8             0.689         0.60    email\n       2                   0.2             0.272         0.32    email\n       2                   0.5             0.495         0.44    email\n       2                   0.8             0.603         0.56    email\n       3                   0.2             0.085         0.24    email\n       3                   0.5             0.353         0.36    email\n       3                   0.8             0.501         0.48    email\n       4                   0.2            -0.110         0.16     skip\n       4                   0.5             0.188         0.28    email\n       4                   0.8             0.383         0.40    email\n       5                   0.2            -0.295        -0.12     skip\n       5                   0.5             0.006         0.00    email\n       5                   0.8             0.250         0.12    email'</code></pre>
+</div>
+</div>
+<div id="5aaabf5e" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colors <span class="im">as</span> mcolors</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>pivot_est  <span class="op">=</span> (pd.DataFrame(grid_rows)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>              .pivot(index<span class="op">=</span><span class="st">"discount_sensitivity"</span>, columns<span class="op">=</span><span class="st">"recency"</span>, values<span class="op">=</span><span class="st">"estimated_uplift"</span>))</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>pivot_true <span class="op">=</span> (pd.DataFrame(grid_rows)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>              .pivot(index<span class="op">=</span><span class="st">"discount_sensitivity"</span>, columns<span class="op">=</span><span class="st">"recency"</span>, values<span class="op">=</span><span class="st">"true_uplift"</span>))</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="dv">4</span>))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>cmap <span class="op">=</span> plt.cm.RdYlGn</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>norm <span class="op">=</span> mcolors.TwoSlopeNorm(vmin<span class="op">=-</span><span class="fl">0.3</span>, vcenter<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ax, data, title <span class="kw">in</span> <span class="bu">zip</span>(axes,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>                            [pivot_true, pivot_est],</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>                            [<span class="st">"Ground truth uplift"</span>, <span class="st">"Model estimated uplift"</span>]):</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    im <span class="op">=</span> ax.imshow(data.values, cmap<span class="op">=</span>cmap, norm<span class="op">=</span>norm,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>                   aspect<span class="op">=</span><span class="st">"auto"</span>, origin<span class="op">=</span><span class="st">"lower"</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks(<span class="bu">range</span>(<span class="dv">5</span>))</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    ax.set_xticklabels([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks(<span class="bu">range</span>(<span class="dv">3</span>))</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    ax.set_yticklabels([<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.8</span>])</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"Recency score"</span>)</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">"Discount sensitivity"</span>)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title, fontweight<span class="op">=</span><span class="st">"normal"</span>)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(data.shape[<span class="dv">0</span>]):</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(data.shape[<span class="dv">1</span>]):</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>            ax.text(j, i, <span class="ss">f"</span><span class="sc">{</span>data<span class="sc">.</span>values[i, j]<span class="sc">:+.2f}</span><span class="ss">"</span>,</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>                    ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span><span class="dv">9</span>,</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"black"</span> <span class="cf">if</span> <span class="bu">abs</span>(data.values[i, j]) <span class="op">&lt;</span> <span class="fl">0.35</span> <span class="cf">else</span> <span class="st">"white"</span>)</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im, ax<span class="op">=</span>axes, label<span class="op">=</span><span class="st">"Uplift"</span>, fraction<span class="op">=</span><span class="fl">0.03</span>)</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Does the model recover the true targeting logic?"</span>,</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>             fontsize<span class="op">=</span><span class="dv">13</span>, fontweight<span class="op">=</span><span class="st">"normal"</span>, y<span class="op">=</span><span class="fl">1.01</span>)</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="online_uplift_river_files/figure-html/cell-10-output-1.png" width="1041" height="391" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="design-decisions-and-their-trade-offs" class="level2">
+<h2 class="anchored" data-anchor-id="design-decisions-and-their-trade-offs">Design decisions and their trade-offs</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Decision</th>
+<th>Choice made here</th>
+<th>Alternative</th>
+<th>Trade-off</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Update rule</td>
+<td>SGD via <code>river</code></td>
+<td>Full batch retrain</td>
+<td>SGD is online and cheap; batch is more stable</td>
+</tr>
+<tr class="even">
+<td>Exploration</td>
+<td><span class="math inline">\(\varepsilon\)</span>-greedy</td>
+<td>Thompson sampling</td>
+<td><span class="math inline">\(\varepsilon\)</span>-greedy is simple; Thompson gives automatic uncertainty-driven exploration</td>
+</tr>
+<tr class="odd">
+<td>Confounding correction</td>
+<td>IPW weights on arm-specific models</td>
+<td>Full DR estimator</td>
+<td>IPW is simpler; DR is doubly robust</td>
+</tr>
+<tr class="even">
+<td>Outcome delay</td>
+<td>Instant</td>
+<td>Queued (realistic)</td>
+<td>Instant simplifies the loop; queuing is needed in production</td>
+</tr>
+<tr class="odd">
+<td>Two arm models</td>
+<td>T-learner style</td>
+<td>Single model with T as feature</td>
+<td>Two models isolate arm effects; single model is more parameter-efficient</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The key assumption
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The online system assumes the causal structure is <strong>stationary enough</strong> that what you learned about customer segment A yesterday is still valid today. If behaviour shifts abruptly (a competitor drops prices, a product goes viral) the model will adapt — but only as fast as new observations arrive for the affected segments. Permanent exploration (<span class="math inline">\(\varepsilon &gt; 0\)</span> always) is the main defence against getting stuck in a stale policy.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>The online uplift model solves a problem the batch approach cannot: it makes targeting decisions and learns from them simultaneously, without ever freezing.</p>
+<p>The key ideas layered together are:</p>
+<ol type="1">
+<li><strong>Contextual bandit</strong> — formalises the sequential decision problem</li>
+<li><strong>Two online SGD models</strong> (via <code>river</code>) — track uplift continuously</li>
+<li><span class="math inline">\(\varepsilon\)</span>-greedy with decay — balances exploration and exploitation</li>
+<li><strong>Importance weighting</strong> — corrects for the non-random assignment policy so the model does not learn a biased version of the world</li>
+</ol>
+<p>The result is a system that starts knowing nothing, explores broadly, and progressively discovers which customers respond to treatment — while still serving real customers and generating real incremental purchases throughout the learning process.</p>
+<hr>
+</section>
+<section id="requirements" class="level2">
+<h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install once</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install river numpy pandas matplotlib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="de0cbdd7" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> river</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"river version : </span><span class="sc">{</span>river<span class="sc">.</span>__version__<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"python version: </span><span class="sc">{</span>sys<span class="sc">.</span>version<span class="sc">.</span>split()[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>river version : 0.23.0
+python version: 3.12.9</code></pre>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
