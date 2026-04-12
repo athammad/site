@@ -16,27 +16,17 @@ format:
 # onlinecml
 
 ::: justify
+<img src="./gallery/onlinecml_logo.png" class="padded-image" width="200" align="right"/>
+
 [OnlineCML](https://github.com/athammad/onlinecml) is an open-source Python library for **online causal machine learning** — causal inference one observation at a time. Every major causal inference library (EconML, CausalML, DoWhy) requires a complete dataset before you begin. OnlineCML is built for the real world: A/B tests where you want decisions *now*, clinical trials where treatment effects must be monitored continuously, and marketing systems where customer data arrives as a stream.
 
 It implements a full suite of online estimators — **IPW, Augmented IPW, Overlap Weights, S/T/X/R-Learners, Online Matching, and novel Online Causal Forest and Causal Hoeffding Tree** with a custom causal split criterion that maximises between-child CATE variance rather than outcome MSE. Built-in exploration policies (Epsilon-Greedy, Thompson Sampling, UCB) and diagnostics (ADWIN drift detection, SMD balance checks, ATE convergence tracking) make it suitable for live experimentation pipelines where the treatment effect might shift over time.
-
-Install from PyPI:
-
-```bash
-pip install onlinecml
-```
-
-Full documentation at [athammad.github.io/onlinecml](https://athammad.github.io/onlinecml/).
 :::
 
 # argenta
 
 ::: justify
-
-
-[Argenta](https://github.com/athammad/argenta) is an open-source Python library for warehouse-native **causal ML experimentation**. Most A/B testing tools stop at "did it work?" — Argenta answers for whom, why, and what to do next.
-<img src="https://raw.githubusercontent.com/athammad/argenta/refs/heads/master/assets/logo.svg" width="500" align="left"/>
-It connects directly to your existing data warehouse (Snowflake, BigQuery, or Redshift), executes a fully auditable SQL pipeline inside it to construct a clean experiment dataset, and then applies causal machine learning methods — including Double Machine Learning via Causal Forest (CausalForestDML) and CUPED variance reduction — to produce results that traditional experimentation platforms don't offer: **heterogeneous treatment effects (HTE), per-user Conditional Average Treatment Effect (CATE) scores, automatic subgroup discovery, and uplift-based targeting recommendations**.
+[Argenta](https://github.com/athammad/argenta) is an open-source Python library for warehouse-native **causal ML experimentation**. Most A/B testing tools stop at "did it work?" — Argenta answers for whom, why, and what to do next. <img src="https://raw.githubusercontent.com/athammad/argenta/refs/heads/master/assets/logo.svg" width="500" align="left"/> It connects directly to your existing data warehouse (Snowflake, BigQuery, or Redshift), executes a fully auditable SQL pipeline inside it to construct a clean experiment dataset, and then applies causal machine learning methods — including Double Machine Learning via Causal Forest (CausalForestDML) and CUPED variance reduction — to produce results that traditional experimentation platforms don't offer: **heterogeneous treatment effects (HTE), per-user Conditional Average Treatment Effect (CATE) scores, automatic subgroup discovery, and uplift-based targeting recommendations**.
 
 [Argenta](https://github.com/athammad/argenta) is **analytics-only**: it works with experiments you've already run, regardless of which platform assigned variants. Your data never leaves your warehouse. Results are written back to a schema you control.
 
