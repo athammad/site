@@ -16,7 +16,7 @@ format:
 # onlinecml
 
 ::: justify
-![](gallery/onlinecml_logo_small.png){.padded-image align="right" width="195"}
+<img src="./gallery/onlinecml_logo.png" class="padded-image" width="210" align="right"/>
 
 [OnlineCML](https://github.com/athammad/onlinecml) is an open-source Python library for **online causal machine learning** — causal inference one observation at a time. Every major causal inference library (EconML, CausalML, DoWhy) requires a complete dataset before you begin. OnlineCML is built for the real world: A/B tests where you want decisions *now*, clinical trials where treatment effects must be monitored continuously, and marketing systems where customer data arrives as a stream.
 
