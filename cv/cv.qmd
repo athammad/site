@@ -6,7 +6,6 @@ execute:
   freeze: true  # never re-render during project render
 engine: knitr
 resources:
-  - "Academic_CV_Ahmed.pdf"
   - "Ahmed_Hammad_CV.pdf"
 ---
 
@@ -29,30 +28,13 @@ resources:
 }
 ```
 
-::: panel-tabset
-## Academic CV
-
-```{=html}
-<p class="text-center">
-  <a class="btn btn-primary btn-lg cv-download" href="Academic_CV_Ahmed.pdf" target="_blank">
-    <i class="fa-solid fa-file-arrow-down"></i>&ensp;Download Academic CV
-  </a>
-</p>
-<div class="embed-container">
-  <iframe src="Academic_CV_Ahmed.pdf" style="border: 0.5px"></iframe>
-</div>
-```
-
-## Business CV
-
 ```{=html}
 <p class="text-center">
   <a class="btn btn-primary btn-lg cv-download" href="Ahmed_Hammad_CV.pdf" target="_blank">
-    <i class="fa-solid fa-file-arrow-down"></i>&ensp;Download Business CV
+    <i class="fa-solid fa-file-arrow-down"></i>&ensp;Download CV
   </a>
 </p>
 <div class="embed-container">
   <iframe src="Ahmed_Hammad_CV.pdf" style="border: 0.5px"></iframe>
 </div>
 ```
-:::

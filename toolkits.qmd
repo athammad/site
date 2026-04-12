@@ -13,6 +13,22 @@ format:
       margin-width: 250px
 ---
 
+# onlinecml
+
+::: justify
+[OnlineCML](https://github.com/athammad/onlinecml) is an open-source Python library for **online causal machine learning** — causal inference one observation at a time. Every major causal inference library (EconML, CausalML, DoWhy) requires a complete dataset before you begin. OnlineCML is built for the real world: A/B tests where you want decisions *now*, clinical trials where treatment effects must be monitored continuously, and marketing systems where customer data arrives as a stream.
+
+It implements a full suite of online estimators — **IPW, Augmented IPW, Overlap Weights, S/T/X/R-Learners, Online Matching, and novel Online Causal Forest and Causal Hoeffding Tree** with a custom causal split criterion that maximises between-child CATE variance rather than outcome MSE. Built-in exploration policies (Epsilon-Greedy, Thompson Sampling, UCB) and diagnostics (ADWIN drift detection, SMD balance checks, ATE convergence tracking) make it suitable for live experimentation pipelines where the treatment effect might shift over time.
+
+Install from PyPI:
+
+```bash
+pip install onlinecml
+```
+
+Full documentation at [athammad.github.io/onlinecml](https://athammad.github.io/onlinecml/).
+:::
+
 # argenta
 
 ::: justify
