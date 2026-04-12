@@ -163,7 +163,8 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
   <ul>
-  <li><a href="#argenta" id="toc-argenta" class="nav-link active" data-scroll-target="#argenta">argenta</a></li>
+  <li><a href="#onlinecml" id="toc-onlinecml" class="nav-link active" data-scroll-target="#onlinecml">onlinecml</a></li>
+  <li><a href="#argenta" id="toc-argenta" class="nav-link" data-scroll-target="#argenta">argenta</a></li>
   <li><a href="#r-genius" id="toc-r-genius" class="nav-link" data-scroll-target="#r-genius">R-Genius</a></li>
   <li><a href="#pygcapi" id="toc-pygcapi" class="nav-link" data-scroll-target="#pygcapi">pygcapi</a></li>
   <li><a href="#pbox" id="toc-pbox" class="nav-link" data-scroll-target="#pbox">PBOX</a></li>
@@ -186,6 +187,13 @@ ul.task-list li input[type="checkbox"] {
   </div>
   <div class="about-contents"><main class="content column-page-left" id="quarto-document-content">
 
+<section id="onlinecml" class="level1">
+<h1>onlinecml</h1>
+<div class="justify">
+<p><a href="https://github.com/athammad/onlinecml">OnlineCML</a> is an open-source Python library for <strong>online causal machine learning</strong> — causal inference one observation at a time. Every major causal inference library (EconML, CausalML, DoWhy) requires a complete dataset before you begin. OnlineCML is built for the real world: A/B tests where you want decisions <em>now</em>, clinical trials where treatment effects must be monitored continuously, and marketing systems where customer data arrives as a stream.</p>
+<p>It implements a full suite of online estimators — <strong>IPW, Augmented IPW, Overlap Weights, S/T/X/R-Learners, Online Matching, and novel Online Causal Forest and Causal Hoeffding Tree</strong> with a custom causal split criterion that maximises between-child CATE variance rather than outcome MSE. Built-in exploration policies (Epsilon-Greedy, Thompson Sampling, UCB) and diagnostics (ADWIN drift detection, SMD balance checks, ATE convergence tracking) make it suitable for live experimentation pipelines where the treatment effect might shift over time.</p>
+</div>
+</section>
 <section id="argenta" class="level1">
 <h1>argenta</h1>
 <div class="justify">
