@@ -4,9 +4,9 @@ from matplotlib.patches import Circle, RegularPolygon
 import matplotlib.patheffects as pe
 
 # Taller figure to fit text below hex
-fig, ax = plt.subplots(figsize=(6, 7), facecolor='none')
+fig, ax = plt.subplots(figsize=(6, 6), facecolor='none')
 ax.set_xlim(-1.15, 1.15)
-ax.set_ylim(-1.45, 1.15)
+ax.set_ylim(-1.15, 1.15)
 ax.set_aspect('equal')
 ax.axis('off')
 
@@ -65,10 +65,6 @@ cate_ys = -0.88 + 0.10 * np.exp(-3*(cate_xs-0.5)**2) * np.sin(18*cate_xs) * np.e
 ax.plot(cate_xs, cate_ys - 0.02, color='#00c9a7', lw=2.0, alpha=0.85, zorder=4)
 ax.axhline(-0.90, xmin=0.16, xmax=0.84, color='white', lw=1.0, alpha=0.25, linestyle='--', zorder=3)
 
-# ── "OnlineCML" below the hexagon ────────────────────────────────────────────
-ax.text(0, -1.28, 'OnlineCML', ha='center', va='center', fontsize=26,
-        color='white', fontweight='bold', zorder=6,
-        path_effects=[pe.withStroke(linewidth=4, foreground='#0d1b2a')])
 
 plt.tight_layout(pad=0)
 plt.savefig('onlinecml_logo.png', dpi=300, bbox_inches='tight',
