@@ -2,14 +2,12 @@
 layout: page
 title: ''
 excerpt: My current CV
-execute:
-  freeze: true  # never re-render during project render
-engine: knitr
 resources:
   - "Ahmed_Hammad_CV.pdf"
 ---
 
-```{css echo=FALSE}
+```{=html}
+<style>
 .embed-container {
     position: relative;
     padding-bottom: 129%;
@@ -26,6 +24,7 @@ resources:
     width: 100%;
     height: 100%;
 }
+</style>
 ```
 
 ```{=html}
