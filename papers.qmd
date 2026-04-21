@@ -6,10 +6,15 @@ page-layout: full
 # Publications
 
 ::: justify
+
+-   [OnlineCML: A Python Library for Online Causal Machine Learning.](http://dx.doi.org/10.2139/ssrn.6598878)
+
+    *Hammad, Ahmed Tarek, SSRN*
+
 -   [Tracking green space along streets of world cities.](https://iopscience.iop.org/article/10.1088/2634-4505/add9c4)
 
     *G Falchetta, AT Hammad, ERIS*
-    
+
 -   [A note on treatment effects: we are missing something on the tails.](http://dx.doi.org/10.2139/ssrn.4899355)
 
     *Hammad, Ahmed Tarek, SSRN*

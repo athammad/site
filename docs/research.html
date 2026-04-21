@@ -165,12 +165,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><strong>Background</strong></a></li>
-  <li><a href="#machine-learning" id="toc-machine-learning" class="nav-link" data-scroll-target="#machine-learning"><strong>Machine Learning</strong></a></li>
-  <li><a href="#causal-inference" id="toc-causal-inference" class="nav-link" data-scroll-target="#causal-inference"><strong>Causal Inference</strong></a></li>
-  <li><a href="#integration-and-challenges" id="toc-integration-and-challenges" class="nav-link" data-scroll-target="#integration-and-challenges"><strong>Integration and Challenges</strong></a></li>
-  <li><a href="#research-objectives" id="toc-research-objectives" class="nav-link" data-scroll-target="#research-objectives"><strong>Research Objectives</strong></a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#sequential-causal-inference" id="toc-sequential-causal-inference" class="nav-link" data-scroll-target="#sequential-causal-inference"><strong>Sequential Causal Inference</strong></a></li>
+  <li><a href="#heterogeneous-treatment-effects-in-experimental-data" id="toc-heterogeneous-treatment-effects-in-experimental-data" class="nav-link" data-scroll-target="#heterogeneous-treatment-effects-in-experimental-data"><strong>Heterogeneous Treatment Effects in Experimental Data</strong></a></li>
+  <li><a href="#synthetic-counterfactual-methods-for-policy-evaluation" id="toc-synthetic-counterfactual-methods-for-policy-evaluation" class="nav-link" data-scroll-target="#synthetic-counterfactual-methods-for-policy-evaluation"><strong>Synthetic Counterfactual Methods for Policy Evaluation</strong></a></li>
+  <li><a href="#open-questions" id="toc-open-questions" class="nav-link" data-scroll-target="#open-questions"><strong>Open Questions</strong></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -193,48 +191,43 @@ ul.task-list li input[type="checkbox"] {
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
 <div class="justify">
-<p>The majority of my current research revolves around the nexus between causal inference, machine learning and environmental analysis. In the last few years my focus has been on topics such as climate change and extreme events but I had the chance to explore other avenues such as optimal allocation of health care facilities and transport networks analysis.</p>
-<p>My interest is in exploring the interplay between causal inference, machine learning, and environmental analysis. The urgency of addressing environmental challenges necessitates innovative approaches to understanding the complex relationships between human activities, environmental factors, and their consequences. By combining techniques from causal inference and machine learning, I aim to develop novel methodologies that can effectively analyse environmental data, identify causal relationships, and inform evidence-based decision-making for sustainable environmental management.</p>
+<p>My research is concerned with the theoretical and applied foundations of <strong>causal machine learning</strong> — the problem of identifying and estimating causal effects from data using flexible, data-driven methods. A central motivation is that observational data, which is the dominant substrate for empirical work across the social, environmental, and health sciences, rarely satisfies the assumptions classical causal inference requires. Confounding is high-dimensional, treatment assignment is complex, and the population of interest is seldom homogeneous. Machine learning offers tools to relax these assumptions, but doing so rigorously — in ways that preserve valid statistical inference rather than merely improving predictive fit — is the core methodological challenge I address.</p>
+<p>My work spans three interconnected research directions: causal effect estimation in <strong>sequential and streaming settings</strong>, heterogeneous treatment effect (HTE) estimation in <strong>large-scale experimental data</strong>, and <strong>synthetic counterfactual methods</strong> for policy evaluation in observational time series.</p>
 </div>
-<section id="background" class="level2">
-<h2 data-anchor-id="background"><strong>Background</strong></h2>
+<section id="sequential-causal-inference" class="level2">
+<h2 data-anchor-id="sequential-causal-inference"><strong>Sequential Causal Inference</strong></h2>
 <div class="justify">
-<p>The advent of big data and the increasing availability of diverse environmental datasets have provided researchers with an unprecedented opportunity to investigate complex environmental systems. However, extracting meaningful insights from these datasets poses significant challenges due to confounding factors, selection biases, and non-randomness inherent in observational data. Traditional statistical methods often fall short in capturing the complex and non-linear relationships within environmental systems. Therefore, there is a pressing need to integrate causal inference and machine learning techniques to overcome these limitations and achieve a deeper understanding of environmental dynamics.</p>
+<p>The dominant paradigm in causal ML assumes access to a complete, i.i.d. dataset. This assumption is incompatible with a wide class of practically important problems — including adaptive clinical trials, dynamic pricing experiments, and environmental monitoring — where observations arrive sequentially and decisions must be made before the full data are observed.</p>
+<p>Extending causal inference to the sequential setting raises fundamental challenges that do not arise in the static case. Standard online learning objectives, such as minimising cumulative outcome prediction error, are misaligned with causal targets: the quantity of interest is not the conditional mean of the outcome but the conditional average treatment effect (CATE), and the two diverge whenever effect heterogeneity exists. This misalignment propagates through tree-based methods, where the splitting criterion used in standard Hoeffding trees or random forests selects features that predict outcomes well rather than features along which treatment effects vary — producing biased CATE estimates even when outcome prediction is accurate.</p>
+<p>My work in this area develops online estimators — including streaming variants of IPW, Augmented IPW, Overlap Weighting, and meta-learner frameworks — alongside a novel Causal Hoeffding Tree with a split criterion designed to maximise between-child CATE variance. A further complication is distributional shift: in long-running experiments, both the propensity model and the outcome model may become stale, and the resulting bias in effect estimates is difficult to detect without purpose-built diagnostics. I address this through adaptive drift detection and sequential balance monitoring as integral components of the estimation procedure, rather than external checks.</p>
 </div>
 </section>
-<section id="machine-learning" class="level2">
-<h2 data-anchor-id="machine-learning"><strong>Machine Learning</strong></h2>
+<section id="heterogeneous-treatment-effects-in-experimental-data" class="level2">
+<h2 data-anchor-id="heterogeneous-treatment-effects-in-experimental-data"><strong>Heterogeneous Treatment Effects in Experimental Data</strong></h2>
 <div class="justify">
-<p>Machine learning algorithms have shown remarkable success in pattern recognition, predictive modelling, and data-driven decision-making. The ability to automatically extract complex patterns and relationships from large-scale environmental datasets makes machine learning an invaluable tool for environmental analysis. By leveraging machine learning techniques, develop predictive models to forecast environmental outcomes and assess the potential impacts of policy interventions. Furthermore, machine learning methods can aid in feature selection, data imputation, and anomaly detection, contributing to improved data quality and reliability for environmental analysis.</p>
+<p>Average treatment effect estimation has a mature theoretical basis. The practical demand, however, has shifted toward <strong>heterogeneous treatment effects</strong> — understanding for whom a treatment works, how the effect varies across observed covariates, and how this variation can inform targeting decisions. This shift creates both statistical and infrastructural challenges.</p>
+<p>Statistically, the identification of CATEs requires stronger assumptions than ATE estimation and is subject to the curse of dimensionality in high-dimensional covariate spaces. Methods such as Double Machine Learning (DML) and Causal Forests provide semiparametrically efficient estimates under appropriate regularity conditions, but their finite-sample behaviour — particularly the calibration of individual-level CATE confidence intervals — remains an active area of research.</p>
+<p>Infrastructurally, experiment data in applied settings is typically stored in analytical data warehouses and is subject to governance constraints that make extraction for offline analysis impractical. My work explores how causal ML pipelines can be designed to operate <em>within</em> the warehouse layer — executing data preparation and feature construction via SQL while reserving the statistical estimation step for a lightweight downstream layer — without sacrificing the validity of the causal estimates. This design imposes non-trivial constraints on which pre-aggregations are safe under identification assumptions, a question that has received little formal treatment in the literature.</p>
 </div>
 </section>
-<section id="causal-inference" class="level2">
-<h2 data-anchor-id="causal-inference"><strong>Causal Inference</strong></h2>
+<section id="synthetic-counterfactual-methods-for-policy-evaluation" class="level2">
+<h2 data-anchor-id="synthetic-counterfactual-methods-for-policy-evaluation"><strong>Synthetic Counterfactual Methods for Policy Evaluation</strong></h2>
 <div class="justify">
-<p>Causal inference provides a powerful framework for identifying cause-and-effect relationships within complex systems. By applying causal inference methods, we can go beyond correlations and uncover the underlying causal mechanisms driving observed environmental phenomena. Approaches such as propensity score matching, instrumental variables, and difference-in-differences analysis allow us to address confounding biases and estimate causal effects more accurately. Incorporating these causal inference techniques into environmental analysis can enhance our ability to discern the impacts of specific environmental factors and human activities on various ecological systems.</p>
+<p>A recurring problem in program evaluation is the estimation of treatment effects in settings where neither randomisation nor a clean control group is available, and where the outcome of interest is a time series. The synthetic control method addresses this by constructing a weighted combination of untreated units whose pre-treatment trajectory closely matches that of the treated unit, and using the post-treatment divergence as the effect estimate.</p>
+<p>Standard synthetic control methods rely on a convex combination of donor units and are sensitive to the choice of outcome predictors. I extend this framework by replacing the donor-weighting step with a machine learning model — specifically a modified robust random forest that accounts for the autocorrelation structure of the data through block bootstrapping. This allows the counterfactual to incorporate a richer feature space than the standard approach while maintaining temporal validity. Uncertainty quantification is handled through quantile regression forest, yielding marginal prediction intervals on the counterfactual trajectory and, by extension, on the estimated treatment effect at each post-treatment time point.</p>
+<p>This methodology has been applied to the evaluation of environmental interventions and climate policies, where the absence of randomisation and the non-stationarity of climate time series make conventional difference-in-differences estimators unreliable.</p>
 </div>
 </section>
-<section id="integration-and-challenges" class="level2">
-<h2 data-anchor-id="integration-and-challenges"><strong>Integration and Challenges</strong></h2>
+<section id="open-questions" class="level2">
+<h2 data-anchor-id="open-questions"><strong>Open Questions</strong></h2>
 <div class="justify">
-<p>Integrating causal inference with machine learning techniques presents exciting opportunities for advancing environmental analysis. By combining the strengths of both fields, we can develop robust methodologies that provide accurate causal estimates while harnessing the predictive power of machine learning algorithms. However, several challenges need to be addressed to achieve this integration successfully. These challenges include the treatment of unmeasured confounding, scalability of methods for large environmental datasets, interpretability of complex machine learning models, and the consideration of uncertainty in causal inference.</p>
+<p>Several problems cut across these research directions and remain incompletely resolved:</p>
+<ul>
+<li><strong>Sensitivity analysis for sequential estimators.</strong> Classical tools for assessing sensitivity to unmeasured confounding — such as Rosenbaum bounds — do not extend naturally to online settings where the propensity model is updated incrementally. Developing analogous sensitivity analyses for streaming causal estimators is an open problem.</li>
+<li><strong>Coverage guarantees for individual CATEs.</strong> Causal forest implementations typically provide asymptotically valid confidence intervals for the ATE or for conditional effects averaged over subgroups. Reliable marginal coverage for individual CATE estimates — which is what personalised decision-making requires — is not yet well understood in either finite samples or under model misspecification.</li>
+<li><strong>Causal identifiability under data aggregation.</strong> Pre-aggregating individual-level data is a standard warehouse engineering practice, but many aggregations are not innocuous under causal identification assumptions. Formalising which aggregations preserve identification and which introduce bias is an underexplored question at the boundary of causal inference and database theory.</li>
+</ul>
 </div>
-</section>
-<section id="research-objectives" class="level2">
-<h2 data-anchor-id="research-objectives"><strong>Research Objectives</strong></h2>
-<div class="justify">
-<p>In my research, I aim to address these challenges and contribute to the nexus between causal inference, machine learning, and environmental analysis. Specifically, I intend to:</p>
-<ol type="1">
-<li>Develop novel methodologies that integrate causal inference and machine learning techniques to estimate causal effects and predict environmental outcomes accurately.</li>
-<li>Investigate the use of deep learning architectures and explainable AI methods to enhance the interpretability of complex machine learning models for environmental analysis.</li>
-<li>Explore scalable algorithms and parallel computing techniques to handle the computational demands of large environmental datasets.</li>
-<li>Investigate methods for handling unmeasured confounding and uncertainties inherent in causal inference within the context of environmental analysis.</li>
-<li>Apply the developed methodologies to real-world environmental challenges, such as climate change and extreme event analysis. By pursuing these research objectives, I aspire to advance the understanding of causal relationships in environmental systems, contribute to evidence-based decision-making for environmental management, and ultimately support the development of sustainable practices for a better future.</li>
-</ol>
-</div>
-</section>
-<section id="section" class="level2">
-<h2 data-anchor-id="section"></h2>
 
 
 </section>

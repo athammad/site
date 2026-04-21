@@ -229,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Copulas are the right tool for this. A copula separates two things that are usually bundled together in a multivariate distribution: the marginal distribution of each individual variable, and the dependence structure among them. This separation matters because real data is rarely multivariate normal — the marginals may follow different parametric families, and the correlations in the tails may differ from correlations in the center. Copulas handle both.</p>
 <p>To give a concrete example, let’s use a few variables from the classic Cars Dataset.</p>
 </div>
-<div id="3f0b9877" class="cell" data-execution_count="1">
+<div id="28dc4f5f" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -327,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Let’s look at the distribution of each variable, the pairwise scatter plots, and the correlations.</p>
-<div id="9184d9e0" class="cell" data-execution_count="2">
+<div id="c9f010ab" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> corrdot(<span class="op">*</span>args, <span class="op">**</span>kwargs):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    corr_r <span class="op">=</span> args[<span class="dv">0</span>].corr(args[<span class="dv">1</span>], <span class="st">'pearson'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    corr_text <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>corr_r<span class="sc">:2.2f}</span><span class="ss">"</span>.replace(<span class="st">"0."</span>, <span class="st">"."</span>)</span>
@@ -358,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A few things stand out. The variables are strongly correlated in some pairs. The distributions are different: acceleration is close to normal, but horsepower and weight have heavier right tails. A Gaussian copula with normal marginals would miss that — which is why we want the copula to handle marginals separately.</p>
 <p>Before generating synthetic data, let’s fit a simple linear regression on the original data as a baseline.</p>
 </div>
-<div id="0e27ea8a" class="cell" data-execution_count="3">
+<div id="8e202fa9" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> df.pop(<span class="st">'mpg'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> df</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -375,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="justify">
 <p>Now we generate a synthetic training set using a Gaussian copula, where the marginals are estimated separately as parametric distributions (not KDE). The copula model will fit the best-fitting parametric family for each variable, then learn the correlation structure among them.</p>
 </div>
-<div id="68c9c34f" class="cell" data-execution_count="4">
+<div id="beb7c078" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select the best PARAMETRIC univariate (no KDE)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>univariate <span class="op">=</span> Univariate(parametric<span class="op">=</span>ParametricType.PARAMETRIC)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -403,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="justify">
 <p>Let’s inspect what the copula model learned — the fitted distribution for each variable:</p>
 </div>
-<div id="c50e42bf" class="cell" data-execution_count="5">
+<div id="7b1851a2" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">=</span> dist.to_dict()</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>parameters[<span class="st">'univariates'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
@@ -431,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="justify">
 <p>And the learned correlation matrix that defines the joint structure:</p>
 </div>
-<div id="3a46ed30" class="cell" data-execution_count="6">
+<div id="e81866e3" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>parameters[<span class="st">'correlation'</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>[[1.0, 0.8473079530880548, -0.720090874761445, -0.8315209336313288],
@@ -443,7 +443,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="justify">
 <p>Now compare the synthetic data against the original — same summary statistics, same pair plots.</p>
 </div>
-<div id="c6cd2a6a" class="cell" data-execution_count="7">
+<div id="0d1f51b1" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>syntDF<span class="op">=</span>pd.DataFrame(np.concatenate([X_synthetic, np.expand_dims(y_synthetic, <span class="dv">1</span>)], axis<span class="op">=</span><span class="dv">1</span>),columns<span class="op">=</span>[<span class="st">'horsepower'</span>, <span class="st">'weight'</span>, <span class="st">'acceleration'</span>,<span class="st">'mpg'</span>])</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>syntDF.describe()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -471,52 +471,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">mean</th>
-<td>102.424491</td>
-<td>2912.768322</td>
-<td>15.671238</td>
-<td>24.481033</td>
+<td>106.741787</td>
+<td>3001.165321</td>
+<td>15.282710</td>
+<td>24.006457</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">std</th>
-<td>37.827007</td>
-<td>840.384299</td>
-<td>2.789104</td>
-<td>8.293174</td>
+<td>38.396280</td>
+<td>834.124368</td>
+<td>2.897945</td>
+<td>8.008243</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">min</th>
-<td>48.911529</td>
-<td>1626.293586</td>
-<td>6.994269</td>
-<td>10.803486</td>
+<td>50.062733</td>
+<td>1626.735130</td>
+<td>9.532103</td>
+<td>10.022592</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">25%</th>
-<td>74.760740</td>
-<td>2239.351073</td>
-<td>13.897932</td>
-<td>18.162106</td>
+<td>78.610155</td>
+<td>2274.718738</td>
+<td>13.244567</td>
+<td>17.709268</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">50%</th>
-<td>92.855345</td>
-<td>2765.721090</td>
-<td>15.449325</td>
-<td>22.936829</td>
+<td>97.469412</td>
+<td>2887.631374</td>
+<td>14.938047</td>
+<td>23.348269</td>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">75%</th>
-<td>122.545193</td>
-<td>3508.569304</td>
-<td>17.330007</td>
-<td>29.866392</td>
+<td>127.881791</td>
+<td>3659.378723</td>
+<td>17.208566</td>
+<td>28.896533</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">max</th>
-<td>290.482675</td>
-<td>5093.271119</td>
-<td>24.064613</td>
-<td>45.514577</td>
+<td>261.357416</td>
+<td>5142.185723</td>
+<td>26.928153</td>
+<td>44.491918</td>
 </tr>
 </tbody>
 </table>
@@ -528,13 +528,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The descriptive statistics are close. The pair plot shows the shapes are similar but not identical — the tails in particular may differ somewhat, which is expected given the Gaussian copula assumption on the dependence structure. If the tail behavior mattered critically here, a Clayton or Gumbel copula would be more appropriate.</p>
 <p>Finally, re-fit the same linear regression on the synthetic training data and evaluate on the original test set:</p>
 </div>
-<div id="0fe0be21" class="cell" data-execution_count="8">
+<div id="6f2d6892" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> LinearRegression()</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>model.fit(X_synthetic, y_synthetic)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(model.score(X_test, y_test))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>0.6236318551606799</code></pre>
+<pre><code>0.6343060805430143</code></pre>
 </div>
 </div>
 <div class="justify">

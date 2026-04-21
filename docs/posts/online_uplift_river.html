@@ -324,7 +324,7 @@ Instead of a fixed experiment followed by a frozen model, the system learns <em>
 </section>
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
-<div id="d4177d79" class="cell" data-execution_count="1">
+<div id="7f5bd1a6" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -348,7 +348,7 @@ Instead of a fixed experiment followed by a frozen model, the system learns <em>
 <section id="synthetic-data-generating-process" class="level2">
 <h2 class="anchored" data-anchor-id="synthetic-data-generating-process">Synthetic data generating process</h2>
 <p>We simulate a stream of 3,000 customers arriving sequentially. Each customer has four features. The <strong>true uplift function</strong> is baked into the simulation so we can measure how quickly the online model converges to it.</p>
-<div id="dcd06048" class="cell" data-execution_count="2">
+<div id="bc95d5a8" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_customer():</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Sample one customer's features at random."""</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> {</span>
@@ -425,7 +425,7 @@ Very active, old, insensitive| -0.17</code></pre>
 <li><code>model_c</code>: learns <span class="math inline">\(P(\text{buy} \mid X, T=0)\)</span> — updated only when a customer is in control</li>
 </ul>
 <p>The predicted uplift for a new customer is <code>mu1 - mu0</code>. Updates are weighted by the inverse logged propensity to correct for the non-random assignment policy — the online equivalent of the DR correction.</p>
-<div id="69e4ac37" class="cell" data-execution_count="3">
+<div id="ec800ac2" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> make_pipeline():</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    River pipeline: standardise features → logistic regression with Adam.</span></span>
@@ -442,7 +442,7 @@ Very active, old, insensitive| -0.17</code></pre>
 </div>
 <section id="exploration-policy" class="level3">
 <h3 class="anchored" data-anchor-id="exploration-policy">Exploration policy</h3>
-<div id="22bf1859" class="cell" data-execution_count="4">
+<div id="8556bf71" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> epsilon_greedy(uplift_score, step, eps_start<span class="op">=</span><span class="fl">0.5</span>, eps_end<span class="op">=</span><span class="fl">0.05</span>, decay<span class="op">=</span><span class="dv">2000</span>):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Epsilon-greedy policy with exponential decay.</span></span>
@@ -468,7 +468,7 @@ Very active, old, insensitive| -0.17</code></pre>
 </section>
 <section id="the-online-loop" class="level3">
 <h3 class="anchored" data-anchor-id="the-online-loop">The online loop</h3>
-<div id="8cb0a899" class="cell" data-execution_count="5">
+<div id="a17a6c04" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> <span class="dv">3000</span>   <span class="co"># total customers in the stream</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ── tracking ──────────────────────────────────────────────────────────────</span></span>
@@ -565,7 +565,7 @@ Treatment rate: 74.5%</code></pre>
 <section id="convergence-of-uplift-estimates" class="level3">
 <h3 class="anchored" data-anchor-id="convergence-of-uplift-estimates">Convergence of uplift estimates</h3>
 <p>How quickly does the model learn the true uplift for each customer type? Each line is one customer segment from our test grid. Dashed horizontal lines are the ground truth values baked into the simulation.</p>
-<div id="46057ce2" class="cell" data-execution_count="6">
+<div id="fc0007dd" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>colors <span class="op">=</span> [<span class="st">"#1D9E75"</span>, <span class="st">"#378ADD"</span>, <span class="st">"#888780"</span>, <span class="st">"#EF9F27"</span>, <span class="st">"#E24B4A"</span>]</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">5</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -609,7 +609,7 @@ Note
 <section id="cumulative-incremental-purchases-vs-random-targeting" class="level3">
 <h3 class="anchored" data-anchor-id="cumulative-incremental-purchases-vs-random-targeting">Cumulative incremental purchases vs random targeting</h3>
 <p>This is the operational metric that matters: how many <em>extra</em> purchases does the online uplift policy generate compared to a naive random targeting policy?</p>
-<div id="e1757be8" class="cell" data-execution_count="7">
+<div id="66a9f86e" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">11</span>, <span class="fl">4.5</span>))</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Left: cumulative incremental purchases</span></span>
@@ -679,7 +679,7 @@ Gain from online uplift vs random                       : +381.9</code></pre>
 <section id="what-the-model-has-learned" class="level2">
 <h2 class="anchored" data-anchor-id="what-the-model-has-learned">What the model has learned</h2>
 <p>At the end of the simulation we can inspect the model’s predictions across the feature space to verify it has recovered the correct targeting logic.</p>
-<div id="d980ade3" class="cell" data-execution_count="8">
+<div id="e97580ac" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Score a grid of hypothetical customers</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>grid_rows <span class="op">=</span> []</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> recency <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">6</span>):</span>
@@ -705,7 +705,7 @@ Gain from online uplift vs random                       : +381.9</code></pre>
 <pre><code>' recency  discount_sensitivity  estimated_uplift  true_uplift decision\n       1                   0.2             0.440         0.40    email\n       1                   0.5             0.612         0.52    email\n       1                   0.8             0.689         0.60    email\n       2                   0.2             0.272         0.32    email\n       2                   0.5             0.495         0.44    email\n       2                   0.8             0.603         0.56    email\n       3                   0.2             0.085         0.24    email\n       3                   0.5             0.353         0.36    email\n       3                   0.8             0.501         0.48    email\n       4                   0.2            -0.110         0.16     skip\n       4                   0.5             0.188         0.28    email\n       4                   0.8             0.383         0.40    email\n       5                   0.2            -0.295        -0.12     skip\n       5                   0.5             0.006         0.00    email\n       5                   0.8             0.250         0.12    email'</code></pre>
 </div>
 </div>
-<div id="5aaabf5e" class="cell" data-execution_count="9">
+<div id="bb73538c" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.colors <span class="im">as</span> mcolors</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>pivot_est  <span class="op">=</span> (pd.DataFrame(grid_rows)</span>
@@ -832,7 +832,7 @@ Gain from online uplift vs random                       : +381.9</code></pre>
 <h2 class="anchored" data-anchor-id="requirements">Requirements</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install once</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install river numpy pandas matplotlib</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="de0cbdd7" class="cell" data-execution_count="10">
+<div id="88b768f2" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> river</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"river version : </span><span class="sc">{</span>river<span class="sc">.</span>__version__<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
