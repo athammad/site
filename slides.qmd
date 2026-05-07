@@ -42,3 +42,6 @@ format:
 
 \
 [**Model Tuning**. Adjusting a machine learning model involves tweaking specific settings, like control knobs, to help it learn better.](./slides/Model%20Tuning.html)
+
+\
+[**From Patterns to Causes**. An introduction to causal machine learning — moving beyond prediction to understanding why things happen.](./slides/From%20Patterns%20to%20Causes.html)
