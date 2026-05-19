@@ -13,6 +13,18 @@ format:
       margin-width: 250px
 ---
 
+# memoire
+
+::: justify
+<img src="./gallery/memoire_logo.png" class="padded-image" width="200" align="right"/>
+
+[memoire](https://github.com/athammad/memoire) is an open-source tool that gives AI coding assistants a **persistent causal memory** of your project. Instead of re-reading source files at the start of every session, memoire builds and continuously updates a local knowledge graph — stored in SurrealDB — that captures not just what files exist, but *why* they exist, what causes what, and what will break if something changes.
+
+The graph tracks eight relationship types: causal edges (SPECIFIES, IMPLEMENTS, DRIVES, DOCUMENTS, ASSERTS_ON) that rank above structural ones (IMPORTS, INHERITS, CONTAINS), with high-cost side-effect relationships surfacing first. Static analysis covers Python, TypeScript/JavaScript, Go, Rust, Java, Ruby, and C/C++; Markdown and RST files are processed via LLM extraction. All data stays local — no cloud dependency.
+
+In benchmarks on a 28-file project, memoire reduces token usage by **~87% for structural context** and **~60% for causal analysis** compared to traditional file re-reading, cutting session initialization from 20,000–50,000 tokens down to 2,000–9,000. Supported providers include Claude Code, Cursor, Windsurf, OpenAI Codex CLI, Google Gemini CLI, and Ollama via MCP servers and provider-specific hooks.
+:::
+
 # onlinecml
 
 ::: justify

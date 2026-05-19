@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>🧰Toolkits – Ahmed T. Hammad</title>
+<title>memoire: Persistent Causal Memory for AI Coding Assistants – Ahmed T. Hammad</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,25 +23,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-58dbf8fa33141ac557f4965604559e3b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c604f6271de6339fb258939daa0efdee.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -81,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Ahmed T. Hammad</span>
     </a>
   </div>
@@ -92,43 +128,43 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">ℹ️ About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../teaching.html"> 
 <span class="menu-text">🧑‍🏫 Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">🛰 Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./students.html"> 
+    <a class="nav-link" href="../students.html"> 
 <span class="menu-text">🧑‍🎓 Students</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./papers.html"> 
+    <a class="nav-link" href="../papers.html"> 
 <span class="menu-text">✍ Papers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./solutions.html"> 
+    <a class="nav-link" href="../solutions.html"> 
 <span class="menu-text">💡Solutions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./toolkits.html" aria-current="page"> 
+    <a class="nav-link" href="../toolkits.html"> 
 <span class="menu-text">🧰Toolkits</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv/cv.html"> 
+    <a class="nav-link" href="../cv/cv.html"> 
 <span class="menu-text">📃 CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">🎙️Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./slides.html"> 
+    <a class="nav-link" href="../slides.html"> 
 <span class="menu-text">📽️️ Slides</span></a>
   </li>  
 </ul>
@@ -156,125 +192,120 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-  <ul>
-  <li><a href="#memoire" id="toc-memoire" class="nav-link active" data-scroll-target="#memoire">memoire</a></li>
-  <li><a href="#onlinecml" id="toc-onlinecml" class="nav-link" data-scroll-target="#onlinecml">onlinecml</a></li>
-  <li><a href="#argenta" id="toc-argenta" class="nav-link" data-scroll-target="#argenta">argenta</a></li>
-  <li><a href="#r-genius" id="toc-r-genius" class="nav-link" data-scroll-target="#r-genius">R-Genius</a></li>
-  <li><a href="#pygcapi" id="toc-pygcapi" class="nav-link" data-scroll-target="#pygcapi">pygcapi</a></li>
-  <li><a href="#pbox" id="toc-pbox" class="nav-link" data-scroll-target="#pbox">PBOX</a></li>
-  <li><a href="#rgcapi" id="toc-rgcapi" class="nav-link" data-scroll-target="#rgcapi">rgcapi</a></li>
-  <li><a href="#syntcf" id="toc-syntcf" class="nav-link" data-scroll-target="#syntcf">SyntCF</a></li>
-  <li><a href="#an-ai-geospatial-assisted-decision-support-framework" id="toc-an-ai-geospatial-assisted-decision-support-framework" class="nav-link" data-scroll-target="#an-ai-geospatial-assisted-decision-support-framework">An AI Geospatial-assisted decision support framework</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<div class="quarto-about-trestles column-page-left">
-  <div class="about-entity">
+<main class="content" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">🧰Toolkits</h1>
+<h1 class="title">memoire: Persistent Causal Memory for AI Coding Assistants</h1>
 </div>
-<div class="quarto-title-meta column-page-left">
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
   </div>
+  
+
+
 </header>
-  </div>
-  <div class="about-contents"><main class="content column-page-left" id="quarto-document-content">
 
-<section id="memoire" class="level1">
-<h1>memoire</h1>
+
 <div class="justify">
-<p><img src="./gallery/memoire_logo.png" class="padded-image" width="200" align="right"></p>
-<p><a href="https://github.com/athammad/memoire">memoire</a> is an open-source tool that gives AI coding assistants a <strong>persistent causal memory</strong> of your project. Instead of re-reading source files at the start of every session, memoire builds and continuously updates a local knowledge graph — stored in SurrealDB — that captures not just what files exist, but <em>why</em> they exist, what causes what, and what will break if something changes.</p>
-<p>The graph tracks eight relationship types: causal edges (SPECIFIES, IMPLEMENTS, DRIVES, DOCUMENTS, ASSERTS_ON) that rank above structural ones (IMPORTS, INHERITS, CONTAINS), with high-cost side-effect relationships surfacing first. Static analysis covers Python, TypeScript/JavaScript, Go, Rust, Java, Ruby, and C/C++; Markdown and RST files are processed via LLM extraction. All data stays local — no cloud dependency.</p>
-<p>In benchmarks on a 28-file project, memoire reduces token usage by <strong>~87% for structural context</strong> and <strong>~60% for causal analysis</strong> compared to traditional file re-reading, cutting session initialization from 20,000–50,000 tokens down to 2,000–9,000. Supported providers include Claude Code, Cursor, Windsurf, OpenAI Codex CLI, Google Gemini CLI, and Ollama via MCP servers and provider-specific hooks.</p>
-</div>
+<section id="the-problem-with-stateless-ai-assistants" class="level1">
+<h1>The Problem with Stateless AI Assistants</h1>
+<p>Every time you start a new session with an AI coding assistant, the same ritual plays out: you re-explain the project, the assistant re-reads files it already saw yesterday, and hundreds of thousands of tokens are spent reconstructing context that was perfectly well understood an hour ago. The model isn’t forgetful by design — it’s stateless by design. But stateless is a terrible fit for software projects, which are inherently stateful, causally interconnected, and slow to change relative to how frequently you talk about them.</p>
+<p><a href="https://github.com/athammad/memoire">memoire</a> is my answer to this problem. It gives AI coding assistants a persistent, locally-stored causal memory of your project — a knowledge graph that builds itself, updates incrementally as files change, and survives across sessions.</p>
 </section>
-<section id="onlinecml" class="level1">
-<h1>onlinecml</h1>
-<div class="justify">
-<p><img src="./gallery/onlinecml_logo.png" class="padded-image" width="210" align="right"></p>
-<p><a href="https://github.com/athammad/onlinecml">OnlineCML</a> is an open-source Python library for <strong>online causal machine learning</strong> — causal inference one observation at a time. Every major causal inference library (EconML, CausalML, DoWhy) requires a complete dataset before you begin. OnlineCML is built for the real world: A/B tests where you want decisions <em>now</em>, clinical trials where treatment effects must be monitored continuously, and marketing systems where customer data arrives as a stream.</p>
-<p>It implements a full suite of online estimators — <strong>IPW, Augmented IPW, Overlap Weights, S/T/X/R-Learners, Online Matching, and novel Online Causal Forest and Causal Hoeffding Tree</strong> with a custom causal split criterion that maximises between-child CATE variance rather than outcome MSE. Built-in exploration policies (Epsilon-Greedy, Thompson Sampling, UCB) and diagnostics (ADWIN drift detection, SMD balance checks, ATE convergence tracking) make it suitable for live experimentation pipelines where the treatment effect might shift over time.</p>
-</div>
-</section>
-<section id="argenta" class="level1">
-<h1>argenta</h1>
-<div class="justify">
-<p><a href="https://github.com/athammad/argenta">Argenta</a> is an open-source Python library for warehouse-native <strong>causal ML experimentation</strong>. Most A/B testing tools stop at “did it work?” — Argenta answers for whom, why, and what to do next. <img src="https://raw.githubusercontent.com/athammad/argenta/refs/heads/master/assets/logo.svg" width="500" align="left"> It connects directly to your existing data warehouse (Snowflake, BigQuery, or Redshift), executes a fully auditable SQL pipeline inside it to construct a clean experiment dataset, and then applies causal machine learning methods — including Double Machine Learning via Causal Forest (CausalForestDML) and CUPED variance reduction — to produce results that traditional experimentation platforms don’t offer: <strong>heterogeneous treatment effects (HTE), per-user Conditional Average Treatment Effect (CATE) scores, automatic subgroup discovery, and uplift-based targeting recommendations</strong>.</p>
-<p><a href="https://github.com/athammad/argenta">Argenta</a> is <strong>analytics-only</strong>: it works with experiments you’ve already run, regardless of which platform assigned variants. Your data never leaves your warehouse. Results are written back to a schema you control.</p>
-<p>Built with a config-first design (Pydantic v2 + YAML), Jinja2-rendered SQL templates for dialect-aware warehouse execution, and a pure pandas/scipy statistics layer that is fully unit-testable without a live connection.</p>
-</div>
-</section>
-<section id="r-genius" class="level1">
-<h1>R-Genius</h1>
-<div class="justify">
-<p><img src="../gallery/r_logo.png" class="padded-image rounded-image" width="200" align="right"></p>
-<p><a href="https://chatgpt.com/g/g-675f8eb65ce48191bdc6fb7034347661-r-genius">R-Genius</a> is your ultimate companion for everything in R. From advanced machine learning algorithms to econometrics, time series forecasting, sophisticated data manipulation, interactive dashboard creation, and package development—R-Genius has you covered. Whether you’re analyzing data, building applications, or exploring statistical models, R-Genius delivers precise and intelligent assistance tailored to your needs. Empower your R workflows like never before.</p>
-<ol type="1">
-<li><p><strong>Comprehensive Expertise R-Genius:</strong> integrates advanced machine learning algorithms, cutting-edge econometric models, and time-series forecasting techniques within the R environment. Instead of juggling multiple resources, you can find guidance on these tasks in one place.</p></li>
-<li><p><strong>Intelligent Code Suggestions:</strong> Tired of sifting through documentation or forgetting function arguments? R-Genius provides context-aware suggestions, ensuring you’re always just one prompt away from the right code snippet or function call.</p></li>
-<li><p><strong>Faster Insights and Iterations:</strong> By shortening the learning curve and offering immediate, intelligent feedback, R-Genius helps you build and refine your workflows more efficiently. Spend more time interpreting results and less time wrestling with syntax and package incompatibilities.</p></li>
-<li><p><strong>Tailored Solutions for Your Use Case:</strong> Whether you’re working on advanced predictive modeling, exploratory data analysis, or building robust Shiny dashboards, R-Genius adapts to your needs—offering solutions as unique as your projects.</p></li>
-</ol>
-</div>
-</section>
-<section id="pygcapi" class="level1">
-<h1>pygcapi</h1>
-<div class="justify">
-<p><img src="./gallery/logo_pygcapi.png" align="left" height="200"></p>
-<p>The <a href="https://athammad.github.io/pygcapi/">pygcapi</a> Python package provides an interface to the <strong>Gain Capital API</strong> V1 and V2, enabling users to perform various trading operations on <a href="https://forex.com">Forex.com</a>. This package includes functionalities for account management, market information retrieval, trading operations, and historical data extraction. It also includes helper functions and lookup tables to facilitate the interpretation of API responses. This makes it an indispensable tool for the automated management of trading accounts and the implementation of automated trading strategies.</p>
-<p><a href="https://athammad.github.io/pygcapi/">pygcapi</a> is the sister library of the <a href="https://github.com/athammad/rgcapi">rgcapi</a> package, the only library within the R ecosystem that facilitates connectivity with the Gain Capital API. <a href="https://athammad.github.io/pygcapi/">pygcapi</a> offers a robust solution for traders and data scientists seeking to enhance their trading operations.</p>
-</div>
-</section>
-<section id="pbox" class="level1">
-<h1>PBOX</h1>
-<div class="justify">
-<p><img src="./gallery/pboxIcon.png" class="padded-image" width="200" align="right"></p>
-<p>The <a href="https://github.com/athammad/pbox">pbox</a> R package is designed for risk assessment and management. It is an advanced statistical library that excels in exploring probability distributions within a given dataset. The tool offers a method to encapsulate and query the probability space effortlessly. Its distinctive feature lies in the ease with which users can navigate and analyze marginal, joint, and conditional probabilities while taking into account the underlying correlation structure inherent in the data. This unique capability empowers users to delve into intricate relationships and dependencies within datasets, providing a solid foundation for making well-informed decisions in the context of risk management scenarios. With <strong>pbox</strong> is straightforward to answer questions like:</p>
+<section id="what-memoire-actually-stores" class="level1">
+<h1>What memoire Actually Stores</h1>
+<p>The key insight behind memoire is that what matters about a codebase is not just <em>what exists</em>, but <em>why it exists</em> and <em>what depends on what</em>. A traditional context window gives the assistant the first; memoire adds the second.</p>
+<p>The graph tracks eight relationship types, split into two tiers:</p>
+<p><strong>Causal edges</strong> (ranked above structural ones):</p>
 <ul>
-<li><p>What is the probability of experiencing extreme heat waves in Indonesia with temperatures above 32 degrees?</p></li>
-<li><p>What is the probability of simultaneous extreme heat waves in Vietnam with temperatures above than 31 degrees and the average regional temperature being above than 26 degrees?</p></li>
-<li><p>Given that the average regional temperature is 26 degrees, what is the probability of experiencing extreme heat waves in both Vietnam and Indonesia with temperatures above 33 degrees?</p></li>
+<li><code>SPECIFIES</code> — a config or spec file constrains an implementation</li>
+<li><code>IMPLEMENTS</code> — a module realises an interface or spec</li>
+<li><code>DRIVES</code> — a change in one file causes changes in another</li>
+<li><code>DOCUMENTS</code> — a doc or notebook explains a module</li>
+<li><code>ASSERTS_ON</code> — a test file makes assertions about a module</li>
 </ul>
-</div>
+<p><strong>Structural edges</strong> (lower rank, but still tracked):</p>
+<ul>
+<li><code>IMPORTS</code> — direct dependency</li>
+<li><code>INHERITS</code> — class hierarchy</li>
+<li><code>CONTAINS</code> — module/package membership</li>
+</ul>
+<p>Edges accumulate confidence over time. A <code>DRIVES</code> relationship observed 20+ times across sessions carries far more weight than one inferred from a single co-edit. The scoring algorithm combines BFS causal reachability (weighted 2×), in-degree, side-effect cost, a 7-day recency half-life, and access frequency — so the context you load is ranked by what is most likely to matter, not by what was most recently touched.</p>
 </section>
-<section id="rgcapi" class="level1">
-<h1>rgcapi</h1>
-<div class="justify">
-<p><img src="./gallery/logo_rgcapi.png" align="left" height="200"></p>
-<p>The <a href="https://github.com/athammad/rgcapi">rgcapi</a> R package provides an interface to the <strong>Gain Capital API</strong> V1 and V2, enabling users to perform various trading operations on <a href="https://forex.com">Forex.com</a>. This package includes functionalities for account management, market information retrieval, trading operations, and historical data extraction. It also includes helper functions and lookup tables to facilitate the interpretation of API responses. The library is implemented using <code>R6</code>, an encapsulated object-oriented programming paradigm in R, which offers advantages such as modularity, reusability, and the ability to maintain state across function calls.</p>
-<p>Notably, the <a href="https://github.com/athammad/rgcapi">rgcapi</a> package is the only library within the R ecosystem that facilitates connectivity with the Gain Capital API. This makes it an indispensable tool for the automated management of trading accounts and the implementation of automated trading strategies. By leveraging the extensive statistical, data science, and machine learning capabilities of the R ecosystem, <a href="https://github.com/athammad/rgcapi">rgcapi</a> offers a robust solution for traders and data scientists seeking to enhance their trading operations.</p>
-</div>
+<section id="how-it-works" class="level1">
+<h1>How It Works</h1>
+<p>memoire runs a background daemon that watches your project for file changes. When files are saved, it runs static analysis (for Python, TypeScript/JavaScript, Go, Rust, Java, Ruby, and C/C++) or LLM-assisted extraction (for Markdown and RST) and updates the graph incrementally. The graph is stored locally in SurrealDB — no data leaves your machine.</p>
+<p>Session initialization replaces cold file reads with a pre-computed causal summary. On a 28-file project, this cuts session startup from 20,000–50,000 tokens down to 2,000–9,000 — roughly <strong>87% fewer tokens for structural context</strong> and <strong>60% fewer for causal analysis</strong>. Projects typically reach break-even (where cumulative token savings exceed the initial ingestion cost) within three sessions for projects with 15 or more files.</p>
+<p>Several inference mechanisms go beyond what static analysis can see directly:</p>
+<ul>
+<li>Sequential file edits within a 5-minute window generate inferred <code>DRIVES</code> edges</li>
+<li>High-fan-in structural imports are promoted to causal relationships</li>
+<li>Mutation sources that trigger dependents become causal drivers through structural promotion</li>
+</ul>
+<p>Every edge carries <code>extracted_from</code> metadata so the origin of any inferred relationship is always traceable.</p>
 </section>
-<section id="syntcf" class="level1">
-<h1>SyntCF</h1>
-<p><img src="./gallery/logoSCF.png" width="310" align="right"></p>
-<div class="justify">
-<p>The <a href="https://github.com/athammad/syntCF">syntCF</a> R package is a powerful tool designed for estimating the impact of programs or policies through a robust time series synthetic counterfactual approach, leveraging the double difference estimator within a Machine Learning framework. Inspired by contributions from various studies, the package employs a modified version of the robust random forest algorithm, considering the time dependency of data through block bootstrapping. To address uncertainty in predicted counterfactual time series, quantile regression forest is used.</p>
-</div>
+<section id="provider-integration" class="level1">
+<h1>Provider Integration</h1>
+<p>memoire integrates via MCP (Model Context Protocol) servers and provider-specific hooks. Supported providers include:</p>
+<ul>
+<li><strong>Claude Code</strong> — four slash commands: <code>/memoire</code> (full causal context), <code>/memoire-search &lt;query&gt;</code>, <code>/memoire-expand &lt;path&gt;</code>, <code>/memoire-recent</code></li>
+<li><strong>Cursor, Windsurf</strong> — MCP server integration</li>
+<li><strong>OpenAI Codex CLI, Google Gemini CLI, Ollama</strong> — hook-based integration</li>
+</ul>
+<p>Activities inside the assistant (file reads, edits, bash commands) feed back into the graph, reinforcing high-confidence edges. The assistant’s own behaviour becomes part of the causal record.</p>
 </section>
-<section id="an-ai-geospatial-assisted-decision-support-framework" class="level1">
-<h1>An AI Geospatial-assisted decision support framework</h1>
-<p><img src="./gallery/3v.PNG" class="padded-image" width="270" align="left"></p>
-<div class="justify">
-<p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037">3Vs</a> (Vulnerability, Vaccination, and Values), is a framework devised to optimize the allocation of COVID-19 vaccines in settings characterized by resource constraints. The framework integrates processes of data collection, AI-facilitated vulnerability assessment, and vaccination prioritization, all aligned with the principles delineated by the World Health Organization (WHO). Noteworthy components encompass the compilation of socio-demographic and environmental data, AI-driven expert elicitation for prioritization, and geospatially informed vaccine allocation with due regard to equity values. The framework’s empirical application in Kenya serves as a testament to its potential to surpass prevailing strategies, demonstrating adeptness in the judicious dispensation of vaccines to socially vulnerable demographics. Adaptable to diverse health emergencies, the 3Vs framework emerges as an invaluable instrument for decision-makers navigating challenges within resource-constrained environments.</p>
+<section id="getting-started" class="level1">
+<h1>Getting Started</h1>
+<p>Installation is two steps:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Install SurrealDB</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS: brew install surrealdb/tap/surreal</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Linux: curl -sSf https://install.surrealdb.com | sh</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Install memoire</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install memoire-ai</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then initialise a project:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">memoire</span> init <span class="at">--provider</span> claude</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The daemon starts watching for changes, and the graph builds itself from that point forward.</p>
+</section>
+<section id="why-causal-rather-than-semantic" class="level1">
+<h1>Why Causal Rather Than Semantic</h1>
+<p>Semantic similarity search — the approach most RAG-based code assistants use — retrieves files that are <em>textually similar</em> to your query. That’s useful for finding where a concept appears, but it doesn’t tell you what breaks if you change it.</p>
+<p>A causal graph answers a different question: given that I’m about to modify <code>auth/middleware.py</code>, what else is affected? Which tests assert on it? Which modules import and re-export its behaviour? Which spec file drove its design? These are the questions that matter during active development, and they require a different representation than a vector index.</p>
+<p>memoire is not a replacement for semantic search — it’s a complement. Use the graph for impact analysis and context loading; use search when you’re exploring unfamiliar territory.</p>
+</section>
+<section id="closing-thoughts" class="level1">
+<h1>Closing Thoughts</h1>
+<p>AI coding assistants have become genuinely useful, but they remain constrained by the stateless session model. memoire is an attempt to close that gap for software projects specifically — where the causal structure of the codebase is knowable, stable, and worth preserving across sessions.</p>
+<p>The project is open source and actively developed. Contributions, issues, and feedback are welcome on <a href="https://github.com/athammad/memoire">GitHub</a>.</p>
+</section>
 </div>
 
 
-</section>
-</main></div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     

@@ -1,0 +1,95 @@
+---
+title: "memoire: Persistent Causal Memory for AI Coding Assistants"
+image: ../gallery/memoire_logo.png
+---
+
+::: justify
+
+# The Problem with Stateless AI Assistants
+
+Every time you start a new session with an AI coding assistant, the same ritual plays out: you re-explain the project, the assistant re-reads files it already saw yesterday, and hundreds of thousands of tokens are spent reconstructing context that was perfectly well understood an hour ago. The model isn't forgetful by design — it's stateless by design. But stateless is a terrible fit for software projects, which are inherently stateful, causally interconnected, and slow to change relative to how frequently you talk about them.
+
+[memoire](https://github.com/athammad/memoire) is my answer to this problem. It gives AI coding assistants a persistent, locally-stored causal memory of your project — a knowledge graph that builds itself, updates incrementally as files change, and survives across sessions.
+
+# What memoire Actually Stores
+
+The key insight behind memoire is that what matters about a codebase is not just *what exists*, but *why it exists* and *what depends on what*. A traditional context window gives the assistant the first; memoire adds the second.
+
+The graph tracks eight relationship types, split into two tiers:
+
+**Causal edges** (ranked above structural ones):
+
+- `SPECIFIES` — a config or spec file constrains an implementation
+- `IMPLEMENTS` — a module realises an interface or spec
+- `DRIVES` — a change in one file causes changes in another
+- `DOCUMENTS` — a doc or notebook explains a module
+- `ASSERTS_ON` — a test file makes assertions about a module
+
+**Structural edges** (lower rank, but still tracked):
+
+- `IMPORTS` — direct dependency
+- `INHERITS` — class hierarchy
+- `CONTAINS` — module/package membership
+
+Edges accumulate confidence over time. A `DRIVES` relationship observed 20+ times across sessions carries far more weight than one inferred from a single co-edit. The scoring algorithm combines BFS causal reachability (weighted 2×), in-degree, side-effect cost, a 7-day recency half-life, and access frequency — so the context you load is ranked by what is most likely to matter, not by what was most recently touched.
+
+# How It Works
+
+memoire runs a background daemon that watches your project for file changes. When files are saved, it runs static analysis (for Python, TypeScript/JavaScript, Go, Rust, Java, Ruby, and C/C++) or LLM-assisted extraction (for Markdown and RST) and updates the graph incrementally. The graph is stored locally in SurrealDB — no data leaves your machine.
+
+Session initialization replaces cold file reads with a pre-computed causal summary. On a 28-file project, this cuts session startup from 20,000–50,000 tokens down to 2,000–9,000 — roughly **87% fewer tokens for structural context** and **60% fewer for causal analysis**. Projects typically reach break-even (where cumulative token savings exceed the initial ingestion cost) within three sessions for projects with 15 or more files.
+
+Several inference mechanisms go beyond what static analysis can see directly:
+
+- Sequential file edits within a 5-minute window generate inferred `DRIVES` edges
+- High-fan-in structural imports are promoted to causal relationships
+- Mutation sources that trigger dependents become causal drivers through structural promotion
+
+Every edge carries `extracted_from` metadata so the origin of any inferred relationship is always traceable.
+
+# Provider Integration
+
+memoire integrates via MCP (Model Context Protocol) servers and provider-specific hooks. Supported providers include:
+
+- **Claude Code** — four slash commands: `/memoire` (full causal context), `/memoire-search <query>`, `/memoire-expand <path>`, `/memoire-recent`
+- **Cursor, Windsurf** — MCP server integration
+- **OpenAI Codex CLI, Google Gemini CLI, Ollama** — hook-based integration
+
+Activities inside the assistant (file reads, edits, bash commands) feed back into the graph, reinforcing high-confidence edges. The assistant's own behaviour becomes part of the causal record.
+
+# Getting Started
+
+Installation is two steps:
+
+```bash
+# 1. Install SurrealDB
+# macOS: brew install surrealdb/tap/surreal
+# Linux: curl -sSf https://install.surrealdb.com | sh
+
+# 2. Install memoire
+pip install memoire-ai
+```
+
+Then initialise a project:
+
+```bash
+memoire init --provider claude
+```
+
+The daemon starts watching for changes, and the graph builds itself from that point forward.
+
+# Why Causal Rather Than Semantic
+
+Semantic similarity search — the approach most RAG-based code assistants use — retrieves files that are *textually similar* to your query. That's useful for finding where a concept appears, but it doesn't tell you what breaks if you change it.
+
+A causal graph answers a different question: given that I'm about to modify `auth/middleware.py`, what else is affected? Which tests assert on it? Which modules import and re-export its behaviour? Which spec file drove its design? These are the questions that matter during active development, and they require a different representation than a vector index.
+
+memoire is not a replacement for semantic search — it's a complement. Use the graph for impact analysis and context loading; use search when you're exploring unfamiliar territory.
+
+# Closing Thoughts
+
+AI coding assistants have become genuinely useful, but they remain constrained by the stateless session model. memoire is an attempt to close that gap for software projects specifically — where the causal structure of the codebase is knowable, stable, and worth preserving across sessions.
+
+The project is open source and actively developed. Contributions, issues, and feedback are welcome on [GitHub](https://github.com/athammad/memoire).
+
+:::
