@@ -15,7 +15,7 @@ page-layout: full
 
     *G Falchetta, AT Hammad, ERIS*
 
--   [A note on treatment effects: we are missing something on the tails.](http://dx.doi.org/10.2139/ssrn.4899355)
+-   [A Causal Framework for Extremal Effects: Treatment Effects on Joint Extremes and Tail Dependence.](http://dx.doi.org/10.2139/ssrn.4899355)
 
     *Hammad, Ahmed Tarek, SSRN*
 

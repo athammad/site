@@ -1,0 +1,92 @@
+---
+title: "A Causal Framework for Extremal Effects: Treatment Effects on Joint Extremes and Tail Dependence"
+image: https://catinaflat.blog/wp-content/uploads/2023/01/cat_tail.jpg
+toc: true
+page-layout: full
+code-fold: false
+execute:
+  eval: false
+fontsize: 1.5em
+---
+
+# Beyond the Average, Beyond the Single Tail
+
+::: justify
+Standard causal inference is built around the Average Treatment Effect. Did the treated group do better on average? By how much? This is a reasonable starting point, but it systematically leaves something out — what happens when you care not just about individual outcomes, but about the *joint* behaviour of multiple extreme outcomes simultaneously.
+
+My paper, ["A Causal Framework for Extremal Effects: Treatment Effects on Joint Extremes and Tail Dependence"](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4899355), formalises this gap and proposes a framework to fill it. The core observation is that an intervention can reshape the architecture of extreme outcomes through two distinct channels that existing methods conflate or ignore entirely.
+:::
+
+## Two Channels, Two Estimands
+
+::: justify
+Consider any setting where you are evaluating a policy, program, or natural event across two outcomes — say, reading and mathematics scores, or temperature and precipitation, or two correlated financial assets. An intervention can affect the *joint* behaviour of these outcomes in two conceptually separate ways:
+
+1. **The extensive margin**: the treatment changes the *probability of simultaneous extreme outcomes* — how often both variables jointly exceed extreme thresholds. Even without changing how the two outcomes relate to each other, a treatment that shifts marginal distributions upward will mechanically increase the frequency of joint high values.
+
+2. **The dependence margin**: the treatment changes the *strength of the extremal association* — conditional on one variable being extreme, how likely is the other to be extreme as well. This is a property of the dependence structure, not the marginal distributions.
+
+These two channels can operate independently. A treatment can increase joint extremes without touching tail dependence. It can strengthen tail dependence while leaving the marginal distributions unchanged. Most critically, the two effects can point in **opposite directions** — a treatment that increases the frequency of joint extremes while eroding the conditional extremal bond would look beneficial under one lens and harmful under the other.
+
+I introduce formal causal estimands for each channel within the potential outcomes framework.
+
+**Average Treatment Effect on Joint Extremes (ATE-JE)**: For pre-specified thresholds $Q_X$ and $Q_Z$, define a joint extreme indicator $\delta_i = \mathbf{1}(X_i > Q_X,\, Z_i > Q_Z)$. The ATE-JE is $E[\delta_i(1) - \delta_i(0)]$ — the causal effect of treatment on the probability of simultaneous extreme outcomes. Under random assignment, this is identified by a simple OLS regression of the indicator on the treatment dummy.
+
+**Average Treatment Effect on Tail Dependence (ATE-TD)**: Define the tail dependence coefficient $\tau_d = P(Z_i(d) > Q_Z \mid X_i(d) > Q_X)$ — the conditional probability that $Z$ is extreme given $X$ is extreme, under treatment state $d$. The ATE-TD is $\tau_1 - \tau_0$. Under random assignment, this is identified by a ratio-of-means estimator with inference via the Delta Method.
+
+Both estimands come with formal identification theorems, consistency proofs, and asymptotic confidence intervals derived from the CLT and the Delta Method.
+:::
+
+## The Role of Copulas
+
+::: justify
+The natural language for describing dependence between extreme values is the **copula**. Sklar's theorem guarantees that any joint distribution can be decomposed into its marginals and a copula that captures the dependence structure separately. This decomposition is exactly what makes the two estimands above well-defined: ATE-JE can move without ATE-TD moving, because they operate on different components of the joint distribution.
+
+For upper tail dependence, the **Gumbel copula** is the natural instrument:
+
+$$C(u_1, u_2; \theta) = \exp\!\left(-\left((-\log u_1)^\theta + (-\log u_2)^\theta\right)^{1/\theta}\right)$$
+
+The parameter $\theta \geq 1$ controls the strength of upper tail dependence, with $\theta = 1$ giving independence and $\theta \to \infty$ giving perfect dependence. In a motivating example, two variables simulated with $\theta = 2$ show quantile correlations that grow from 0.51 at the 5th percentile to 0.72 at the median — with the strongest association precisely in the upper tail, where extreme joint events occur.
+:::
+
+## A Simulation Study: When the Two Estimands Disagree
+
+::: justify
+To demonstrate that ATE-JE and ATE-TD are genuinely distinct, I construct three simulation scenarios with $n = 10{,}000$ observations per group, Gumbel-copula dependence, and thresholds at the 95th percentile of the pooled sample:
+
+**Scenario 1 — Marginal shift only**: Both groups share the same copula ($\theta = 2$), but treatment shifts marginal means up by 0.5 SD. The marginal shift mechanically raises joint extreme probability (ATE-JE = +0.026, $p < 0.001$), but the dependence structure is untouched (ATE-TD = −0.021, not significant).
+
+**Scenario 2 — Dependence change only**: Both groups share the same Normal(0,1) marginals, but the copula strengthens from $\theta = 1.5$ to $\theta = 3$ under treatment. Both estimands are positive and significant (ATE-JE = +0.015, ATE-TD = +0.336, both $p < 0.001$).
+
+**Scenario 3 — Opposing effects**: Treatment shifts marginal means up by 0.8 SD but *weakens* the copula from $\theta = 3$ to $\theta = 1.5$. ATE-JE is positive (+0.033, $p < 0.001$), but ATE-TD is *negative* (−0.240, $p < 0.001$).
+
+Scenario 3 is the policy-critical case. An analyst who estimated only ATE-JE would conclude the treatment improves joint extreme outcomes. An analyst who estimated only ATE-TD would reach the opposite conclusion. Both conclusions are simultaneously correct — they describe different aspects of what the treatment does. Estimating only one is incomplete, and in high-stakes settings could be misleading.
+:::
+
+## The Tennessee STAR Experiment
+
+::: justify
+The empirical application revisits the Tennessee Student Teacher Achievement Ratio (STAR) experiment, one of the most cited randomised educational interventions in the literature. Roughly 11,600 students and 1,300 teachers were randomly assigned to small classes (13–17 students) or regular classes (22–25 students) across 79 elementary schools in the mid-1980s. The well-known finding is that smaller classes raised average reading and mathematics scores, particularly for minority and economically disadvantaged students.
+
+I apply both estimands to the joint distribution of first-grade reading and mathematics scores, with thresholds set at the 95th percentile of *kindergarten* scores — pre-treatment, to avoid contamination.
+
+**ATE-JE result**: The baseline probability that a student simultaneously achieves exceptional performance in both reading and mathematics is 15% in the regular-class group. Smaller class sizes increase this probability by **8 percentage points** (p < 0.001).
+
+**ATE-TD result**: The tail dependence coefficient rises from $\hat{\tau}_0 = 0.244$ (regular class) to $\hat{\tau}_1 = 0.343$ (small class). The ATE-TD is **+0.100** ($p < 0.001$, 95% CI: [0.057, 0.142]).
+
+In this application the two estimands agree in sign and significance, reinforcing the conclusion — but they answer different questions. ATE-JE tells us that *more students* are jointly excelling in both subjects. ATE-TD tells us that *among the best readers*, being in a small class substantially increases the probability of also excelling in mathematics. The former measures the size of the high-achieving joint tail; the latter measures the conditional strength of the extremal bond between the two subjects. Together, they provide a richer picture of how smaller classes shape the upper end of the performance distribution than either alone.
+:::
+
+# Why This Matters Beyond Education
+
+::: justify
+The framework is domain-agnostic. Anywhere that interventions have consequences at the extremes of a joint distribution, the standard ATE misses something:
+
+- **Finance**: does a regulatory intervention reduce the probability of simultaneous extreme losses across asset classes, or does it weaken tail dependence while leaving marginal risk unchanged?
+- **Climate policy**: does a mitigation measure reduce the probability of co-occurring extreme heat and drought, or change how strongly those extremes are associated?
+- **Public health**: does a treatment reduce the risk of simultaneously extreme symptom burden across multiple outcomes, or reshape the conditional structure of multi-symptom extremes?
+
+In each setting, the extensive and dependence margins are distinct, separately identifiable, and can carry opposite signs. The framework gives practitioners the tools to answer both questions simultaneously, with formal inference grounded in the potential outcomes framework and asymptotic theory.
+
+The preprint is available on [SSRN](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4899355).
+:::

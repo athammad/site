@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>✍ Papers – Ahmed T. Hammad</title>
+<title>A Causal Framework for Extremal Effects: Treatment Effects on Joint Extremes and Tail Dependence – Ahmed T. Hammad</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-58dbf8fa33141ac557f4965604559e3b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-470e0d2837293c737e0b58f9530a320f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,8 +71,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -82,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Ahmed T. Hammad</span>
     </a>
   </div>
@@ -93,43 +122,43 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">ℹ️ About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./teaching.html"> 
+    <a class="nav-link" href="../teaching.html"> 
 <span class="menu-text">🧑‍🏫 Teaching</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">🛰 Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./students.html"> 
+    <a class="nav-link" href="../students.html"> 
 <span class="menu-text">🧑‍🎓 Students</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./papers.html" aria-current="page"> 
+    <a class="nav-link" href="../papers.html"> 
 <span class="menu-text">✍ Papers</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./solutions.html"> 
+    <a class="nav-link" href="../solutions.html"> 
 <span class="menu-text">💡Solutions</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./toolkits.html"> 
+    <a class="nav-link" href="../toolkits.html"> 
 <span class="menu-text">🧰Toolkits</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv/cv.html"> 
+    <a class="nav-link" href="../cv/cv.html"> 
 <span class="menu-text">📃 CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">🎙️Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./slides.html"> 
+    <a class="nav-link" href="../slides.html"> 
 <span class="menu-text">📽️️ Slides</span></a>
   </li>  
 </ul>
@@ -165,7 +194,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#publications" id="toc-publications" class="nav-link active" data-scroll-target="#publications">Publications</a></li>
+  <li><a href="#beyond-the-average-beyond-the-single-tail" id="toc-beyond-the-average-beyond-the-single-tail" class="nav-link active" data-scroll-target="#beyond-the-average-beyond-the-single-tail">Beyond the Average, Beyond the Single Tail</a>
+  <ul class="collapse">
+  <li><a href="#two-channels-two-estimands" id="toc-two-channels-two-estimands" class="nav-link" data-scroll-target="#two-channels-two-estimands">Two Channels, Two Estimands</a></li>
+  <li><a href="#the-role-of-copulas" id="toc-the-role-of-copulas" class="nav-link" data-scroll-target="#the-role-of-copulas">The Role of Copulas</a></li>
+  <li><a href="#a-simulation-study-when-the-two-estimands-disagree" id="toc-a-simulation-study-when-the-two-estimands-disagree" class="nav-link" data-scroll-target="#a-simulation-study-when-the-two-estimands-disagree">A Simulation Study: When the Two Estimands Disagree</a></li>
+  <li><a href="#the-tennessee-star-experiment" id="toc-the-tennessee-star-experiment" class="nav-link" data-scroll-target="#the-tennessee-star-experiment">The Tennessee STAR Experiment</a></li>
+  </ul></li>
+  <li><a href="#why-this-matters-beyond-education" id="toc-why-this-matters-beyond-education" class="nav-link" data-scroll-target="#why-this-matters-beyond-education">Why This Matters Beyond Education</a></li>
   </ul>
 </nav>
     </div>
@@ -174,7 +210,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">✍ Papers</h1>
+<h1 class="title">A Causal Framework for Extremal Effects: Treatment Effects on Joint Extremes and Tail Dependence</h1>
 </div>
 
 
@@ -191,33 +227,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="publications" class="level1">
-<h1>Publications</h1>
+<section id="beyond-the-average-beyond-the-single-tail" class="level1">
+<h1>Beyond the Average, Beyond the Single Tail</h1>
 <div class="justify">
-<ul>
-<li><p><a href="http://dx.doi.org/10.2139/ssrn.6598878">OnlineCML: A Python Library for Online Causal Machine Learning.</a></p>
-<p><em>Hammad, Ahmed Tarek, SSRN</em></p></li>
-<li><p><a href="https://iopscience.iop.org/article/10.1088/2634-4505/add9c4">Tracking green space along streets of world cities.</a></p>
-<p><em>G Falchetta, AT Hammad, ERIS</em></p></li>
-<li><p><a href="http://dx.doi.org/10.2139/ssrn.4899355">A Causal Framework for Extremal Effects: Treatment Effects on Joint Extremes and Tail Dependence.</a></p>
-<p><em>Hammad, Ahmed Tarek, SSRN</em></p></li>
-<li><p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0275037">Prioritizing COVID-19 vaccine allocation in resource poor settings: Towards an Artificial Intelligence-enabled and Geospatial-assisted decision support framework</a></p>
-<p><em>Shayegh S.,[…], Hammad, A.T., et al., PLOS ONE</em></p></li>
-<li><p><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=uE11zZAAAAAJ&amp;citation_for_view=uE11zZAAAAAJ:UeHWp8X0CEIC">Probabilistic forecasting of remotely sensed cropland vegetation health and its relevance for food security</a></p>
-<p><em>AT Hammad, G Falchetta .Science of the Total Environment 838, 156157</em></p></li>
-<li><p><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=uE11zZAAAAAJ&amp;citation_for_view=uE11zZAAAAAJ:d1gkVwhDpl0C">Back to the fields? Increased agricultural land greenness after a COVID-19 lockdown</a></p>
-<p><em>AT Hammad, G Falchetta, IBM Wirawan. Environmental Research Communications 3 (5), 051007</em></p></li>
-<li><p><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=uE11zZAAAAAJ&amp;citation_for_view=uE11zZAAAAAJ:2osOgNQ5qMEC">Comparing paratransit in seven major African cities: an accessibility and network analysis</a></p>
-<p><em>G Falchetta, M Noussan, AT Hammad. Journal of Transport Geography 94, 103131</em></p></li>
-<li><p><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=uE11zZAAAAAJ&amp;citation_for_view=uE11zZAAAAAJ:u5HHmVD_uO8C">Planning universal accessibility to public health care in sub-Saharan Africa</a></p>
-<p><em>G Falchetta, AT Hammad, S Shayegh. Proceedings of the National Academy of Sciences 117 (50), 31760-31769</em></p></li>
-</ul>
+<p>Standard causal inference is built around the Average Treatment Effect. Did the treated group do better on average? By how much? This is a reasonable starting point, but it systematically leaves something out — what happens when you care not just about individual outcomes, but about the <em>joint</em> behaviour of multiple extreme outcomes simultaneously.</p>
+<p>My paper, <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4899355">“A Causal Framework for Extremal Effects: Treatment Effects on Joint Extremes and Tail Dependence”</a>, formalises this gap and proposes a framework to fill it. The core observation is that an intervention can reshape the architecture of extreme outcomes through two distinct channels that existing methods conflate or ignore entirely.</p>
 </div>
-<!-- # Current work -->
-<!-- ::: justify -->
-<!-- -   [Tracking global urban green space trends](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=uE11zZAAAAAJ&citation_for_view=uE11zZAAAAAJ:zYLM7Y9cAGgC) -->
-<!--     *G Falchetta, AT Hammad. EGU23* -->
-<!-- ::: -->
+<section id="two-channels-two-estimands" class="level2">
+<h2 class="anchored" data-anchor-id="two-channels-two-estimands">Two Channels, Two Estimands</h2>
+<div class="justify">
+<p>Consider any setting where you are evaluating a policy, program, or natural event across two outcomes — say, reading and mathematics scores, or temperature and precipitation, or two correlated financial assets. An intervention can affect the <em>joint</em> behaviour of these outcomes in two conceptually separate ways:</p>
+<ol type="1">
+<li><p><strong>The extensive margin</strong>: the treatment changes the <em>probability of simultaneous extreme outcomes</em> — how often both variables jointly exceed extreme thresholds. Even without changing how the two outcomes relate to each other, a treatment that shifts marginal distributions upward will mechanically increase the frequency of joint high values.</p></li>
+<li><p><strong>The dependence margin</strong>: the treatment changes the <em>strength of the extremal association</em> — conditional on one variable being extreme, how likely is the other to be extreme as well. This is a property of the dependence structure, not the marginal distributions.</p></li>
+</ol>
+<p>These two channels can operate independently. A treatment can increase joint extremes without touching tail dependence. It can strengthen tail dependence while leaving the marginal distributions unchanged. Most critically, the two effects can point in <strong>opposite directions</strong> — a treatment that increases the frequency of joint extremes while eroding the conditional extremal bond would look beneficial under one lens and harmful under the other.</p>
+<p>I introduce formal causal estimands for each channel within the potential outcomes framework.</p>
+<p><strong>Average Treatment Effect on Joint Extremes (ATE-JE)</strong>: For pre-specified thresholds <span class="math inline">\(Q_X\)</span> and <span class="math inline">\(Q_Z\)</span>, define a joint extreme indicator <span class="math inline">\(\delta_i = \mathbf{1}(X_i &gt; Q_X,\, Z_i &gt; Q_Z)\)</span>. The ATE-JE is <span class="math inline">\(E[\delta_i(1) - \delta_i(0)]\)</span> — the causal effect of treatment on the probability of simultaneous extreme outcomes. Under random assignment, this is identified by a simple OLS regression of the indicator on the treatment dummy.</p>
+<p><strong>Average Treatment Effect on Tail Dependence (ATE-TD)</strong>: Define the tail dependence coefficient <span class="math inline">\(\tau_d = P(Z_i(d) &gt; Q_Z \mid X_i(d) &gt; Q_X)\)</span> — the conditional probability that <span class="math inline">\(Z\)</span> is extreme given <span class="math inline">\(X\)</span> is extreme, under treatment state <span class="math inline">\(d\)</span>. The ATE-TD is <span class="math inline">\(\tau_1 - \tau_0\)</span>. Under random assignment, this is identified by a ratio-of-means estimator with inference via the Delta Method.</p>
+<p>Both estimands come with formal identification theorems, consistency proofs, and asymptotic confidence intervals derived from the CLT and the Delta Method.</p>
+</div>
+</section>
+<section id="the-role-of-copulas" class="level2">
+<h2 class="anchored" data-anchor-id="the-role-of-copulas">The Role of Copulas</h2>
+<div class="justify">
+<p>The natural language for describing dependence between extreme values is the <strong>copula</strong>. Sklar’s theorem guarantees that any joint distribution can be decomposed into its marginals and a copula that captures the dependence structure separately. This decomposition is exactly what makes the two estimands above well-defined: ATE-JE can move without ATE-TD moving, because they operate on different components of the joint distribution.</p>
+<p>For upper tail dependence, the <strong>Gumbel copula</strong> is the natural instrument:</p>
+<p><span class="math display">\[C(u_1, u_2; \theta) = \exp\!\left(-\left((-\log u_1)^\theta + (-\log u_2)^\theta\right)^{1/\theta}\right)\]</span></p>
+<p>The parameter <span class="math inline">\(\theta \geq 1\)</span> controls the strength of upper tail dependence, with <span class="math inline">\(\theta = 1\)</span> giving independence and <span class="math inline">\(\theta \to \infty\)</span> giving perfect dependence. In a motivating example, two variables simulated with <span class="math inline">\(\theta = 2\)</span> show quantile correlations that grow from 0.51 at the 5th percentile to 0.72 at the median — with the strongest association precisely in the upper tail, where extreme joint events occur.</p>
+</div>
+</section>
+<section id="a-simulation-study-when-the-two-estimands-disagree" class="level2">
+<h2 class="anchored" data-anchor-id="a-simulation-study-when-the-two-estimands-disagree">A Simulation Study: When the Two Estimands Disagree</h2>
+<div class="justify">
+<p>To demonstrate that ATE-JE and ATE-TD are genuinely distinct, I construct three simulation scenarios with <span class="math inline">\(n = 10{,}000\)</span> observations per group, Gumbel-copula dependence, and thresholds at the 95th percentile of the pooled sample:</p>
+<p><strong>Scenario 1 — Marginal shift only</strong>: Both groups share the same copula (<span class="math inline">\(\theta = 2\)</span>), but treatment shifts marginal means up by 0.5 SD. The marginal shift mechanically raises joint extreme probability (ATE-JE = +0.026, <span class="math inline">\(p &lt; 0.001\)</span>), but the dependence structure is untouched (ATE-TD = −0.021, not significant).</p>
+<p><strong>Scenario 2 — Dependence change only</strong>: Both groups share the same Normal(0,1) marginals, but the copula strengthens from <span class="math inline">\(\theta = 1.5\)</span> to <span class="math inline">\(\theta = 3\)</span> under treatment. Both estimands are positive and significant (ATE-JE = +0.015, ATE-TD = +0.336, both <span class="math inline">\(p &lt; 0.001\)</span>).</p>
+<p><strong>Scenario 3 — Opposing effects</strong>: Treatment shifts marginal means up by 0.8 SD but <em>weakens</em> the copula from <span class="math inline">\(\theta = 3\)</span> to <span class="math inline">\(\theta = 1.5\)</span>. ATE-JE is positive (+0.033, <span class="math inline">\(p &lt; 0.001\)</span>), but ATE-TD is <em>negative</em> (−0.240, <span class="math inline">\(p &lt; 0.001\)</span>).</p>
+<p>Scenario 3 is the policy-critical case. An analyst who estimated only ATE-JE would conclude the treatment improves joint extreme outcomes. An analyst who estimated only ATE-TD would reach the opposite conclusion. Both conclusions are simultaneously correct — they describe different aspects of what the treatment does. Estimating only one is incomplete, and in high-stakes settings could be misleading.</p>
+</div>
+</section>
+<section id="the-tennessee-star-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="the-tennessee-star-experiment">The Tennessee STAR Experiment</h2>
+<div class="justify">
+<p>The empirical application revisits the Tennessee Student Teacher Achievement Ratio (STAR) experiment, one of the most cited randomised educational interventions in the literature. Roughly 11,600 students and 1,300 teachers were randomly assigned to small classes (13–17 students) or regular classes (22–25 students) across 79 elementary schools in the mid-1980s. The well-known finding is that smaller classes raised average reading and mathematics scores, particularly for minority and economically disadvantaged students.</p>
+<p>I apply both estimands to the joint distribution of first-grade reading and mathematics scores, with thresholds set at the 95th percentile of <em>kindergarten</em> scores — pre-treatment, to avoid contamination.</p>
+<p><strong>ATE-JE result</strong>: The baseline probability that a student simultaneously achieves exceptional performance in both reading and mathematics is 15% in the regular-class group. Smaller class sizes increase this probability by <strong>8 percentage points</strong> (p &lt; 0.001).</p>
+<p><strong>ATE-TD result</strong>: The tail dependence coefficient rises from <span class="math inline">\(\hat{\tau}_0 = 0.244\)</span> (regular class) to <span class="math inline">\(\hat{\tau}_1 = 0.343\)</span> (small class). The ATE-TD is <strong>+0.100</strong> (<span class="math inline">\(p &lt; 0.001\)</span>, 95% CI: [0.057, 0.142]).</p>
+<p>In this application the two estimands agree in sign and significance, reinforcing the conclusion — but they answer different questions. ATE-JE tells us that <em>more students</em> are jointly excelling in both subjects. ATE-TD tells us that <em>among the best readers</em>, being in a small class substantially increases the probability of also excelling in mathematics. The former measures the size of the high-achieving joint tail; the latter measures the conditional strength of the extremal bond between the two subjects. Together, they provide a richer picture of how smaller classes shape the upper end of the performance distribution than either alone.</p>
+</div>
+</section>
+</section>
+<section id="why-this-matters-beyond-education" class="level1">
+<h1>Why This Matters Beyond Education</h1>
+<div class="justify">
+<p>The framework is domain-agnostic. Anywhere that interventions have consequences at the extremes of a joint distribution, the standard ATE misses something:</p>
+<ul>
+<li><strong>Finance</strong>: does a regulatory intervention reduce the probability of simultaneous extreme losses across asset classes, or does it weaken tail dependence while leaving marginal risk unchanged?</li>
+<li><strong>Climate policy</strong>: does a mitigation measure reduce the probability of co-occurring extreme heat and drought, or change how strongly those extremes are associated?</li>
+<li><strong>Public health</strong>: does a treatment reduce the risk of simultaneously extreme symptom burden across multiple outcomes, or reshape the conditional structure of multi-symptom extremes?</li>
+</ul>
+<p>In each setting, the extensive and dependence margins are distinct, separately identifiable, and can carry opposite signs. The framework gives practitioners the tools to answer both questions simultaneously, with formal inference grounded in the potential outcomes framework and asymptotic theory.</p>
+<p>The preprint is available on <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4899355">SSRN</a>.</p>
+</div>
 
 
 </section>
