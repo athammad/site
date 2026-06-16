@@ -22,9 +22,9 @@ My paper, ["A Causal Framework for Extremal Effects: Treatment Effects on Joint 
 ::: justify
 Consider any setting where you are evaluating a policy, program, or natural event across two outcomes — say, reading and mathematics scores, or temperature and precipitation, or two correlated financial assets. An intervention can affect the *joint* behaviour of these outcomes in two conceptually separate ways:
 
-1. **The extensive margin**: the treatment changes the *probability of simultaneous extreme outcomes* — how often both variables jointly exceed extreme thresholds. Even without changing how the two outcomes relate to each other, a treatment that shifts marginal distributions upward will mechanically increase the frequency of joint high values.
+1.  **The extensive margin**: the treatment changes the *probability of simultaneous extreme outcomes* — how often both variables jointly exceed extreme thresholds. Even without changing how the two outcomes relate to each other, a treatment that shifts marginal distributions upward will mechanically increase the frequency of joint high values.
 
-2. **The dependence margin**: the treatment changes the *strength of the extremal association* — conditional on one variable being extreme, how likely is the other to be extreme as well. This is a property of the dependence structure, not the marginal distributions.
+2.  **The dependence margin**: the treatment changes the *strength of the extremal association* — conditional on one variable being extreme, how likely is the other to be extreme as well. This is a property of the dependence structure, not the marginal distributions.
 
 These two channels can operate independently. A treatment can increase joint extremes without touching tail dependence. It can strengthen tail dependence while leaving the marginal distributions unchanged. Most critically, the two effects can point in **opposite directions** — a treatment that increases the frequency of joint extremes while eroding the conditional extremal bond would look beneficial under one lens and harmful under the other.
 
@@ -35,18 +35,6 @@ I introduce formal causal estimands for each channel within the potential outcom
 **Average Treatment Effect on Tail Dependence (ATE-TD)**: Define the tail dependence coefficient $\tau_d = P(Z_i(d) > Q_Z \mid X_i(d) > Q_X)$ — the conditional probability that $Z$ is extreme given $X$ is extreme, under treatment state $d$. The ATE-TD is $\tau_1 - \tau_0$. Under random assignment, this is identified by a ratio-of-means estimator with inference via the Delta Method.
 
 Both estimands come with formal identification theorems, consistency proofs, and asymptotic confidence intervals derived from the CLT and the Delta Method.
-:::
-
-## The Role of Copulas
-
-::: justify
-The natural language for describing dependence between extreme values is the **copula**. Sklar's theorem guarantees that any joint distribution can be decomposed into its marginals and a copula that captures the dependence structure separately. This decomposition is exactly what makes the two estimands above well-defined: ATE-JE can move without ATE-TD moving, because they operate on different components of the joint distribution.
-
-For upper tail dependence, the **Gumbel copula** is the natural instrument:
-
-$$C(u_1, u_2; \theta) = \exp\!\left(-\left((-\log u_1)^\theta + (-\log u_2)^\theta\right)^{1/\theta}\right)$$
-
-The parameter $\theta \geq 1$ controls the strength of upper tail dependence, with $\theta = 1$ giving independence and $\theta \to \infty$ giving perfect dependence. In a motivating example, two variables simulated with $\theta = 2$ show quantile correlations that grow from 0.51 at the 5th percentile to 0.72 at the median — with the strongest association precisely in the upper tail, where extreme joint events occur.
 :::
 
 ## A Simulation Study: When the Two Estimands Disagree
@@ -70,9 +58,9 @@ The empirical application revisits the Tennessee Student Teacher Achievement Rat
 
 I apply both estimands to the joint distribution of first-grade reading and mathematics scores, with thresholds set at the 95th percentile of *kindergarten* scores — pre-treatment, to avoid contamination.
 
-**ATE-JE result**: The baseline probability that a student simultaneously achieves exceptional performance in both reading and mathematics is 15% in the regular-class group. Smaller class sizes increase this probability by **8 percentage points** (p < 0.001).
+**ATE-JE result**: The baseline probability that a student simultaneously achieves exceptional performance in both reading and mathematics is 15% in the regular-class group. Smaller class sizes increase this probability by **8 percentage points** (p \< 0.001).
 
-**ATE-TD result**: The tail dependence coefficient rises from $\hat{\tau}_0 = 0.244$ (regular class) to $\hat{\tau}_1 = 0.343$ (small class). The ATE-TD is **+0.100** ($p < 0.001$, 95% CI: [0.057, 0.142]).
+**ATE-TD result**: The tail dependence coefficient rises from $\hat{\tau}_0 = 0.244$ (regular class) to $\hat{\tau}_1 = 0.343$ (small class). The ATE-TD is **+0.100** ($p < 0.001$, 95% CI: \[0.057, 0.142\]).
 
 In this application the two estimands agree in sign and significance, reinforcing the conclusion — but they answer different questions. ATE-JE tells us that *more students* are jointly excelling in both subjects. ATE-TD tells us that *among the best readers*, being in a small class substantially increases the probability of also excelling in mathematics. The former measures the size of the high-achieving joint tail; the latter measures the conditional strength of the extremal bond between the two subjects. Together, they provide a richer picture of how smaller classes shape the upper end of the performance distribution than either alone.
 :::

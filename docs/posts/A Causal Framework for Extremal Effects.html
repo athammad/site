@@ -197,7 +197,6 @@ window.Quarto = {
   <li><a href="#beyond-the-average-beyond-the-single-tail" id="toc-beyond-the-average-beyond-the-single-tail" class="nav-link active" data-scroll-target="#beyond-the-average-beyond-the-single-tail">Beyond the Average, Beyond the Single Tail</a>
   <ul class="collapse">
   <li><a href="#two-channels-two-estimands" id="toc-two-channels-two-estimands" class="nav-link" data-scroll-target="#two-channels-two-estimands">Two Channels, Two Estimands</a></li>
-  <li><a href="#the-role-of-copulas" id="toc-the-role-of-copulas" class="nav-link" data-scroll-target="#the-role-of-copulas">The Role of Copulas</a></li>
   <li><a href="#a-simulation-study-when-the-two-estimands-disagree" id="toc-a-simulation-study-when-the-two-estimands-disagree" class="nav-link" data-scroll-target="#a-simulation-study-when-the-two-estimands-disagree">A Simulation Study: When the Two Estimands Disagree</a></li>
   <li><a href="#the-tennessee-star-experiment" id="toc-the-tennessee-star-experiment" class="nav-link" data-scroll-target="#the-tennessee-star-experiment">The Tennessee STAR Experiment</a></li>
   </ul></li>
@@ -246,15 +245,6 @@ window.Quarto = {
 <p><strong>Average Treatment Effect on Joint Extremes (ATE-JE)</strong>: For pre-specified thresholds <span class="math inline">\(Q_X\)</span> and <span class="math inline">\(Q_Z\)</span>, define a joint extreme indicator <span class="math inline">\(\delta_i = \mathbf{1}(X_i &gt; Q_X,\, Z_i &gt; Q_Z)\)</span>. The ATE-JE is <span class="math inline">\(E[\delta_i(1) - \delta_i(0)]\)</span> — the causal effect of treatment on the probability of simultaneous extreme outcomes. Under random assignment, this is identified by a simple OLS regression of the indicator on the treatment dummy.</p>
 <p><strong>Average Treatment Effect on Tail Dependence (ATE-TD)</strong>: Define the tail dependence coefficient <span class="math inline">\(\tau_d = P(Z_i(d) &gt; Q_Z \mid X_i(d) &gt; Q_X)\)</span> — the conditional probability that <span class="math inline">\(Z\)</span> is extreme given <span class="math inline">\(X\)</span> is extreme, under treatment state <span class="math inline">\(d\)</span>. The ATE-TD is <span class="math inline">\(\tau_1 - \tau_0\)</span>. Under random assignment, this is identified by a ratio-of-means estimator with inference via the Delta Method.</p>
 <p>Both estimands come with formal identification theorems, consistency proofs, and asymptotic confidence intervals derived from the CLT and the Delta Method.</p>
-</div>
-</section>
-<section id="the-role-of-copulas" class="level2">
-<h2 class="anchored" data-anchor-id="the-role-of-copulas">The Role of Copulas</h2>
-<div class="justify">
-<p>The natural language for describing dependence between extreme values is the <strong>copula</strong>. Sklar’s theorem guarantees that any joint distribution can be decomposed into its marginals and a copula that captures the dependence structure separately. This decomposition is exactly what makes the two estimands above well-defined: ATE-JE can move without ATE-TD moving, because they operate on different components of the joint distribution.</p>
-<p>For upper tail dependence, the <strong>Gumbel copula</strong> is the natural instrument:</p>
-<p><span class="math display">\[C(u_1, u_2; \theta) = \exp\!\left(-\left((-\log u_1)^\theta + (-\log u_2)^\theta\right)^{1/\theta}\right)\]</span></p>
-<p>The parameter <span class="math inline">\(\theta \geq 1\)</span> controls the strength of upper tail dependence, with <span class="math inline">\(\theta = 1\)</span> giving independence and <span class="math inline">\(\theta \to \infty\)</span> giving perfect dependence. In a motivating example, two variables simulated with <span class="math inline">\(\theta = 2\)</span> show quantile correlations that grow from 0.51 at the 5th percentile to 0.72 at the median — with the strongest association precisely in the upper tail, where extreme joint events occur.</p>
 </div>
 </section>
 <section id="a-simulation-study-when-the-two-estimands-disagree" class="level2">
