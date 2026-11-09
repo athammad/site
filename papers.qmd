@@ -7,6 +7,10 @@ page-layout: full
 
 ::: justify
 
+-   [Ten Rules for Deploying Large Language Models in Official Statistics.](http://dx.doi.org/10.2139/ssrn.7199920)
+
+    *Hammad, Ahmed Tarek, Dalla Riva, Giulio Valentino, SSRN*
+
 -   [OnlineCML: A Python Library for Online Causal Machine Learning.](http://dx.doi.org/10.2139/ssrn.6598878)
 
     *Hammad, Ahmed Tarek, SSRN*
